@@ -1,0 +1,891 @@
+{
+  "meta": {
+    "built": "2026-11-14",
+    "note": "Per-site numbers were collected by Hermes with source URLs and not independently re-checked by Claude. status=sourced means a URL exists; unverified means no published number was found (leave empty, do not estimate); weak_source means the only source is Wikipedia and should be replaced. Site coordinates are approximate and from memory: verify against the USGS Mars gazetteer before use."
+  },
+  "dimensions": {
+    "1": "geology_minerals",
+    "2": "terrain",
+    "3": "temperature_thermal_inertia",
+    "4": "water_ice",
+    "5": "dust_wind",
+    "6": "biology_radiation",
+    "7": "caves_lava_tubes",
+    "8": "operations"
+  },
+  "sites": [
+    {
+      "id": "jezero",
+      "name": "Jezero Crater",
+      "lat": 18.44,
+      "lon_e": 77.45,
+      "facts": [
+        {
+          "dim": 2,
+          "key": "floor_elevation",
+          "value": -2700,
+          "unit": "m (below the Mars areoid per the FU Berlin HRSC page; MOLA DEM agrees)",
+          "src": "https://www.geo.fu-berlin.de/en/geol/fachrichtungen/planet/press/archiv2020/2020_jezero_topo/index.html",
+          "status": "sourced",
+          "verified": {
+            "verdict": "PARTLY",
+            "detail": "Page says floor is 2,700 m below Mars 'sea level' (areoid) on the HRSC map; it does not name MOLA. Number is right, datum label corrected. Our MOLA DEM agrees (min -2,716 m within 25 km).",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 2,
+          "key": "diameter",
+          "value": 45,
+          "unit": "km",
+          "src": "https://www.jpl.nasa.gov/news/nasas-perseverance-rover-investigates-geologically-rich-mars-terrain",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "JPL: 'Twenty-eight miles (45 kilometers) wide'.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 3,
+          "key": "thermal_inertia_range",
+          "value": [
+            180,
+            605
+          ],
+          "unit": "J m-2 K-1 s-1/2",
+          "note": "sand dune to 605, MEDA-constrained modelling",
+          "src": "https://carnegiescience.edu/surface-energy-budget-albedo-and-thermal-inertia-jezero-crater-mars-observed-mars-2020-meda",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "Carnegie: 180 (sand dune) to 605 (bedrock-dominated) SI units. THEMIS sample here reads 353 (313-391).",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 3,
+          "key": "mafic_floor_thermal_inertia",
+          "value": [
+            320,
+            400
+          ],
+          "unit": "J m-2 K-1 s-1/2",
+          "src": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020GL089607",
+          "status": "sourced",
+          "verified": {
+            "verdict": "NOT CHECKED",
+            "detail": "Publisher page not yet checked.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 1,
+          "key": "floor_composition",
+          "value": "igneous (volcanic plus intrusive), density-stratified",
+          "src": "https://www.science.org/doi/10.1126/sciadv.abo3399",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "Sci. Adv. title: compositionally and density stratified igneous terrain; volcanic and intrusive.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 1,
+          "key": "margin_unit",
+          "value": "carbonate-bearing ultramafic igneous rocks",
+          "src": "https://www.science.org/doi/10.1126/science.adu8264",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "Science paper: 'Carbonated ultramafic igneous rocks in Jezero crater'; igneous, altered by CO2-bearing water.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 4,
+          "key": "shallow_ground_ice",
+          "value": "none present-day",
+          "src": "https://www.sciencedirect.com/science/article/pii/S0019103521003249",
+          "status": "sourced"
+        },
+        {
+          "dim": 6,
+          "key": "potential_biosignature",
+          "value": "Cheyava Falls / Sapphire Canyon: organics plus vivianite and greigite",
+          "src": "https://jpl.nasa.gov/news/nasa-says-mars-rover-discovered-potential-biosignature-last-year",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "JPL: Sapphire Canyon (Cheyava Falls) potential biosignatures; vivianite and greigite plus organic carbon.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 7,
+          "key": "skylight_data",
+          "value": null,
+          "note": "no skylight or lava-tube data for this site",
+          "status": "unverified"
+        },
+        {
+          "dim": 8,
+          "key": "perseverance_odometer",
+          "value": 45.22,
+          "unit": "km (2026-10-11)",
+          "src": "https://jpl.nasa.gov/news/nasas-perseverance-sets-off-world-record-for-total-distance-driven",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "JPL: on Oct. 11 the odometer reached 45.22 km (28.10 mi), passing Opportunity's 45.16 km.",
+            "checked": "2026-11-14"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gale",
+      "name": "Gale Crater",
+      "lat": -4.59,
+      "lon_e": 137.44,
+      "facts": [
+        {
+          "dim": 2,
+          "key": "floor_elevation",
+          "value": -4670,
+          "unit": "m (lowest point of the NW floor per the paper; the Curiosity landing site is about -4,500 m in MOLA)",
+          "src": "https://www.cambridge.org/core/journals/international-journal-of-astrobiology/article/gale-crater-the-mars-science-laboratorycuriosity-rover-landing-site/61967227D1AAFCE4E5CE1CE0620C78B0",
+          "status": "sourced",
+          "verified": {
+            "verdict": "PARTLY",
+            "detail": "Cambridge paper: elevations range from -4670 m on the northwestern floor (MOLA areoid). Our MOLA DEM at the landing site is -4,500 m (min -4,607 m within 80 km). Value now states both.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 2,
+          "key": "mound_height_above_floor",
+          "value": 5000,
+          "unit": "m (paper text: ~5 km; MOLA suggests up to ~5.4-5.5 km)",
+          "src": "https://www.cambridge.org/core/journals/international-journal-of-astrobiology/article/gale-crater-the-mars-science-laboratorycuriosity-rover-landing-site/61967227D1AAFCE4E5CE1CE0620C78B0",
+          "status": "sourced",
+          "verified": {
+            "verdict": "PARTLY",
+            "detail": "Paper text says the central mound is ~5 km high; highest interior point 838 m above the areoid implies ~5.5 km from the -4670 m floor. Our MOLA max within 80 km is +771 m (~5.4 km).",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 2,
+          "key": "basin_diameter",
+          "value": 154,
+          "unit": "km",
+          "src": "https://www.cambridge.org/core/journals/international-journal-of-astrobiology/article/gale-crater-the-mars-science-laboratorycuriosity-rover-landing-site/61967227D1AAFCE4E5CE1CE0620C78B0",
+          "status": "sourced",
+          "verified": {
+            "verdict": "PARTLY",
+            "detail": "Paper: Gale is ~154 km in diameter (Fig. 1 caption: 154 km).",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 3,
+          "key": "thermal_inertia_mean",
+          "value": 365,
+          "unit": "J m-2 K-1 s-1/2",
+          "note": "sigma 50; surface mostly indurated",
+          "src": "https://marsoweb.nas.nasa.gov/landingsites/msl/workshops/4th_workshop/talks/5_Fergason_ThermalInertia.pdf",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "Fergason/Gulick MSL workshop talk, Gale slide: mean TI 365, std 50. Our THEMIS 5x5 window at the landing coordinates reads 515 (448-654): different area and method, so the numbers are not interchangeable.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 3,
+          "key": "air_temperature_range",
+          "value": [
+            -100,
+            15.9
+          ],
+          "unit": "degC (REMS, winter night to summer afternoon)",
+          "src": "https://www.jpl.nasa.gov/news/second-cycle-of-martian-seasons-completing-for-curiosity-rover/",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "JPL: 15.9 C on a summer afternoon to minus 100 C (-148 F) on a winter night.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 3,
+          "key": "ground_temperature_minimum",
+          "value": 185,
+          "unit": "K (near Ls 90)",
+          "src": "https://doi.org/10.3390/rs17030368",
+          "status": "unverified",
+          "verified": {
+            "verdict": "NOT FOUND",
+            "detail": "The DOI resolves to an abstract that gives landing elevation and a sol-3967 position, no ground-temperature minimum or Ls; MDPI full text returned 403. Marked unverified until a source is found.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 1,
+          "key": "mineral_sequence",
+          "value": "Fe/Mg smectite clays below, hydrated Mg-sulfates above; hematite (~4-8 wt%) present throughout the clay-sulfate transition",
+          "src": "https://ntrs.nasa.gov/api/citations/20210026241/downloads/Rampe_etal_LPSC_2022_CheMin_clay-sulfate.pdf",
+          "status": "sourced",
+          "verified": {
+            "verdict": "PARTLY",
+            "detail": "Rampe+ 2022: hydrated Mg-sulfate layers overlie Fe/Mg smectite layers; hematite is present at ~4-8 wt% throughout the five transition samples, not a separate middle step.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 4,
+          "key": "shallow_ground_ice",
+          "value": "none present-day",
+          "src": "https://www.sciencedirect.com/science/article/pii/S0019103521003249",
+          "status": "sourced"
+        },
+        {
+          "dim": 5,
+          "key": "convective_vortices",
+          "value": 245,
+          "unit": "in first 707 sols (pressure records)",
+          "src": "https://www.sciencedirect.com/science/article/abs/pii/S0019103516302858",
+          "status": "sourced"
+        },
+        {
+          "dim": 5,
+          "key": "vortex_pressure_drop",
+          "value": [
+            0.6,
+            5.6
+          ],
+          "unit": "Pa",
+          "src": "https://www.sciencedirect.com/science/article/am/pii/S0032063322000162",
+          "status": "sourced"
+        },
+        {
+          "dim": 6,
+          "key": "radiation_dose_equivalent",
+          "value": 0.64,
+          "unit": "mSv/day (+/- 0.12, MSL RAD surface GCR)",
+          "src": "https://science.org/cms/asset/b9057f23-375b-447a-ba62-65a4e7f691a4/pap.pdf",
+          "status": "sourced"
+        },
+        {
+          "dim": 6,
+          "key": "radiation_dose",
+          "value": 0.21,
+          "unit": "mGy/day (+/- 0.04)",
+          "src": "https://science.org/cms/asset/b9057f23-375b-447a-ba62-65a4e7f691a4/pap.pdf",
+          "status": "sourced"
+        },
+        {
+          "dim": 6,
+          "key": "perchlorate_abundance",
+          "value": null,
+          "note": "detection established, wt% not confirmed",
+          "status": "unverified"
+        },
+        {
+          "dim": 8,
+          "key": "curiosity_odometer",
+          "value": 34.87,
+          "unit": "km (as of 2025-04-29)",
+          "src": "https://www.hou.usra.edu/meetings/mepagapril2025/presentations/Wednesday/1215_Hays.pdf",
+          "status": "sourced"
+        }
+      ]
+    },
+    {
+      "id": "oxia",
+      "name": "Oxia Planum",
+      "lat": 18.27,
+      "lon_e": 335.37,
+      "facts": [
+        {
+          "dim": 2,
+          "key": "clay_unit_elevation",
+          "value": [
+            -3100,
+            -2600
+          ],
+          "unit": "m",
+          "src": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7987365",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "PMC7987365 sec 4.1: -2600 m (SW Oxia) to -3100 m. MOLA DEM here: p5-p95 -3131 to -2772 m within 60 km.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 2,
+          "key": "region_below_minus_2km_constraint",
+          "value": true,
+          "note": "whole landing region below the -2 km MOLA limit",
+          "src": "https://elib.dlr.de/110002/1/Bridges_et_al.ExoMars.LPSC_2016.2170.pdf",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "Bridges+ LPSC 2016: entire landing region below the -2 km MOLA constraint; range -3.6 to -2.66 km.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 2,
+          "key": "modelled_surface_age",
+          "value": "3.85 +/- 0.02 Ga and 3.82 +/- 0.03 Ga",
+          "src": "https://thesis.unipd.it/retrieve/870400e7-1952-466b-82db-52d8e86fcb37/Mastropietro_tesi.pdf",
+          "status": "sourced",
+          "verified": {
+            "verdict": "NOT CHECKED",
+            "detail": "University thesis PDF not opened. Needs a check or a better source.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 1,
+          "key": "clay_bearing_unit",
+          "value": "Fe/Mg clay (vermiculite-smectite type) bedrock; layered clay-bearing sequence ~100 m (50-100 m)",
+          "src": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7987365",
+          "status": "sourced",
+          "verified": {
+            "verdict": "PARTLY",
+            "detail": "Source says vermiculite-smectite type, typical of Fe/Mg clays; layered sequence ~100 m (summary gives 50-100 m). 'Smectite' wording softened.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 3,
+          "key": "thermal_inertia",
+          "value": null,
+          "note": "no site-level number retrieved",
+          "status": "unverified"
+        },
+        {
+          "dim": 4,
+          "key": "subsurface_ice",
+          "value": null,
+          "note": "no ice dataset published for the ellipse",
+          "status": "unverified"
+        },
+        {
+          "dim": 5,
+          "key": "periodic_bedrock_ridges",
+          "value": "record a changing wind regime",
+          "src": "https://doi.org/10.1029/2020gl091651",
+          "status": "sourced",
+          "verified": {
+            "verdict": "NOT CHECKED",
+            "detail": "Publisher page (doi 10.1029/2020gl091651) blocked.",
+            "checked": "2026-11-14"
+          }
+        }
+      ]
+    },
+    {
+      "id": "arcadia",
+      "name": "Arcadia Planitia",
+      "lat": 44.0,
+      "lon_e": 202.5,
+      "coord_note": "centre of the 38-50N, 180-225E SHARAD ice region",
+      "facts": [
+        {
+          "dim": 4,
+          "key": "excess_ice_thickness",
+          "value": [
+            30,
+            80
+          ],
+          "unit": "m",
+          "src": "https://doi.org/10.1002/2017JE005357",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "Cited doi page blocked; confirmed via Bramson EPSC2017-425 abstract: 30-80 m across Arcadia (Bramson+ 2015 GRL 42).",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 4,
+          "key": "excess_ice_volume",
+          "value": "about 10^4 km3",
+          "src": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2015GL064844",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "Bramson+ 2015 GRL abstract (record): excess water ice ~10^4 km3.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 4,
+          "key": "grs_ice_content",
+          "value": 35,
+          "unit": "wt% ice (+/- 15)",
+          "src": "https://www.hou.usra.edu/meetings/lpsc2018/pdf/2606.pdf",
+          "status": "sourced",
+          "verified": {
+            "verdict": "PARTLY",
+            "detail": "LPSC 2018 #2606 says '35 +/- 15 wt% ice below the surface' (GRS, via Boynton 2002 / Pathare 2017); it does not use the term water-equivalent hydrogen. Key renamed. Our own neutron flux there is low (4.19 counts/s, 20th percentile), consistent with hydrogen-rich ground.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 3,
+          "key": "thermal_inertia_ice_units",
+          "value": [
+            200,
+            250
+          ],
+          "unit": "J m-2 K-1 s-1/2",
+          "note": "surrounding terrain 100-200",
+          "src": "https://www.hou.usra.edu/meetings/lpsc2018/pdf/2606.pdf",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "LPSC 2018 #2606: sinuous (ice) units 200-250; surroundings 100-200. Our THEMIS sample at 44N 202.5E reads 297 (277-315): different place and method, not a contradiction.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 5,
+          "key": "dust_cover",
+          "value": "optically thick dust over most of the region (TES dust cover index)",
+          "src": "https://www.hou.usra.edu/meetings/lpsc2018/pdf/2606.pdf",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "LPSC 2018 #2606: optically thick dust overlies most of Arcadia (Ruff & Christensen 2002).",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 1,
+          "key": "surface_materials",
+          "value": null,
+          "src": "https://www.hou.usra.edu/meetings/lpsc2018/pdf/2606.pdf",
+          "status": "unverified",
+          "verified": {
+            "verdict": "NOT SUPPORTED",
+            "detail": "The cited LPSC abstract does not mention basaltic lavas, cinder cones or mantle; it describes a dusty, flat plain with sand-dominated soil, polygonal terrain, few rocks >1 m. Claim removed until a source is found.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 1,
+          "key": "crism_detections",
+          "value": null,
+          "note": "no primary detection found",
+          "status": "unverified"
+        },
+        {
+          "dim": 2,
+          "key": "elevation_range",
+          "value": [
+            -3984,
+            -3859
+          ],
+          "unit": "m (MOLA, 5th-95th percentile within 300 km of the site point)",
+          "src": "https://planetarymaps.usgs.gov/mosaic/Mars_MGS_MOLA_DEM_mosaic_global_463m.tif",
+          "status": "sourced",
+          "verified": {
+            "verdict": "CONTRADICTED BY MOLA",
+            "detail": "Wikipedia says 0 to -3 km for the plain (centre 47.2N 184.3E). MOLA at this site point (44N 202.5E) is -3,918 m; median within 300 km is -3,928 m (p5-p95 -3,984 to -3,859). Replaced with MOLA.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 2,
+          "key": "pedestal_crater_age_median_both_hemispheres",
+          "value": 140,
+          "unit": "Myr",
+          "src": "https://www.sciencedirect.com/science/article/abs/pii/S0032063313003279",
+          "status": "sourced",
+          "verified": {
+            "verdict": "MISLABELLED",
+            "detail": "The ~140 Myr median is from a study of pedestal craters in both hemispheres (Planetary and Space Science 2014), not Arcadia alone. Key renamed; do not present as an Arcadia age. Publisher page blocked, figure confirmed from the paper's abstract record.",
+            "checked": "2026-11-14"
+          }
+        }
+      ]
+    },
+    {
+      "id": "arsia",
+      "name": "Arsia Mons skylights",
+      "lat": -8.35,
+      "lon_e": 239.9,
+      "facts": [
+        {
+          "dim": 7,
+          "key": "candidate_skylights",
+          "value": 7,
+          "unit": "count (THEMIS), 100-225 m diameter, depths 68-130 m",
+          "src": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2007GL030709",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "Cushing+ 2007 GRL 34 L17201: seven candidates, 100-225 m diameter, minimum depths 68-130 m.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 7,
+          "key": "skylight_elevation",
+          "value": ">5700",
+          "unit": "m, above current landing technology",
+          "src": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2007GL030709",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "Same paper: candidates 'too small and too high in elevation (>5.7 km)' for current landing technology; table lists 5,700 m (Chloe) to 15,500 m (Wendy).",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 2,
+          "key": "summit_elevation",
+          "value": 17763,
+          "note": "sources conflict (11.7 km vs about 17.7 km)",
+          "status": "sourced",
+          "verified": {
+            "verdict": "RESOLVED WITH MOLA",
+            "detail": "Wikipedia lists 11.7 km (and elsewhere 'almost 20 km'); MOLA DEM max within 150 km of the Arsia point is 17,763 m (~17.8 km), so the 11.7 km figure is not height above the datum.",
+            "checked": "2026-11-14"
+          },
+          "unit": "m (MOLA datum, maximum within 150 km, computed from the 463 m DEM)",
+          "src": "https://planetarymaps.usgs.gov/mosaic/Mars_MGS_MOLA_DEM_mosaic_global_463m.tif"
+        },
+        {
+          "dim": 2,
+          "key": "edifice_relief_above_plains",
+          "value": 9,
+          "unit": "km",
+          "note": "replace with a USGS or MOLA source",
+          "src": "https://en.wikipedia.org/wiki/Arsia_Mons",
+          "status": "weak_source",
+          "verified": {
+            "verdict": "PARTLY",
+            "detail": "Wikipedia: 'more than 9 km higher than the surrounding plains'. MOLA suggests about 13 km (17.8 km summit vs ~4.7 km plains within 400 km), depends on the plains definition. Kept as weak.",
+            "checked": "2026-11-14"
+          }
+        },
+        {
+          "dim": 1,
+          "key": "hydrated_minerals_at_skylights",
+          "value": null,
+          "status": "unverified"
+        }
+      ]
+    },
+    {
+      "id": "pavonis",
+      "name": "Pavonis Mons pit",
+      "lat": 0.8,
+      "lon_e": 246.7,
+      "facts": [
+        {
+          "dim": 7,
+          "key": "pit_diameter",
+          "value": 180,
+          "unit": "m (widest); HiRISE ESP_019351_1795, 25 cm/px",
+          "src": "https://hirise.lpl.arizona.edu/ESP_019351_1795",
+          "status": "sourced",
+          "verified": {
+            "verdict": "SUPPORTED",
+            "detail": "HiRISE ESP_019351_1795: pit about 180 m at its widest; 25.6 cm/px (25 cm/px map-projected).",
+            "checked": "2026-11-14"
+          }
+        }
+      ]
+    }
+  ],
+  "datasets": [
+    {
+      "id": "mola_dem",
+      "name": "MOLA MEGDR global DEM",
+      "dims": [
+        2,
+        8
+      ],
+      "coverage": "global",
+      "resolution": "463 m/px",
+      "time_type": "static",
+      "url": "https://pds-geosciences.wustl.edu/missions/mgs/megdr.html",
+      "mirror": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+      "earth_counterpart": "NASADEM or ASTER DEM, resampled to the same baseline"
+    },
+    {
+      "id": "mola_hrsc_dem",
+      "name": "MOLA+HRSC blended global DEM",
+      "dims": [
+        2,
+        8
+      ],
+      "coverage": "global",
+      "resolution": "200 m/px",
+      "time_type": "static",
+      "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_mex_hrsc_blended_dem_global_200m",
+      "earth_counterpart": "NASADEM or ASTER DEM"
+    },
+    {
+      "id": "ctx_mosaic",
+      "name": "CTX global mosaic (Murray Lab)",
+      "dims": [
+        2,
+        8
+      ],
+      "coverage": "global",
+      "resolution": "5 m/px",
+      "time_type": "static",
+      "url": "https://astrogeology.usgs.gov/search/map/mars-mro-ctx-global-mosaic-murray-lab-v1",
+      "mirror": "https://murray-lab.caltech.edu/CTX",
+      "earth_counterpart": "optical imagery for context only"
+    },
+    {
+      "id": "hirise_dtm",
+      "name": "HiRISE digital terrain models",
+      "dims": [
+        2,
+        8
+      ],
+      "coverage": "per-site",
+      "resolution": "1-5 m (HiRISE DTMs)",
+      "time_type": "static",
+      "url": "https://www.uahirise.org/dtm",
+      "earth_counterpart": "high-resolution Earth DEM for slope and rocks"
+    },
+    {
+      "id": "themis_ti",
+      "name": "THEMIS-derived global thermal inertia mosaic",
+      "dims": [
+        3,
+        8
+      ],
+      "coverage": "global",
+      "resolution": "100 m/px",
+      "time_type": "static (derived mean)",
+      "url": "https://astrogeology.usgs.gov/search/map/mars-themis-derived-global-thermal-inertia-mosaic",
+      "earth_counterpart": "apparent thermal inertia from MODIS day/night LST and albedo (to confirm)"
+    },
+    {
+      "id": "tes_ti",
+      "name": "TES thermal inertia maps",
+      "dims": [
+        3
+      ],
+      "coverage": "global",
+      "resolution": "about 3 km/px",
+      "time_type": "static (derived mean)",
+      "url": "https://pds-geosciences.wustl.edu/missions/mgs/tes-timap.html",
+      "earth_counterpart": "apparent thermal inertia (to confirm)"
+    },
+    {
+      "id": "mcs_2024",
+      "name": "MCS-derived global TI and surface temperature maps (2024)",
+      "dims": [
+        3
+      ],
+      "coverage": "global",
+      "resolution": "see paper",
+      "time_type": "seasonal (16 years of observations)",
+      "url": "https://www.sciencedirect.com/science/article/pii/S001910352300430X",
+      "earth_counterpart": "MODIS MOD11A1 day and night LST"
+    },
+    {
+      "id": "crism_targeted",
+      "name": "CRISM MTRDR / targeted cubes",
+      "dims": [
+        1
+      ],
+      "coverage": "per-site (about 1-3% of Mars)",
+      "resolution": "18-36 m/px",
+      "time_type": "static",
+      "url": "https://ode.rsl.wustl.edu/mars/pagehelp/Content/Missions_Instruments/Mars%20Reconnaissance%20Orbiter/CRISM/CRISM%20Product%20Primer/CRISM%20MTRDR.htm",
+      "earth_counterpart": "ASTER SWIR or hyperspectral (PRISMA); not ASTER GED (thermal-infrared)"
+    },
+    {
+      "id": "crism_global",
+      "name": "CRISM global survey product",
+      "dims": [
+        1
+      ],
+      "coverage": "about 86% of Mars",
+      "resolution": "about 180-200 m/px",
+      "time_type": "static",
+      "url": "https://ui.adsabs.harvard.edu/abs/2025epsc.conf..136M/abstract",
+      "earth_counterpart": "ASTER SWIR or hyperspectral"
+    },
+    {
+      "id": "odyssey_grs",
+      "name": "Odyssey GRS/neutron water-equivalent hydrogen maps",
+      "dims": [
+        4
+      ],
+      "coverage": "global",
+      "resolution": "coarse (hundreds of km)",
+      "time_type": "static (derived)",
+      "url": "https://ode.rsl.wustl.edu/mars/pagehelp/Content/Missions_Instruments/Mars_Odyssey/GRS/Derived/IDND.htm",
+      "earth_counterpart": "none confirmed in Earth Engine (permafrost/ground ice gap)"
+    },
+    {
+      "id": "sharad_swim",
+      "name": "SHARAD radargrams and SWIM ice products",
+      "dims": [
+        4
+      ],
+      "coverage": "orbit tracks; SWIM gives derived grids",
+      "resolution": "see product",
+      "time_type": "static",
+      "url": "https://swim.psi.edu",
+      "earth_counterpart": "none confirmed in Earth Engine"
+    },
+    {
+      "id": "marci",
+      "name": "MARCI daily global dust and cloud imaging",
+      "dims": [
+        5
+      ],
+      "coverage": "global",
+      "resolution": "daily mosaics",
+      "time_type": "daily / event",
+      "url": "https://pds-atmospheres.nmsu.edu",
+      "earth_counterpart": "MAIAC AOD (MCD19A2), MERRA-2 dust"
+    },
+    {
+      "id": "rems",
+      "name": "REMS environmental time series (Gale only)",
+      "dims": [
+        3,
+        5
+      ],
+      "coverage": "point (Gale)",
+      "resolution": "1 Hz in blocks",
+      "time_type": "time series",
+      "url": "https://pds-atmospheres.nmsu.edu",
+      "earth_counterpart": "ERA5 and ERA5-Land wind and temperature"
+    },
+    {
+      "id": "msl_rad",
+      "name": "MSL RAD radiation (Gale only)",
+      "dims": [
+        6
+      ],
+      "coverage": "point (Gale)",
+      "resolution": "daily dose",
+      "time_type": "time series",
+      "url": "https://pds-geosciences.wustl.edu/",
+      "earth_counterpart": "none (Earth cannot reproduce Mars radiation)"
+    },
+    {
+      "id": "phoenix_wcl",
+      "name": "Phoenix Wet Chemistry Lab (68N)",
+      "dims": [
+        4,
+        6
+      ],
+      "coverage": "point (Phoenix)",
+      "resolution": "single lander",
+      "time_type": "static",
+      "url": "https://planetary.chem.tufts.edu/Phoenix/WetChemLab.html",
+      "earth_counterpart": "none"
+    },
+    {
+      "id": "usgs_astropedia",
+      "name": "USGS Astropedia (master map catalog)",
+      "dims": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "coverage": "catalog",
+      "resolution": "n/a",
+      "time_type": "n/a",
+      "url": "https://astrogeology.usgs.gov/search",
+      "earth_counterpart": "n/a"
+    },
+    {
+      "id": "pds_geosciences",
+      "name": "PDS Geosciences Node (MGS, MRO, Odyssey archives)",
+      "dims": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "coverage": "catalog",
+      "resolution": "n/a",
+      "time_type": "n/a",
+      "url": "https://pds-geosciences.wustl.edu/",
+      "earth_counterpart": "n/a"
+    },
+    {
+      "id": "usgs_geologic_map",
+      "name": "USGS Geologic Map of Mars (Tanaka 2014), 1:20M units",
+      "dims": [
+        1
+      ],
+      "coverage": "global",
+      "resolution": "1:20,000,000 polygons",
+      "time_type": "static",
+      "url": "https://pubs.usgs.gov/sim/3292/",
+      "mirror": null,
+      "earth_counterpart": "n/a (Mars only)"
+    },
+    {
+      "id": "tes_albedo",
+      "name": "MGS TES global bolometric albedo",
+      "dims": [
+        5
+      ],
+      "coverage": "global",
+      "resolution": "7.4 km/px",
+      "time_type": "static (mean)",
+      "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+      "mirror": null,
+      "earth_counterpart": "n/a (Mars only)"
+    },
+    {
+      "id": "mgc3_caves",
+      "name": "Mars Global Cave Candidate Catalog (MGC3)",
+      "dims": [
+        7
+      ],
+      "coverage": "global catalog (1,062 candidates)",
+      "resolution": "point catalog",
+      "time_type": "static",
+      "url": "https://doi.org/10.17189/1519222",
+      "mirror": null,
+      "earth_counterpart": "n/a (Mars only)"
+    },
+    {
+      "id": "ody_epithermal",
+      "name": "Odyssey Neutron Spectrometer epithermal flux (PDS special bundle)",
+      "dims": [
+        4
+      ],
+      "coverage": "global",
+      "resolution": "0.5 degree bins",
+      "time_type": "static (first 25.7 days)",
+      "url": "https://pds-geosciences.wustl.edu/ody/urn-nasa-pds-odyssey_grs_special/",
+      "mirror": null,
+      "earth_counterpart": "n/a (Mars only)"
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+[
+ {
+  "site": "Oxia Planum",
+  "key": "clay_unit_elevation",
+  "verdict": "SUPPORTED",
+  "detail": "PMC7987365 sec 4.1: -2600 m (SW Oxia) to -3100 m. MOLA DEM here: p5-p95 -3131 to -2772 m within 60 km."
+ },
+ {
+  "site": "Oxia Planum",
+  "key": "clay_bearing_unit",
+  "verdict": "PARTLY",
+  "detail": "Source says vermiculite-smectite type, typical of Fe/Mg clays; layered sequence ~100 m (summary gives 50-100 m). 'Smectite' wording softened."
+ },
+ {
+  "site": "Oxia Planum",
+  "key": "region_below_minus_2km_constraint",
+  "verdict": "SUPPORTED",
+  "detail": "Bridges+ LPSC 2016: entire landing region below the -2 km MOLA constraint; range -3.6 to -2.66 km."
+ },
+ {
+  "site": "Oxia Planum",
+  "key": "modelled_surface_age",
+  "verdict": "NOT CHECKED",
+  "detail": "University thesis PDF not opened. Needs a check or a better source."
+ },
+ {
+  "site": "Oxia Planum",
+  "key": "periodic_bedrock_ridges",
+  "verdict": "NOT CHECKED",
+  "detail": "Publisher page (doi 10.1029/2020gl091651) blocked."
+ },
+ {
+  "site": "Arcadia Planitia",
+  "key": "excess_ice_thickness",
+  "verdict": "SUPPORTED",
+  "detail": "Cited doi page blocked; confirmed via Bramson EPSC2017-425 abstract: 30-80 m across Arcadia (Bramson+ 2015 GRL 42)."
+ },
+ {
+  "site": "Arcadia Planitia",
+  "key": "excess_ice_volume",
+  "verdict": "SUPPORTED",
+  "detail": "Bramson+ 2015 GRL abstract (record): excess water ice ~10^4 km3."
+ },
+ {
+  "site": "Arcadia Planitia",
+  "key": "grs_ice_content",
+  "verdict": "PARTLY",
+  "detail": "LPSC 2018 #2606 says '35 +/- 15 wt% ice below the surface' (GRS, via Boynton 2002 / Pathare 2017); it does not use the term water-equivalent hydrogen. Key renamed. Our own neutron flux there is low (4.19 counts/s, 20th percentile), consistent with hydrogen-rich ground."
+ },
+ {
+  "site": "Arcadia Planitia",
+  "key": "thermal_inertia_ice_units",
+  "verdict": "SUPPORTED",
+  "detail": "LPSC 2018 #2606: sinuous (ice) units 200-250; surroundings 100-200. Our THEMIS sample at 44N 202.5E reads 297 (277-315): different place and method, not a contradiction."
+ },
+ {
+  "site": "Arcadia Planitia",
+  "key": "dust_cover",
+  "verdict": "SUPPORTED",
+  "detail": "LPSC 2018 #2606: optically thick dust overlies most of Arcadia (Ruff & Christensen 2002)."
+ },
+ {
+  "site": "Arcadia Planitia",
+  "key": "surface_materials",
+  "verdict": "NOT SUPPORTED",
+  "detail": "The cited LPSC abstract does not mention basaltic lavas, cinder cones or mantle; it describes a dusty, flat plain with sand-dominated soil, polygonal terrain, few rocks >1 m. Claim removed until a source is found."
+ },
+ {
+  "site": "Arcadia Planitia",
+  "key": "elevation_range",
+  "verdict": "CONTRADICTED BY MOLA",
+  "detail": "Wikipedia says 0 to -3 km for the plain (centre 47.2N 184.3E). MOLA at this site point (44N 202.5E) is -3,918 m; median within 300 km is -3,928 m (p5-p95 -3,984 to -3,859). Replaced with MOLA."
+ },
+ {
+  "site": "Arcadia Planitia",
+  "key": "pedestal_crater_age_median_both_hemispheres",
+  "verdict": "MISLABELLED",
+  "detail": "The ~140 Myr median is from a study of pedestal craters in both hemispheres (Planetary and Space Science 2014), not Arcadia alone. Key renamed; do not present as an Arcadia age. Publisher page blocked, figure confirmed from the paper's abstract record."
+ },
+ {
+  "site": "Arsia Mons skylights",
+  "key": "candidate_skylights",
+  "verdict": "SUPPORTED",
+  "detail": "Cushing+ 2007 GRL 34 L17201: seven candidates, 100-225 m diameter, minimum depths 68-130 m."
+ },
+ {
+  "site": "Arsia Mons skylights",
+  "key": "skylight_elevation",
+  "verdict": "SUPPORTED",
+  "detail": "Same paper: candidates 'too small and too high in elevation (>5.7 km)' for current landing technology; table lists 5,700 m (Chloe) to 15,500 m (Wendy)."
+ },
+ {
+  "site": "Arsia Mons skylights",
+  "key": "summit_elevation",
+  "verdict": "RESOLVED WITH MOLA",
+  "detail": "Wikipedia lists 11.7 km (and elsewhere 'almost 20 km'); MOLA DEM max within 150 km of the Arsia point is 17,763 m (~17.8 km), so the 11.7 km figure is not height above the datum."
+ },
+ {
+  "site": "Arsia Mons skylights",
+  "key": "edifice_relief_above_plains",
+  "verdict": "PARTLY",
+  "detail": "Wikipedia: 'more than 9 km higher than the surrounding plains'. MOLA suggests about 13 km (17.8 km summit vs ~4.7 km plains within 400 km), depends on the plains definition. Kept as weak."
+ },
+ {
+  "site": "Pavonis Mons pit",
+  "key": "pit_diameter",
+  "verdict": "SUPPORTED",
+  "detail": "HiRISE ESP_019351_1795: pit about 180 m at its widest; 25.6 cm/px (25 cm/px map-projected)."
+ },
+ {
+  "site": "Jezero Crater",
+  "key": "diameter",
+  "verdict": "SUPPORTED",
+  "detail": "JPL: 'Twenty-eight miles (45 kilometers) wide'."
+ },
+ {
+  "site": "Jezero Crater",
+  "key": "floor_elevation",
+  "verdict": "PARTLY",
+  "detail": "Page says floor is 2,700 m below Mars 'sea level' (areoid) on the HRSC map; it does not name MOLA. Number is right, datum label corrected. Our MOLA DEM agrees (min -2,716 m within 25 km)."
+ },
+ {
+  "site": "Jezero Crater",
+  "key": "thermal_inertia_range",
+  "verdict": "SUPPORTED",
+  "detail": "Carnegie: 180 (sand dune) to 605 (bedrock-dominated) SI units. THEMIS sample here reads 353 (313-391)."
+ },
+ {
+  "site": "Jezero Crater",
+  "key": "mafic_floor_thermal_inertia",
+  "verdict": "NOT CHECKED",
+  "detail": "Publisher page not yet checked."
+ },
+ {
+  "site": "Jezero Crater",
+  "key": "floor_composition",
+  "verdict": "SUPPORTED",
+  "detail": "Sci. Adv. title: compositionally and density stratified igneous terrain; volcanic and intrusive."
+ },
+ {
+  "site": "Jezero Crater",
+  "key": "margin_unit",
+  "verdict": "SUPPORTED",
+  "detail": "Science paper: 'Carbonated ultramafic igneous rocks in Jezero crater'; igneous, altered by CO2-bearing water."
+ },
+ {
+  "site": "Jezero Crater",
+  "key": "potential_biosignature",
+  "verdict": "SUPPORTED",
+  "detail": "JPL: Sapphire Canyon (Cheyava Falls) potential biosignatures; vivianite and greigite plus organic carbon."
+ },
+ {
+  "site": "Jezero Crater",
+  "key": "perseverance_odometer",
+  "verdict": "SUPPORTED",
+  "detail": "JPL: on Oct. 11 the odometer reached 45.22 km (28.10 mi), passing Opportunity's 45.16 km."
+ },
+ {
+  "site": "Gale Crater",
+  "key": "floor_elevation",
+  "verdict": "PARTLY",
+  "detail": "Cambridge paper: elevations range from -4670 m on the northwestern floor (MOLA areoid). Our MOLA DEM at the landing site is -4,500 m (min -4,607 m within 80 km). Value now states both."
+ },
+ {
+  "site": "Gale Crater",
+  "key": "mound_height_above_floor",
+  "verdict": "PARTLY",
+  "detail": "Paper text says the central mound is ~5 km high; highest interior point 838 m above the areoid implies ~5.5 km from the -4670 m floor. Our MOLA max within 80 km is +771 m (~5.4 km)."
+ },
+ {
+  "site": "Gale Crater",
+  "key": "basin_diameter",
+  "verdict": "PARTLY",
+  "detail": "Paper: Gale is ~154 km in diameter (Fig. 1 caption: 154 km)."
+ },
+ {
+  "site": "Gale Crater",
+  "key": "thermal_inertia_mean",
+  "verdict": "SUPPORTED",
+  "detail": "Fergason/Gulick MSL workshop talk, Gale slide: mean TI 365, std 50. Our THEMIS 5x5 window at the landing coordinates reads 515 (448-654): different area and method, so the numbers are not interchangeable."
+ },
+ {
+  "site": "Gale Crater",
+  "key": "air_temperature_range",
+  "verdict": "SUPPORTED",
+  "detail": "JPL: 15.9 C on a summer afternoon to minus 100 C (-148 F) on a winter night."
+ },
+ {
+  "site": "Gale Crater",
+  "key": "ground_temperature_minimum",
+  "verdict": "NOT FOUND",
+  "detail": "The DOI resolves to an abstract that gives landing elevation and a sol-3967 position, no ground-temperature minimum or Ls; MDPI full text returned 403. Marked unverified until a source is found."
+ },
+ {
+  "site": "Gale Crater",
+  "key": "mineral_sequence",
+  "verdict": "PARTLY",
+  "detail": "Rampe+ 2022: hydrated Mg-sulfate layers overlie Fe/Mg smectite layers; hematite is present at ~4-8 wt% throughout the five transition samples, not a separate middle step."
+ }
+]

@@ -1,0 +1,98 @@
+{
+ "note": "Citations for the data behind each of the 8 dimensions. 'checked' = title/DOI/URL confirmed against the source page during this project; 'from memory' = standard reference I have not re-opened, please verify before putting it in a submission.",
+ "dims": {
+  "1": [
+   {
+    "data": "Geologic unit at each dot",
+    "source": "USGS Geologic Map of Mars, 1:20,000,000 (SIM 3292), GIS database",
+    "cite": "Tanaka, K.L., Skinner, J.A. Jr., Dohm, J.M., Irwin, R.P. III, Kolb, E.J., Fortezzo, C.M., Platz, T., Michael, G.G., Hare, T.M. (2014). Geologic map of Mars. USGS Scientific Investigations Map 3292. doi:10.3133/sim3292",
+    "url": "https://pubs.usgs.gov/sim/3292/",
+    "status": "checked"
+   },
+   {
+    "data": "Feature names and types (named-feature dots)",
+    "source": "IAU/USGS Gazetteer of Planetary Nomenclature, Mars centre points",
+    "cite": "IAU Working Group for Planetary System Nomenclature / USGS Astrogeology. MARS_nomenclature_center_pts.zip, downloaded 2026-11-14",
+    "url": "https://planetarynames.wr.usgs.gov",
+    "status": "checked"
+   }
+  ],
+  "2": [
+   {
+    "data": "Elevation, slope, roughness, relief",
+    "source": "MGS MOLA global DEM mosaic, 463 m/pixel (USGS)",
+    "cite": "Smith, D.E. et al. (2001). Mars Orbiter Laser Altimeter: Experiment summary after the first year of global mapping of Mars. J. Geophys. Res. 106(E10), 23689-23722. Raster: Mars_MGS_MOLA_DEM_mosaic_global_463m.tif (USGS Astrogeology). Slope and roughness are computed by this tool from the DEM.",
+    "url": "https://planetarymaps.usgs.gov/mosaic/Mars_MGS_MOLA_DEM_mosaic_global_463m.tif",
+    "status": "raster checked; paper citation from memory"
+   }
+  ],
+  "3": [
+   {
+    "data": "Thermal inertia",
+    "source": "THEMIS quantitative thermal inertia mosaic, 100 m/pixel, 60S-60N (USGS / Arizona State Univ.)",
+    "cite": "Fergason, R.L., Christensen, P.R., Kieffer, H.H. (2006). High-resolution thermal inertia derived from THEMIS: Thermal model and applications. J. Geophys. Res. 111, E12004. doi:10.1029/2006JE002735. Absolute accuracy about 20%.",
+    "url": "https://astrogeology.usgs.gov/search/map/themis_thermal_inertia_mosaic_quantitative_30s060e_100mpp",
+    "status": "checked"
+   }
+  ],
+  "4": [
+   {
+    "data": "Epithermal neutron flux (hydrogen proxy)",
+    "source": "Mars Odyssey Neutron Spectrometer, PDS Odyssey GRS special bundle, ns_epithermal_020917.tab (0.5 degree bins)",
+    "cite": "Feldman, W.C. et al. (2002). Global distribution of neutrons from Mars: Results from Mars Odyssey. Science 297, 75-78. doi:10.1126/science.1073541",
+    "url": "https://pds-geosciences.wustl.edu/ody/urn-nasa-pds-odyssey_grs_special/",
+    "status": "checked"
+   }
+  ],
+  "5": [
+   {
+    "data": "Bolometric albedo",
+    "source": "MGS TES global bolometric albedo map, 7410 m/pixel (USGS)",
+    "cite": "Christensen, P.R. et al. (2001). Mars Global Surveyor Thermal Emission Spectrometer experiment: Investigation description and surface science results. J. Geophys. Res. 106(E10), 23823-23871. Raster: Mars_MGS_TES_Albedo_mosaic_global_7410m.tif",
+    "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_tes_global_bolometric_albedo_map_7410m",
+    "status": "raster checked; paper citation from memory"
+   }
+  ],
+  "6": [
+   {
+    "data": "No global dataset. Jezero and Gale facts only",
+    "source": "Per-fact sources are listed in mars_data.json (field 'src', with status sourced / unverified / weak_source). Gale radiation would come from MSL RAD (not loaded).",
+    "cite": "see mars_data.json",
+    "url": "https://pds-geosciences.wustl.edu/",
+    "status": "per-fact"
+   }
+  ],
+  "7": [
+   {
+    "data": "Cave candidates, distances, counts",
+    "source": "Mars Global Cave Candidate Catalog (MGC3), PDS4 bundle mars_mro.odyssey_multi_cavecatalog_cushing_2016",
+    "cite": "Cushing, G.E. (USGS Astrogeology). Mars Global Cave Candidate Catalog. PDS4 DOI 10.17189/1519222",
+    "url": "https://doi.org/10.17189/1519222",
+    "status": "checked"
+   }
+  ],
+  "8": [
+   {
+    "data": "Landers and rovers",
+    "source": "NASA GISS Mars24 Mars Lander Missions table",
+    "cite": "NASA Goddard Institute for Space Studies, Mars24 Sunclock - Mars Lander Missions",
+    "url": "https://www.giss.nasa.gov/tools/mars24/help/landers.html",
+    "status": "checked (impact points for Mars 2/3/6, MPL, DS2 are approximate)"
+   },
+   {
+    "data": "Candidate landing sites and Exploration Zones",
+    "source": "NASA MSL and Mars 2020 landing-site workshop documents; Human Landing Sites (HLS2) workshop, Oct 2015",
+    "cite": "Full source list is in mars_candidates.json ('sources'). Collected by Hermes, not independently re-checked.",
+    "url": "https://marsoweb.nas.nasa.gov/landingsites/",
+    "status": "collected, not re-checked"
+   },
+   {
+    "data": "Elevation and slope in the Ops row",
+    "source": "MOLA DEM, as for dimension 2",
+    "cite": "see dimension 2",
+    "url": "https://planetarymaps.usgs.gov/mosaic/Mars_MGS_MOLA_DEM_mosaic_global_463m.tif",
+    "status": "as dim 2"
+   }
+  ]
+ }
+}

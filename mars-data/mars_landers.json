@@ -1,0 +1,140 @@
+{
+ "source": "NASA GISS Mars24 Mars Lander Missions https://www.giss.nasa.gov/tools/mars24/help/landers.html (via Hermes)",
+ "note": "Impact points for Mars 2/3/6, MPL, DS2 are NASA approximate values. Mars 7 has no coordinate. Excludes Phobos landers, Mars 96, orbiters.",
+ "count": 19,
+ "landers": [
+  {
+   "name": "Mars 2 lander",
+   "date": "1971-11-27",
+   "lat": -45.0,
+   "lon_e": 47.0,
+   "outcome": "crashed on descent, no data"
+  },
+  {
+   "name": "Mars 3 lander",
+   "date": "1971-12-02",
+   "lat": -45.0,
+   "lon_e": 202.0,
+   "outcome": "soft-landed, transmitted ~20 s then silent"
+  },
+  {
+   "name": "Mars 6 lander",
+   "date": "1974-03-12",
+   "lat": -23.9,
+   "lon_e": 340.58,
+   "outcome": "failed during descent"
+  },
+  {
+   "name": "Mars 7 lander",
+   "date": "1974-03-09",
+   "lat": null,
+   "lon_e": null,
+   "outcome": "missed the planet"
+  },
+  {
+   "name": "Viking 1 lander",
+   "date": "1976-07-20",
+   "lat": 22.27,
+   "lon_e": 312.05,
+   "outcome": "successful, to 1982"
+  },
+  {
+   "name": "Viking 2 lander",
+   "date": "1976-09-03",
+   "lat": 48.27,
+   "lon_e": 134.28,
+   "outcome": "successful, to 1980"
+  },
+  {
+   "name": "Mars Pathfinder lander",
+   "date": "1997-07-04",
+   "lat": 19.47,
+   "lon_e": 326.75,
+   "outcome": "successful"
+  },
+  {
+   "name": "Sojourner",
+   "date": "1997-07-04",
+   "lat": 19.47,
+   "lon_e": 326.75,
+   "outcome": "successful rover"
+  },
+  {
+   "name": "Mars Polar Lander",
+   "date": "1999-12-03",
+   "lat": -76.1,
+   "lon_e": 164.7,
+   "outcome": "crashed"
+  },
+  {
+   "name": "Deep Space 2 (2 probes)",
+   "date": "1999-12-03",
+   "lat": -75.0,
+   "lon_e": 163.5,
+   "outcome": "impacted, no signal"
+  },
+  {
+   "name": "Beagle 2",
+   "date": "2003-12-25",
+   "lat": 11.53,
+   "lon_e": 90.43,
+   "outcome": "landed, never communicated"
+  },
+  {
+   "name": "Spirit (MER-A)",
+   "date": "2004-01-04",
+   "lat": -14.57,
+   "lon_e": 175.48,
+   "outcome": "successful, to 2010"
+  },
+  {
+   "name": "Opportunity (MER-B)",
+   "date": "2004-01-25",
+   "lat": -1.95,
+   "lon_e": 354.47,
+   "outcome": "successful, to 2018"
+  },
+  {
+   "name": "Phoenix",
+   "date": "2008-05-25",
+   "lat": 68.22,
+   "lon_e": 234.25,
+   "outcome": "successful, to 2008-11"
+  },
+  {
+   "name": "Curiosity (MSL)",
+   "date": "2012-08-06",
+   "lat": -4.59,
+   "lon_e": 137.44,
+   "outcome": "successful, operating"
+  },
+  {
+   "name": "Schiaparelli (EDM)",
+   "date": "2016-10-19",
+   "lat": -2.07,
+   "lon_e": 353.79,
+   "outcome": "crashed"
+  },
+  {
+   "name": "InSight",
+   "date": "2018-11-26",
+   "lat": 4.5,
+   "lon_e": 135.62,
+   "outcome": "successful, to 2022-12"
+  },
+  {
+   "name": "Perseverance",
+   "date": "2021-02-18",
+   "lat": 18.44,
+   "lon_e": 77.45,
+   "outcome": "successful, operating"
+  },
+  {
+   "name": "Zhurong",
+   "date": "2021-05-15",
+   "lat": 25.07,
+   "lon_e": 109.93,
+   "outcome": "successful, lost 2023"
+  }
+ ]
+}
