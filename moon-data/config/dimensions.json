@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "body": "Moon",
+  "dimensions": [
+    {"id": "slope", "unit": "degree", "instrument": "LOLA", "quantity": "Slope derived from a gridded elevation model", "processing": "Compute gradients in a lunar projected CRS with horizontal and vertical distances in meters; record pixel size and neighborhood."},
+    {"id": "roughness", "unit": "m", "instrument": "LOLA", "quantity": "RMS elevation residual from a fitted local plane", "processing": "Record neighborhood size in meters; compare Earth and Moon at the same spatial scale."},
+    {"id": "temperature", "unit": "K", "instrument": "DIVINER", "quantity": "Surface temperature distribution", "processing": "Select a documented thermal product; retain local time, season, channel/model, minimum, maximum and median. Earth comparisons require equivalent surface-temperature statistics."},
+    {"id": "rock_abundance", "unit": "fraction", "instrument": "DIVINER", "quantity": "Modeled rock abundance", "processing": "Use a derived rock-abundance product and its label scaling and quality mask; this is not a direct count of rocks."},
+    {"id": "composition_proxy", "unit": "um", "instrument": "DIVINER", "quantity": "Christiansen feature position", "processing": "Use a derived CF product with appropriate quality and thermal corrections. This is a composition proxy, not a mineral identification or an Earth lithology class."}
+  ],
+  "supporting_sources": [
+    {"instrument": "LROC", "purpose": "Imagery for visual context and terrain interpretation"},
+    {"instrument": "LEND", "purpose": "Neutron measurements for hydrogen-related context; not a direct ice map"},
+    {"instrument": "Mini-RF", "purpose": "Radar context; interpret scattering with roughness and geology, not as proof of ice"}
+  ],
+  "missing_value": null,
+  "scoring": "Only score extracted, quality-controlled measurements. Define activity-specific tolerances and weights with the Earth team; never score missing data as zero."
+}

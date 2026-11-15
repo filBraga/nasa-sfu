@@ -1,0 +1,4612 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Pits Atlas | Lunar Reconnaissance Orbiter Camera</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="f7g0hRJfJpkHa5YNVe-uEoJ18jH1pb2Lfl14yeKuNK0lZROhzjx2rd9rN5LegzN-zCB7yMZoQo35cpd19vn5bg" />
+    
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="shortcut icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" type="image/png" href="/apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="/assets/application-4050f9e677641257836cb3c47634a81ba343895554512dc2a7d2e24711a0facc.css" data-turbo-track="reload" />
+    <script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "application": "/assets/application-19a6cc4f661be58803a1e1f75c46450232b2889db7c8cec7e33849aa13763a72.js",
+    "@hotwired/turbo-rails": "/assets/turbo.min-b86d83036ff04169e5bf3ebbc82e0ad528456259e47091b448f41a3cadabdb40.js",
+    "@hotwired/stimulus": "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js",
+    "@hotwired/stimulus-loading": "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js",
+    "popper": "/assets/popper-003a40d80fd205e1fa00da117d5bdc19720ba330706eaa17f9ba9513fa502304.js",
+    "bootstrap": "/assets/bootstrap.min-3f5446dc6e97c9688ec7afa6695204306f885d628cd7bcb2d08295662d0978b4.js",
+    "jquery": "https://cdn.im-ldi.com/javascripts/jquery/3.6.3/dist/jquery.js",
+    "jquery-ui": "https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.13.2/jquery-ui.js",
+    "jquery-ui-touch-punch": "https://ga.jspm.io/npm:jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.js",
+    "datatables": "https://cdn.datatables.net/v/bs5/dt-1.12.1/fh-3.2.4/r-2.3.0/datatables.min.js",
+    "masonry": "https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js",
+    "images-loaded": "https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js",
+    "proj4": "https://ga.jspm.io/npm:proj4@2.9.0/lib/index.js",
+    "mgrs": "https://ga.jspm.io/npm:mgrs@1.0.0/dist/mgrs.js",
+    "wkt-parser": "https://ga.jspm.io/npm:wkt-parser@1.3.2/index.js",
+    "rbush": "https://cdn.im-ldi.com/javascripts/rbush/3.0.1/rbush.min.js",
+    "ol": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/index.js",
+    "ol-css": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/css.js",
+    "ol/Map": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/Map.js",
+    "ol/sphere": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/sphere.js",
+    "ol/View": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/View.js",
+    "ol/Collection": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/Collection.js",
+    "ol/coordinate": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/coordinate.js",
+    "ol/extent": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/extent.js",
+    "ol/Feature": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/Feature.js",
+    "ol/tilegrid": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/tilegrid.js",
+    "ol/proj.js": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/proj.js",
+    "ol/proj/Projection": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/proj/Projection.js",
+    "ol/proj/proj4.js": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/proj/proj4.js",
+    "ol/control/defaults": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/defaults.js",
+    "ol/proj/Units": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/proj/Units.js",
+    "ol/control/Control": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/Control.js",
+    "ol/control/ScaleLine": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/ScaleLine.js",
+    "ol/control/OverviewMap": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/OverviewMap.js",
+    "ol/control/FullScreen": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/FullScreen.js",
+    "ol/control/MousePosition": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/MousePosition.js",
+    "ol/control/Zoom": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/Zoom.js",
+    "ol/control/ZoomSlider": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/ZoomSlider.js",
+    "ol/interaction/DragBox": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/interaction/DragBox.js",
+    "ol/easing": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/easing.js",
+    "ol/interaction/defaults": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/interaction/defaults.js",
+    "ol/Observable": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/Observable.js",
+    "ol/Overlay": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/Overlay.js",
+    "ol/style.js": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/style.js",
+    "ol/layer/Base": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/Base.js",
+    "ol/layer/Group": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/Group.js",
+    "ol/layer/Vector": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/Vector.js",
+    "ol/layer/Tile": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/Tile.js",
+    "ol/layer/VectorTile": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/VectorTile.js",
+    "ol/layer/VectorImage": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/VectorImage.js",
+    "ol/layer/Image": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/Image.js",
+    "ol/layer/Heatmap": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/Heatmap.js",
+    "ol/source/Zoomify": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/source/Zoomify.js",
+    "ol/source/Vector": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/source/Vector.js",
+    "ol/source/TileWMS": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/source/TileWMS.js",
+    "ol/source/OSM": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/source/OSM.js",
+    "ol/format/GeoJSON": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/format/GeoJSON.js",
+    "ol/format/WMSGetFeatureInfo": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/format/WMSGetFeatureInfo.js",
+    "ol/geom.js": "https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/geom.js",
+    "geotiff": "https://cdn.im-ldi.com/javascripts/geotiff/2.0.7/dist-module/geotiff.js",
+    "iro": "https://cdn.jsdelivr.net/npm/@jaames/iro@5",
+    "custom/featured_sites_boot": "/assets/custom/featured_sites-60d9eba412c49e739a6d76d8f9506f109c5f6e4bf8070876e6f157257e485f75.js",
+    "controllers/application": "/assets/controllers/application-85b221780d84ab51ea7e857d5cc619348a0c2f4a88320f24cca7075e7fb3485b.js",
+    "controllers/hello_controller": "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js",
+    "controllers": "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js",
+    "controllers/init_masonry_controller": "/assets/controllers/init_masonry_controller-6aa92d2992a48a957d3d3ab6379a55c8f95f620e3c55ea864930d3ca96898401.js",
+    "controllers/kick_masonry_controller": "/assets/controllers/kick_masonry_controller-756a19a5c400b6695d4c44cfa3fdec576dfe6241dbe94dd867f1a076e8891e0e.js",
+    "controllers/scrollspy_controller": "/assets/controllers/scrollspy_controller-c3b255146f0e54f11713390d5b25d92816456ba7725232f3f91cd0777708c37e.js",
+    "custom/CustomOpenlayersControls": "/assets/custom/CustomOpenlayersControls-d993ba2427de555b315ff81dada9199076f5ff10cdd1d04d905ea41f82ef1a8b.js",
+    "custom/color_palette/bin": "/assets/custom/color_palette/bin-658b99713e7be091d206748637844b6451ebb74583d24395986ddfd12609f6d4.js",
+    "custom/color_palette/demoGraphData": "/assets/custom/color_palette/demoGraphData-41d7d4131295cae37ecbe5972776d6c2b2582314b0fdddcea139cb0a8685fef9.js",
+    "custom/color_palette/hcl": "/assets/custom/color_palette/hcl-4b7c4a5d9c8da4418f5e843c0493d6951dcedd737b6850055e620cb4af28cfdb.js",
+    "custom/color_palette/initColorPalette": "/assets/custom/color_palette/initColorPalette-073e9d7598bb36ba38ee316d8d081b345558f889e9a5417b424eaec7c9688017.js",
+    "custom/exhibit_map/initNasmMap": "/assets/custom/exhibit_map/initNasmMap-300be1ee2fff026be66189bb77eeb8e38f6175106f11ecdcaa7d0b1b05d84a01.js",
+    "custom/exhibit_map/layers": "/assets/custom/exhibit_map/layers-e0bdc455464ea017667ac6f862025a52723d75aef5f8b00841aeb8b249c84f34.js",
+    "custom/exhibit_map/nasm1stfloorcraft": "/assets/custom/exhibit_map/nasm1stfloorcraft-8be23e8c28692a16671c5077d60bacbf851ecef584c0c3bf6e88fd43406f421f.js",
+    "custom/exhibit_map/nasm1stfloorcraft_style": "/assets/custom/exhibit_map/nasm1stfloorcraft_style-67dd218755a0e95f51c77e56a53fa359b8ed080e38f0db7b333c93d2b4020e19.js",
+    "custom/exhibit_map/nasm1stflooritems": "/assets/custom/exhibit_map/nasm1stflooritems-cd70f010358bdd1618ea89c668a986d02c5961f29e202447c357611cf89c3f60.js",
+    "custom/exhibit_map/nasm1stflooritems_style": "/assets/custom/exhibit_map/nasm1stflooritems_style-a7d167ac707ec779885da9cc75bbd96a94124a7d837e4bd9a64f6659785dab67.js",
+    "custom/exhibit_map/nasm2ndfloorcraft": "/assets/custom/exhibit_map/nasm2ndfloorcraft-68a74c5bb4bee366f126167c86a9cc2740cbc632704220cec1743c9b4388edda.js",
+    "custom/exhibit_map/nasm2ndfloorcraft_style": "/assets/custom/exhibit_map/nasm2ndfloorcraft_style-7c964d9f80443d33841abd4db8da1ce6035cc678a897b82b0a6107e34f71d9d6.js",
+    "custom/exhibit_map/nasm2ndflooritems": "/assets/custom/exhibit_map/nasm2ndflooritems-85a6736507d086c9fe61c8dd523ed76b34569ab167b111def40ca622751583a1.js",
+    "custom/exhibit_map/nasm2ndflooritems_style": "/assets/custom/exhibit_map/nasm2ndflooritems_style-24b43e55539ac058d999580f5cbac053268fe744099ba8bb0c02462145f15266.js",
+    "custom/exhibit_map/nasm2ndflooroutline": "/assets/custom/exhibit_map/nasm2ndflooroutline-17f88004e5e16a4f3e6de51c823a81ac7c6200da46869a0ca0533e1435e92bf6.js",
+    "custom/exhibit_map/nasm2ndflooroutline_style": "/assets/custom/exhibit_map/nasm2ndflooroutline_style-2dfd97a26806a83c6b78c0ca6dfd3efd75cc8be2bd8a6ae73ce87c649b3d6bbe.js",
+    "custom/exhibit_map/nasmfootprint": "/assets/custom/exhibit_map/nasmfootprint-66c5f51cb14dcd43850d075355fd6b2316b44960d936da2f07255fe44b420197.js",
+    "custom/exhibit_map/nasmfootprint_style": "/assets/custom/exhibit_map/nasmfootprint_style-29175d01224821131ea6349ea69884cf465d2a59aba3137402705ba76b176fa7.js",
+    "custom/exhibit_map/nasmgalleries1stfloor": "/assets/custom/exhibit_map/nasmgalleries1stfloor-6714594e8444b9a1aceb596c8e313fbff2c6647fce75a05d9727f860add10385.js",
+    "custom/exhibit_map/nasmgalleries1stfloor_style": "/assets/custom/exhibit_map/nasmgalleries1stfloor_style-ae8cd8f87c6dd24e4bd639720d112ae21b9a36871ae11d0cc222fa386be2150b.js",
+    "custom/exhibit_map/nasmgalleries2ndfloor": "/assets/custom/exhibit_map/nasmgalleries2ndfloor-4dfda24418c801b9c5462bb4dc4188f77145271cb40cfe287f69381c22c2930a.js",
+    "custom/exhibit_map/nasmgalleries2ndfloor_style": "/assets/custom/exhibit_map/nasmgalleries2ndfloor_style-4bf4f504a0ef9c2d7c238a29cc6767839c55ac32a5ef5b0e28a2672903ed06ce.js",
+    "custom/exhibit_map/nasmlrocareas": "/assets/custom/exhibit_map/nasmlrocareas-cfce34d4912621ac1e34e0bdd705b1e70a468bc576892b36f973a4c341fc5ada.js",
+    "custom/exhibit_map/nasmlrocareas_style": "/assets/custom/exhibit_map/nasmlrocareas_style-f7f2b2dbf6e5e3acf7101aaa20cece7862246d166d5918311e0059ef00bf6e6b.js",
+    "custom/exhibit_map/nasmlrocitems": "/assets/custom/exhibit_map/nasmlrocitems-fc83133a3b14478fd911dc1ff9b2ae582c381c5cd37a4c698207274dcfb2197e.js",
+    "custom/exhibit_map/nasmlrocitems_style": "/assets/custom/exhibit_map/nasmlrocitems_style-2ebab9cb217124d8f1df897f36b71de1745a8e0975fb2afde66dcdbd981b2ba1.js",
+    "custom/exhibit_map/nasmmapmarkers_style": "/assets/custom/exhibit_map/nasmmapmarkers_style-b4b1cdffe887007b55052e7f03739ba2ee6926e38e18cab8945461aa75d23737.js",
+    "custom/exhibit_map/nasmtext_style": "/assets/custom/exhibit_map/nasmtext_style-a7474086aeedac8907f92740f6ced6f913c72d2157ce9cd53c8e618425ed7312.js",
+    "custom/featured_sites": "/assets/custom/featured_sites/index-f1982cd6f38ce5ec56091a4af0d40dc547e349af365d31a0cf85f450720b27c4.js",
+    "custom/featured_sites/modes/before_after": "/assets/custom/featured_sites/modes/before_after-8d48ce314edb46b88a67553ddf92cf51b1a01d8fa5583e82aebfb4c95ff6f7a3.js",
+    "custom/featured_sites/modes/flipbook": "/assets/custom/featured_sites/modes/flipbook-cffda36b6f22e97b1c81da606c4338d41db4e77a6560b961d576db8fd0cde0ae.js",
+    "custom/featured_sites/modes/simple_traverse": "/assets/custom/featured_sites/modes/simple_traverse-f60fe34227c46aa2d3d01d9034649c78fa1cec885465ad6a09af140de72f5424.js",
+    "custom/featured_sites/modes/temporal_traverse": "/assets/custom/featured_sites/modes/temporal_traverse-ffbcc43f184819e31c10b2af6f5ca82d0af3769ba4a940d33aa948c6297782c3.js",
+    "custom/featured_sites/modes/zoomable_traverse": "/assets/custom/featured_sites/modes/zoomable_traverse-174d2378cb75df1969a20b92c9c967b1c2246b691ec84dcd9a51f75e3df83d19.js",
+    "custom/featured_sites/shared/formatters": "/assets/custom/featured_sites/shared/formatters-bc17a8902f31df32de44b616f20aa93cd2cb8d76bc3558c88997d863847c2609.js",
+    "custom/featured_sites/shared/fullscreen": "/assets/custom/featured_sites/shared/fullscreen-df754aafc30a19a79b1d8ac2ffd223702b4dd952a895bdf9eee37909d082522f.js",
+    "custom/featured_sites/shared/images": "/assets/custom/featured_sites/shared/images-91dff46bc9ab83edb53b192cb73f80c5e136d2f1df35600f675bd141f06eb6c6.js",
+    "custom/featured_sites/shared/legend": "/assets/custom/featured_sites/shared/legend-8df9cabd53461d7f9496df6a560de9323288e1748aa8f6f672d552a723c94939.js",
+    "custom/featured_sites/shared/map_common": "/assets/custom/featured_sites/shared/map_common-2f8fd071057aaeee25f603e02b75ef6fe11889534725906eb41e7cafe900ee7e.js",
+    "custom/featured_sites/shared/overlays": "/assets/custom/featured_sites/shared/overlays-9c2e5fae2c1ff10211cec08d1bc303aca2900e85ddf5f5f799234971bbc9d4d6.js",
+    "custom/featured_sites/shared/slider_common": "/assets/custom/featured_sites/shared/slider_common-446ef32175ee5f53d68846e7acfaebe2512db3913241ef37cf6ceb763b73dcf2.js",
+    "custom/featured_sites/shared/state": "/assets/custom/featured_sites/shared/state-76e195a5a18936af3c4aba17da399afab53b1d5b054b95eb56915926be9ca37f.js",
+    "custom/gigapan": "/assets/custom/gigapan-51e2ec3dfae6a3b15ecfc07b6fa63acffa09748e273a76859740b1aca639e24c.js",
+    "custom/inomn": "/assets/custom/inomn-a18611ec7b33c52eccc8c5982c651273267a3df27e62be271de09010d7f6092e.js",
+    "custom/jQueryGetAutoSuggest": "/assets/custom/jQueryGetAutoSuggest-faab1dfcdb35b6dfe84e1dfb4e9149f7c3a9ff0cac266103e474ab96b8d13666.js",
+    "custom/jQueryGetAutoSuggestDatalist": "/assets/custom/jQueryGetAutoSuggestDatalist-70697785870539c471bebe193ea7ce213cc75dcc3e0fc89236a6c51ada6a15db.js",
+    "custom/lge-js-yaml": "/assets/custom/lge-js-yaml-dc83142747d753ecaeab6a762b0dd345368ed91856b57a305ef298f5b732042d.js",
+    "custom/lge": "/assets/custom/lge-208912b5d724a40efbd932cca079ee5752ccac42b8d94c9106058dac85382cf5.js",
+    "custom/loader": "/assets/custom/loader-ced3d6704a667d384cdcf93b6fe41e86d12b26278cf4fd2eccaf68f3131b91f0.js",
+    "custom/lroc": "/assets/custom/lroc-18561d21a1edb54431d90fea2c2351ab5fabdb035ee9bc627e77b7c52fb8f479.js",
+    "custom/wheres_lro": "/assets/custom/wheres_lro-dc32502948acc78ac5750f86715416f83c19d8b67765e06b0c67cf4a57383645.js",
+    "custom/zoomify": "/assets/custom/zoomify-7f63a74e6413ff8681af6746aae9cc0780b75ea63c4125f6aea19efc74046160.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/application-19a6cc4f661be58803a1e1f75c46450232b2889db7c8cec7e33849aa13763a72.js">
+<link rel="modulepreload" href="/assets/turbo.min-b86d83036ff04169e5bf3ebbc82e0ad528456259e47091b448f41a3cadabdb40.js">
+<link rel="modulepreload" href="/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js">
+<link rel="modulepreload" href="/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js">
+<link rel="modulepreload" href="/assets/popper-003a40d80fd205e1fa00da117d5bdc19720ba330706eaa17f9ba9513fa502304.js">
+<link rel="modulepreload" href="/assets/bootstrap.min-3f5446dc6e97c9688ec7afa6695204306f885d628cd7bcb2d08295662d0978b4.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/jquery/3.6.3/dist/jquery.js">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.13.2/jquery-ui.js">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.js">
+<link rel="modulepreload" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/fh-3.2.4/r-2.3.0/datatables.min.js">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:proj4@2.9.0/lib/index.js">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:mgrs@1.0.0/dist/mgrs.js">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:wkt-parser@1.3.2/index.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/rbush/3.0.1/rbush.min.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/index.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/css.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/Map.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/sphere.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/View.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/Collection.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/coordinate.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/extent.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/Feature.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/tilegrid.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/proj.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/proj/Projection.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/proj/proj4.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/defaults.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/proj/Units.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/Control.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/ScaleLine.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/OverviewMap.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/FullScreen.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/MousePosition.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/Zoom.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/control/ZoomSlider.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/interaction/DragBox.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/easing.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/interaction/defaults.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/Observable.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/Overlay.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/style.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/Base.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/Group.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/Vector.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/Tile.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/VectorTile.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/VectorImage.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/Image.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/layer/Heatmap.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/source/Zoomify.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/source/Vector.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/source/TileWMS.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/source/OSM.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/format/GeoJSON.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/format/WMSGetFeatureInfo.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/openlayers/7.5.2/geom.js">
+<link rel="modulepreload" href="https://cdn.im-ldi.com/javascripts/geotiff/2.0.7/dist-module/geotiff.js">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@jaames/iro@5">
+<link rel="modulepreload" href="/assets/custom/featured_sites-60d9eba412c49e739a6d76d8f9506f109c5f6e4bf8070876e6f157257e485f75.js">
+<link rel="modulepreload" href="/assets/controllers/application-85b221780d84ab51ea7e857d5cc619348a0c2f4a88320f24cca7075e7fb3485b.js">
+<link rel="modulepreload" href="/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js">
+<link rel="modulepreload" href="/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js">
+<link rel="modulepreload" href="/assets/controllers/init_masonry_controller-6aa92d2992a48a957d3d3ab6379a55c8f95f620e3c55ea864930d3ca96898401.js">
+<link rel="modulepreload" href="/assets/controllers/kick_masonry_controller-756a19a5c400b6695d4c44cfa3fdec576dfe6241dbe94dd867f1a076e8891e0e.js">
+<link rel="modulepreload" href="/assets/controllers/scrollspy_controller-c3b255146f0e54f11713390d5b25d92816456ba7725232f3f91cd0777708c37e.js">
+<link rel="modulepreload" href="/assets/custom/CustomOpenlayersControls-d993ba2427de555b315ff81dada9199076f5ff10cdd1d04d905ea41f82ef1a8b.js">
+<link rel="modulepreload" href="/assets/custom/color_palette/bin-658b99713e7be091d206748637844b6451ebb74583d24395986ddfd12609f6d4.js">
+<link rel="modulepreload" href="/assets/custom/color_palette/demoGraphData-41d7d4131295cae37ecbe5972776d6c2b2582314b0fdddcea139cb0a8685fef9.js">
+<link rel="modulepreload" href="/assets/custom/color_palette/hcl-4b7c4a5d9c8da4418f5e843c0493d6951dcedd737b6850055e620cb4af28cfdb.js">
+<link rel="modulepreload" href="/assets/custom/color_palette/initColorPalette-073e9d7598bb36ba38ee316d8d081b345558f889e9a5417b424eaec7c9688017.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/initNasmMap-300be1ee2fff026be66189bb77eeb8e38f6175106f11ecdcaa7d0b1b05d84a01.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/layers-e0bdc455464ea017667ac6f862025a52723d75aef5f8b00841aeb8b249c84f34.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasm1stfloorcraft-8be23e8c28692a16671c5077d60bacbf851ecef584c0c3bf6e88fd43406f421f.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasm1stfloorcraft_style-67dd218755a0e95f51c77e56a53fa359b8ed080e38f0db7b333c93d2b4020e19.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasm1stflooritems-cd70f010358bdd1618ea89c668a986d02c5961f29e202447c357611cf89c3f60.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasm1stflooritems_style-a7d167ac707ec779885da9cc75bbd96a94124a7d837e4bd9a64f6659785dab67.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasm2ndfloorcraft-68a74c5bb4bee366f126167c86a9cc2740cbc632704220cec1743c9b4388edda.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasm2ndfloorcraft_style-7c964d9f80443d33841abd4db8da1ce6035cc678a897b82b0a6107e34f71d9d6.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasm2ndflooritems-85a6736507d086c9fe61c8dd523ed76b34569ab167b111def40ca622751583a1.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasm2ndflooritems_style-24b43e55539ac058d999580f5cbac053268fe744099ba8bb0c02462145f15266.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasm2ndflooroutline-17f88004e5e16a4f3e6de51c823a81ac7c6200da46869a0ca0533e1435e92bf6.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasm2ndflooroutline_style-2dfd97a26806a83c6b78c0ca6dfd3efd75cc8be2bd8a6ae73ce87c649b3d6bbe.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasmfootprint-66c5f51cb14dcd43850d075355fd6b2316b44960d936da2f07255fe44b420197.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasmfootprint_style-29175d01224821131ea6349ea69884cf465d2a59aba3137402705ba76b176fa7.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasmgalleries1stfloor-6714594e8444b9a1aceb596c8e313fbff2c6647fce75a05d9727f860add10385.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasmgalleries1stfloor_style-ae8cd8f87c6dd24e4bd639720d112ae21b9a36871ae11d0cc222fa386be2150b.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasmgalleries2ndfloor-4dfda24418c801b9c5462bb4dc4188f77145271cb40cfe287f69381c22c2930a.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasmgalleries2ndfloor_style-4bf4f504a0ef9c2d7c238a29cc6767839c55ac32a5ef5b0e28a2672903ed06ce.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasmlrocareas-cfce34d4912621ac1e34e0bdd705b1e70a468bc576892b36f973a4c341fc5ada.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasmlrocareas_style-f7f2b2dbf6e5e3acf7101aaa20cece7862246d166d5918311e0059ef00bf6e6b.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasmlrocitems-fc83133a3b14478fd911dc1ff9b2ae582c381c5cd37a4c698207274dcfb2197e.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasmlrocitems_style-2ebab9cb217124d8f1df897f36b71de1745a8e0975fb2afde66dcdbd981b2ba1.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasmmapmarkers_style-b4b1cdffe887007b55052e7f03739ba2ee6926e38e18cab8945461aa75d23737.js">
+<link rel="modulepreload" href="/assets/custom/exhibit_map/nasmtext_style-a7474086aeedac8907f92740f6ced6f913c72d2157ce9cd53c8e618425ed7312.js">
+<link rel="modulepreload" href="/assets/custom/featured_sites/index-f1982cd6f38ce5ec56091a4af0d40dc547e349af365d31a0cf85f450720b27c4.js">
+<link rel="modulepreload" href="/assets/custom/featured_sites/modes/before_after-8d48ce314edb46b88a67553ddf92cf51b1a01d8fa5583e82aebfb4c95ff6f7a3.js">
+<link rel="modulepreload" href="/assets/custom/featured_sites/modes/flipbook-cffda36b6f22e97b1c81da606c4338d41db4e77a6560b961d576db8fd0cde0ae.js">
+<link rel="modulepreload" href="/assets/custom/featured_sites/modes/simple_traverse-f60fe34227c46aa2d3d01d9034649c78fa1cec885465ad6a09af140de72f5424.js">
+<link rel="modulepreload" href="/assets/custom/featured_sites/modes/temporal_traverse-ffbcc43f184819e31c10b2af6f5ca82d0af3769ba4a940d33aa948c6297782c3.js">
+<link rel="modulepreload" href="/assets/custom/featured_sites/modes/zoomable_traverse-174d2378cb75df1969a20b92c9c967b1c2246b691ec84dcd9a51f75e3df83d19.js">
+<link rel="modulepreload" href="/assets/custom/featured_sites/shared/formatters-bc17a8902f31df32de44b616f20aa93cd2cb8d76bc3558c88997d863847c2609.js">
+<link rel="modulepreload" href="/assets/custom/featured_sites/shared/fullscreen-df754aafc30a19a79b1d8ac2ffd223702b4dd952a895bdf9eee37909d082522f.js">
+<link rel="modulepreload" href="/assets/custom/featured_sites/shared/images-91dff46bc9ab83edb53b192cb73f80c5e136d2f1df35600f675bd141f06eb6c6.js">
+<link rel="modulepreload" href="/assets/custom/featured_sites/shared/legend-8df9cabd53461d7f9496df6a560de9323288e1748aa8f6f672d552a723c94939.js">
+<link rel="modulepreload" href="/assets/custom/featured_sites/shared/map_common-2f8fd071057aaeee25f603e02b75ef6fe11889534725906eb41e7cafe900ee7e.js">
+<link rel="modulepreload" href="/assets/custom/featured_sites/shared/overlays-9c2e5fae2c1ff10211cec08d1bc303aca2900e85ddf5f5f799234971bbc9d4d6.js">
+<link rel="modulepreload" href="/assets/custom/featured_sites/shared/slider_common-446ef32175ee5f53d68846e7acfaebe2512db3913241ef37cf6ceb763b73dcf2.js">
+<link rel="modulepreload" href="/assets/custom/featured_sites/shared/state-76e195a5a18936af3c4aba17da399afab53b1d5b054b95eb56915926be9ca37f.js">
+<link rel="modulepreload" href="/assets/custom/gigapan-51e2ec3dfae6a3b15ecfc07b6fa63acffa09748e273a76859740b1aca639e24c.js">
+<link rel="modulepreload" href="/assets/custom/inomn-a18611ec7b33c52eccc8c5982c651273267a3df27e62be271de09010d7f6092e.js">
+<link rel="modulepreload" href="/assets/custom/jQueryGetAutoSuggest-faab1dfcdb35b6dfe84e1dfb4e9149f7c3a9ff0cac266103e474ab96b8d13666.js">
+<link rel="modulepreload" href="/assets/custom/jQueryGetAutoSuggestDatalist-70697785870539c471bebe193ea7ce213cc75dcc3e0fc89236a6c51ada6a15db.js">
+<link rel="modulepreload" href="/assets/custom/lge-js-yaml-dc83142747d753ecaeab6a762b0dd345368ed91856b57a305ef298f5b732042d.js">
+<link rel="modulepreload" href="/assets/custom/lge-208912b5d724a40efbd932cca079ee5752ccac42b8d94c9106058dac85382cf5.js">
+<link rel="modulepreload" href="/assets/custom/loader-ced3d6704a667d384cdcf93b6fe41e86d12b26278cf4fd2eccaf68f3131b91f0.js">
+<link rel="modulepreload" href="/assets/custom/lroc-18561d21a1edb54431d90fea2c2351ab5fabdb035ee9bc627e77b7c52fb8f479.js">
+<link rel="modulepreload" href="/assets/custom/wheres_lro-dc32502948acc78ac5750f86715416f83c19d8b67765e06b0c67cf4a57383645.js">
+<link rel="modulepreload" href="/assets/custom/zoomify-7f63a74e6413ff8681af6746aae9cc0780b75ea63c4125f6aea19efc74046160.js">
+<script type="module">import "application"</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SBFXQ3JFQY" data-turbo-track="reload"></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SBFXQ3JFQY');
+    </script>
+
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss/featured_images" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss/news" />
+
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <nav class="navbar navbar-expand-md navbar-light text-dark justify-content-between align-items-center mx-auto w-100">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center py-0 px-md-3 pt-3 pb-4" href="/">
+      <img class="me-2 effect-shine" width="50" height="50" src="/assets/LROC_patch_alpha-bcddde05a14e141c980aa2f2525ba78b826a15843a289bf9fa543709e488e018.png" />
+      <span class="d-block d-xxl-none">LROC</span><span class="d-none d-xxl-block fw-normal">Lunar Reconnaissance Orbiter Camera</span>
+    </a>
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#lroc-navbar" aria-controls="#lroc-navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="toggler-icon top-bar"></span>
+      <span class="toggler-icon middle-bar"></span>
+      <span class="toggler-icon bottom-bar"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="lroc-navbar">
+      <ul class="navbar-nav me-0">
+        <li class="nav-item dropdown">
+          <button class="nav-link text-dark dropdown-toggle text-start text-md-center w-100" id="navbarDropdownAbout" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</button>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
+            <a class="dropdown-item" href="/about">LROC &amp; LRO</a>
+            <a class="dropdown-item" href="/about/objectives">Objectives</a>
+            <a class="dropdown-item" href="/about/specs">Specifications</a>
+            <a class="dropdown-item" href="/about/team">LROC Team</a>
+            <a class="dropdown-item" href="/about/patch">LROC Patch</a>
+            <a class="dropdown-item" href="/about/whereislro">Where is LRO?</a>
+            <a class="dropdown-item" href="/about/publications">Publications</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <button class="nav-link text-dark dropdown-toggle text-start text-md-center w-100" id="navbarDropdownImages" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Images</button>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownImages">
+            <a class="dropdown-item" href="/images">Featured Images</a>
+            <a class="dropdown-item" href="/featured_sites">Featured Sites</a>
+            <a class="dropdown-item" href="/atlases">Lunar Atlases</a>
+            <a class="dropdown-item" href="/images/videos">Lunar Videos</a>
+            <a class="dropdown-item" href="/images/downloads">Curated Downloads</a>
+            <a class="dropdown-item" href="/images/gigapan">Gigapan</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <button class="nav-link text-dark dropdown-toggle text-start text-md-center w-100" id="navbarDropdownData" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data</button>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownData">
+            <a target="_blank" class="dropdown-item" href="https://data.im-ldi.com/mds?MDS_SEARCH=%7B%22datasets%22%3A%5B%22luna_lroc_fi%22%2C%22luna_lroc_pds_nac_edrcdr%22%2C%22luna_lroc_pds_wac_edrcdr%22%2C%22luna_lroc_pds_rdr%22%5D%2C%22query%22%3A%7B%7D%2C%22map%22%3A%7B%7D%7D">
+              <span>Data Portal</span> <i class="fa-solid fa-square-up-right"></i>
+</a>            <a target="_blank" class="dropdown-item" href="https://pds.lroc.im-ldi.com/data/">
+              <span>PDS Archive</span> <i class="fa-solid fa-square-up-right"></i>
+</a>            <a target="_blank" class="dropdown-item" href="https://target.lroc.im-ldi.com/output/lroc/lroc_page.html">
+              <span>Target Request</span> <i class="fa-solid fa-square-up-right"></i>
+</a>            <div class="dropdown-divider"></div>
+            <small class="text-dark font-weight-bold py-2 px-2 px-md-4 d-block">Mapping Tools</small>
+            <a target="_blank" class="dropdown-item" href="https://wms.im-ldi.com/lunaserv.html">
+              <span>Lunaserv LGE</span> <i class="fa-solid fa-square-up-right"></i>
+</a>            <a target="_blank" class="dropdown-item" href="https://quickmap.im-ldi.com/">
+              <span>Lunar QuickMap</span> <i class="fa-solid fa-square-up-right"></i>
+</a>            <div class="dropdown-divider"></div>
+            <small class="text-dark font-weight-bold py-2 px-2 px-md-4 d-block">Other Tools</small>
+            <a class="dropdown-item" href="/data/color_palette">Color Palette Generator</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <button class="nav-link text-dark dropdown-toggle text-start text-md-center w-100" id="navbarDropdownNews" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</button>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownNews">
+            <a class="dropdown-item" href="/news">Recent News</a>
+            <a class="dropdown-item" href="/news_tags/Announcements">Announcements</a>
+            <a class="dropdown-item" href="/news_tags/Events">Events</a>
+            <a class="dropdown-item" href="/news_tags/PDS%20Release">PDS Releases</a>
+            <a class="dropdown-item" href="/news_tags/Updates">Updates</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <button class="nav-link text-dark dropdown-toggle text-start text-md-center w-100" id="navbarDropdownEducators" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Educators</button>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownEducators">
+            <a class="dropdown-item" href="/educators/history">Lunar History</a>
+            <a class="dropdown-item" href="/educators/science">Lunar Science</a>
+            <a class="dropdown-item" href="/educators/activities">Activities</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <button class="nav-link text-dark dropdown-toggle text-start text-md-center w-100" id="navbarDropdownEvents" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Events</button>
+          <div class="dropdown-menu dropdown-menu-end end-0" aria-labelledby="navbarDropdownEvents">
+            <a class="dropdown-item" href="/visit/exhibits">Public exhibits</a>
+            <a class="dropdown-item" href="/news_tags/Events">Public events</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <main class="container flex-shrink-0" role="main">
+      
+<header>
+  <h1>Pits Atlas</h1>
+</header>
+
+<section>
+
+  <div class="d-inline-flex gap-2 align-items-center text-start mb-4">
+    <a class="btn btn-outline-primary d-flex gap-2 align-items-center" href="/atlases/pits">
+      <i class="fa-solid fa-map"></i><span>Pits map</span>
+</a>    <a target="_blank" class="btn btn-outline-secondary d-flex gap-2 align-items-center" data-confirm="Be careful, this file is 140 MB!" href="/atlases/pits/lroc_pits_atlas.pdf">
+      <i class="fa-solid fa-download"></i><span>Download Pits Atlas</span>
+</a>  </div>
+
+  <table class="table table-sm table-striped table-bordered dt-responsive nowrap w-100" id="pitsTable" data-turbo="false">
+    <thead>
+      <tr>
+        <th>Host Feat.</th>
+        <th>Name</th>
+        <th>Lat.</th>
+        <th>Long.</th>
+        <th>Funnel Max Diam. (m)</th>
+        <th>Funnel Min Diam. (m)</th>
+        <th>Inner Max Diam. (m)</th>
+        <th>Inner Max Diam. Sorting</th>
+        <th>Inner Min Diam. (m)</th>
+        <th>Inner Min Diam. Sorting</th>
+        <th>Azimuth</th>
+        <th>Depth (m)</th>
+        <th>Depth Sorting</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>Adams B</td>
+          <td><a href="/atlases/pits/22">Adams B 1</a></td>
+          <td>-31.4121</td>
+          <td>65.6408</td>
+          <td>19</td>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+          <td>N/A</td>
+          <td></td>
+          <td>110</td>
+          <td>9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Adams B</td>
+          <td><a href="/atlases/pits/23">Adams B 2</a></td>
+          <td>-31.5449</td>
+          <td>65.7223</td>
+          <td>21</td>
+          <td>17</td>
+          <td>14</td>
+          <td>14</td>
+          <td>N/A</td>
+          <td></td>
+          <td>85</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>Adams B</td>
+          <td><a href="/atlases/pits/24">Adams B 3</a></td>
+          <td>-31.2886</td>
+          <td>65.7523</td>
+          <td>38</td>
+          <td>17</td>
+          <td>14</td>
+          <td>14</td>
+          <td>N/A</td>
+          <td></td>
+          <td>135</td>
+          <td>2.0</td>
+          <td>2.0</td>
+        </tr>
+        <tr>
+          <td>Aristarchus</td>
+          <td><a href="/atlases/pits/25">Aristarchus 1</a></td>
+          <td>23.8889</td>
+          <td>312.3506</td>
+          <td>31</td>
+          <td>16</td>
+          <td>27</td>
+          <td>27</td>
+          <td>10</td>
+          <td>10</td>
+          <td>95</td>
+          <td>13.0</td>
+          <td>13.0</td>
+        </tr>
+        <tr>
+          <td>Aristarchus</td>
+          <td><a href="/atlases/pits/26">Aristarchus 2a</a></td>
+          <td>23.873</td>
+          <td>312.3029</td>
+          <td>22</td>
+          <td>18</td>
+          <td>19</td>
+          <td>19</td>
+          <td>16</td>
+          <td>16</td>
+          <td>35</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Aristarchus</td>
+          <td><a href="/atlases/pits/27">Aristarchus 2b</a></td>
+          <td>23.8726</td>
+          <td>312.3053</td>
+          <td>22</td>
+          <td>13</td>
+          <td>13</td>
+          <td>13</td>
+          <td>7</td>
+          <td>7</td>
+          <td>165</td>
+          <td>14.0</td>
+          <td>14.0</td>
+        </tr>
+        <tr>
+          <td>Aristarchus</td>
+          <td><a href="/atlases/pits/28">Aristarchus 2c</a></td>
+          <td>23.8716</td>
+          <td>312.3098</td>
+          <td>38</td>
+          <td>35</td>
+          <td>22</td>
+          <td>22</td>
+          <td>16</td>
+          <td>16</td>
+          <td>145</td>
+          <td>14.0</td>
+          <td>14.0</td>
+        </tr>
+        <tr>
+          <td>Aristarchus</td>
+          <td><a href="/atlases/pits/29">Aristarchus 3a</a></td>
+          <td>23.9331</td>
+          <td>312.4076</td>
+          <td>30</td>
+          <td>25</td>
+          <td>25</td>
+          <td>25</td>
+          <td>18</td>
+          <td>18</td>
+          <td>50</td>
+          <td>13.0</td>
+          <td>13.0</td>
+        </tr>
+        <tr>
+          <td>Aristarchus</td>
+          <td><a href="/atlases/pits/30">Aristarchus 3b</a></td>
+          <td>23.9339</td>
+          <td>312.4084</td>
+          <td>23</td>
+          <td>18</td>
+          <td>18</td>
+          <td>18</td>
+          <td>8</td>
+          <td>8</td>
+          <td>60</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Aristarchus</td>
+          <td><a href="/atlases/pits/31">Aristarchus 3c</a></td>
+          <td>23.9344</td>
+          <td>312.407</td>
+          <td>39</td>
+          <td>17</td>
+          <td>16</td>
+          <td>16</td>
+          <td>8</td>
+          <td>8</td>
+          <td>45</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>Aristarchus</td>
+          <td><a href="/atlases/pits/32">Aristarchus 4</a></td>
+          <td>23.914</td>
+          <td>312.3913</td>
+          <td>39</td>
+          <td>33</td>
+          <td>23</td>
+          <td>23</td>
+          <td>22</td>
+          <td>22</td>
+          <td>50</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Aristarchus</td>
+          <td><a href="/atlases/pits/33">Aristarchus 5</a></td>
+          <td>23.5984</td>
+          <td>312.4196</td>
+          <td>30</td>
+          <td>16</td>
+          <td>21</td>
+          <td>21</td>
+          <td>7</td>
+          <td>7</td>
+          <td>75</td>
+          <td>&gt;17.0</td>
+          <td>17.0</td>
+        </tr>
+        <tr>
+          <td>Aristarchus</td>
+          <td><a href="/atlases/pits/34">Aristarchus 6</a></td>
+          <td>23.4657</td>
+          <td>312.4235</td>
+          <td>24</td>
+          <td>18</td>
+          <td>12</td>
+          <td>12</td>
+          <td>7</td>
+          <td>7</td>
+          <td>120</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>Aristarchus</td>
+          <td><a href="/atlases/pits/35">Aristarchus 7a</a></td>
+          <td>23.4536</td>
+          <td>312.3967</td>
+          <td>20</td>
+          <td>16</td>
+          <td>16</td>
+          <td>16</td>
+          <td>11</td>
+          <td>11</td>
+          <td>45</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Aristarchus</td>
+          <td><a href="/atlases/pits/36">Aristarchus 7b</a></td>
+          <td>23.4532</td>
+          <td>312.3957</td>
+          <td>30</td>
+          <td>27</td>
+          <td>24</td>
+          <td>24</td>
+          <td>12</td>
+          <td>12</td>
+          <td>85</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Aristarchus</td>
+          <td><a href="/atlases/pits/37">Aristarchus 8</a></td>
+          <td>23.9091</td>
+          <td>312.3992</td>
+          <td>36</td>
+          <td>30</td>
+          <td>28</td>
+          <td>28</td>
+          <td>23</td>
+          <td>23</td>
+          <td>5</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Aristarchus</td>
+          <td><a href="/atlases/pits/38">Aristarchus 9</a></td>
+          <td>23.8631</td>
+          <td>312.315</td>
+          <td>25</td>
+          <td>23</td>
+          <td>17</td>
+          <td>17</td>
+          <td>10</td>
+          <td>10</td>
+          <td>15</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Aristillus</td>
+          <td><a href="/atlases/pits/39">Aristillus 1</a></td>
+          <td>33.6622</td>
+          <td>0.7149</td>
+          <td>20</td>
+          <td>20</td>
+          <td>11</td>
+          <td>11</td>
+          <td>10</td>
+          <td>10</td>
+          <td>100</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>Aristillus</td>
+          <td><a href="/atlases/pits/40">Aristillus 2</a></td>
+          <td>33.5874</td>
+          <td>1.019</td>
+          <td>30</td>
+          <td>36</td>
+          <td>16</td>
+          <td>16</td>
+          <td>9</td>
+          <td>9</td>
+          <td>45</td>
+          <td>14.0</td>
+          <td>14.0</td>
+        </tr>
+        <tr>
+          <td>Aristillus</td>
+          <td><a href="/atlases/pits/41">Aristillus 3</a></td>
+          <td>33.5169</td>
+          <td>0.9128</td>
+          <td>51</td>
+          <td>34</td>
+          <td>33</td>
+          <td>33</td>
+          <td>19</td>
+          <td>19</td>
+          <td>40</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Aristillus</td>
+          <td><a href="/atlases/pits/42">Aristillus 4</a></td>
+          <td>33.4981</td>
+          <td>0.9447</td>
+          <td>28</td>
+          <td>25</td>
+          <td>N/A</td>
+          <td></td>
+          <td>N/A</td>
+          <td></td>
+          <td>50</td>
+          <td>14.0</td>
+          <td>14.0</td>
+        </tr>
+        <tr>
+          <td>Catalán B</td>
+          <td><a href="/atlases/pits/43">Catalán B 1</a></td>
+          <td>-45.6547</td>
+          <td>271.426</td>
+          <td>32</td>
+          <td>19</td>
+          <td>26</td>
+          <td>26</td>
+          <td>15</td>
+          <td>15</td>
+          <td>175</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Mare Fecunditatis</td>
+          <td><a href="/atlases/pits/16">Central Mare Fecunditatis Pit</a></td>
+          <td>-0.9182</td>
+          <td>48.6595</td>
+          <td>198</td>
+          <td>162</td>
+          <td>122</td>
+          <td>122</td>
+          <td>100</td>
+          <td>100</td>
+          <td>155</td>
+          <td>42.0</td>
+          <td>42.0</td>
+        </tr>
+        <tr>
+          <td>Compton Crater</td>
+          <td><a href="/atlases/pits/9">Compton Pit</a></td>
+          <td>56.2247</td>
+          <td>106.1955</td>
+          <td>230</td>
+          <td>140</td>
+          <td>110</td>
+          <td>110</td>
+          <td>92</td>
+          <td>92</td>
+          <td>140</td>
+          <td>35.0</td>
+          <td>35.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/44">Copernicus 1</a></td>
+          <td>9.9277</td>
+          <td>340.7455</td>
+          <td>31</td>
+          <td>25</td>
+          <td>11</td>
+          <td>11</td>
+          <td>9</td>
+          <td>9</td>
+          <td>180</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/54">Copernicus 10</a></td>
+          <td>10.1083</td>
+          <td>339.9456</td>
+          <td>N/A</td>
+          <td>45</td>
+          <td>38</td>
+          <td>38</td>
+          <td>11</td>
+          <td>11</td>
+          <td>145</td>
+          <td>23.0</td>
+          <td>23.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/55">Copernicus 11</a></td>
+          <td>9.9726</td>
+          <td>340.7284</td>
+          <td>28</td>
+          <td>23</td>
+          <td>8</td>
+          <td>8</td>
+          <td>4</td>
+          <td>4</td>
+          <td>130</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/56">Copernicus 12</a></td>
+          <td>9.5539</td>
+          <td>340.7251</td>
+          <td>40</td>
+          <td>30</td>
+          <td>15</td>
+          <td>15</td>
+          <td>10</td>
+          <td>10</td>
+          <td>130</td>
+          <td>18.0</td>
+          <td>18.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/57">Copernicus 13a</a></td>
+          <td>10.1857</td>
+          <td>339.8727</td>
+          <td>123</td>
+          <td>68</td>
+          <td>14</td>
+          <td>14</td>
+          <td>6</td>
+          <td>6</td>
+          <td>120</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/58">Copernicus 13b</a></td>
+          <td>10.1799</td>
+          <td>339.8811</td>
+          <td>25</td>
+          <td>25</td>
+          <td>5</td>
+          <td>5</td>
+          <td>5</td>
+          <td>5</td>
+          <td>145</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/59">Copernicus 14</a></td>
+          <td>10.2215</td>
+          <td>339.9041</td>
+          <td>N/A</td>
+          <td>40</td>
+          <td>20</td>
+          <td>20</td>
+          <td>7</td>
+          <td>7</td>
+          <td>60</td>
+          <td>17.0</td>
+          <td>17.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/60">Copernicus 16</a></td>
+          <td>9.4838</td>
+          <td>340.1616</td>
+          <td>115</td>
+          <td>96</td>
+          <td>73</td>
+          <td>73</td>
+          <td>71</td>
+          <td>71</td>
+          <td>90</td>
+          <td>15.0</td>
+          <td>15.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/61">Copernicus 17a</a></td>
+          <td>10.2403</td>
+          <td>339.6013</td>
+          <td>N/A</td>
+          <td>30</td>
+          <td>25</td>
+          <td>25</td>
+          <td>15</td>
+          <td>15</td>
+          <td>170</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/62">Copernicus 17b</a></td>
+          <td>10.2401</td>
+          <td>339.6012</td>
+          <td>10</td>
+          <td>3</td>
+          <td>10</td>
+          <td>10</td>
+          <td>3</td>
+          <td>3</td>
+          <td>160</td>
+          <td>&gt;10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/63">Copernicus 18</a></td>
+          <td>10.2933</td>
+          <td>339.5981</td>
+          <td>165</td>
+          <td>48</td>
+          <td>137</td>
+          <td>137</td>
+          <td>26</td>
+          <td>26</td>
+          <td>155</td>
+          <td>15.0</td>
+          <td>15.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/64">Copernicus 19a</a></td>
+          <td>10.1326</td>
+          <td>339.6052</td>
+          <td>57</td>
+          <td>51</td>
+          <td>11</td>
+          <td>11</td>
+          <td>3</td>
+          <td>3</td>
+          <td>32</td>
+          <td>&gt;15.0</td>
+          <td>15.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/65">Copernicus 19b</a></td>
+          <td>10.1329</td>
+          <td>339.6055</td>
+          <td>57</td>
+          <td>51</td>
+          <td>7</td>
+          <td>7</td>
+          <td>4</td>
+          <td>4</td>
+          <td>32</td>
+          <td>&gt;15.0</td>
+          <td>15.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/45">Copernicus 2</a></td>
+          <td>9.9308</td>
+          <td>340.7296</td>
+          <td>31</td>
+          <td>30</td>
+          <td>9</td>
+          <td>9</td>
+          <td>6</td>
+          <td>6</td>
+          <td>40</td>
+          <td>14.0</td>
+          <td>14.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/66">Copernicus 20</a></td>
+          <td>10.3522</td>
+          <td>339.7351</td>
+          <td>N/A</td>
+          <td>48</td>
+          <td>95</td>
+          <td>95</td>
+          <td>31</td>
+          <td>31</td>
+          <td>50</td>
+          <td>14.0</td>
+          <td>14.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/67">Copernicus 21</a></td>
+          <td>10.1943</td>
+          <td>339.847</td>
+          <td>150</td>
+          <td>60</td>
+          <td>44</td>
+          <td>44</td>
+          <td>17</td>
+          <td>17</td>
+          <td>105</td>
+          <td>15.0</td>
+          <td>15.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/68">Copernicus 22</a></td>
+          <td>10.2095</td>
+          <td>339.8873</td>
+          <td>29</td>
+          <td>11</td>
+          <td>17</td>
+          <td>17</td>
+          <td>3</td>
+          <td>3</td>
+          <td>75</td>
+          <td>&gt;11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/69">Copernicus 23</a></td>
+          <td>10.2067</td>
+          <td>339.8978</td>
+          <td>118</td>
+          <td>45</td>
+          <td>9</td>
+          <td>9</td>
+          <td>6</td>
+          <td>6</td>
+          <td>125</td>
+          <td>9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/70">Copernicus 24</a></td>
+          <td>10.181</td>
+          <td>340.4814</td>
+          <td>130</td>
+          <td>70</td>
+          <td>85</td>
+          <td>85</td>
+          <td>52</td>
+          <td>52</td>
+          <td>145</td>
+          <td>16.0</td>
+          <td>16.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/46">Copernicus 3</a></td>
+          <td>9.9929</td>
+          <td>340.7149</td>
+          <td>36</td>
+          <td>36</td>
+          <td>13</td>
+          <td>13</td>
+          <td>10</td>
+          <td>10</td>
+          <td>60</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/47">Copernicus 4</a></td>
+          <td>10.3288</td>
+          <td>339.6206</td>
+          <td>71</td>
+          <td>128</td>
+          <td>89</td>
+          <td>89</td>
+          <td>49</td>
+          <td>49</td>
+          <td>35</td>
+          <td>24.0</td>
+          <td>24.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/48">Copernicus 5</a></td>
+          <td>9.0159</td>
+          <td>339.7451</td>
+          <td>35</td>
+          <td>28</td>
+          <td>13</td>
+          <td>13</td>
+          <td>7</td>
+          <td>7</td>
+          <td>40</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/49">Copernicus 6a</a></td>
+          <td>10.1053</td>
+          <td>339.995</td>
+          <td>55</td>
+          <td>30</td>
+          <td>10</td>
+          <td>10</td>
+          <td>9</td>
+          <td>9</td>
+          <td>150</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/50">Copernicus 6b</a></td>
+          <td>10.1048</td>
+          <td>339.9952</td>
+          <td>55</td>
+          <td>30</td>
+          <td>10</td>
+          <td>10</td>
+          <td>8</td>
+          <td>8</td>
+          <td>145</td>
+          <td>13.0</td>
+          <td>13.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/51">Copernicus 7</a></td>
+          <td>10.0763</td>
+          <td>340.0269</td>
+          <td>26</td>
+          <td>24</td>
+          <td>6</td>
+          <td>6</td>
+          <td>4</td>
+          <td>4</td>
+          <td>45</td>
+          <td>&gt;21.0</td>
+          <td>21.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/52">Copernicus 8</a></td>
+          <td>10.1462</td>
+          <td>339.9373</td>
+          <td>70</td>
+          <td>50</td>
+          <td>57</td>
+          <td>57</td>
+          <td>21</td>
+          <td>21</td>
+          <td>130</td>
+          <td>12.0</td>
+          <td>12.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/53">Copernicus 9</a></td>
+          <td>10.1385</td>
+          <td>339.9387</td>
+          <td>31</td>
+          <td>22</td>
+          <td>10</td>
+          <td>10</td>
+          <td>7</td>
+          <td>7</td>
+          <td>140</td>
+          <td>12.0</td>
+          <td>12.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/71">Copernicus LB2</a></td>
+          <td>10.0588</td>
+          <td>339.8038</td>
+          <td>355</td>
+          <td>325</td>
+          <td>305</td>
+          <td>305</td>
+          <td>260</td>
+          <td>260</td>
+          <td>140</td>
+          <td>65.0</td>
+          <td>65.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/72">Copernicus LB3</a></td>
+          <td>10.0954</td>
+          <td>339.9231</td>
+          <td>430</td>
+          <td>330</td>
+          <td>385</td>
+          <td>385</td>
+          <td>315</td>
+          <td>315</td>
+          <td>60</td>
+          <td>66.0</td>
+          <td>66.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/73">Copernicus LB4</a></td>
+          <td>10.2041</td>
+          <td>339.9985</td>
+          <td>375</td>
+          <td>340</td>
+          <td>320</td>
+          <td>320</td>
+          <td>275</td>
+          <td>275</td>
+          <td>65</td>
+          <td>78.0</td>
+          <td>78.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/74">Copernicus LB5</a></td>
+          <td>10.2349</td>
+          <td>339.6899</td>
+          <td>290</td>
+          <td>230</td>
+          <td>270</td>
+          <td>270</td>
+          <td>220</td>
+          <td>220</td>
+          <td>10</td>
+          <td>50.0</td>
+          <td>50.0</td>
+        </tr>
+        <tr>
+          <td>Copernicus</td>
+          <td><a href="/atlases/pits/75">Copernicus LB6</a></td>
+          <td>10.3127</td>
+          <td>339.7263</td>
+          <td>290</td>
+          <td>260</td>
+          <td>250</td>
+          <td>250</td>
+          <td>225</td>
+          <td>225</td>
+          <td>175</td>
+          <td>64.0</td>
+          <td>64.0</td>
+        </tr>
+        <tr>
+          <td>Crookes</td>
+          <td><a href="/atlases/pits/76">Crookes 1</a></td>
+          <td>-10.2424</td>
+          <td>194.7536</td>
+          <td>259</td>
+          <td>77</td>
+          <td>213</td>
+          <td>213</td>
+          <td>67</td>
+          <td>67</td>
+          <td>70</td>
+          <td>17.0</td>
+          <td>17.0</td>
+        </tr>
+        <tr>
+          <td>Crookes</td>
+          <td><a href="/atlases/pits/87">Crookes 10</a></td>
+          <td>-10.1717</td>
+          <td>194.8302</td>
+          <td>40</td>
+          <td>20</td>
+          <td>30</td>
+          <td>30</td>
+          <td>12</td>
+          <td>12</td>
+          <td>20</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Crookes</td>
+          <td><a href="/atlases/pits/88">Crookes 11a</a></td>
+          <td>-10.2353</td>
+          <td>194.783</td>
+          <td>57</td>
+          <td>38</td>
+          <td>41</td>
+          <td>41</td>
+          <td>25</td>
+          <td>25</td>
+          <td>45</td>
+          <td>9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Crookes</td>
+          <td><a href="/atlases/pits/89">Crookes 11b</a></td>
+          <td>-10.2372</td>
+          <td>194.7822</td>
+          <td>55</td>
+          <td>34</td>
+          <td>28</td>
+          <td>28</td>
+          <td>26</td>
+          <td>26</td>
+          <td>30</td>
+          <td>9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Crookes</td>
+          <td><a href="/atlases/pits/77">Crookes 2</a></td>
+          <td>-10.1275</td>
+          <td>194.7446</td>
+          <td>N/A</td>
+          <td>20</td>
+          <td>18</td>
+          <td>18</td>
+          <td>11</td>
+          <td>11</td>
+          <td>45</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Crookes</td>
+          <td><a href="/atlases/pits/78">Crookes 3</a></td>
+          <td>-10.0749</td>
+          <td>194.7337</td>
+          <td>17</td>
+          <td>17</td>
+          <td>6</td>
+          <td>6</td>
+          <td>6</td>
+          <td>6</td>
+          <td>115</td>
+          <td>&gt;9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Crookes</td>
+          <td><a href="/atlases/pits/79">Crookes 4</a></td>
+          <td>-10.2294</td>
+          <td>194.7791</td>
+          <td>84</td>
+          <td>41</td>
+          <td>15</td>
+          <td>15</td>
+          <td>12</td>
+          <td>12</td>
+          <td>50</td>
+          <td>&gt;25.0</td>
+          <td>25.0</td>
+        </tr>
+        <tr>
+          <td>Crookes</td>
+          <td><a href="/atlases/pits/80">Crookes 5a</a></td>
+          <td>-10.6859</td>
+          <td>194.8609</td>
+          <td>32</td>
+          <td>30</td>
+          <td>22</td>
+          <td>22</td>
+          <td>22</td>
+          <td>22</td>
+          <td>20</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Crookes</td>
+          <td><a href="/atlases/pits/81">Crookes 5b</a></td>
+          <td>-10.6825</td>
+          <td>194.8612</td>
+          <td>25</td>
+          <td>23</td>
+          <td>N/A</td>
+          <td></td>
+          <td>5</td>
+          <td>5</td>
+          <td>15</td>
+          <td>12.0</td>
+          <td>12.0</td>
+        </tr>
+        <tr>
+          <td>Crookes</td>
+          <td><a href="/atlases/pits/82">Crookes 5c</a></td>
+          <td>-10.6824</td>
+          <td>194.8646</td>
+          <td>46</td>
+          <td>38</td>
+          <td>45</td>
+          <td>45</td>
+          <td>34</td>
+          <td>34</td>
+          <td>25</td>
+          <td>9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Crookes</td>
+          <td><a href="/atlases/pits/83">Crookes 5d</a></td>
+          <td>-10.6824</td>
+          <td>194.8626</td>
+          <td>6</td>
+          <td>6</td>
+          <td>4</td>
+          <td>4</td>
+          <td>4</td>
+          <td>4</td>
+          <td>135</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Crookes</td>
+          <td><a href="/atlases/pits/84">Crookes 6</a></td>
+          <td>-10.0854</td>
+          <td>194.8702</td>
+          <td>28</td>
+          <td>20</td>
+          <td>17</td>
+          <td>17</td>
+          <td>9</td>
+          <td>9</td>
+          <td>30</td>
+          <td>21.0</td>
+          <td>21.0</td>
+        </tr>
+        <tr>
+          <td>Crookes</td>
+          <td><a href="/atlases/pits/85">Crookes 7</a></td>
+          <td>-10.5592</td>
+          <td>194.823</td>
+          <td>23</td>
+          <td>23</td>
+          <td>20</td>
+          <td>20</td>
+          <td>19</td>
+          <td>19</td>
+          <td>55</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Crookes</td>
+          <td><a href="/atlases/pits/86">Crookes 9</a></td>
+          <td>-10.1715</td>
+          <td>194.8375</td>
+          <td>34</td>
+          <td>28</td>
+          <td>26</td>
+          <td>26</td>
+          <td>22</td>
+          <td>22</td>
+          <td>50</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Das</td>
+          <td><a href="/atlases/pits/90">Das 1a</a></td>
+          <td>-26.3088</td>
+          <td>223.2603</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>21</td>
+          <td>21</td>
+          <td>5</td>
+          <td>5</td>
+          <td>135</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>Das</td>
+          <td><a href="/atlases/pits/91">Das 1b</a></td>
+          <td>-26.3098</td>
+          <td>223.2599</td>
+          <td>18</td>
+          <td>13</td>
+          <td>6</td>
+          <td>6</td>
+          <td>5</td>
+          <td>5</td>
+          <td>100</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>Das</td>
+          <td><a href="/atlases/pits/92">Das 2</a></td>
+          <td>-26.2518</td>
+          <td>223.0906</td>
+          <td>18</td>
+          <td>10</td>
+          <td>14</td>
+          <td>14</td>
+          <td>5</td>
+          <td>5</td>
+          <td>165</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>Das</td>
+          <td><a href="/atlases/pits/93">Das 3</a></td>
+          <td>-26.2963</td>
+          <td>223.0729</td>
+          <td>23</td>
+          <td>21</td>
+          <td>18</td>
+          <td>18</td>
+          <td>13</td>
+          <td>13</td>
+          <td>145</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>Das</td>
+          <td><a href="/atlases/pits/94">Das 4a</a></td>
+          <td>-26.4088</td>
+          <td>222.788</td>
+          <td>28</td>
+          <td>27</td>
+          <td>18</td>
+          <td>18</td>
+          <td>17</td>
+          <td>17</td>
+          <td>55</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Das</td>
+          <td><a href="/atlases/pits/95">Das 4b</a></td>
+          <td>-26.4148</td>
+          <td>222.7873</td>
+          <td>12</td>
+          <td>11</td>
+          <td>N/A</td>
+          <td></td>
+          <td>N/A</td>
+          <td></td>
+          <td>0</td>
+          <td>&gt;5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Das</td>
+          <td><a href="/atlases/pits/96">Das 4c</a></td>
+          <td>-26.4151</td>
+          <td>222.7864</td>
+          <td>11</td>
+          <td>9</td>
+          <td>4</td>
+          <td>4</td>
+          <td>2</td>
+          <td>2</td>
+          <td>130</td>
+          <td>&gt;5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Das</td>
+          <td><a href="/atlases/pits/97">Das 4d</a></td>
+          <td>-26.4189</td>
+          <td>222.7907</td>
+          <td>18</td>
+          <td>12</td>
+          <td>9</td>
+          <td>9</td>
+          <td>6</td>
+          <td>6</td>
+          <td>130</td>
+          <td>&gt;6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>Das</td>
+          <td><a href="/atlases/pits/98">Das 4e</a></td>
+          <td>-26.4126</td>
+          <td>222.7987</td>
+          <td>21</td>
+          <td>13</td>
+          <td>N/A</td>
+          <td></td>
+          <td>N/A</td>
+          <td></td>
+          <td>0</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Dollond E</td>
+          <td><a href="/atlases/pits/99">Dollond E 1a</a></td>
+          <td>-10.2737</td>
+          <td>15.7013</td>
+          <td>47</td>
+          <td>35</td>
+          <td>36</td>
+          <td>36</td>
+          <td>25</td>
+          <td>25</td>
+          <td>140</td>
+          <td>&gt;50.0</td>
+          <td>50.0</td>
+        </tr>
+        <tr>
+          <td>Dollond E</td>
+          <td><a href="/atlases/pits/100">Dollond E 1b</a></td>
+          <td>-10.275</td>
+          <td>15.7004</td>
+          <td>17</td>
+          <td>12</td>
+          <td>17</td>
+          <td>17</td>
+          <td>N/A</td>
+          <td></td>
+          <td>70</td>
+          <td>28.0</td>
+          <td>28.0</td>
+        </tr>
+        <tr>
+          <td>Dollond E</td>
+          <td><a href="/atlases/pits/101">Dollond E 1c</a></td>
+          <td>-10.275</td>
+          <td>15.6998</td>
+          <td>12</td>
+          <td>11</td>
+          <td>12</td>
+          <td>12</td>
+          <td>11</td>
+          <td>11</td>
+          <td>130</td>
+          <td>32.0</td>
+          <td>32.0</td>
+        </tr>
+        <tr>
+          <td>Dollond E</td>
+          <td><a href="/atlases/pits/102">Dollond E 1d</a></td>
+          <td>-10.2738</td>
+          <td>15.7035</td>
+          <td>11</td>
+          <td>8</td>
+          <td>11</td>
+          <td>11</td>
+          <td>N/A</td>
+          <td></td>
+          <td>70</td>
+          <td>14.0</td>
+          <td>14.0</td>
+        </tr>
+        <tr>
+          <td>Fraunhofer G</td>
+          <td><a href="/atlases/pits/103">Fraunhofer G 1</a></td>
+          <td>-38.5001</td>
+          <td>58.3638</td>
+          <td>23</td>
+          <td>14</td>
+          <td>17</td>
+          <td>17</td>
+          <td>11</td>
+          <td>11</td>
+          <td>25</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>Harriot</td>
+          <td><a href="/atlases/pits/104">Harriot 1</a></td>
+          <td>33.2933</td>
+          <td>114.2911</td>
+          <td>41</td>
+          <td>34</td>
+          <td>27</td>
+          <td>27</td>
+          <td>25</td>
+          <td>25</td>
+          <td>50</td>
+          <td>9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Hayn</td>
+          <td><a href="/atlases/pits/105">Hayn 1</a></td>
+          <td>65.2233</td>
+          <td>84.2004</td>
+          <td>35</td>
+          <td>27</td>
+          <td>N/A</td>
+          <td></td>
+          <td>N/A</td>
+          <td></td>
+          <td>60</td>
+          <td>&gt;7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Highland</td>
+          <td><a href="/atlases/pits/19">Highland 1</a></td>
+          <td>43.9662</td>
+          <td>23.0836</td>
+          <td>58</td>
+          <td>49</td>
+          <td>41</td>
+          <td>41</td>
+          <td>37</td>
+          <td>37</td>
+          <td>180</td>
+          <td>27.0</td>
+          <td>27.0</td>
+        </tr>
+        <tr>
+          <td>Highland</td>
+          <td><a href="/atlases/pits/20">Highland 2</a></td>
+          <td>41.1563</td>
+          <td>18.8206</td>
+          <td>42</td>
+          <td>39</td>
+          <td>34</td>
+          <td>34</td>
+          <td>27</td>
+          <td>27</td>
+          <td>175</td>
+          <td>&gt;24.0</td>
+          <td>24.0</td>
+        </tr>
+        <tr>
+          <td>Highland</td>
+          <td><a href="/atlases/pits/21">Highland 3</a></td>
+          <td>42.3941</td>
+          <td>320.3076</td>
+          <td>66</td>
+          <td>63</td>
+          <td>45</td>
+          <td>45</td>
+          <td>41</td>
+          <td>41</td>
+          <td>35</td>
+          <td>27.0</td>
+          <td>27.0</td>
+        </tr>
+        <tr>
+          <td>Jackson</td>
+          <td><a href="/atlases/pits/106">Jackson 1a</a></td>
+          <td>22.4208</td>
+          <td>196.2868</td>
+          <td>31</td>
+          <td>20</td>
+          <td>13</td>
+          <td>13</td>
+          <td>8</td>
+          <td>8</td>
+          <td>160</td>
+          <td>19.0</td>
+          <td>19.0</td>
+        </tr>
+        <tr>
+          <td>Jackson</td>
+          <td><a href="/atlases/pits/107">Jackson 1b</a></td>
+          <td>22.4191</td>
+          <td>196.2828</td>
+          <td>51</td>
+          <td>49</td>
+          <td>30</td>
+          <td>30</td>
+          <td>26</td>
+          <td>26</td>
+          <td>60</td>
+          <td>20.0</td>
+          <td>20.0</td>
+        </tr>
+        <tr>
+          <td>Jackson</td>
+          <td><a href="/atlases/pits/108">Jackson 1c</a></td>
+          <td>22.4214</td>
+          <td>196.2907</td>
+          <td>95</td>
+          <td>45</td>
+          <td>N/A</td>
+          <td></td>
+          <td>31</td>
+          <td>31</td>
+          <td>60</td>
+          <td>15.0</td>
+          <td>15.0</td>
+        </tr>
+        <tr>
+          <td>Jackson</td>
+          <td><a href="/atlases/pits/109">Jackson 2a</a></td>
+          <td>22.4967</td>
+          <td>196.2814</td>
+          <td>44</td>
+          <td>27</td>
+          <td>25</td>
+          <td>25</td>
+          <td>15</td>
+          <td>15</td>
+          <td>40</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Jackson</td>
+          <td><a href="/atlases/pits/110">Jackson 2b</a></td>
+          <td>22.4967</td>
+          <td>196.2814</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>11</td>
+          <td>11</td>
+          <td>9</td>
+          <td>9</td>
+          <td>140</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>Jackson</td>
+          <td><a href="/atlases/pits/111">Jackson 3</a></td>
+          <td>22.1992</td>
+          <td>197.1493</td>
+          <td>34</td>
+          <td>27</td>
+          <td>18</td>
+          <td>18</td>
+          <td>11</td>
+          <td>11</td>
+          <td>165</td>
+          <td>17.0</td>
+          <td>17.0</td>
+        </tr>
+        <tr>
+          <td>Jackson</td>
+          <td><a href="/atlases/pits/112">Jackson 4</a></td>
+          <td>21.7636</td>
+          <td>197.1197</td>
+          <td>14</td>
+          <td>10</td>
+          <td>9</td>
+          <td>9</td>
+          <td>5</td>
+          <td>5</td>
+          <td>85</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Jackson</td>
+          <td><a href="/atlases/pits/113">Jackson 5</a></td>
+          <td>22.3063</td>
+          <td>197.0853</td>
+          <td>17</td>
+          <td>15</td>
+          <td>11</td>
+          <td>11</td>
+          <td>9</td>
+          <td>9</td>
+          <td>120</td>
+          <td>&gt;19.0</td>
+          <td>19.0</td>
+        </tr>
+        <tr>
+          <td>Jackson</td>
+          <td><a href="/atlases/pits/114">Jackson 6</a></td>
+          <td>22.4434</td>
+          <td>197.2553</td>
+          <td>18</td>
+          <td>16</td>
+          <td>13</td>
+          <td>13</td>
+          <td>13</td>
+          <td>13</td>
+          <td>0</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Kepler</td>
+          <td><a href="/atlases/pits/115">Kepler 1</a></td>
+          <td>8.2745</td>
+          <td>322.0501</td>
+          <td>42</td>
+          <td>33</td>
+          <td>25</td>
+          <td>25</td>
+          <td>12</td>
+          <td>12</td>
+          <td>65</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Kepler</td>
+          <td><a href="/atlases/pits/116">Kepler 2</a></td>
+          <td>8.2724</td>
+          <td>322.0248</td>
+          <td>14</td>
+          <td>11</td>
+          <td>6</td>
+          <td>6</td>
+          <td>5</td>
+          <td>5</td>
+          <td>30</td>
+          <td>9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Kepler</td>
+          <td><a href="/atlases/pits/117">Kepler 3</a></td>
+          <td>8.1636</td>
+          <td>322.0449</td>
+          <td>25</td>
+          <td>15</td>
+          <td>14</td>
+          <td>14</td>
+          <td>8</td>
+          <td>8</td>
+          <td>145</td>
+          <td>13.0</td>
+          <td>13.0</td>
+        </tr>
+        <tr>
+          <td>Kepler</td>
+          <td><a href="/atlases/pits/118">Kepler 4a</a></td>
+          <td>7.946</td>
+          <td>322.1363</td>
+          <td>70</td>
+          <td>45</td>
+          <td>56</td>
+          <td>56</td>
+          <td>38</td>
+          <td>38</td>
+          <td>30</td>
+          <td>22.0</td>
+          <td>22.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/135">King 10</a></td>
+          <td>6.2504</td>
+          <td>119.5464</td>
+          <td>25</td>
+          <td>18</td>
+          <td>15</td>
+          <td>15</td>
+          <td>13</td>
+          <td>13</td>
+          <td>55</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/136">King 11a</a></td>
+          <td>6.4593</td>
+          <td>120.0017</td>
+          <td>32</td>
+          <td>28</td>
+          <td>29</td>
+          <td>29</td>
+          <td>26</td>
+          <td>26</td>
+          <td>100</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/137">King 11b</a></td>
+          <td>6.4604</td>
+          <td>120.0023</td>
+          <td>15</td>
+          <td>14</td>
+          <td>12</td>
+          <td>12</td>
+          <td>7</td>
+          <td>7</td>
+          <td>55</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/138">King 12</a></td>
+          <td>6.2487</td>
+          <td>119.7506</td>
+          <td>33</td>
+          <td>24</td>
+          <td>26</td>
+          <td>26</td>
+          <td>22</td>
+          <td>22</td>
+          <td>165</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/139">King 13a</a></td>
+          <td>6.2538</td>
+          <td>119.7626</td>
+          <td>28</td>
+          <td>21</td>
+          <td>22</td>
+          <td>22</td>
+          <td>15</td>
+          <td>15</td>
+          <td>70</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/140">King 13b</a></td>
+          <td>6.2551</td>
+          <td>119.7615</td>
+          <td>10</td>
+          <td>8</td>
+          <td>7</td>
+          <td>7</td>
+          <td>5</td>
+          <td>5</td>
+          <td>165</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/141">King 14</a></td>
+          <td>6.2784</td>
+          <td>119.7635</td>
+          <td>94</td>
+          <td>49</td>
+          <td>48</td>
+          <td>48</td>
+          <td>38</td>
+          <td>38</td>
+          <td>20</td>
+          <td>14.0</td>
+          <td>14.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/142">King 15a</a></td>
+          <td>6.4782</td>
+          <td>119.7847</td>
+          <td>19</td>
+          <td>15</td>
+          <td>13</td>
+          <td>13</td>
+          <td>9</td>
+          <td>9</td>
+          <td>100</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/143">King 15b</a></td>
+          <td>6.4781</td>
+          <td>119.7853</td>
+          <td>15</td>
+          <td>13</td>
+          <td>12</td>
+          <td>12</td>
+          <td>7</td>
+          <td>7</td>
+          <td>60</td>
+          <td>3.0</td>
+          <td>3.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/144">King 16</a></td>
+          <td>6.3643</td>
+          <td>119.9304</td>
+          <td>57</td>
+          <td>42</td>
+          <td>47</td>
+          <td>47</td>
+          <td>29</td>
+          <td>29</td>
+          <td>160</td>
+          <td>16.0</td>
+          <td>16.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/145">King 17</a></td>
+          <td>6.6252</td>
+          <td>119.9847</td>
+          <td>14</td>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+          <td>7</td>
+          <td>7</td>
+          <td>105</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/146">King 18</a></td>
+          <td>6.6235</td>
+          <td>119.9894</td>
+          <td>19</td>
+          <td>18</td>
+          <td>14</td>
+          <td>14</td>
+          <td>12</td>
+          <td>12</td>
+          <td>160</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/147">King 19</a></td>
+          <td>6.5931</td>
+          <td>119.9861</td>
+          <td>17</td>
+          <td>15</td>
+          <td>13</td>
+          <td>13</td>
+          <td>11</td>
+          <td>11</td>
+          <td>45</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/119">King 1a</a></td>
+          <td>6.2408</td>
+          <td>119.7341</td>
+          <td>30</td>
+          <td>22</td>
+          <td>27</td>
+          <td>27</td>
+          <td>18</td>
+          <td>18</td>
+          <td>25</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/120">King 1b</a></td>
+          <td>6.2402</td>
+          <td>119.7351</td>
+          <td>32</td>
+          <td>21</td>
+          <td>28</td>
+          <td>28</td>
+          <td>18</td>
+          <td>18</td>
+          <td>120</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/148">King 20a</a></td>
+          <td>6.5098</td>
+          <td>119.9269</td>
+          <td>29</td>
+          <td>29</td>
+          <td>22</td>
+          <td>22</td>
+          <td>12</td>
+          <td>12</td>
+          <td>140</td>
+          <td>12.0</td>
+          <td>12.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/149">King 20b</a></td>
+          <td>6.5108</td>
+          <td>119.9289</td>
+          <td>29</td>
+          <td>24</td>
+          <td>23</td>
+          <td>23</td>
+          <td>23</td>
+          <td>23</td>
+          <td>180</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/150">King 20c</a></td>
+          <td>6.513</td>
+          <td>119.9269</td>
+          <td>34</td>
+          <td>19</td>
+          <td>14</td>
+          <td>14</td>
+          <td>3</td>
+          <td>3</td>
+          <td>35</td>
+          <td>&gt;6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/151">King 20d</a></td>
+          <td>6.5142</td>
+          <td>119.9266</td>
+          <td>23</td>
+          <td>11</td>
+          <td>19</td>
+          <td>19</td>
+          <td>7</td>
+          <td>7</td>
+          <td>25</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/152">King 20e</a></td>
+          <td>6.5149</td>
+          <td>119.9298</td>
+          <td>22</td>
+          <td>14</td>
+          <td>6</td>
+          <td>6</td>
+          <td>4</td>
+          <td>4</td>
+          <td>40</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/153">King 20f</a></td>
+          <td>6.5153</td>
+          <td>119.9282</td>
+          <td>21</td>
+          <td>11</td>
+          <td>10</td>
+          <td>10</td>
+          <td>5</td>
+          <td>5</td>
+          <td>35</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/154">King 20g</a></td>
+          <td>6.5165</td>
+          <td>119.9304</td>
+          <td>13</td>
+          <td>10</td>
+          <td>5</td>
+          <td>5</td>
+          <td>4</td>
+          <td>4</td>
+          <td>40</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/155">King 20h</a></td>
+          <td>6.5183</td>
+          <td>119.9299</td>
+          <td>13</td>
+          <td>7</td>
+          <td>6</td>
+          <td>6</td>
+          <td>2</td>
+          <td>2</td>
+          <td>30</td>
+          <td>&gt;4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/156">King 21</a></td>
+          <td>6.517</td>
+          <td>119.9875</td>
+          <td>19</td>
+          <td>14</td>
+          <td>15</td>
+          <td>15</td>
+          <td>9</td>
+          <td>9</td>
+          <td>125</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/157">King 22</a></td>
+          <td>6.4835</td>
+          <td>119.9941</td>
+          <td>34</td>
+          <td>24</td>
+          <td>25</td>
+          <td>25</td>
+          <td>18</td>
+          <td>18</td>
+          <td>110</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/158">King 23</a></td>
+          <td>6.3794</td>
+          <td>119.9019</td>
+          <td>18</td>
+          <td>11</td>
+          <td>15</td>
+          <td>15</td>
+          <td>9</td>
+          <td>9</td>
+          <td>120</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/159">King 24a</a></td>
+          <td>6.3416</td>
+          <td>119.9914</td>
+          <td>9</td>
+          <td>9</td>
+          <td>7</td>
+          <td>7</td>
+          <td>5</td>
+          <td>5</td>
+          <td>35</td>
+          <td>2.0</td>
+          <td>2.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/160">King 24b</a></td>
+          <td>6.34</td>
+          <td>119.9907</td>
+          <td>23</td>
+          <td>19</td>
+          <td>20</td>
+          <td>20</td>
+          <td>14</td>
+          <td>14</td>
+          <td>15</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/161">King 24c</a></td>
+          <td>6.3389</td>
+          <td>119.9913</td>
+          <td>13</td>
+          <td>12</td>
+          <td>12</td>
+          <td>12</td>
+          <td>10</td>
+          <td>10</td>
+          <td>25</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/162">King 25</a></td>
+          <td>6.2691</td>
+          <td>119.9429</td>
+          <td>15</td>
+          <td>12</td>
+          <td>12</td>
+          <td>12</td>
+          <td>8</td>
+          <td>8</td>
+          <td>145</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/163">King 26</a></td>
+          <td>6.6385</td>
+          <td>119.82</td>
+          <td>16</td>
+          <td>12</td>
+          <td>14</td>
+          <td>14</td>
+          <td>11</td>
+          <td>11</td>
+          <td>35</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/164">King 27</a></td>
+          <td>6.5044</td>
+          <td>119.8719</td>
+          <td>9</td>
+          <td>6</td>
+          <td>6</td>
+          <td>6</td>
+          <td>4</td>
+          <td>4</td>
+          <td>20</td>
+          <td>9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/165">King 28</a></td>
+          <td>6.3016</td>
+          <td>119.8593</td>
+          <td>223</td>
+          <td>20</td>
+          <td>156</td>
+          <td>156</td>
+          <td>15</td>
+          <td>15</td>
+          <td>60</td>
+          <td>22.0</td>
+          <td>22.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/166">King 29</a></td>
+          <td>6.4827</td>
+          <td>119.8145</td>
+          <td>18</td>
+          <td>15</td>
+          <td>14</td>
+          <td>14</td>
+          <td>11</td>
+          <td>11</td>
+          <td>155</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/121">King 2a</a></td>
+          <td>6.3808</td>
+          <td>119.9992</td>
+          <td>24</td>
+          <td>17</td>
+          <td>12</td>
+          <td>12</td>
+          <td>12</td>
+          <td>12</td>
+          <td>35</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/122">King 2b</a></td>
+          <td>6.3802</td>
+          <td>119.9972</td>
+          <td>19</td>
+          <td>18</td>
+          <td>15</td>
+          <td>15</td>
+          <td>9</td>
+          <td>9</td>
+          <td>160</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/167">King 30</a></td>
+          <td>6.3339</td>
+          <td>119.9937</td>
+          <td>20</td>
+          <td>15</td>
+          <td>13</td>
+          <td>13</td>
+          <td>8</td>
+          <td>8</td>
+          <td>135</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/168">King 31</a></td>
+          <td>6.5229</td>
+          <td>119.9879</td>
+          <td>12</td>
+          <td>12</td>
+          <td>9</td>
+          <td>9</td>
+          <td>6</td>
+          <td>6</td>
+          <td>25</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/169">King 32</a></td>
+          <td>6.3231</td>
+          <td>119.8067</td>
+          <td>20</td>
+          <td>16</td>
+          <td>12</td>
+          <td>12</td>
+          <td>11</td>
+          <td>11</td>
+          <td>120</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/170">King 33</a></td>
+          <td>6.4873</td>
+          <td>119.6998</td>
+          <td>19</td>
+          <td>15</td>
+          <td>15</td>
+          <td>15</td>
+          <td>11</td>
+          <td>11</td>
+          <td>135</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/171">King 34a</a></td>
+          <td>6.3372</td>
+          <td>119.9975</td>
+          <td>37</td>
+          <td>26</td>
+          <td>34</td>
+          <td>34</td>
+          <td>12</td>
+          <td>12</td>
+          <td>55</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/172">King 34b</a></td>
+          <td>6.3361</td>
+          <td>119.9972</td>
+          <td>24</td>
+          <td>21</td>
+          <td>13</td>
+          <td>13</td>
+          <td>10</td>
+          <td>10</td>
+          <td>125</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/173">King 35</a></td>
+          <td>6.4417</td>
+          <td>119.7252</td>
+          <td>44</td>
+          <td>39</td>
+          <td>35</td>
+          <td>35</td>
+          <td>24</td>
+          <td>24</td>
+          <td>5</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/174">King 36</a></td>
+          <td>6.214</td>
+          <td>119.7664</td>
+          <td>51</td>
+          <td>45</td>
+          <td>46</td>
+          <td>46</td>
+          <td>40</td>
+          <td>40</td>
+          <td>180</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/175">King 37</a></td>
+          <td>6.3814</td>
+          <td>120.0056</td>
+          <td>21</td>
+          <td>20</td>
+          <td>14</td>
+          <td>14</td>
+          <td>9</td>
+          <td>9</td>
+          <td>150</td>
+          <td>9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/176">King 38</a></td>
+          <td>6.37</td>
+          <td>119.9252</td>
+          <td>35</td>
+          <td>16</td>
+          <td>24</td>
+          <td>24</td>
+          <td>11</td>
+          <td>11</td>
+          <td>125</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/177">King 39</a></td>
+          <td>6.6308</td>
+          <td>119.9842</td>
+          <td>8</td>
+          <td>6</td>
+          <td>5</td>
+          <td>5</td>
+          <td>4</td>
+          <td>4</td>
+          <td>55</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/123">King 3a</a></td>
+          <td>6.4082</td>
+          <td>119.8108</td>
+          <td>9</td>
+          <td>8</td>
+          <td>7</td>
+          <td>7</td>
+          <td>6</td>
+          <td>6</td>
+          <td>145</td>
+          <td>3.0</td>
+          <td>3.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/124">King 3b</a></td>
+          <td>6.4081</td>
+          <td>119.8105</td>
+          <td>9</td>
+          <td>9</td>
+          <td>6</td>
+          <td>6</td>
+          <td>4</td>
+          <td>4</td>
+          <td>160</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/178">King 40</a></td>
+          <td>6.4779</td>
+          <td>119.9976</td>
+          <td>50</td>
+          <td>31</td>
+          <td>26</td>
+          <td>26</td>
+          <td>17</td>
+          <td>17</td>
+          <td>110</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/179">King 41</a></td>
+          <td>6.6376</td>
+          <td>119.8299</td>
+          <td>16</td>
+          <td>7</td>
+          <td>12</td>
+          <td>12</td>
+          <td>5</td>
+          <td>5</td>
+          <td>135</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/180">King 42</a></td>
+          <td>6.3321</td>
+          <td>120.0066</td>
+          <td>30</td>
+          <td>16</td>
+          <td>16</td>
+          <td>16</td>
+          <td>10</td>
+          <td>10</td>
+          <td>145</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/125">King 4a</a></td>
+          <td>6.2066</td>
+          <td>119.7815</td>
+          <td>28</td>
+          <td>22</td>
+          <td>20</td>
+          <td>20</td>
+          <td>16</td>
+          <td>16</td>
+          <td>55</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/126">King 4b</a></td>
+          <td>6.2061</td>
+          <td>119.7804</td>
+          <td>21</td>
+          <td>19</td>
+          <td>15</td>
+          <td>15</td>
+          <td>14</td>
+          <td>14</td>
+          <td>25</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/127">King 5</a></td>
+          <td>6.3371</td>
+          <td>119.8005</td>
+          <td>23</td>
+          <td>20</td>
+          <td>16</td>
+          <td>16</td>
+          <td>13</td>
+          <td>13</td>
+          <td>180</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/128">King 6</a></td>
+          <td>6.2776</td>
+          <td>119.7247</td>
+          <td>10</td>
+          <td>10</td>
+          <td>7</td>
+          <td>7</td>
+          <td>6</td>
+          <td>6</td>
+          <td>180</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/129">King 7</a></td>
+          <td>6.467</td>
+          <td>119.7378</td>
+          <td>16</td>
+          <td>15</td>
+          <td>14</td>
+          <td>14</td>
+          <td>11</td>
+          <td>11</td>
+          <td>35</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/130">King 8a</a></td>
+          <td>6.4369</td>
+          <td>119.8329</td>
+          <td>15</td>
+          <td>14</td>
+          <td>12</td>
+          <td>12</td>
+          <td>10</td>
+          <td>10</td>
+          <td>35</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/131">King 8b</a></td>
+          <td>6.4365</td>
+          <td>119.8335</td>
+          <td>8</td>
+          <td>8</td>
+          <td>6</td>
+          <td>6</td>
+          <td>6</td>
+          <td>6</td>
+          <td>5</td>
+          <td>17.0</td>
+          <td>17.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/132">King 8c</a></td>
+          <td>6.4412</td>
+          <td>119.8331</td>
+          <td>12</td>
+          <td>7</td>
+          <td>7</td>
+          <td>7</td>
+          <td>5</td>
+          <td>5</td>
+          <td>155</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/133">King 9a</a></td>
+          <td>6.2281</td>
+          <td>119.5237</td>
+          <td>41</td>
+          <td>15</td>
+          <td>22</td>
+          <td>22</td>
+          <td>11</td>
+          <td>11</td>
+          <td>150</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>King</td>
+          <td><a href="/atlases/pits/134">King 9b</a></td>
+          <td>6.2281</td>
+          <td>119.5214</td>
+          <td>10</td>
+          <td>9</td>
+          <td>8</td>
+          <td>8</td>
+          <td>7</td>
+          <td>7</td>
+          <td>135</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>Klute W</td>
+          <td><a href="/atlases/pits/181">Klute W 1</a></td>
+          <td>38.086</td>
+          <td>216.885</td>
+          <td>25</td>
+          <td>19</td>
+          <td>16</td>
+          <td>16</td>
+          <td>10</td>
+          <td>10</td>
+          <td>100</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Klute W</td>
+          <td><a href="/atlases/pits/182">Klute W 2</a></td>
+          <td>38.1157</td>
+          <td>216.8965</td>
+          <td>30</td>
+          <td>19</td>
+          <td>12</td>
+          <td>12</td>
+          <td>9</td>
+          <td>9</td>
+          <td>25</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Klute W</td>
+          <td><a href="/atlases/pits/183">Klute W 3</a></td>
+          <td>38.098</td>
+          <td>216.9385</td>
+          <td>20</td>
+          <td>19</td>
+          <td>18</td>
+          <td>18</td>
+          <td>13</td>
+          <td>13</td>
+          <td>145</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>Klute W</td>
+          <td><a href="/atlases/pits/184">Klute W 4</a></td>
+          <td>37.8581</td>
+          <td>216.8911</td>
+          <td>16</td>
+          <td>12</td>
+          <td>6</td>
+          <td>6</td>
+          <td>5</td>
+          <td>5</td>
+          <td>10</td>
+          <td>&gt;8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Klute W</td>
+          <td><a href="/atlases/pits/185">Klute W 5</a></td>
+          <td>38.1018</td>
+          <td>216.9323</td>
+          <td>21</td>
+          <td>14</td>
+          <td>5</td>
+          <td>5</td>
+          <td>4</td>
+          <td>4</td>
+          <td>140</td>
+          <td>2.0</td>
+          <td>2.0</td>
+        </tr>
+        <tr>
+          <td>Klute W</td>
+          <td><a href="/atlases/pits/186">Klute W 6</a></td>
+          <td>38.1256</td>
+          <td>216.901</td>
+          <td>53</td>
+          <td>29</td>
+          <td>28</td>
+          <td>28</td>
+          <td>12</td>
+          <td>12</td>
+          <td>55</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Lacus Mortis</td>
+          <td><a href="/atlases/pits/8">Lacus Mortis Pit</a></td>
+          <td>44.9608</td>
+          <td>25.6119</td>
+          <td>280</td>
+          <td>210</td>
+          <td>N/A</td>
+          <td></td>
+          <td>110</td>
+          <td>110</td>
+          <td>110</td>
+          <td>60.0</td>
+          <td>60.0</td>
+        </tr>
+        <tr>
+          <td>Lalande</td>
+          <td><a href="/atlases/pits/187">Lalande 1</a></td>
+          <td>-4.4579</td>
+          <td>351.4667</td>
+          <td>21</td>
+          <td>15</td>
+          <td>7</td>
+          <td>7</td>
+          <td>N/A</td>
+          <td></td>
+          <td>40</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Lalande</td>
+          <td><a href="/atlases/pits/193">Lalande 12</a></td>
+          <td>-4.4275</td>
+          <td>351.4436</td>
+          <td>11</td>
+          <td>9</td>
+          <td>8</td>
+          <td>8</td>
+          <td>4</td>
+          <td>4</td>
+          <td>150</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>Lalande</td>
+          <td><a href="/atlases/pits/194">Lalande 13</a></td>
+          <td>-4.3571</td>
+          <td>351.3054</td>
+          <td>N/A</td>
+          <td>16</td>
+          <td>13</td>
+          <td>13</td>
+          <td>10</td>
+          <td>10</td>
+          <td>25</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Lalande</td>
+          <td><a href="/atlases/pits/188">Lalande 2</a></td>
+          <td>-4.4949</td>
+          <td>351.4992</td>
+          <td>22</td>
+          <td>15</td>
+          <td>19</td>
+          <td>19</td>
+          <td>12</td>
+          <td>12</td>
+          <td>15</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>Lalande</td>
+          <td><a href="/atlases/pits/189">Lalande 3a</a></td>
+          <td>-4.5322</td>
+          <td>351.4893</td>
+          <td>13</td>
+          <td>10</td>
+          <td>8</td>
+          <td>8</td>
+          <td>7</td>
+          <td>7</td>
+          <td>45</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Lalande</td>
+          <td><a href="/atlases/pits/190">Lalande 3b</a></td>
+          <td>-4.5328</td>
+          <td>351.4895</td>
+          <td>31</td>
+          <td>28</td>
+          <td>28</td>
+          <td>28</td>
+          <td>23</td>
+          <td>23</td>
+          <td>40</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>Lalande</td>
+          <td><a href="/atlases/pits/191">Lalande 3c</a></td>
+          <td>-4.5312</td>
+          <td>351.49</td>
+          <td>23</td>
+          <td>20</td>
+          <td>16</td>
+          <td>16</td>
+          <td>15</td>
+          <td>15</td>
+          <td>125</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Lalande</td>
+          <td><a href="/atlases/pits/192">Lalande 5a</a></td>
+          <td>-4.3408</td>
+          <td>351.4229</td>
+          <td>13</td>
+          <td>12</td>
+          <td>7</td>
+          <td>7</td>
+          <td>6</td>
+          <td>6</td>
+          <td>125</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>Mare Ingenii</td>
+          <td><a href="/atlases/pits/6">Mare Ingenii Pit</a></td>
+          <td>-35.9494</td>
+          <td>166.0559</td>
+          <td>180</td>
+          <td>157</td>
+          <td>104</td>
+          <td>104</td>
+          <td>71</td>
+          <td>71</td>
+          <td>30</td>
+          <td>55.0</td>
+          <td>55.0</td>
+        </tr>
+        <tr>
+          <td>Mare Insularum</td>
+          <td><a href="/atlases/pits/13">Mare Insularum Pit</a></td>
+          <td>8.6861</td>
+          <td>330.9665</td>
+          <td>315</td>
+          <td>255</td>
+          <td>N/A</td>
+          <td></td>
+          <td>159</td>
+          <td>159</td>
+          <td>65</td>
+          <td>63.0</td>
+          <td>63.0</td>
+        </tr>
+        <tr>
+          <td>Mare Moscoviense</td>
+          <td><a href="/atlases/pits/14">Mare Moscoviense Pit</a></td>
+          <td>29.5025</td>
+          <td>150.4647</td>
+          <td>205</td>
+          <td>205</td>
+          <td>175</td>
+          <td>175</td>
+          <td>160</td>
+          <td>160</td>
+          <td>170</td>
+          <td>40.0</td>
+          <td>40.0</td>
+        </tr>
+        <tr>
+          <td>Mare Serenitatis</td>
+          <td><a href="/atlases/pits/15">Mare Serenitatis Pit</a></td>
+          <td>35.1041</td>
+          <td>17.4017</td>
+          <td>60</td>
+          <td>55</td>
+          <td>21</td>
+          <td>21</td>
+          <td>17</td>
+          <td>17</td>
+          <td>85</td>
+          <td>&gt;25.0</td>
+          <td>25.0</td>
+        </tr>
+        <tr>
+          <td>Mare Tranquillitatis</td>
+          <td><a href="/atlases/pits/3">Mare Tranquillitatis Pit</a></td>
+          <td>8.3355</td>
+          <td>33.222</td>
+          <td>146</td>
+          <td>140</td>
+          <td>100</td>
+          <td>100</td>
+          <td>88</td>
+          <td>88</td>
+          <td>170</td>
+          <td>105.0</td>
+          <td>105.0</td>
+        </tr>
+        <tr>
+          <td>Marius Hills</td>
+          <td><a href="/atlases/pits/1">Marius Hills Pit</a></td>
+          <td>14.0917</td>
+          <td>303.2299</td>
+          <td>92</td>
+          <td>79</td>
+          <td>55</td>
+          <td>55</td>
+          <td>49</td>
+          <td>49</td>
+          <td>65</td>
+          <td>40.0</td>
+          <td>40.0</td>
+        </tr>
+        <tr>
+          <td>Messier A</td>
+          <td><a href="/atlases/pits/195">Messier A 1</a></td>
+          <td>-2.0279</td>
+          <td>46.8995</td>
+          <td>13</td>
+          <td>9</td>
+          <td>8</td>
+          <td>8</td>
+          <td>4</td>
+          <td>4</td>
+          <td>50</td>
+          <td>15.0</td>
+          <td>15.0</td>
+        </tr>
+        <tr>
+          <td>Messier A</td>
+          <td><a href="/atlases/pits/197">Messier A 2a</a></td>
+          <td>-2.014</td>
+          <td>46.9059</td>
+          <td>22</td>
+          <td>21</td>
+          <td>20</td>
+          <td>20</td>
+          <td>17</td>
+          <td>17</td>
+          <td>125</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Messier A</td>
+          <td><a href="/atlases/pits/196">Messier A 2b</a></td>
+          <td>-2.0166</td>
+          <td>46.9017</td>
+          <td>11</td>
+          <td>8</td>
+          <td>5</td>
+          <td>5</td>
+          <td>4</td>
+          <td>4</td>
+          <td>160</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Messier A</td>
+          <td><a href="/atlases/pits/198">Messier A 4a</a></td>
+          <td>-2.044</td>
+          <td>46.8825</td>
+          <td>33</td>
+          <td>14</td>
+          <td>22</td>
+          <td>22</td>
+          <td>9</td>
+          <td>9</td>
+          <td>175</td>
+          <td>14.0</td>
+          <td>14.0</td>
+        </tr>
+        <tr>
+          <td>Messier A</td>
+          <td><a href="/atlases/pits/199">Messier A 4b</a></td>
+          <td>-2.0459</td>
+          <td>46.8839</td>
+          <td>N/A</td>
+          <td>16</td>
+          <td>16</td>
+          <td>16</td>
+          <td>13</td>
+          <td>13</td>
+          <td>155</td>
+          <td>&gt;20.0</td>
+          <td>20.0</td>
+        </tr>
+        <tr>
+          <td>Milichius A</td>
+          <td><a href="/atlases/pits/200">Milichius A 1</a></td>
+          <td>9.2642</td>
+          <td>327.9268</td>
+          <td>21</td>
+          <td>14</td>
+          <td>17</td>
+          <td>17</td>
+          <td>9</td>
+          <td>9</td>
+          <td>135</td>
+          <td>9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Oceanus Procellarum</td>
+          <td><a href="/atlases/pits/10">North Procellarum 1 Pit</a></td>
+          <td>35.4097</td>
+          <td>314.3602</td>
+          <td>195</td>
+          <td>175</td>
+          <td>157</td>
+          <td>157</td>
+          <td>108</td>
+          <td>108</td>
+          <td>5</td>
+          <td>54.0</td>
+          <td>54.0</td>
+        </tr>
+        <tr>
+          <td>Oceanus Procellarum</td>
+          <td><a href="/atlases/pits/11">North Procellarum 2 Pit</a></td>
+          <td>35.3433</td>
+          <td>314.3447</td>
+          <td>175</td>
+          <td>170</td>
+          <td>160</td>
+          <td>160</td>
+          <td>155</td>
+          <td>155</td>
+          <td>180</td>
+          <td>43.0</td>
+          <td>43.0</td>
+        </tr>
+        <tr>
+          <td>Oday</td>
+          <td><a href="/atlases/pits/201">Oday 1</a></td>
+          <td>-30.9692</td>
+          <td>158.0535</td>
+          <td>20</td>
+          <td>14</td>
+          <td>17</td>
+          <td>17</td>
+          <td>9</td>
+          <td>9</td>
+          <td>145</td>
+          <td>&gt;7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Oday</td>
+          <td><a href="/atlases/pits/202">Oday 2</a></td>
+          <td>-30.9463</td>
+          <td>158.0644</td>
+          <td>34</td>
+          <td>16</td>
+          <td>14</td>
+          <td>14</td>
+          <td>12</td>
+          <td>12</td>
+          <td>25</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>Ohm</td>
+          <td><a href="/atlases/pits/203">Ohm 1</a></td>
+          <td>18.0805</td>
+          <td>246.3187</td>
+          <td>31</td>
+          <td>30</td>
+          <td>15</td>
+          <td>15</td>
+          <td>13</td>
+          <td>13</td>
+          <td>130</td>
+          <td>&gt;16.0</td>
+          <td>16.0</td>
+        </tr>
+        <tr>
+          <td>Ohm</td>
+          <td><a href="/atlases/pits/204">Ohm 2</a></td>
+          <td>18.6687</td>
+          <td>246.4141</td>
+          <td>36</td>
+          <td>26</td>
+          <td>12</td>
+          <td>12</td>
+          <td>N/A</td>
+          <td></td>
+          <td>75</td>
+          <td>16.0</td>
+          <td>16.0</td>
+        </tr>
+        <tr>
+          <td>Palitzsch B</td>
+          <td><a href="/atlases/pits/205">Palitzsch B 1</a></td>
+          <td>-26.3162</td>
+          <td>68.1911</td>
+          <td>32</td>
+          <td>28</td>
+          <td>15</td>
+          <td>15</td>
+          <td>14</td>
+          <td>14</td>
+          <td>175</td>
+          <td>13.0</td>
+          <td>13.0</td>
+        </tr>
+        <tr>
+          <td>Philolaus</td>
+          <td><a href="/atlases/pits/207">Philolaus 1</a></td>
+          <td>72.4657</td>
+          <td>328.5804</td>
+          <td>37</td>
+          <td>37</td>
+          <td>N/A</td>
+          <td></td>
+          <td>N/A</td>
+          <td></td>
+          <td>180</td>
+          <td>&gt;8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Picard</td>
+          <td><a href="/atlases/pits/206">Picard 1</a></td>
+          <td>14.4714</td>
+          <td>54.6591</td>
+          <td>25</td>
+          <td>17</td>
+          <td>12</td>
+          <td>12</td>
+          <td>8</td>
+          <td>8</td>
+          <td>135</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Proclus</td>
+          <td><a href="/atlases/pits/208">Proclus 1a</a></td>
+          <td>16.2972</td>
+          <td>46.8941</td>
+          <td>40</td>
+          <td>32</td>
+          <td>33</td>
+          <td>33</td>
+          <td>18</td>
+          <td>18</td>
+          <td>135</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>Proclus</td>
+          <td><a href="/atlases/pits/209">Proclus 1b</a></td>
+          <td>16.2959</td>
+          <td>46.8916</td>
+          <td>42</td>
+          <td>30</td>
+          <td>36</td>
+          <td>36</td>
+          <td>23</td>
+          <td>23</td>
+          <td>175</td>
+          <td>14.0</td>
+          <td>14.0</td>
+        </tr>
+        <tr>
+          <td>Runge Crater</td>
+          <td><a href="/atlases/pits/7">Runge Pit</a></td>
+          <td>-2.7024</td>
+          <td>86.78</td>
+          <td>31</td>
+          <td>28</td>
+          <td>14</td>
+          <td>14</td>
+          <td>12</td>
+          <td>12</td>
+          <td>165</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Rutherfurd</td>
+          <td><a href="/atlases/pits/210">Rutherfurd 1a</a></td>
+          <td>-60.7788</td>
+          <td>348.1876</td>
+          <td>18</td>
+          <td>17</td>
+          <td>14</td>
+          <td>14</td>
+          <td>13</td>
+          <td>13</td>
+          <td>70</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Rutherfurd</td>
+          <td><a href="/atlases/pits/211">Rutherfurd 1b</a></td>
+          <td>-60.7789</td>
+          <td>348.1862</td>
+          <td>15</td>
+          <td>14</td>
+          <td>9</td>
+          <td>9</td>
+          <td>N/A</td>
+          <td></td>
+          <td>65</td>
+          <td>&gt;3.0</td>
+          <td>3.0</td>
+        </tr>
+        <tr>
+          <td>Rutherfurd</td>
+          <td><a href="/atlases/pits/212">Rutherfurd 2</a></td>
+          <td>-60.7757</td>
+          <td>348.253</td>
+          <td>36</td>
+          <td>30</td>
+          <td>24</td>
+          <td>24</td>
+          <td>19</td>
+          <td>19</td>
+          <td>10</td>
+          <td>9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Rutherfurd</td>
+          <td><a href="/atlases/pits/213">Rutherfurd 3</a></td>
+          <td>-60.7751</td>
+          <td>348.2076</td>
+          <td>31</td>
+          <td>18</td>
+          <td>18</td>
+          <td>18</td>
+          <td>8</td>
+          <td>8</td>
+          <td>70</td>
+          <td>3.0</td>
+          <td>3.0</td>
+        </tr>
+        <tr>
+          <td>Schlüter Crater</td>
+          <td><a href="/atlases/pits/18">Schlüter Pit</a></td>
+          <td>-5.8395</td>
+          <td>276.95</td>
+          <td>63</td>
+          <td>50</td>
+          <td>37</td>
+          <td>37</td>
+          <td>23</td>
+          <td>23</td>
+          <td>130</td>
+          <td>57.0</td>
+          <td>57.0</td>
+        </tr>
+        <tr>
+          <td>Schomberger A</td>
+          <td><a href="/atlases/pits/214">Schomberger A 1</a></td>
+          <td>-78.0579</td>
+          <td>25.3441</td>
+          <td>13</td>
+          <td>9</td>
+          <td>10</td>
+          <td>10</td>
+          <td>6</td>
+          <td>6</td>
+          <td>70</td>
+          <td>&gt;1.0</td>
+          <td>1.0</td>
+        </tr>
+        <tr>
+          <td>Sharonov</td>
+          <td><a href="/atlases/pits/215">Sharonov 1a</a></td>
+          <td>12.5745</td>
+          <td>173.4036</td>
+          <td>19</td>
+          <td>13</td>
+          <td>7</td>
+          <td>7</td>
+          <td>6</td>
+          <td>6</td>
+          <td>20</td>
+          <td>&gt;12.0</td>
+          <td>12.0</td>
+        </tr>
+        <tr>
+          <td>Sharonov</td>
+          <td><a href="/atlases/pits/216">Sharonov 1b</a></td>
+          <td>12.5762</td>
+          <td>173.4015</td>
+          <td>15</td>
+          <td>12</td>
+          <td>7</td>
+          <td>7</td>
+          <td>6</td>
+          <td>6</td>
+          <td>45</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Sinus Iridum</td>
+          <td><a href="/atlases/pits/12">Sinus Iridum Pit</a></td>
+          <td>45.623</td>
+          <td>331.189</td>
+          <td>145</td>
+          <td>125</td>
+          <td>66</td>
+          <td>66</td>
+          <td>32</td>
+          <td>32</td>
+          <td>120</td>
+          <td>16.0</td>
+          <td>16.0</td>
+        </tr>
+        <tr>
+          <td>Mare Fecunditatis</td>
+          <td><a href="/atlases/pits/17">Southwest Mare Fecunditatis Pit</a></td>
+          <td>-6.7521</td>
+          <td>42.7595</td>
+          <td>90</td>
+          <td>79</td>
+          <td>19</td>
+          <td>19</td>
+          <td>15</td>
+          <td>15</td>
+          <td>95</td>
+          <td>51.0</td>
+          <td>51.0</td>
+        </tr>
+        <tr>
+          <td>Mare Tranquillitatis</td>
+          <td><a href="/atlases/pits/5">Southwest Mare Tranquillitatis B Pit</a></td>
+          <td>4.1438</td>
+          <td>24.6867</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>18</td>
+          <td>18</td>
+          <td>10</td>
+          <td>10</td>
+          <td>175</td>
+          <td>13.0</td>
+          <td>13.0</td>
+        </tr>
+        <tr>
+          <td>Mare Tranquillitatis</td>
+          <td><a href="/atlases/pits/4">Southwest Mare Tranquillitatis Pit</a></td>
+          <td>4.1438</td>
+          <td>24.6871</td>
+          <td>100</td>
+          <td>80</td>
+          <td>32</td>
+          <td>32</td>
+          <td>26</td>
+          <td>26</td>
+          <td>165</td>
+          <td>25.0</td>
+          <td>25.0</td>
+        </tr>
+        <tr>
+          <td>Stefan L</td>
+          <td><a href="/atlases/pits/217">Stefan L 1</a></td>
+          <td>44.537</td>
+          <td>252.0302</td>
+          <td>41</td>
+          <td>39</td>
+          <td>16</td>
+          <td>16</td>
+          <td>N/A</td>
+          <td></td>
+          <td>30</td>
+          <td>13.0</td>
+          <td>13.0</td>
+        </tr>
+        <tr>
+          <td>Stefan L</td>
+          <td><a href="/atlases/pits/218">Stefan L 2</a></td>
+          <td>44.4982</td>
+          <td>251.8344</td>
+          <td>30</td>
+          <td>28</td>
+          <td>20</td>
+          <td>20</td>
+          <td>19</td>
+          <td>19</td>
+          <td>80</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/219">Stevinus 1</a></td>
+          <td>-32.4259</td>
+          <td>54.6378</td>
+          <td>69</td>
+          <td>39</td>
+          <td>60</td>
+          <td>60</td>
+          <td>33</td>
+          <td>33</td>
+          <td>135</td>
+          <td>16.0</td>
+          <td>16.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/229">Stevinus 10</a></td>
+          <td>-32.9383</td>
+          <td>54.7378</td>
+          <td>16</td>
+          <td>10</td>
+          <td>7</td>
+          <td>7</td>
+          <td>5</td>
+          <td>5</td>
+          <td>130</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/230">Stevinus 11</a></td>
+          <td>-32.3302</td>
+          <td>54.7743</td>
+          <td>15</td>
+          <td>14</td>
+          <td>6</td>
+          <td>6</td>
+          <td>4</td>
+          <td>4</td>
+          <td>30</td>
+          <td>&gt;6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/231">Stevinus 12</a></td>
+          <td>-32.3174</td>
+          <td>54.746</td>
+          <td>30</td>
+          <td>24</td>
+          <td>24</td>
+          <td>24</td>
+          <td>18</td>
+          <td>18</td>
+          <td>100</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/232">Stevinus 13</a></td>
+          <td>-32.449</td>
+          <td>54.6446</td>
+          <td>8</td>
+          <td>7</td>
+          <td>4</td>
+          <td>4</td>
+          <td>4</td>
+          <td>4</td>
+          <td>0</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/233">Stevinus 14a</a></td>
+          <td>-32.1634</td>
+          <td>54.7124</td>
+          <td>20</td>
+          <td>16</td>
+          <td>14</td>
+          <td>14</td>
+          <td>12</td>
+          <td>12</td>
+          <td>115</td>
+          <td>14.0</td>
+          <td>14.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/234">Stevinus 14b</a></td>
+          <td>-32.1643</td>
+          <td>54.7118</td>
+          <td>12</td>
+          <td>9</td>
+          <td>9</td>
+          <td>9</td>
+          <td>7</td>
+          <td>7</td>
+          <td>65</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/235">Stevinus 15</a></td>
+          <td>-32.3568</td>
+          <td>54.9433</td>
+          <td>42</td>
+          <td>34</td>
+          <td>18</td>
+          <td>18</td>
+          <td>11</td>
+          <td>11</td>
+          <td>40</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/236">Stevinus 16</a></td>
+          <td>-32.1817</td>
+          <td>54.5943</td>
+          <td>28</td>
+          <td>23</td>
+          <td>17</td>
+          <td>17</td>
+          <td>13</td>
+          <td>13</td>
+          <td>115</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/237">Stevinus 17</a></td>
+          <td>-32.3695</td>
+          <td>53.6121</td>
+          <td>18</td>
+          <td>14</td>
+          <td>5</td>
+          <td>5</td>
+          <td>4</td>
+          <td>4</td>
+          <td>30</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/238">Stevinus 18</a></td>
+          <td>-32.1226</td>
+          <td>54.8746</td>
+          <td>21</td>
+          <td>13</td>
+          <td>9</td>
+          <td>9</td>
+          <td>9</td>
+          <td>9</td>
+          <td>140</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/239">Stevinus 19</a></td>
+          <td>-32.9337</td>
+          <td>53.7983</td>
+          <td>25</td>
+          <td>14</td>
+          <td>16</td>
+          <td>16</td>
+          <td>6</td>
+          <td>6</td>
+          <td>120</td>
+          <td>&gt;13.0</td>
+          <td>13.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/220">Stevinus 2</a></td>
+          <td>-32.4828</td>
+          <td>54.5722</td>
+          <td>22</td>
+          <td>18</td>
+          <td>9</td>
+          <td>9</td>
+          <td>4</td>
+          <td>4</td>
+          <td>15</td>
+          <td>&gt;7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/240">Stevinus 22</a></td>
+          <td>-32.9349</td>
+          <td>53.9595</td>
+          <td>44</td>
+          <td>41</td>
+          <td>38</td>
+          <td>38</td>
+          <td>35</td>
+          <td>35</td>
+          <td>40</td>
+          <td>9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/241">Stevinus 23</a></td>
+          <td>-32.9642</td>
+          <td>54.0249</td>
+          <td>14</td>
+          <td>14</td>
+          <td>7</td>
+          <td>7</td>
+          <td>4</td>
+          <td>4</td>
+          <td>30</td>
+          <td>&gt;8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/242">Stevinus 24</a></td>
+          <td>-32.7823</td>
+          <td>54.2992</td>
+          <td>12</td>
+          <td>12</td>
+          <td>N/A</td>
+          <td></td>
+          <td>N/A</td>
+          <td></td>
+          <td>0</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/243">Stevinus 25</a></td>
+          <td>-32.7393</td>
+          <td>54.2171</td>
+          <td>14</td>
+          <td>13</td>
+          <td>4</td>
+          <td>4</td>
+          <td>4</td>
+          <td>4</td>
+          <td>0</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/244">Stevinus 26</a></td>
+          <td>-32.1328</td>
+          <td>54.865</td>
+          <td>13</td>
+          <td>10</td>
+          <td>7</td>
+          <td>7</td>
+          <td>3</td>
+          <td>3</td>
+          <td>35</td>
+          <td>&gt;9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/221">Stevinus 3</a></td>
+          <td>-32.8592</td>
+          <td>54.0796</td>
+          <td>56</td>
+          <td>45</td>
+          <td>15</td>
+          <td>15</td>
+          <td>6</td>
+          <td>6</td>
+          <td>40</td>
+          <td>9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/222">Stevinus 4</a></td>
+          <td>-32.7245</td>
+          <td>54.1735</td>
+          <td>15</td>
+          <td>15</td>
+          <td>11</td>
+          <td>11</td>
+          <td>10</td>
+          <td>10</td>
+          <td>30</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/223">Stevinus 5</a></td>
+          <td>-32.4519</td>
+          <td>54.6746</td>
+          <td>18</td>
+          <td>17</td>
+          <td>6</td>
+          <td>6</td>
+          <td>6</td>
+          <td>6</td>
+          <td>0</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/224">Stevinus 6</a></td>
+          <td>-32.3828</td>
+          <td>54.6579</td>
+          <td>13</td>
+          <td>8</td>
+          <td>7</td>
+          <td>7</td>
+          <td>4</td>
+          <td>4</td>
+          <td>45</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/225">Stevinus 7</a></td>
+          <td>-32.3554</td>
+          <td>54.7126</td>
+          <td>14</td>
+          <td>12</td>
+          <td>7</td>
+          <td>7</td>
+          <td>4</td>
+          <td>4</td>
+          <td>103</td>
+          <td>&gt;7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/226">Stevinus 8</a></td>
+          <td>-32.3088</td>
+          <td>54.6614</td>
+          <td>10</td>
+          <td>8</td>
+          <td>5</td>
+          <td>5</td>
+          <td>4</td>
+          <td>4</td>
+          <td>130</td>
+          <td>&gt;6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/227">Stevinus 9a</a></td>
+          <td>-32.9401</td>
+          <td>54.7446</td>
+          <td>22</td>
+          <td>13</td>
+          <td>7</td>
+          <td>7</td>
+          <td>7</td>
+          <td>7</td>
+          <td>145</td>
+          <td>6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>Stevinus</td>
+          <td><a href="/atlases/pits/228">Stevinus 9b</a></td>
+          <td>-32.9401</td>
+          <td>54.7446</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>6</td>
+          <td>6</td>
+          <td>4</td>
+          <td>4</td>
+          <td>155</td>
+          <td>&gt;9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Tharp</td>
+          <td><a href="/atlases/pits/245">Tharp 1a</a></td>
+          <td>-30.6002</td>
+          <td>145.6809</td>
+          <td>140</td>
+          <td>121</td>
+          <td>116</td>
+          <td>116</td>
+          <td>88</td>
+          <td>88</td>
+          <td>10</td>
+          <td>23.0</td>
+          <td>23.0</td>
+        </tr>
+        <tr>
+          <td>Tharp</td>
+          <td><a href="/atlases/pits/246">Tharp 1b</a></td>
+          <td>-30.5999</td>
+          <td>145.6841</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>21</td>
+          <td>21</td>
+          <td>10</td>
+          <td>10</td>
+          <td>75</td>
+          <td>&gt;16.0</td>
+          <td>16.0</td>
+        </tr>
+        <tr>
+          <td>Tharp</td>
+          <td><a href="/atlases/pits/247">Tharp 2</a></td>
+          <td>-30.5395</td>
+          <td>145.5548</td>
+          <td>91</td>
+          <td>70</td>
+          <td>88</td>
+          <td>88</td>
+          <td>56</td>
+          <td>56</td>
+          <td>20</td>
+          <td>24.0</td>
+          <td>24.0</td>
+        </tr>
+        <tr>
+          <td>Tharp</td>
+          <td><a href="/atlases/pits/248">Tharp 3</a></td>
+          <td>-30.5713</td>
+          <td>145.6634</td>
+          <td>40</td>
+          <td>37</td>
+          <td>31</td>
+          <td>31</td>
+          <td>N/A</td>
+          <td></td>
+          <td>60</td>
+          <td>16.0</td>
+          <td>16.0</td>
+        </tr>
+        <tr>
+          <td>Tharp</td>
+          <td><a href="/atlases/pits/249">Tharp 4</a></td>
+          <td>-30.6063</td>
+          <td>145.7057</td>
+          <td>12</td>
+          <td>12</td>
+          <td>10</td>
+          <td>10</td>
+          <td>8</td>
+          <td>8</td>
+          <td>60</td>
+          <td>9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Tharp</td>
+          <td><a href="/atlases/pits/250">Tharp 5</a></td>
+          <td>-30.6106</td>
+          <td>145.7199</td>
+          <td>17</td>
+          <td>17</td>
+          <td>14</td>
+          <td>14</td>
+          <td>12</td>
+          <td>12</td>
+          <td>55</td>
+          <td>12.0</td>
+          <td>12.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/262">Tycho 12</a></td>
+          <td>-43.2169</td>
+          <td>349.5787</td>
+          <td>47</td>
+          <td>31</td>
+          <td>34</td>
+          <td>34</td>
+          <td>16</td>
+          <td>16</td>
+          <td>50</td>
+          <td>15.0</td>
+          <td>15.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/263">Tycho 13</a></td>
+          <td>-43.1399</td>
+          <td>348.2689</td>
+          <td>45</td>
+          <td>39</td>
+          <td>33</td>
+          <td>33</td>
+          <td>27</td>
+          <td>27</td>
+          <td>180</td>
+          <td>12.0</td>
+          <td>12.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/264">Tycho 14</a></td>
+          <td>-43.1467</td>
+          <td>349.0718</td>
+          <td>30</td>
+          <td>27</td>
+          <td>16</td>
+          <td>16</td>
+          <td>10</td>
+          <td>10</td>
+          <td>160</td>
+          <td>&gt;12.0</td>
+          <td>12.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/265">Tycho 15a</a></td>
+          <td>-43.1445</td>
+          <td>349.6332</td>
+          <td>27</td>
+          <td>16</td>
+          <td>18</td>
+          <td>18</td>
+          <td>9</td>
+          <td>9</td>
+          <td>95</td>
+          <td>4.0</td>
+          <td>4.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/266">Tycho 15b</a></td>
+          <td>-43.1456</td>
+          <td>349.6325</td>
+          <td>37</td>
+          <td>22</td>
+          <td>26</td>
+          <td>26</td>
+          <td>6</td>
+          <td>6</td>
+          <td>40</td>
+          <td>&gt;9.0</td>
+          <td>9.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/267">Tycho 16</a></td>
+          <td>-43.102</td>
+          <td>347.7799</td>
+          <td>68</td>
+          <td>48</td>
+          <td>60</td>
+          <td>60</td>
+          <td>40</td>
+          <td>40</td>
+          <td>165</td>
+          <td>18.0</td>
+          <td>18.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/268">Tycho 17a</a></td>
+          <td>-43.0855</td>
+          <td>348.2422</td>
+          <td>86</td>
+          <td>61</td>
+          <td>72</td>
+          <td>72</td>
+          <td>42</td>
+          <td>42</td>
+          <td>50</td>
+          <td>16.0</td>
+          <td>16.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/269">Tycho 17b</a></td>
+          <td>-43.0794</td>
+          <td>348.2427</td>
+          <td>98</td>
+          <td>76</td>
+          <td>68</td>
+          <td>68</td>
+          <td>53</td>
+          <td>53</td>
+          <td>50</td>
+          <td>20.0</td>
+          <td>20.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/270">Tycho 18</a></td>
+          <td>-43.2779</td>
+          <td>347.8259</td>
+          <td>70</td>
+          <td>61</td>
+          <td>61</td>
+          <td>61</td>
+          <td>40</td>
+          <td>40</td>
+          <td>10</td>
+          <td>17.0</td>
+          <td>17.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/271">Tycho 19</a></td>
+          <td>-43.0996</td>
+          <td>349.4182</td>
+          <td>15</td>
+          <td>14</td>
+          <td>11</td>
+          <td>11</td>
+          <td>9</td>
+          <td>9</td>
+          <td>180</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/251">Tycho 2</a></td>
+          <td>-42.5978</td>
+          <td>347.8196</td>
+          <td>18</td>
+          <td>12</td>
+          <td>13</td>
+          <td>13</td>
+          <td>6</td>
+          <td>6</td>
+          <td>15</td>
+          <td>3.0</td>
+          <td>3.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/272">Tycho 29a</a></td>
+          <td>-42.8468</td>
+          <td>348.5424</td>
+          <td>20</td>
+          <td>12</td>
+          <td>18</td>
+          <td>18</td>
+          <td>9</td>
+          <td>9</td>
+          <td>50</td>
+          <td>&gt;10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/273">Tycho 29b</a></td>
+          <td>-42.8473</td>
+          <td>348.5415</td>
+          <td>18</td>
+          <td>14</td>
+          <td>14</td>
+          <td>14</td>
+          <td>9</td>
+          <td>9</td>
+          <td>140</td>
+          <td>8.0</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/274">Tycho 29c</a></td>
+          <td>-42.8478</td>
+          <td>348.5405</td>
+          <td>37</td>
+          <td>35</td>
+          <td>25</td>
+          <td>25</td>
+          <td>17</td>
+          <td>17</td>
+          <td>50</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/252">Tycho 3</a></td>
+          <td>-42.9449</td>
+          <td>347.7857</td>
+          <td>43</td>
+          <td>40</td>
+          <td>18</td>
+          <td>18</td>
+          <td>9</td>
+          <td>9</td>
+          <td>50</td>
+          <td>&gt;6.0</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/253">Tycho 5a</a></td>
+          <td>-42.6199</td>
+          <td>348.6332</td>
+          <td>54</td>
+          <td>35</td>
+          <td>31</td>
+          <td>31</td>
+          <td>21</td>
+          <td>21</td>
+          <td>70</td>
+          <td>22.0</td>
+          <td>22.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/254">Tycho 5b</a></td>
+          <td>-42.6179</td>
+          <td>348.6363</td>
+          <td>86</td>
+          <td>50</td>
+          <td>77</td>
+          <td>77</td>
+          <td>42</td>
+          <td>42</td>
+          <td>50</td>
+          <td>15.0</td>
+          <td>15.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/255">Tycho 5c</a></td>
+          <td>-42.6152</td>
+          <td>348.6417</td>
+          <td>57</td>
+          <td>34</td>
+          <td>N/A</td>
+          <td></td>
+          <td>N/A</td>
+          <td></td>
+          <td>90</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/256">Tycho 5d</a></td>
+          <td>-42.612</td>
+          <td>348.6483</td>
+          <td>88</td>
+          <td>51</td>
+          <td>62</td>
+          <td>62</td>
+          <td>37</td>
+          <td>37</td>
+          <td>60</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/257">Tycho 5e</a></td>
+          <td>-42.6218</td>
+          <td>348.6372</td>
+          <td>20</td>
+          <td>19</td>
+          <td>15</td>
+          <td>15</td>
+          <td>14</td>
+          <td>14</td>
+          <td>60</td>
+          <td>5.0</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/258">Tycho 6</a></td>
+          <td>-42.8894</td>
+          <td>349.3296</td>
+          <td>30</td>
+          <td>27</td>
+          <td>20</td>
+          <td>20</td>
+          <td>19</td>
+          <td>19</td>
+          <td>120</td>
+          <td>7.0</td>
+          <td>7.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/259">Tycho 7</a></td>
+          <td>-42.8468</td>
+          <td>348.5347</td>
+          <td>24</td>
+          <td>21</td>
+          <td>16</td>
+          <td>16</td>
+          <td>12</td>
+          <td>12</td>
+          <td>50</td>
+          <td>&gt;15.0</td>
+          <td>15.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/260">Tycho 8</a></td>
+          <td>-42.7882</td>
+          <td>348.7741</td>
+          <td>42</td>
+          <td>37</td>
+          <td>8</td>
+          <td>8</td>
+          <td>8</td>
+          <td>8</td>
+          <td>135</td>
+          <td>10.0</td>
+          <td>10.0</td>
+        </tr>
+        <tr>
+          <td>Tycho</td>
+          <td><a href="/atlases/pits/261">Tycho 9</a></td>
+          <td>-42.6506</td>
+          <td>349.5415</td>
+          <td>77</td>
+          <td>29</td>
+          <td>58</td>
+          <td>58</td>
+          <td>16</td>
+          <td>16</td>
+          <td>100</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>Virtanen F</td>
+          <td><a href="/atlases/pits/275">Virtanen F 1</a></td>
+          <td>15.7946</td>
+          <td>177.2069</td>
+          <td>49</td>
+          <td>42</td>
+          <td>20</td>
+          <td>20</td>
+          <td>14</td>
+          <td>14</td>
+          <td>55</td>
+          <td>17.0</td>
+          <td>17.0</td>
+        </tr>
+        <tr>
+          <td>Weiner F</td>
+          <td><a href="/atlases/pits/276">Weiner F 1</a></td>
+          <td>41.0722</td>
+          <td>149.9284</td>
+          <td>82</td>
+          <td>82</td>
+          <td>63</td>
+          <td>63</td>
+          <td>62</td>
+          <td>62</td>
+          <td>120</td>
+          <td>22.0</td>
+          <td>22.0</td>
+        </tr>
+        <tr>
+          <td>Marius Hills</td>
+          <td><a href="/atlases/pits/2">West Marius Hills Pit</a></td>
+          <td>13.5507</td>
+          <td>301.8267</td>
+          <td>95</td>
+          <td>70</td>
+          <td>N/A</td>
+          <td></td>
+          <td>47</td>
+          <td>47</td>
+          <td>55</td>
+          <td>16.0</td>
+          <td>16.0</td>
+        </tr>
+        <tr>
+          <td>Wood T</td>
+          <td><a href="/atlases/pits/277">Wood T 1a</a></td>
+          <td>43.8876</td>
+          <td>235.754</td>
+          <td>46</td>
+          <td>33</td>
+          <td>40</td>
+          <td>40</td>
+          <td>25</td>
+          <td>25</td>
+          <td>40</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+        <tr>
+          <td>Wood T</td>
+          <td><a href="/atlases/pits/278">Wood T 1b</a></td>
+          <td>43.8862</td>
+          <td>235.7613</td>
+          <td>23</td>
+          <td>18</td>
+          <td>17</td>
+          <td>17</td>
+          <td>14</td>
+          <td>14</td>
+          <td>30</td>
+          <td>11.0</td>
+          <td>11.0</td>
+        </tr>
+    </tbody>
+  </table>
+
+</section>
+
+    </main>
+    <footer class="footer mt-auto">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 pb-5 py-md-2">
+        <span class="footer-brand mb-2"><img class="footer-img" src="/assets/LROC_patch_alpha-bcddde05a14e141c980aa2f2525ba78b826a15843a289bf9fa543709e488e018.png" />LROC</span>
+        <p>
+          Lunar Reconnaissance Orbiter Camera<br>
+          Science Operations Center<br>
+          Phoenix, Arizona
+        </p>
+      </div>
+      <div class="col-md-4 pb-5 py-md-2">
+        <h4>Moon friends</h4>
+        <a target="_blank" class="d-block" href="https://science.nasa.gov/moon/">NASA Moon</a>
+        <a target="_blank" class="d-block" href="https://science.nasa.gov/mission/lro/">Lunar Reconnaissance Orbiter</a>
+        <a target="_blank" class="d-block" href="https://shadowcam.im-ldi.com/">ShadowCam</a>
+        <a target="_blank" class="d-block" href="https://www.intuitivemachines.com/">Intuitive Machines</a>
+        <a target="_blank" class="d-block" href="https://sese.asu.edu/events">ASU School of Earth and Space Exploration</a>
+        <a target="_blank" class="d-block" href="https://ser.im-ldi.com/">Space Exploration Resources</a>
+        <a target="_blank" class="d-block" href="https://apollo.im-ldi.com/">Apollo Image Archive</a>
+        <a target="_blank" class="d-block" href="https://tothemoon.im-ldi.com">March to the Moon Image Archive</a>
+      </div>
+      <div class="col-md-4 pb-5 py-md-2">
+        <h4>Connect with us</h4>
+         <a class="d-block" target="_blank" href="https://science.nasa.gov/mission/lro/events/">LRO Events</a>
+        <a class="d-block" href="/visit/exhibits">LROC Lunar Exhibits</a>
+        <a class="d-block" href="/news_tags/Events">LROC Affiliated Events</a>
+        <a class="d-block" href="/contact">Contact Us</a>
+      </div>
+    </div>
+    <hr class="mx-3 mx-md-0 my-5">
+    <div class="row">
+      <p class="col pt-3 pt-md-0 text-gray-dark">&#169;2026 NASA/GSFC/LROC. School of Earth and Space Exploration, Arizona State University. All rights reserved. <a href="/about/terms">Terms of Use &amp; Citation Policy</a>.</p>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

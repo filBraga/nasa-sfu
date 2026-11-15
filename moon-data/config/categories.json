@@ -1,0 +1,53 @@
+{
+  "schema_version": "2.0",
+  "purpose": "Availability and JSON handoff only; no extracted measurements or scores",
+  "categories": [
+    {"id":"geology_materials","name":"Geology, mineralogy, surface materials","subdimensions":[
+      {"id":"geology","name":"Geology","inputs":["imagery","composition_proxy"],"relationship":"proxy","note":"Imagery and CF provide context, not mapped geologic units. The USGS geologic map needs a separate GIS adapter.","reference":"https://astrogeology.usgs.gov/search/map/Moon/Geology/Unified_Geologic_Map_of_the_Moon_GIS_v2/"},
+      {"id":"mineralogy","name":"Mineralogy","inputs":["composition_proxy"],"relationship":"proxy","note":"CF is a silicate composition indicator, not a complete mineral inventory."},
+      {"id":"surface_materials","name":"Surface materials","inputs":["rock_abundance","imagery"],"relationship":"proxy","note":"Rock fraction and imagery; particle size, regolith depth and bearing strength are not retrieved."}
+    ]},
+    {"id":"terrain","name":"Terrain","subdimensions":[
+      {"id":"elevation","name":"Elevation","inputs":["roughness"],"relationship":"source_product","note":"LOLA shape/elevation grid; confirm reference radius and scaling."},
+      {"id":"slope","name":"Slope","inputs":["slope"],"relationship":"source_product","note":"Archived slope product; retain its baseline and resolution."},
+      {"id":"roughness","name":"Roughness","inputs":["roughness"],"relationship":"derived","note":"Elevation input is available for later RMS roughness calculation; no roughness value is calculated here."},
+      {"id":"craters","name":"Craters","inputs":["imagery","roughness"],"relationship":"derived","note":"Inputs for crater interpretation. No crater detections, counts or complete crater catalog are retrieved."}
+    ]},
+    {"id":"environment","name":"Temperature, illumination, environmental extremes","subdimensions":[
+      {"id":"temperature","name":"Temperature","inputs":["temperature"],"relationship":"source_product","note":"Bolometric thermal products; local time and season must be selected."},
+      {"id":"illumination","name":"Illumination","inputs":["illumination"],"relationship":"source_product","note":"Average Sun visibility candidates; valid pixel coverage and averaging interval remain unverified."},
+      {"id":"environmental_extremes","name":"Environmental extremes","inputs":["temperature","illumination"],"relationship":"derived","note":"Thermal and lighting inputs only; not a full radiation, vacuum or extreme-environment model."}
+    ]},
+    {"id":"resources","name":"Water, ice, permafrost, resources","subdimensions":[
+      {"id":"water","name":"Water","inputs":["neutrons"],"relationship":"proxy","note":"Neutron counts provide indirect hydrogen context, not direct water abundance."},
+      {"id":"ice","name":"Ice","inputs":["neutrons","radar","shadow"],"relationship":"proxy","note":"Hydrogen, radar and shadow evidence cannot by themselves confirm ice at this place."},
+      {"id":"permafrost","name":"Permafrost","inputs":[],"relationship":"not_applicable","note":"Terrestrial permafrost is not a directly transferable lunar layer. Potential subsurface ice is addressed under ice."},
+      {"id":"resources","name":"Resources","inputs":["composition_proxy","neutrons"],"relationship":"proxy","note":"Exploration context only; no reserve estimate, extractability, grade or resource certification."}
+    ]},
+    {"id":"surface_processes","name":"Dust, wind, erosion, aeolian processes","subdimensions":[
+      {"id":"dust","name":"Dust","inputs":[],"relationship":"external_source_required","note":"LADEE LDEX archive exists, but this tester has no adapter for its orbital dust observations; not a local surface dust-hazard map.","reference":"https://pdsatmospheres.nmsu.edu/data_and_services/atmospheres_data/LADEE/ldex.html"},
+      {"id":"wind","name":"Wind","inputs":[],"relationship":"not_applicable","note":"No terrestrial-style atmospheric wind layer on the Moon; solar wind is a separate physical process."},
+      {"id":"erosion","name":"Erosion","inputs":["imagery"],"relationship":"derived","note":"Imagery is context; impact gardening and erosion rates require temporal observations and a dedicated model."},
+      {"id":"aeolian","name":"Aeolian processes","inputs":[],"relationship":"not_applicable","note":"Atmospheric wind-driven sediment transport is not a lunar process."}
+    ]},
+    {"id":"biology","name":"Biology, extremophiles, habitability, biosignatures","subdimensions":[
+      {"id":"biology","name":"Biology","inputs":[],"relationship":"unavailable","note":"No lunar biological measurement layer is retrieved. Null means unavailable, not a measured zero."},
+      {"id":"extremophiles","name":"Extremophiles","inputs":[],"relationship":"earth_only","note":"An Earth analog criterion; requires terrestrial biological field data outside this project."},
+      {"id":"habitability","name":"Habitability","inputs":["temperature","illumination"],"relationship":"derived","note":"Environmental inputs only. Biological habitability or engineered human habitat suitability requires an explicitly defined model."},
+      {"id":"biosignatures","name":"Biosignatures","inputs":[],"relationship":"unavailable","note":"No biosignature observations retrieved; mineral indicators are not evidence of biology."}
+    ]},
+    {"id":"subsurface","name":"Caves, lava tubes, subsurface","subdimensions":[
+      {"id":"caves","name":"Caves","inputs":["imagery","radar"],"relationship":"proxy","note":"Context for targeted pit/cave investigations; archive coverage does not establish a cave here.","reference":"https://science.nasa.gov/solar-system/moon/new-evidence-adds-to-findings-hinting-at-network-of-caves-on-moon/"},
+      {"id":"lava_tubes","name":"Lava tubes","inputs":["imagery","radar"],"relationship":"proxy","note":"Potential evidence needs site-specific interpretation; no confirmed tube geometry is retrieved."},
+      {"id":"subsurface","name":"Subsurface","inputs":["radar"],"relationship":"proxy","note":"Radar scattering context, not a general underground depth map or geotechnical survey."}
+    ]},
+    {"id":"operations","name":"Operational analogs","subdimensions":[
+      {"id":"landing","name":"Landing","inputs":["slope","rock_abundance","imagery"],"relationship":"derived","note":"Hazard inputs only; lander footprint, tolerances and resolution requirements must be specified."},
+      {"id":"mobility","name":"Mobility","inputs":["slope","roughness","rock_abundance"],"relationship":"derived","note":"Terrain inputs only; vehicle traction and traversability are not measured."},
+      {"id":"navigation","name":"Navigation","inputs":["imagery","roughness","illumination"],"relationship":"derived","note":"Map and lighting inputs; no navigation accuracy or communication model is retrieved."},
+      {"id":"robotics","name":"Robotics","inputs":["slope","temperature","illumination"],"relationship":"derived","note":"Environmental inputs; mission and robot capabilities are required for an assessment."},
+      {"id":"construction","name":"Construction","inputs":["slope","roughness","rock_abundance"],"relationship":"derived","note":"Terrain screening inputs only; no soil bearing strength, excavation resistance or foundation test data."},
+      {"id":"human_factors","name":"Human factors","inputs":[],"relationship":"external_source_required","note":"Requires operational studies and participant evidence; orbital maps cannot provide workload, isolation or team-performance measurements."}
+    ]}
+  ]
+}

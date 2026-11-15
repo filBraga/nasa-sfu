@@ -1,0 +1,74 @@
+{
+  "checked_at": "2026-11-15T04:16:29.113Z",
+  "purpose": "Cross-check orientation, hemisphere, scaling and pixel indexing against PDS global LOLA float image. Not independent instrument accuracy or hazard validation.",
+  "reference_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/float_img/ldem_16_float.img",
+  "label": "PDS_VERSION_ID            = \"PDS3\"\r\n\r\n/*** GENERAL DATA DESCRIPTION PARAMETERS ***/\r\nPRODUCT_VERSION_ID        = \"V3.1\"\r\nDATA_SET_ID               = \"LRO-L-LOLA-4-GDR-V1.0\"\r\nPRODUCT_ID                = \"LDEM_16_FLOAT\"\r\nINSTRUMENT_HOST_NAME      = \"LUNAR RECONNAISSANCE ORBITER\"\r\nINSTRUMENT_NAME           = \"LUNAR ORBITER LASER ALTIMETER\"\r\nINSTRUMENT_ID             = \"LOLA\"\r\nMISSION_PHASE_NAME        = {\"COMMISSIONING\",\"NOMINAL MISSION\",\"SCIENCE\r\n                            MISSION\",\"EXTENDED SCIENCE MISSION\",\r\n                            \"SECOND EXTENDED SCIENCE MISSION\",\"THIRD\r\n                            EXTENDED SCIENCE MISSION\"} \r\nTARGET_NAME               = MOON\r\nSTART_TIME                = 2009-07-13T17:33:17\r\nSTOP_TIME                 = 2016-11-29T05:48:19\r\nPRODUCT_CREATION_TIME     = 2019-03-15\r\nPRODUCER_ID               = LRO_LOLA_TEAM\r\nPRODUCER_FULL_NAME        = \"DAVID E. SMITH\"\r\nPRODUCER_INSTITUTION_NAME = \"GODDARD SPACE FLIGHT CENTER\"\r\nDESCRIPTION               = \"This data product is a shape map (radius)\r\n   of the Moon at a resolution of 1.89521 km/pix by 1.89521 km/pix,\r\n   based on altimetry data acquired through mission phase LRO_ES_52\r\n   by the LOLA instrument. All LOLA data used for the generation of \r\n   this GDR products are geolocated using precision orbits based on a \r\n   revised lunar gravity field GRGM 900C[LEMOINEETAL2014].  The previous\r\n   version of this product was generated with data through LRO_ES_21.\r\n   An additional 505,763,339 data points have been added.\r\n\r\n   The gridfiles were produced in 45 degree latitude bands, and there \r\n   may be edge artifacts at this boundary.  Unlike previous versions of\r\n   these products, the Generic Mapping Tools (GMT) program 'grdblend' was\r\n   not used.  At higher resolutions, the GMT5.4.2 program 'surface' was\r\n   used to compensate for incomplete coverage. Tension was set to 0.5\r\n   and Anisotropy to 0.5 to minimize latitude distortion. The map is in\r\n   the form of a binary table with one row for each 0.0625 degrees \r\n   of latitude, pixel registered.  Map values are relative to a radius \r\n   of 1737.4 km.\r\n\r\n   This label describes an IMG file in the form of a binary resampling\r\n   to pixel registration.\r\n\"\r\n\r\nOBJECT                    = UNCOMPRESSED_FILE\r\nFILE_NAME                 = \"LDEM_16_FLOAT.IMG\"\r\nRECORD_TYPE               = FIXED_LENGTH\r\nFILE_RECORDS              = 2880\r\nRECORD_BYTES              = 23040\r\n^IMAGE                    = \"LDEM_16_FLOAT.IMG\"\r\n\r\n\r\n  OBJECT                  = IMAGE\r\n    NAME                  = HEIGHT\r\n    DESCRIPTION           = \"Each sample represents height relative to a\r\n      reference radius (OFFSET) and is generated using preliminary LOLA data\r\n      produced by the LOLA team.\"\r\n    LINES                 = 2880\r\n    LINE_SAMPLES          = 5760\r\n    MAXIMUM               = 10.790\r\n    MINIMUM               = -9.075\r\n    SAMPLE_TYPE           = PC_REAL\r\n    SAMPLE_BITS           = 32\r\n    UNIT                  = KILOMETER\r\n    SCALING_FACTOR        = 1\r\n    OFFSET                = 1737.4\r\n\r\n/* NOTE:                                                                   */\r\n/* Conversion from Digital Number to HEIGHT in kilometers is:              */\r\n/* HEIGHT = (DN * SCALING_FACTOR).                                         */\r\n/* The conversion from Digital Number to PLANETARY_RADIUS in kilometers is:*/\r\n/* PLANETARY_RADIUS = (DN * SCALING_FACTOR) + OFFSET                       */\r\n/* where OFFSET is the radius of a reference sphere.                       */\r\n/* The planetopotential TOPOGRAPHY is PLANETARY_RADIUS - GEOID_RADIUS,     */\r\n/* where GEOID_RADIUS is derived from a gravitational equipotential model. */\r\n/* By convention, the average GEOID_RADIUS at the equator is OFFSET.       */\r\n\r\n  END_OBJECT              = IMAGE\r\nEND_OBJECT                = UNCOMPRESSED_FILE\r\nOBJECT                    = IMAGE_MAP_PROJECTION\r\n ^DATA_SET_MAP_PROJECTION     = \"DSMAP.CAT\"\r\n MAP_PROJECTION_TYPE          = \"SIMPLE CYLINDRICAL\"\r\n MAP_RESOLUTION               = 16 <pix/deg>\r\n A_AXIS_RADIUS                = 1737.4 <km>\r\n B_AXIS_RADIUS                = 1737.4 <km>\r\n C_AXIS_RADIUS                = 1737.4 <km>\r\n FIRST_STANDARD_PARALLEL      = 'N/A'\r\n SECOND_STANDARD_PARALLEL     = 'N/A'\r\n POSITIVE_LONGITUDE_DIRECTION = \"EAST\"\r\n CENTER_LATITUDE              = 0 <deg>\r\n CENTER_LONGITUDE             = 180 <deg>\r\n REFERENCE_LATITUDE           = 'N/A'\r\n REFERENCE_LONGITUDE          = 'N/A'\r\n LINE_FIRST_PIXEL             = 1\r\n LINE_LAST_PIXEL              = 2880\r\n SAMPLE_FIRST_PIXEL           = 1\r\n SAMPLE_LAST_PIXEL            = 5760\r\n MAP_PROJECTION_ROTATION      = 0.0\r\n MAP_SCALE                    = 1.89521 <km/pix>\r\n MAXIMUM_LATITUDE             = 90 <deg>\r\n MINIMUM_LATITUDE             = -90 <deg>\r\n WESTERNMOST_LONGITUDE        = 0 <deg>\r\n EASTERNMOST_LONGITUDE        = 360 <deg>\r\n LINE_PROJECTION_OFFSET       = 1439.5 <pix>\r\n SAMPLE_PROJECTION_OFFSET     = 2879.5 <pix>\r\n COORDINATE_SYSTEM_TYPE       = \"BODY-FIXED ROTATING\"\r\n COORDINATE_SYSTEM_NAME       = \"MEAN EARTH/POLAR AXIS OF DE421\"\r\nEND_OBJECT                    = IMAGE_MAP_PROJECTION\r\n\r\nEND\r\n",
+  "tolerance_m": 1,
+  "checks": [
+    {
+      "lat": 9.62,
+      "lon_e": 339.92,
+      "actual_m": -3381.00004196167,
+      "reference_m": -3381.2222480773926,
+      "difference_m": 0.22220611572265625,
+      "passed": true
+    },
+    {
+      "lat": 26,
+      "lon_e": 310,
+      "actual_m": -1071.000099182129,
+      "reference_m": -1071.1462497711182,
+      "difference_m": 0.1461505889892578,
+      "passed": true
+    },
+    {
+      "lat": 0,
+      "lon_e": 0,
+      "actual_m": -718.500018119812,
+      "reference_m": -718.6850309371948,
+      "difference_m": 0.1850128173828125,
+      "passed": true
+    },
+    {
+      "lat": 0,
+      "lon_e": 180,
+      "actual_m": 2770.5001831054688,
+      "reference_m": 2770.6780433654785,
+      "difference_m": -0.17786026000976562,
+      "passed": true
+    },
+    {
+      "lat": -43.31,
+      "lon_e": 348.83,
+      "actual_m": -3021.5001106262207,
+      "reference_m": -3021.7247009277344,
+      "difference_m": 0.22459030151367188,
+      "passed": true
+    },
+    {
+      "lat": 35,
+      "lon_e": 140,
+      "actual_m": 2245.500087738037,
+      "reference_m": 2245.933771133423,
+      "difference_m": -0.4336833953857422,
+      "passed": true
+    },
+    {
+      "lat": -35,
+      "lon_e": 220,
+      "actual_m": 1808.500051498413,
+      "reference_m": 1808.954119682312,
+      "difference_m": -0.4540681838989258,
+      "passed": true
+    },
+    {
+      "lat": -85,
+      "lon_e": 45,
+      "actual_m": 2192.500114440918,
+      "reference_m": 2192.866802215576,
+      "difference_m": -0.3666877746582031,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

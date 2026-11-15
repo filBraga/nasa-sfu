@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Viewing WAC_HAPKEPARAMMAP_643NM</title>
+    <script src="/assets/application-807d4cb6c5920b5442e8d3ee5540c07ea59c083b7f7beaf92a15f3be914c61aa.js"></script>
+    <script src="https://use.fontawesome.com/f5e0eddffa.js"></script>
+    <link rel="stylesheet" media="screen" href="/assets/sitenav-96a21acec7fd435ced29fc15de81110358296de74e3cc3db11f4ecb6fae4142e.css" />
+<link rel="stylesheet" media="screen" href="/assets/application-d2c41767cf7b4dc75f6d769f6d0bd8c7b50b75da9a5519f5b834a5b650a907f0.css" />
+<link rel="stylesheet" media="screen" href="/assets/lroc-6c94ef0e6456769c2ff05e5ffc625ac94af89740ebdc83121496048481d873b5.css" />
+<link rel="stylesheet" media="screen" href="/assets/photometric-00762aa41b2c15a3b4c07674ae2ae2f42846a2fb006b2b78ea1b297117bd9939.css" />
+<link rel="stylesheet" media="screen" href="/assets/lunaserv-bb535285d64e448d9cb84ecbbc8572d68ce93da31fec7501837fb5ecd9eb0423.css" />
+<link rel="stylesheet" media="screen" href="/assets/lunaserv-custom-08f675a914d0c0b7b6f61bd3ea807d877b03d84feb3dbceebbeb0b33b4932a18.css" />
+  </head>
+  <body style="background-color:#000;color:#c5baa9">
+    <div id="site">
+      <div id="lroc_header">
+        <div class="headerEnclosure">
+
+  <!-- LROC Header -->
+  <div class="lrocheader">
+    <div class="hdrimg" style="text-align: center;background-image: url(/assets/header/moon_background-665e44b4cedae3feb1e2927b70d9dc364fecabe090dfe820592a0905ed01002e.png);background-color: #000000;">
+      <div id="hdrimgshade" style="text-align: center;">
+        <img style="z-index:2;" alt="Lunar Reconnaissance Orbiter Camera" title="Lunar Reconnaissance Orbiter Camera" src="/assets/header/lroc-26c170696a3a05451f85474d068dd0568b473b8457e729a2d8754905dae17fc7.png" />
+      </div>
+    </div>
+    <div class="hdrnav">
+      <div class="lrocnavbar">
+
+        <ul class="lnavx">
+          <li><a href="https://lroc.im-ldi.com">Home</a></li>
+          <li><a href="https://lroc.im-ldi.com/about">About</a></li>
+          <li><a href="https://lroc.im-ldi.com/images/">Images</a></li>
+          <li><a href="https://lroc.im-ldi.com/archive">Archive</a></li>
+          <li><a href="https://lroc.im-ldi.com/news">News</a></li>
+          <li><a href="https://lroc.im-ldi.com/educators/history">Educators</a></li>
+        </ul>
+
+      </div>
+    </div> <!-- /hdrnav -->
+  </div> <!-- /lrocheader -->
+
+</div> <!-- /headerEnclosure -->
+
+      </div>
+      <!-- Start Content -->
+      <div id="mastercontainer">
+        <div class="lrocnavbar" style="margin:0; padding:0; width:100%">
+          <ul class="lnavx">
+            <li><a href="/lroc">WMS Browser</a></li>
+            <li><a href="/lroc/thumbnails">Thumbnail Browser</a></li>
+            <li><a href="/lroc/search">Image Search</a></li>
+            <li><a class="last" href="/lroc/rdr_product_select">RDR Products</a></li>
+          </ul>
+        </div>
+<style type="text/css">
+  ul {
+    padding: 0;
+    margin: 0;
+    margin-top: 1em;
+    list-style-type: none;
+  }
+  .presentable_data_container {
+    text-align: center;
+  }
+  .presentable_data {
+    border-color: #C5BAA9;
+    border-width: 1px;
+    border-style: solid;
+    margin: 0em auto 1em auto;
+    padding: 1em;
+    background-color: #222;
+    display: inline-block;
+  }
+  .extra_downloads {
+    margin-bottom: 2px;
+  }
+  .pd_title {
+    text-align: right;
+    padding: .5em 1em .5em 1em;
+  }
+  .pd_data {
+    text-align: left;
+    padding: .5em 1em .5em 1em;
+  }
+  .pd_heading {
+    text-align: center;
+    padding: 0em 1em .25em 1em;
+  }
+  .pd_download {
+    text-align: left;
+    padding: .25em 1em .25em 1em;
+  }
+  .small_print {
+    font-size: 9px;
+    text-align: center;
+  }
+</style>
+<div>
+  <div style="float:right;margin:.5em 3em .5em 0em;">
+    <form method="get" action="/lroc/rdr_product_select">
+      <button id="returnToSelect">Return To RDR Select Page</button>
+    </form>
+  </div>
+  <div style="float:right;margin:.5em 3em .5em 0em;">
+    <button id="returnToRdrView" onclick="history.back();">Return To View RDR Group Page</button>
+  </div>
+    <h1>WAC Hapke Photometric Parameter Maps - Hapke Parameter Maps for WAC 643 nm Band </h1>
+  </div>
+
+  <h2>WAC_HAPKEPARAMMAP_643NM - Hapke Parameter Maps for WAC 643 nm Band </h2>
+<div class="presentable_data_container">
+  <div class="presentable_data">
+    <table>
+          <tr>
+        <td class="pd_title">Scale:</td><td class="pd_data">30323.35 m/px</td>
+        <td class="pd_title">Resolution:</td><td class="pd_data">1.0 px/deg</td>
+          </tr>
+          <tr>
+        <td class="pd_title">Western-most Longitude:</td><td class="pd_data">0.0</td>
+        <td class="pd_title">Eastern-most Longitude:</td><td class="pd_data">360.0</td>
+          </tr>
+          <tr>
+        <td class="pd_title">Minimum Latitude:</td><td class="pd_data">-70.0</td>
+        <td class="pd_title">Maximum Latitude:</td><td class="pd_data">70.0</td>
+          </tr>
+          <tr>
+        <td class="pd_title">WAC Band:</td><td class="pd_data">643 nm</td>
+        <td class="pd_title">&nbsp;</td><td class="pd_data">&nbsp;</td></tr>
+      <tr><td class="pd_title">PDS Download:</td>
+        <td class="pd_data" colspan="3"><a href="https://pds.lroc.im-ldi.com/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/DATA/SDP/WAC_HAPKEPARAMMAP/WAC_HAPKEPARAMMAP_643NM.IMG">WAC_HAPKEPARAMMAP_643NM.IMG - (1.74 MB)</a></td></tr>
+    </table>
+  </div>
+</div>
+
+
+    <div class="presentable_data_container">
+      <div class="presentable_data extra_downloads">
+        <table>
+          <tr><td class="pd_heading">Extra Downloads</td></tr>
+          <tr><td class="pd_download"><a href="https://pds.lroc.im-ldi.com/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/EXTRAS/BROWSE/WAC_HAPKEPARAMMAP/WAC_HAPKEPARAMMAP_643NM.TIF">WAC_HAPKEPARAMMAP_643NM.TIF - (50.68 KB)</a></td></tr>
+          <tr><td class="pd_download"><a href="https://pds.lroc.im-ldi.com/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/EXTRAS/BROWSE/WAC_HAPKEPARAMMAP/WAC_HAPKEPARAMMAP_643NM.PYR.TIF">WAC_HAPKEPARAMMAP_643NM.PYR.TIF - (193.36 KB)</a></td></tr>
+        </table>
+      </div>
+      </div>
+
+    
+<div id="zoomify1" style="position:relative;"></div>
+
+<script type="text/javascript">
+"use strict"
+  var minLegendFontSize = 18;
+  $(document).ready(function() {
+    function sizeZoomifyAndLegend() {
+      var slctr = '';
+      var legendWidth = 0;
+
+      for (var i = 0; i < $('[id^="legend"]').length; i++) {
+        slctr = '#legend' + (i + 1);
+        while (($(slctr + '>h2').width() > $(slctr + '>img').width()) && parseInt($(slctr + '>h2').css('font-size')) > minLegendFontSize) {
+          $(slctr + '>h2').css('font-size', parseInt($(slctr + '>h2').css('font-size')) - 1);
+        }
+        legendWidth += Math.ceil($('#legend' + (i + 1)).outerWidth(true));
+      }
+  
+      if (legendWidth) {
+        $('#zoomify1').width(Math.floor($('#mastercontainer').innerWidth()) -
+            parseInt($('#mastercontainer').css('marginLeft')) -
+            parseInt($('#mastercontainer').css('marginRight')) -
+            legendWidth);
+      }
+      else {
+        $('#zoomify1').width(Math.floor($(window).width()*0.99));
+      }
+
+      $('#zoomify1').height(Math.floor($(window).height()*0.75));
+    }
+
+    sizeZoomifyAndLegend();
+    $(window).on('resize', sizeZoomifyAndLegend);
+
+    $("#zoomify1").zoomifyInit({
+      "imgWidth": 360,
+      "imgHeight": 140,
+      "bgColor": "#000000",
+    "controls": {
+        "zoom": true,
+        "fullScreen": true,
+        "mousePosition": true,
+        "overviewMap": true
+    },
+    "mouseWheelZoom": false,
+    "imgPath": "/ptif/zoomify/ser/estore/lroc/web/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/EXTRAS/BROWSE/WAC_HAPKEPARAMMAP/WAC_HAPKEPARAMMAP_643NM.PYR.TIF"
+    });
+  });
+</script>
+
+        <br class="endspot">
+      </div>
+      <!-- End Content -->
+
+      <div id="footerbox">
+        <div id="footer">
+          <a target="_blank" href="https://science.nasa.gov/mission/lro"><img alt="NASA LRO" src="/assets/nasa_site-372f2315bf5bb8fcaa0042dc57f87f58b549a2f888d7bb36aa1bdfc3f4484425.jpg" /></a>
+          <a target="_blank" href="https://ser.im-ldi.com/"><img alt="Space Exploration Resources" src="/assets/ser-d919a0ea9fbf867a56067e9e746eeb8c31cbf8f945c6fcbf6f2f648a2497e4fc.jpg" /></a>
+          <a target="_blank" href="https://sese.asu.edu/"><img height="38" alt="Arizona State University" src="/assets/asu_earthspaceexplore_horiz_rgb_maroongold_150ppi-5ac7967e9ab45e57eb59070827f77153de3a0dfdeb602344f35619957c33c1ac.png" /></a>
+        </div><!-- footer -->
+      </div><!-- footerbox -->
+    </div> <!-- /site -->
+    <script type="application/javascript">
+//<![CDATA[
+
+      $(document).on("turbolinks:load", function() {
+        gtag('config', 'UA-39826759-1', {'page_location': event.data.url});
+      })
+
+//]]>
+</script>  </body>
+</html>

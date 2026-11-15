@@ -1,0 +1,17 @@
+{
+  "name":"moon-data-cli",
+  "private":true,
+  "type":"module",
+  "scripts":{
+    "build":"node export.mjs && node viewer.mjs --build-only",
+    "viewer":"node viewer.mjs",
+    "test":"node --test tests/*.test.mjs",
+    "sample:materials":"node --use-system-ca scripts/sample_materials.mjs --refresh",
+    "sample:diviner":"node --use-system-ca scripts/sample_diviner.mjs",
+    "sample:terrain":"node --use-system-ca scripts/sample_terrain64.mjs",
+    "validate:sampling":"node --use-system-ca scripts/validate_sampling.mjs"
+  },
+  "dependencies": {
+    "geotiff": "^3.0.5"
+  }
+}

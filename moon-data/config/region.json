@@ -1,0 +1,7 @@
+{
+  "id": "south_polar_demo",
+  "description": "Example study box, not a selected landing site. Edit before scientific analysis.",
+  "body": "Moon",
+  "coordinate_convention": "planetocentric latitude, east-positive longitude 0..360, degrees",
+  "bounds": {"minlat": -90, "maxlat": -85, "westernlon": 0, "easternlon": 360}
+}

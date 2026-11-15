@@ -1,0 +1,176 @@
+{
+  "retrieved_at": "2026-11-15T03:21:17.369Z",
+  "sources": [
+    {
+      "file": "temperature.xml",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.xml",
+      "sha256": "c434aa4916cf70917a09ecbed4c6bd44537ff343687c6c9c056ede843a4064e8"
+    },
+    {
+      "file": "apollo_coordinates.html",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html",
+      "sha256": "3ad39d623fd72b9debe1e70d74ed8c031daa6dc97b0d3458b1c760a1b56fece9"
+    },
+    {
+      "file": "temperature_0.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "a025503db15958c18169c1177f7dccb801f4b5a2d338b11ad9e65db9593f39f9",
+      "first_row_index": 0,
+      "byte_range": [
+        68,
+        2243
+      ]
+    },
+    {
+      "file": "temperature_1.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "42dbf5ea08ed59faa82b1f6e3236d8f12178ea3b6723f870a44a8235641ae5a3",
+      "first_row_index": 211742,
+      "byte_range": [
+        14398524,
+        14400699
+      ]
+    },
+    {
+      "file": "temperature_2.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "02a43232168bfa0a0c2c59c33c2f01ca23b83df5b4b902a1388f814356115877",
+      "first_row_index": 423484,
+      "byte_range": [
+        28796980,
+        28799155
+      ]
+    },
+    {
+      "file": "temperature_3.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "1c04c5944355e069341c7c601e1b94bfc44a2c5c70647a708a36d602fd7b5b97",
+      "first_row_index": 635226,
+      "byte_range": [
+        43195436,
+        43197611
+      ]
+    },
+    {
+      "file": "temperature_4.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "acb16be751971070f4cb3d0da7edc527677044bbe24b355f7f9048a5dda88607",
+      "first_row_index": 846969,
+      "byte_range": [
+        57593960,
+        57596135
+      ]
+    },
+    {
+      "file": "temperature_5.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "a371eee07e2d72e861f6e7f5f73560d7210750e4902dbe662d328bccb2abe204",
+      "first_row_index": 1058711,
+      "byte_range": [
+        71992416,
+        71994591
+      ]
+    },
+    {
+      "file": "temperature_6.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "0fa0e8d6e781a171dfa2410570f18a786ac4b384da1b59676c138e9953ac0671",
+      "first_row_index": 1270453,
+      "byte_range": [
+        86390872,
+        86393047
+      ]
+    },
+    {
+      "file": "temperature_7.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "bb7c469a65b5ff36494d3e49127b6e3a175d42f288a497f8ae75e756d231762f",
+      "first_row_index": 1482195,
+      "byte_range": [
+        100789328,
+        100791503
+      ]
+    },
+    {
+      "file": "temperature_8.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "a883863ccc538c85d027ef2388efdb86d730960708ad062ad7e2389ea0cb9607",
+      "first_row_index": 1693938,
+      "byte_range": [
+        115187852,
+        115190027
+      ]
+    },
+    {
+      "file": "temperature_9.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "df1aee115ef4dbe05341b880584d22befe27a4f65cf67046bcd314819bf0f5df",
+      "first_row_index": 1905680,
+      "byte_range": [
+        129586308,
+        129588483
+      ]
+    },
+    {
+      "file": "temperature_10.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "569be3dac71f64f809afe721e96149fb8cc79c59dbef81bf87459976e3f6127c",
+      "first_row_index": 2117422,
+      "byte_range": [
+        143984764,
+        143986939
+      ]
+    },
+    {
+      "file": "temperature_11.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "2c1f12d3d5ebc548f6786a02f7ec9ec1935b26ff0b9efbfcfe882fb774fa95a7",
+      "first_row_index": 2329164,
+      "byte_range": [
+        158383220,
+        158385395
+      ]
+    },
+    {
+      "file": "temperature_12.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "04fd21cd85648f6f03d3b66235cfb75a2ea09a291de9b7e9ad9ac98ed2076937",
+      "first_row_index": 2540907,
+      "byte_range": [
+        172781744,
+        172783919
+      ]
+    },
+    {
+      "file": "temperature_13.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "7ae52ee853845215fe59e8bb6bcd5331c99fee87badf244f713a401802d4d4f4",
+      "first_row_index": 2752649,
+      "byte_range": [
+        187180200,
+        187182375
+      ]
+    },
+    {
+      "file": "temperature_14.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "f21e6295ddfbceb6c9d4a6ff5d726d028818eca1425c718324bd11b6c3c5b067",
+      "first_row_index": 2964391,
+      "byte_range": [
+        201578656,
+        201580831
+      ]
+    },
+    {
+      "file": "temperature_15.txt",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "sha256": "987db07f50a85e3ecf1781dd404f82c1ee62c4a03133da23e2f3ec3ad4733815",
+      "first_row_index": 3176134,
+      "byte_range": [
+        215977180,
+        215979355
+      ]
+    }
+  ],
+  "sampling": "16 evenly spaced table blocks, 32 consecutive records per block. Sparse sample, not full coverage."
+}

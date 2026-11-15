@@ -1,0 +1,12 @@
+{
+  "slope": {"iid": "LOLA", "pt": "GDRDSM", "note": "Archived slope map candidate; verify baseline and definition against the app requirement."},
+  "roughness": {"iid": "LOLA", "pt": "GDRDEM", "note": "Elevation input only. App-defined RMS roughness must be derived at a specified neighborhood size."},
+  "temperature": {"iid": "DLRE", "pt": "GDR_L3", "pdsid": "*tbol*", "note": "Bolometric temperature candidate; check local time and season."},
+  "rock_abundance": {"iid": "DLRE", "pt": "GDR_L3", "pdsid": "*ra*", "note": "Filename-filtered candidate; confirm rock-abundance quantity and units in the label."},
+  "composition_proxy": {"iid": "DLRE", "pt": "GDR_L3", "pdsid": "*cf*", "note": "Filename-filtered candidate; confirm Christiansen feature quantity and units in the label."},
+  "imagery": {"iid": "LROC", "pt": "CDRNAC4", "note": "Calibrated narrow-angle imagery; geological interpretation and feature detection remain separate steps."},
+  "illumination": {"iid": "LOLA", "pt": "GDRVIS", "note": "Average Sun visibility; verify period and coverage in label."},
+  "shadow": {"iid": "LOLA", "pt": "GDRPSR", "note": "Permanently shadowed map candidates; shadow is not ice detection."},
+  "neutrons": {"iid": "LEND", "pt": "RDRDLD4", "spatial": false, "note": "Archive-wide derived neutron-count samples only: this product type does not support ODE location queries. No coverage at the selected place is established; not water or ice abundance."},
+  "radar": {"iid": "MRFLRO", "pt": "MAPCDR", "note": "Map-projected radar candidates; scattering is not proof of ice or caves."}
+}

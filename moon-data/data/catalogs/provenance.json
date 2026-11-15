@@ -1,0 +1,12 @@
+{
+  "pits": {
+    "url": "https://lroc.im-ldi.com/atlases/pits/list",
+    "retrieved_at": "2026-11-15T03:08:55.052Z",
+    "sha256": "d58a4085c7ce4082353d97781487f7effd06cfeb5514ae02f861e8000c845bb0"
+  },
+  "landers": {
+    "url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+    "retrieved_at": "2026-11-15T03:08:55.703Z",
+    "sha256": "586aef752114a651b5a056299fdf2d850b6dfbb418580f49b6c099dfe70e705f"
+  }
+}

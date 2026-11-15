@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.sch"
+  schematypens="http://purl.oclc.org/dsdl/schematron"?><Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1" xmlns:pds="http://pds.nasa.gov/pds4/pds/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1  https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd">
+    <Identification_Area>
+        <logical_identifier>urn:nasa:pds:ladee_nms:data_derived:nms_ar_36077_20131122_081916</logical_identifier>
+        <version_id>2.0</version_id>
+        <title>Derived NMS Science Data</title>
+        <information_model_version>1.20.0.0</information_model_version>
+        <product_class>Product_Observational</product_class>
+    </Identification_Area>
+    <Observation_Area>
+        <Time_Coordinates>
+            <start_date_time>2013-11-22T08:19:16Z</start_date_time>
+            <stop_date_time>2013-11-22T09:13:16Z</stop_date_time>
+        </Time_Coordinates>
+        <Primary_Result_Summary>
+            <purpose>Science</purpose>
+            <processing_level>Derived</processing_level>
+      		<Science_Facets>
+                <domain>Atmosphere</domain>
+                <discipline_name>Atmospheres</discipline_name>
+                <facet1>Structure</facet1>
+      		</Science_Facets>
+        </Primary_Result_Summary>
+        <Investigation_Area>
+            <name>LADEE with Neutral Mass Spectrometer</name>
+            <type>Mission</type>
+            <Internal_Reference>
+                <lid_reference>urn:nasa:pds:context:investigation:mission.ladee</lid_reference>
+                <reference_type>data_to_investigation</reference_type>
+            </Internal_Reference>
+        </Investigation_Area>
+        <Observing_System>
+            <name>Ladee</name>
+            <Observing_System_Component>
+                <name>Neutral Mass Spectrometer</name>
+                <type>Instrument</type>
+                <description>
+                    The LADEE Neutral Mass Spectrometer (NMS) instrument
+                    description is included in the LADEE NMS Software
+                    Interface Specification (SIS) file 'nms_pds_sis.docx'
+                    in the document collection of the LADEE NMS bundle.
+                </description>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument:ladee.nms</lid_reference>
+                    <reference_type>is_instrument</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+            <Observing_System_Component>
+                <name>Ladee</name>
+                <type>Host</type>
+                <description>
+                    The LADEE spacecraft description document is included
+                    as a secondary member of the document collection of the
+                    LADEE NMS bundle.
+                </description>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.ladee</lid_reference>
+                    <reference_type>is_instrument_host</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+        </Observing_System>
+        <Target_Identification>
+            <name>Moon</name>
+            <type>Satellite</type>
+            <Internal_Reference>
+                <lid_reference>urn:nasa:pds:context:target:satellite.earth.moon</lid_reference>
+                <reference_type>data_to_target</reference_type>
+            </Internal_Reference>
+        </Target_Identification>
+    </Observation_Area>
+    <Reference_List>
+        <Internal_Reference>
+            <lid_reference>urn:nasa:pds:ladee_nms:document:nms_pds_sis</lid_reference>
+            <reference_type>data_to_document</reference_type>
+        </Internal_Reference>
+        <Internal_Reference>
+            <lid_reference>urn:nasa:pds:ladee_mission:document:ladee_spacecraft</lid_reference>
+            <reference_type>data_to_document</reference_type>
+        </Internal_Reference>
+    </Reference_List>
+    <File_Area_Observational>
+        <File>
+            <file_name>nms_ar_36077_20131122_081916.csv</file_name>
+            <local_identifier>nms_ar_36077_20131122_081916</local_identifier>
+            <creation_date_time>2015-10-28T15:17:02</creation_date_time>
+            <file_size unit="byte">41853</file_size>
+            <records>461</records>
+        </File>
+        <Header>
+            <name>Column headings for TABLE</name>
+            <local_identifier>Header</local_identifier>
+            <offset unit="byte">0</offset>
+            <object_length unit="byte">154</object_length>
+            <parsing_standard_id>PDS DSV 1</parsing_standard_id>
+        </Header>
+        <Table_Delimited>
+            <name>Derived NMS Science Data</name>
+            <local_identifier>Table</local_identifier>
+            <offset unit="byte">154</offset>
+            <object_length unit="byte">41700</object_length>
+            <parsing_standard_id>PDS DSV 1</parsing_standard_id>
+            <description>
+                A spreadsheet containing all NMS science data for the
+                given period of time, with dead time correction applied.
+            </description>
+            <records>460</records>
+            <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
+            <field_delimiter>Comma</field_delimiter>
+            <Record_Delimited>
+                <fields>15</fields>
+                <groups>0</groups>
+                <Field_Delimited>
+                    <name>Year</name>
+                    <field_number>1</field_number>
+                    <data_type>ASCII_NonNegative_Integer</data_type>
+                    <description>
+                        Time of data acquisition (year)
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Month</name>
+                    <field_number>2</field_number>
+                    <data_type>ASCII_NonNegative_Integer</data_type>
+                    <description>
+                        Time of data acquisition (month)
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Day</name>
+                    <field_number>3</field_number>
+                    <data_type>ASCII_NonNegative_Integer</data_type>
+                    <description>
+                        Time of data acquisition (day)
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Hours</name>
+                    <field_number>4</field_number>
+                    <data_type>ASCII_NonNegative_Integer</data_type>
+                    <description>
+                        Time of data acquisition (hour)
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Minutes</name>
+                    <field_number>5</field_number>
+                    <data_type>ASCII_NonNegative_Integer</data_type>
+                    <description>
+                        Time of data acquisition (minutes)
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Seconds</name>
+                    <field_number>6</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <description>
+                        Time of data acquisition (seconds)
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>S/C_X</name>
+                    <field_number>7</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <unit>Kilometers</unit>
+                    <description>
+                        Spacecraft X coordinate in MOON_IAU reference frame.
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>S/C_Y</name>
+                    <field_number>8</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <unit>Kilometers</unit>
+                    <description>
+                        Spacecraft Y coordinate in MOON_IAU reference frame.
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>S/C_Z</name>
+                    <field_number>9</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <unit>Kilometers</unit>
+                    <description>
+                        Spacecraft Z coordinate in MOON_IAU reference frame.
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Altitude</name>
+                    <field_number>10</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <unit>Kilometers</unit>
+                    <description>
+                        Altitude above mean geoid.
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Longitude</name>
+                    <field_number>11</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <unit>Degrees</unit>
+                    <description>
+                        Spacecraft selenographic longitude (degrees).
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Latitude</name>
+                    <field_number>12</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <unit>Degrees</unit>
+                    <description>
+                        Spacecraft selenographic latitude (degrees).
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Lmst</name>
+                    <field_number>13</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <unit>Hours</unit>
+                    <description>
+                        Spacecraft Local Mean Solar Time.
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Ar_ABUNDANCE</name>
+                    <field_number>14</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <unit>P/Cc</unit>
+                    <description>
+                        Argon density measured by NMS.
+                    </description>
+		    <Special_Constants>
+			    <invalid_constant>-999.</invalid_constant>
+		    </Special_Constants>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Std</name>
+                    <field_number>15</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <unit>P/Cc</unit>
+                    <description>
+                        Standard deviation of the density measurement.
+                    </description>
+		    <Special_Constants>
+			    <invalid_constant>-999.</invalid_constant>
+		    </Special_Constants>
+                </Field_Delimited>
+            </Record_Delimited>
+        </Table_Delimited>
+    </File_Area_Observational>
+</Product_Observational>

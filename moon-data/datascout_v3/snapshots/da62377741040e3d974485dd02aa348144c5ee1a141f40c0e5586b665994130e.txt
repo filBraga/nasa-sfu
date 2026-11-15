@@ -1,0 +1,25 @@
+Bundle Overview
+===============
+
+This bundle consists of two collections for the Lunar Ejecta And Meteorites
+(LEAM) Experiment which was one component of the Apollo 17 Apollo Lunar
+Surface Experiments Package (ALSEP). The collections are:
+
+- Apollo 17 ALSEP ARCSAV Lunar Ejecta And Meteorites Experiment Raw Cleaned 
+  ASCII Data Collection (1975-092 to 1975-181):  Contains 79 daily ASCII
+  tables of raw measurements acquired by the Apollo 17 LEAM from 2 April
+  through 30 June 1975. This collection also includes ASCII tables of
+  LEAM-related command verification and raw analog housekeeping data. These
+  ASCII files are transformations of raw binary data extracted from NASA's
+  original daily Apollo 17 ALSEP Archive Tapes (known as ARCSAV tapes)
+  spanning April through June 1975, then cleaned for obvious bit errors.
+
+- Apollo 17 ALSEP ARCSAV Lunar Ejecta And Meteorites Experiment Raw Cleaned 
+  ASCII Document Collection (1975-092 to 1975-181):  Contains a document that
+  describes the ASCII products in the data collection above. It explains the
+  file formats and references publications that are relevant to understanding
+  these data. This collection also includes: a document that explains the
+  film ID numbering convention used in the raw science data products; and the
+  Fortran programs used by the data provider to transform the raw binary LEAM
+  data to ASCII for this archive.
+

@@ -1,0 +1,284 @@
+{
+  "body": "Moon",
+  "sites": [
+    {
+      "id": "copernicus",
+      "name": "Copernicus",
+      "bounds": {
+        "minlat": 8.0394,
+        "maxlat": 11.2079,
+        "westernlon": 338.3181,
+        "easternlon": 341.5314
+      },
+      "source": "https://oderest.rsl.wustl.edu/live2/?query=featuredata&odemetadb=moon&featurename=Copernicus&output=JSON",
+      "facts": [
+        {
+          "category": "terrain",
+          "key": "feature_class",
+          "value": "Crater",
+          "status": "imported_catalog_metadata",
+          "src": "https://oderest.rsl.wustl.edu/live2/?query=featuredata&odemetadb=moon&featurename=Copernicus&output=JSON"
+        }
+      ],
+      "note": "Bounds imported from existing Moon report. No published numeric site facts have been independently curated yet.",
+      "lat": 9.59375,
+      "lon_e": 339.90625,
+      "location_status": "named_feature_sampled",
+      "source_sample": "data/samples/1286_5438.json",
+      "dimensions": {
+        "geology_materials": {
+          "name": "Geology, mineralogy, surface materials",
+          "subdimensions": {
+            "geology": {
+              "category": "geology_materials",
+              "value": null,
+              "status": "not_implemented"
+            },
+            "mineralogy": {
+              "category": "geology_materials",
+              "value": null,
+              "status": "not_implemented"
+            },
+            "surface_materials": {
+              "category": "geology_materials",
+              "value": null,
+              "status": "not_implemented"
+            }
+          }
+        },
+        "terrain": {
+          "name": "Terrain",
+          "subdimensions": {
+            "elevation": {
+              "category": "terrain",
+              "value": -3381.222,
+              "unit": "m",
+              "status": "extracted",
+              "source_product_ids": [
+                "LDEM_16_FLOAT"
+              ],
+              "statistic": "nearest pixel",
+              "method": "Float32 little-endian DN times 1000; height relative to 1737.4 km reference sphere",
+              "resolution_m": {
+                "east_west": 1868.703,
+                "north_south": 1895.209
+              },
+              "neighborhood_m": {
+                "east_west": 9343.517,
+                "north_south": 9476.047
+              },
+              "quality_notes": [
+                "Coarse regional terrain only; not landing or rover hazard certification.",
+                "LOLA gridded product includes interpolation; pixel validity checked by finite values and conservative height bounds.",
+                "Slope and roughness depend on spatial scale; local tangent-plane approximation."
+              ]
+            },
+            "slope": {
+              "category": "terrain",
+              "value": 1.414,
+              "unit": "degree",
+              "status": "extracted",
+              "source_product_ids": [
+                "LDEM_16_FLOAT"
+              ],
+              "statistic": "least-squares plane slope",
+              "method": "5 by 5 pixel window; local spherical spacing at sampled latitude",
+              "resolution_m": {
+                "east_west": 1868.703,
+                "north_south": 1895.209
+              },
+              "neighborhood_m": {
+                "east_west": 9343.517,
+                "north_south": 9476.047
+              },
+              "quality_notes": [
+                "Coarse regional terrain only; not landing or rover hazard certification.",
+                "LOLA gridded product includes interpolation; pixel validity checked by finite values and conservative height bounds.",
+                "Slope and roughness depend on spatial scale; local tangent-plane approximation."
+              ]
+            },
+            "roughness": {
+              "category": "terrain",
+              "value": 138.737,
+              "unit": "m",
+              "status": "extracted",
+              "source_product_ids": [
+                "LDEM_16_FLOAT"
+              ],
+              "statistic": "RMS residual from fitted plane",
+              "method": "5 by 5 pixel window; local spherical spacing at sampled latitude",
+              "resolution_m": {
+                "east_west": 1868.703,
+                "north_south": 1895.209
+              },
+              "neighborhood_m": {
+                "east_west": 9343.517,
+                "north_south": 9476.047
+              },
+              "quality_notes": [
+                "Coarse regional terrain only; not landing or rover hazard certification.",
+                "LOLA gridded product includes interpolation; pixel validity checked by finite values and conservative height bounds.",
+                "Slope and roughness depend on spatial scale; local tangent-plane approximation."
+              ]
+            },
+            "craters": {
+              "value": null,
+              "status": "candidate_sources_only",
+              "meaning": "No crater detection or count has been calculated."
+            }
+          }
+        },
+        "environment": {
+          "name": "Temperature, illumination, environmental extremes",
+          "subdimensions": {
+            "temperature": {
+              "category": "environment",
+              "value": null,
+              "status": "not_implemented"
+            },
+            "illumination": {
+              "category": "environment",
+              "value": null,
+              "status": "not_implemented"
+            },
+            "environmental_extremes": {
+              "value": null,
+              "status": "not_assessed",
+              "meaning": "No site measurement or assessment saved."
+            }
+          }
+        },
+        "resources": {
+          "name": "Water, ice, permafrost, resources",
+          "subdimensions": {
+            "water": {
+              "value": null,
+              "status": "candidate_sources_only",
+              "meaning": "Archive candidates exist; site measurements have not been extracted."
+            },
+            "ice": {
+              "category": "resources",
+              "value": null,
+              "status": "not_implemented"
+            },
+            "permafrost": {
+              "value": null,
+              "status": "not_applicable",
+              "meaning": "No site measurement or assessment saved."
+            },
+            "resources": {
+              "value": null,
+              "status": "not_assessed",
+              "meaning": "No site measurement or assessment saved."
+            }
+          }
+        },
+        "surface_processes": {
+          "name": "Dust, wind, erosion, aeolian processes",
+          "subdimensions": {
+            "dust": {
+              "category": "surface_processes",
+              "value": null,
+              "status": "not_implemented"
+            },
+            "wind": {
+              "category": "surface_processes",
+              "value": null,
+              "status": "not_applicable"
+            },
+            "erosion": {
+              "value": null,
+              "status": "not_assessed",
+              "meaning": "No site measurement or assessment saved."
+            },
+            "aeolian": {
+              "value": null,
+              "status": "not_applicable",
+              "meaning": "No site measurement or assessment saved."
+            }
+          }
+        },
+        "biology": {
+          "name": "Biology, extremophiles, habitability, biosignatures",
+          "subdimensions": {
+            "biology": {
+              "category": "biology",
+              "value": null,
+              "status": "not_implemented"
+            },
+            "extremophiles": {
+              "value": null,
+              "status": "earth_analog_evidence_required",
+              "meaning": "No site measurement or assessment saved."
+            },
+            "habitability": {
+              "value": null,
+              "status": "not_assessed",
+              "meaning": "No site measurement or assessment saved."
+            },
+            "biosignatures": {
+              "value": null,
+              "status": "not_assessed",
+              "meaning": "No site measurement or assessment saved."
+            }
+          }
+        },
+        "subsurface": {
+          "name": "Caves, lava tubes, subsurface",
+          "subdimensions": {
+            "caves": {
+              "category": "subsurface",
+              "value": null,
+              "status": "not_implemented"
+            },
+            "lava_tubes": {
+              "category": "subsurface",
+              "value": null,
+              "status": "not_implemented"
+            },
+            "subsurface": {
+              "value": null,
+              "status": "candidate_sources_only",
+              "meaning": "Archive candidates exist; site measurements have not been extracted."
+            }
+          }
+        },
+        "operations": {
+          "name": "Ops",
+          "subdimensions": {
+            "landing": {
+              "category": "operations",
+              "value": null,
+              "status": "not_implemented"
+            },
+            "mobility": {
+              "category": "operations",
+              "value": null,
+              "status": "not_implemented"
+            },
+            "navigation": {
+              "value": null,
+              "status": "not_assessed",
+              "meaning": "No site measurement or assessment saved."
+            },
+            "robotics": {
+              "value": null,
+              "status": "not_assessed",
+              "meaning": "No site measurement or assessment saved."
+            },
+            "construction": {
+              "value": null,
+              "status": "not_assessed",
+              "meaning": "No site measurement or assessment saved."
+            },
+            "human_factors": {
+              "value": null,
+              "status": "not_assessed",
+              "meaning": "No site measurement or assessment saved."
+            }
+          }
+        }
+      }
+    }
+  ]
+}
