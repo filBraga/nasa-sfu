@@ -88,13 +88,14 @@
     },
     {
       "id": "surface_dust",
+      "score_excluded_bodies": ["moon"],
       "label": "Surface dust / fine soil",
       "unit": "%",
       "description": "Share of the site covered by fine dust or fine soil. Earth: bare ground whose topsoil is mostly silt + clay (> 50%). Mars: TES Dust Cover Index below 0.94 (dust-covered surface, Ruff & Christensen 2002). The two are measured differently (soil texture vs thermal-infrared emissivity), so each body has its own threshold. Moon: no data yet.",
       "sources": {
         "earth": "Google Earth Engine: OpenLandMap topsoil sand content (fine = 100 - sand) on barren ground (MODIS MOD13A2 NDVI < 0.2)",
         "mars": "TES Dust Cover Index (Ruff & Christensen 2002), numeric 16 pixels/degree map from ASU",
-        "moon": "No data yet (PDS team: Diviner rock abundance / regolith fines)"
+        "moon": "No comparable surface dust map. Scout v3 LDEX orbital dust profiles and Diviner modeled rock cover are displayed separately; neither is surface dust coverage."
       },
       "compare": "fraction",
       "direction": "above",

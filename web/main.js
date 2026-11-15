@@ -1,4 +1,6 @@
 import * as THREE from "three";
+import { renderEvidence } from "./evidence.js";
+import { renderLunarDust } from "./lunar-dust.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
 
@@ -174,6 +176,9 @@ function addReferenceMarkers() {
     }
     for (const l of ref.landers?.landers || []) {
       if (typeof l.lat !== "number" || typeof l.lon_e !== "number") continue;
+      // A selectable comparison marker takes precedence at the same Moon location.
+      if (body === "moon" && Object.values(state.data.sites).some(s => s.body === body
+        && Math.abs(s.lat - l.lat) < .02 && Math.abs(((s.lon - l.lon_e + 540) % 360) - 180) < .02)) continue;
       add(body, l, "lander", `${l.name}${l.date ? " (" + l.date + ")" : ""}: ${l.outcome || l.type || ""}`);
     }
   }
@@ -473,9 +478,9 @@ function fillSelects() {
     `<optgroup label="#team places">${sites.filter((s) => s.body === "earth" && isTeam(s)).map(earthOpt).join("")}</optgroup>` +
     `<optgroup label="Controls">${sites.filter((s) => s.role === "control").map(earthOpt).join("")}</optgroup>`;
   const targets = sites.filter((s) => s.role === "target");
-  $("sel-target").innerHTML = [...new Set(targets.map((t) => t.type))].map((ty) =>
-    `<optgroup label="${esc(typeLabel(ty))}">${targets.filter((t) => t.type === ty)
-      .map((s) => `<option value="${s.id}">${esc(s.name)} (${BODY[s.body].name})</option>`).join("")}</optgroup>`).join("");
+  $("sel-target").innerHTML = ["moon", "mars"].map(body =>
+    `<optgroup label="${BODY[body].name} comparison locations">${targets.filter(t => t.body === body)
+      .map(s => `<option value="${s.id}">${esc(s.name)}${s.tags?.includes("planetary_import") ? " · regional" : ""}</option>`).join("")}</optgroup>`).join("");
   $("sel-earth").value = state.earthId;
   $("sel-target").value = state.targetId;
 }
@@ -513,19 +518,21 @@ function saveDims() {
 function scoreOf(c) {
   const dims = state.data.dimensions;
   const na = new Set(c.not_applicable || []); // terrain metrics this target's type doesn't use
-  const scored = [...state.dims].filter((k) => c.scores[k] != null);
+  const body = state.data.sites[c.target].body;
+  const filterOnly = [...state.dims].filter(k => (dims[k].score_excluded_bodies || []).includes(body));
+  const scored = [...state.dims].filter((k) => c.scores[k] != null && !filterOnly.includes(k));
   const used = scored.filter((k) => blockedBy(k, c).length === 0);
   const filtered = scored.filter((k) => blockedBy(k, c).length > 0);
-  const missing = [...state.dims].filter((k) => c.scores[k] == null && !na.has(k));
+  const missing = [...state.dims].filter((k) => c.scores[k] == null && !na.has(k) && !filterOnly.includes(k));
   const wsum = used.reduce((s, k) => s + dims[k].weight, 0);
   const overall = wsum > 0 ? used.reduce((s, k) => s + dims[k].weight * c.scores[k], 0) / wsum : null;
-  return { overall, verdict: overall == null ? "weak" : verdictOf(overall), used, missing, filtered };
+  return { overall, verdict: overall == null ? "weak" : verdictOf(overall), used, missing, filtered, filterOnly };
 }
 
 // ------------------------------------------------------------------ source filter ("only data from X")
 const SRC_KEY = "analog-explorer-sources-off";
 const scoreDatasets = () => (state.data.data_sources?.datasets || []).filter((d) => d.category === "elevation" || d.category === "layer");
-const datasetBodies = (d) => d.dem_for || (d.body ? [d.body] : []);
+const datasetBodies = (d) => d.dem_for || d.bodies || (d.body ? [d.body] : []);
 
 function initSources() {
   const known = new Set(scoreDatasets().map((d) => d.id));
@@ -614,6 +621,7 @@ function renderDims() {
   const dims = state.data.dimensions, nSites = Object.keys(state.data.sites).length;
   const row = (k) => {
     const d = dims[k];
+    const filterOnly = (d.score_excluded_bodies || []).includes(state.data.sites[state.targetId]?.body);
     const n = d.group === "layer" ? (d.sites_with_data || []).length : nSites;
     const allTypes = Object.keys(state.data.site_types || {});
     const applies = d.applies_to && d.applies_to.length < allTypes.length ? d.applies_to.map(typeShort).join(", ") : "";
@@ -621,7 +629,7 @@ function renderDims() {
     return `<label class="dim-row ${d.group === "layer" && n === 0 ? "empty" : ""}" data-dim-info="${k}">
       <input type="checkbox" data-dim="${k}" ${state.dims.has(k) ? "checked" : ""}>
       <span class="dim-name">${esc(d.label)}</span>
-      <span class="dim-meta">${avail ? esc(avail) + " · " : ""}w ${d.weight}</span>
+      <span class="dim-meta">${filterOnly ? "Moon: filter / evidence only" : `${avail ? esc(avail) + " · " : ""}w ${d.weight}`}</span>
       <button type="button" class="info-btn" data-info-btn="${k}" aria-label="Where ${esc(d.label)} comes from">i</button></label>`;
   };
   const keys = Object.keys(dims);
@@ -868,6 +876,7 @@ function siteFactsHtml(s) {
 
   const dl = L.surface_dust;
   let dust = null;
+  if (s.body === "moon") dust = 'Present <span class="hint">(local coverage unmeasured)</span>';
   if (dl && dl.fraction != null) {
     const word = dl.fraction >= 0.4 ? "high" : dl.fraction >= 0.1 ? "moderate" : dl.fraction > 0.01 ? "low" : "very low";
     const what = s.body === "earth" ? "bare fine soil" : s.body === "mars" ? "dust-covered" : "dusty";
@@ -907,6 +916,84 @@ function renderFacts() {
     try { localStorage.setItem(FACTS_KEY, collapsed ? "0" : "1"); } catch { /* ignore */ }
     renderFacts();
   }));
+}
+
+function renderSuitability() {
+  const e = state.data.sites[state.earthId];
+  const t = state.data.sites[state.targetId];
+  const metricsEl = $("metrics");
+  if (!metricsEl) return;
+
+  // Clear existing suit cards
+  metricsEl.querySelectorAll(".suit-card").forEach(el => el.remove());
+
+  // Earth site absolute suitability
+  if (e && e.body === "earth" && state.suitability && state.suitability.scores) {
+    const suit = state.suitability.scores[e.id];
+    if (suit) {
+      const verdict = suit.score == null ? "insufficient data" : suit.score >= 0.7 ? "strong" : suit.score >= 0.4 ? "partial" : "weak";
+      const groupsHtml = Object.entries(suit.groups || {}).map(([name, g]) => {
+        if (!g || g.score == null) return "";
+        const metricEntries = Object.entries(g.metric_scores || {}).filter(([, v]) => v != null);
+        if (metricEntries.length === 0) return "";
+        const metricsHtml = metricEntries.map(([m, v]) =>
+          `<span class="dim-chip" style="background:${COLOR[v >= 0.6 ? "strong" : v >= 0.3 ? "partial" : "weak"]}">${m}: ${v.toFixed(2)}</span>`
+        ).join(" ");
+        return `<div class="suit-group">
+          <div class="suit-group-header">
+            <span>${name.charAt(0).toUpperCase() + name.slice(1)} <small class="hint">${((g.coverage ?? 0) * 100).toFixed(0)}% coverage</small></span>
+            <b style="color:${COLOR[g.score >= 0.6 ? "strong" : g.score >= 0.3 ? "partial" : "weak"]}">${g.score.toFixed(2)}</b>
+          </div>
+          <div class="suit-metrics">${metricsHtml}</div>
+        </div>`;
+      }).join("");
+
+      const html = `
+        <div class="suit-card">
+          <div class="suit-header">
+            <h3>Earth Site Suitability</h3>
+            <span class="chip ${verdict}">${verdict} (${suit.score != null ? suit.score.toFixed(2) : "N/A"})</span>
+          </div>
+          <p class="hint">Suitability across environmental metrics. Coverage: ${(suit.coverage * 100).toFixed(0)}%</p>
+          ${groupsHtml}
+        </div>`;
+      metricsEl.insertAdjacentHTML("afterbegin", html);
+    }
+  }
+
+  // Moon target absolute suitability (if target is Moon and we have Moon absolute scores)
+  if (t && t.body === "moon" && state.moonSuitability && state.moonSuitability.scores) {
+    const suit = state.moonSuitability.scores[t.id];
+    if (suit) {
+      const verdict = suit.score == null ? "insufficient data" : suit.score >= 0.7 ? "strong" : suit.score >= 0.4 ? "partial" : "weak";
+      const groupsHtml = Object.entries(suit.groups || {}).map(([name, g]) => {
+        if (!g || g.score == null) return "";
+        const metricEntries = Object.entries(g.metric_scores || {}).filter(([, v]) => v != null);
+        if (metricEntries.length === 0) return "";
+        const metricsHtml = metricEntries.map(([m, v]) =>
+          `<span class="dim-chip" style="background:${COLOR[v >= 0.6 ? "strong" : v >= 0.3 ? "partial" : "weak"]}">${m}: ${v.toFixed(2)}</span>`
+        ).join(" ");
+        return `<div class="suit-group">
+          <div class="suit-group-header">
+            <span>${name.charAt(0).toUpperCase() + name.slice(1)} <small class="hint">${((g.coverage ?? 0) * 100).toFixed(0)}% coverage</small></span>
+            <b style="color:${COLOR[g.score >= 0.6 ? "strong" : g.score >= 0.3 ? "partial" : "weak"]}">${g.score.toFixed(2)}</b>
+          </div>
+          <div class="suit-metrics">${metricsHtml}</div>
+        </div>`;
+      }).join("");
+
+      const html = `
+        <div class="suit-card">
+          <div class="suit-header">
+            <h3>Moon Site Suitability</h3>
+            <span class="chip ${verdict}">${verdict} (${suit.score != null ? suit.score.toFixed(2) : "N/A"})</span>
+          </div>
+          <p class="hint">Absolute Moon suitability. Coverage: ${(suit.coverage * 100).toFixed(0)}% ${suit.coverage < 0.5 ? "(terrain only)" : ""}</p>
+          ${groupsHtml}
+        </div>`;
+      metricsEl.insertAdjacentHTML("beforeend", html);
+    }
+  }
 }
 
 // ------------------------------------------------------------------ right panel sub-tabs
@@ -1036,6 +1123,7 @@ function renderPanel() {
   const c = currentComparison();
   const e = state.data.sites[state.earthId], t = state.data.sites[state.targetId];
   renderFacts();
+  renderSuitability();
   updateFiltersBadge();
   if (!c) { // a site whose type has no target yet (e.g. dunes, evaporite)
     $("score-card").innerHTML = `<h2>${esc(e.name)}</h2>
@@ -1049,13 +1137,13 @@ function renderPanel() {
   const tColor = COLOR[t.body];
   const dims = state.data.dimensions;
   const sc = scoreOf(c);
-  const na = new Set(c.not_applicable || []);
+  const na = new Set([...(c.not_applicable || []), ...sc.filterOnly]);
 
   $("score-card").innerHTML = `
     <div class="score-row">
       <div class="score-big" style="color:${COLOR[sc.verdict]}">${fmt(sc.overall)}</div>
       <div>
-        ${sc.overall == null ? `<span class="chip weak">${sc.filtered.length ? "nothing left after source filter" : "no dimensions selected"}</span>` : `<span class="chip ${sc.verdict}">${sc.verdict} analog</span>`}
+        ${sc.overall == null ? `<span class="chip weak">${sc.filtered.length ? "nothing left after source filter" : sc.filterOnly.length ? "selected filters do not contribute to this score" : "no dimensions selected"}</span>` : `<span class="chip ${sc.verdict}">${sc.verdict} analog</span>`}
         <span class="chip role${isTeam(e) ? " team" : ""}">${c.is_pair ? "calibration pair" : roleLabel(e)}</span>
         <span class="chip role">${esc(typeShort(c.target_type))}</span>
         <div class="pair-names"><b>${esc(e.name)}</b> vs <b>${esc(t.name)}</b><br>
@@ -1099,6 +1187,15 @@ function renderPanel() {
       <div><h3 style="color:var(--weak)">Where it breaks</h3><ul>${breaks.map(li).join("") || "<li>-</li>"}</ul></div>
     </div>
     <ul>${c.notes.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>`;
+
+  renderEvidence($("metrics"), t);
+  renderLunarDust($("metrics"), t, { enabled: state.dims.has("surface_dust") });
+  if (t.body === "moon") {
+    $("score-card").insertAdjacentHTML("beforeend", '<p class="hint">Lunar dust is excluded from this score. The dust checkbox in Filters shows or hides its evidence.</p>');
+  }
+  if (t.tags?.some(tag => ["planetary_import", "moon_catalog"].includes(tag))) {
+    $("score-card").insertAdjacentHTML("beforeend", `<p class="hint">${esc(t.verify)} Comparison window: ${t.window_km} km.</p>`);
+  }
 
   // one histogram per selected data layer that has data for this pair
   const layerIds = sc.used.filter((k) => dims[k].group === "layer" && c.layers && c.layers[k]);
@@ -1236,6 +1333,7 @@ function select(earthId, targetId, { pair = false } = {}) {
     if (state.focus === "link") focusBody("all");
   }
   fillSelects();
+  renderDims();
   renderPanel();
   buildPairLines();
   renderTopMatches();
@@ -1315,9 +1413,19 @@ function loop() {
 // ------------------------------------------------------------------ boot
 async function boot() {
   try {
-    const res = await fetch("data/results.json");
-    if (!res.ok) throw new Error(res.status);
-    state.data = await res.json();
+    const [resResults, resSuitability, resMoonSuitability] = await Promise.all([
+      fetch("data/results.json"),
+      fetch("data/suitability_scores.json").catch(() => null), // Earth absolute
+      fetch("data/suitability_scores_moon_absolute.json").catch(() => null) // Moon absolute
+    ]);
+    if (!resResults.ok) throw new Error(resResults.status);
+    state.data = await resResults.json();
+    if (resSuitability && resSuitability.ok) {
+      state.suitability = await resSuitability.json();
+    }
+    if (resMoonSuitability && resMoonSuitability.ok) {
+      state.moonSuitability = await resMoonSuitability.json();
+    }
   } catch {
     const el = $("error");
     el.hidden = false;

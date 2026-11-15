@@ -1,0 +1,265 @@
+{
+  "mode": "moon_absolute",
+  "target_body": "moon",
+  "scores": {
+    "copernicus": {
+      "score": 0.5051,
+      "observed_score": 0.5051253956867484,
+      "coverage": 1.0,
+      "groups": {
+        "slope": {
+          "score": 0.8681,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.8681
+          }
+        },
+        "temperature": {
+          "score": 0.1706,
+          "coverage": 1.0,
+          "metric_scores": {
+            "midnight_temp": 0.1706
+          }
+        },
+        "regolith": {
+          "score": 0.9517,
+          "coverage": 1.0,
+          "metric_scores": {
+            "rock_abundance": 0.9517
+          }
+        },
+        "materials": {
+          "score": 0.4619,
+          "coverage": 1.0,
+          "metric_scores": {
+            "albedo": 0.4619
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.8681,
+        "temperature": 0.1706,
+        "regolith": 0.9517,
+        "materials": 0.4619
+      },
+      "invalid_metrics": []
+    },
+    "shackleton": {
+      "score": null,
+      "observed_score": 0.8235,
+      "coverage": 0.25,
+      "groups": {
+        "slope": {
+          "score": 0.8235,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.8235
+          }
+        },
+        "temperature": {
+          "score": null,
+          "coverage": 0.0,
+          "metric_scores": {
+            "midnight_temp": null
+          }
+        },
+        "regolith": {
+          "score": null,
+          "coverage": 0.0,
+          "metric_scores": {
+            "rock_abundance": null
+          }
+        },
+        "materials": {
+          "score": null,
+          "coverage": 0.0,
+          "metric_scores": {
+            "albedo": null
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.8235,
+        "temperature": null,
+        "regolith": null,
+        "materials": null
+      },
+      "invalid_metrics": []
+    },
+    "malapert": {
+      "score": null,
+      "observed_score": 0.2925,
+      "coverage": 0.25,
+      "groups": {
+        "slope": {
+          "score": 0.2925,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.2925
+          }
+        },
+        "temperature": {
+          "score": null,
+          "coverage": 0.0,
+          "metric_scores": {
+            "midnight_temp": null
+          }
+        },
+        "regolith": {
+          "score": null,
+          "coverage": 0.0,
+          "metric_scores": {
+            "rock_abundance": null
+          }
+        },
+        "materials": {
+          "score": null,
+          "coverage": 0.0,
+          "metric_scores": {
+            "albedo": null
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.2925,
+        "temperature": null,
+        "regolith": null,
+        "materials": null
+      },
+      "invalid_metrics": []
+    },
+    "mons_mouton_plateau": {
+      "score": null,
+      "observed_score": 0.5893,
+      "coverage": 0.25,
+      "groups": {
+        "slope": {
+          "score": 0.5893,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.5893
+          }
+        },
+        "temperature": {
+          "score": null,
+          "coverage": 0.0,
+          "metric_scores": {
+            "midnight_temp": null
+          }
+        },
+        "regolith": {
+          "score": null,
+          "coverage": 0.0,
+          "metric_scores": {
+            "rock_abundance": null
+          }
+        },
+        "materials": {
+          "score": null,
+          "coverage": 0.0,
+          "metric_scores": {
+            "albedo": null
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.5893,
+        "temperature": null,
+        "regolith": null,
+        "materials": null
+      },
+      "invalid_metrics": []
+    }
+  },
+  "groups": {
+    "slope": {
+      "weight": 1.0,
+      "metrics": {
+        "slope": 1.0
+      }
+    },
+    "temperature": {
+      "weight": 1.0,
+      "metrics": {
+        "midnight_temp": 1.0
+      }
+    },
+    "regolith": {
+      "weight": 1.0,
+      "metrics": {
+        "rock_abundance": 1.0
+      }
+    },
+    "materials": {
+      "weight": 1.0,
+      "metrics": {
+        "albedo": 1.0
+      }
+    }
+  },
+  "terrain_scoring": {
+    "slope": {
+      "scale": 10.0,
+      "stat": "median",
+      "description": "exp(-median_slope_deg / scale). Lower slope is better for landing."
+    },
+    "roughness": {
+      "scale": 1.0,
+      "stat": "median",
+      "description": "exp(-median_log10(roughness+0.1) / scale). Lower roughness is better."
+    }
+  },
+  "layer_absolute_scoring": {
+    "midnight_temperature": {
+      "metric": "midnight_temp",
+      "scale": 50.0,
+      "higher_is_better": false,
+      "target": 200.0,
+      "description": "Midnight bolometric temperature. Prefer moderate temperatures (~200K)."
+    },
+    "rock_abundance": {
+      "metric": "rock_abundance",
+      "scale": 0.2,
+      "higher_is_better": false,
+      "description": "Rock abundance fraction. Lower is better for landing (smoother regolith)."
+    },
+    "hapke_albedo": {
+      "metric": "albedo",
+      "scale": 0.2,
+      "higher_is_better": false,
+      "target": 0.3,
+      "description": "Single-scattering albedo at 643nm. Prefer moderate albedo."
+    }
+  },
+  "aggregation": {
+    "method": "weighted_geometric_mean",
+    "min_coverage": 0.8,
+    "zero_is_veto": true,
+    "groups": {
+      "slope": {
+        "weight": 1.0,
+        "metrics": {
+          "slope": 1.0
+        }
+      },
+      "temperature": {
+        "weight": 1.0,
+        "metrics": {
+          "midnight_temp": 1.0
+        }
+      },
+      "regolith": {
+        "weight": 1.0,
+        "metrics": {
+          "rock_abundance": 1.0
+        }
+      },
+      "materials": {
+        "weight": 1.0,
+        "metrics": {
+          "albedo": 1.0
+        }
+      }
+    }
+  }
+}

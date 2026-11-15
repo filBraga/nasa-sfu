@@ -9,7 +9,10 @@ multi-gigabyte downloads are required.
 """
 
 import math
+import hashlib
+import json
 import os
+import subprocess
 from pathlib import Path
 
 import numpy as np
@@ -82,6 +85,8 @@ def fetch_earth(site, res_m, log=print):
 # ---------------------------------------------------------------- Mars
 
 def fetch_mars(site, res_m, log=print):
+    if "planetary_import" in site.get("tags", []):
+        return fetch_cached_mars(site, res_m, log)
     R = RADIUS_M["mars"]
     crs = local_crs("mars", site["lat"], site["lon"])
     geo = CRS.from_proj4(f"+proj=longlat +R={R} +no_defs")
@@ -105,9 +110,38 @@ def fetch_mars(site, res_m, log=print):
     return dst, crs, transform
 
 
+def fetch_cached_mars(site, res_m, log=print):
+    """Use validated small native windows read with Node's system TLS trust."""
+    root = Path(__file__).resolve().parents[1]
+    directory = root / "data/external/mars/terrain_windows"
+    meta_path, raw_path = directory / f"{site['id']}.json", directory / f"{site['id']}.f32"
+    if not meta_path.exists() or not raw_path.exists():
+        subprocess.run(["node", "--use-system-ca", str(root / "scripts/cache_mars_windows.mjs"), site["id"]], check=True)
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    if any(meta[k] != site[k] for k in ("lat", "lon", "window_km")):
+        raise ValueError(f"Stale Mars window: rerun scripts/cache_mars_windows.mjs {site['id']}")
+    raw = raw_path.read_bytes()
+    if hashlib.sha256(raw).hexdigest() != meta["sha256"]:
+        raise ValueError("Mars window hash mismatch")
+    values = np.frombuffer(raw, dtype="<f4").reshape(meta["height"], meta["width"])
+    crs = local_crs("mars", site["lat"], site["lon"])
+    geo = CRS.from_proj4(f"+proj=longlat +R={meta['radius_m']} +no_defs")
+    n, _, transform = local_grid(site["window_km"], res_m)
+    dst = np.full((n, n), np.nan, np.float32)
+    reproject(values, dst, src_transform=from_origin(*meta["origin"], meta["resolution"][0], -meta["resolution"][1]),
+              src_crs=geo, src_nodata=np.nan, dst_transform=transform, dst_crs=crs,
+              dst_nodata=np.nan, resampling=Resampling.bilinear)
+    if not np.isfinite(dst).all():
+        raise ValueError("Incomplete Mars terrain window")
+    log(f"    cached HRSC-MOLA window {values.shape[1]}x{values.shape[0]} native pixels")
+    return dst, crs, transform
+
+
 # ---------------------------------------------------------------- Moon
 
 def fetch_moon(site, res_m, log=print):
+    if site.get("dem_source") == "lola_global_16":
+        return fetch_moon_global(site, res_m, log)
     if site["lat"] > -80:
         raise ValueError("Only lunar south polar sites (lat <= -80) are supported by this starter.")
     R = RADIUS_M["moon"]
@@ -135,6 +169,41 @@ def fetch_moon(site, res_m, log=print):
               resampling=Resampling.bilinear)
     if site.get("hires_dem") == "lro_nac_south_pole":
         dst = merge_nac(dst, crs, transform, res_m, log)
+    return dst, crs, transform
+
+
+def fetch_moon_global(site, res_m, log=print):
+    """Read a regional window of the cached SVS LOLA 16 ppd TIFF.
+
+    This TIFF has no embedded georeferencing. Its validated contract is north-up,
+    -180..180 east, 90..-90 latitude, heights in km above a 1737.4 km sphere.
+    The existing sampling_validation.json independently checks orientation/units.
+    """
+    path = Path(__file__).resolve().parent.parent / "moon-data/data/rasters/ldem_16.tif"
+    crs = local_crs("moon", site["lat"], site["lon"])
+    geo = CRS.from_proj4(f"+proj=longlat +R={RADIUS_M['moon']} +no_defs")
+    n, half, transform = local_grid(site["window_km"], res_m)
+    w, s, e, north = transform_bounds(crs, geo, -half, -half, half, half, densify_pts=41)
+    # Wrapped/polar windows use the full longitude band for these few latitude
+    # rows. GDAL can then reproject across the seam without losing an edge.
+    if e < w or e - w > 180:
+        w, e = -180, 180
+    ppd = 16
+    c0, c1 = max(0, math.floor((w + 180) * ppd) - 2), min(5760, math.ceil((e + 180) * ppd) + 2)
+    r0, r1 = max(0, math.floor((90 - north) * ppd) - 2), min(2880, math.ceil((90 - s) * ppd) + 2)
+    with rasterio.open(path) as ds:
+        if (ds.width, ds.height, ds.count) != (5760, 2880, 1):
+            raise ValueError("Unexpected cached LOLA 16 ppd raster layout")
+        values = ds.read(1, window=Window(c0, r0, c1 - c0, r1 - r0)).astype(np.float32) * 1000
+    if not np.isfinite(values).all() or np.max(np.abs(values)) > 15000:
+        raise ValueError("Invalid cached lunar heights")
+    dst = np.full((n, n), np.nan, np.float32)
+    reproject(values, dst, src_transform=from_origin(-180 + c0 / ppd, 90 - r0 / ppd, 1 / ppd, 1 / ppd),
+              src_crs=geo, dst_transform=transform, dst_crs=crs, dst_nodata=np.nan,
+              resampling=Resampling.bilinear)
+    if not np.isfinite(dst).all():
+        raise ValueError("Incomplete global lunar DEM window")
+    log(f"    cached LOLA window {values.shape[1]}x{values.shape[0]}; ~1895 m native N-S grid")
     return dst, crs, transform
 
 

@@ -165,7 +165,7 @@
       "role": "control",
       "types": [],
       "lat": 50.1,
-      "lon": -123.0,
+      "lon": -123,
       "diameter_km": 25,
       "window_km": 84,
       "refine_center": false,
@@ -180,7 +180,7 @@
       "body": "earth",
       "role": "control",
       "types": [],
-      "lat": 52.0,
+      "lat": 52,
       "lon": -73.5,
       "diameter_km": 25,
       "window_km": 84,
@@ -545,7 +545,7 @@
       ],
       "place_id": "place-35",
       "lat": 64.74,
-      "lon": -128.0,
+      "lon": -128,
       "diameter_km": 25,
       "window_km": 30,
       "refine_center": false,
@@ -776,7 +776,7 @@
       "role": "target",
       "type": "periglacial_plains",
       "lat": 47.25,
-      "lon": -164.0,
+      "lon": -164,
       "window_km": 100,
       "compare_res_m": 200,
       "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
@@ -1022,7 +1022,7 @@
       "role": "target",
       "type": "landing_zone",
       "lat": -11.7,
-      "lon": -70.0,
+      "lon": -70,
       "window_km": 60,
       "compare_res_m": 200,
       "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
@@ -1156,8 +1156,8 @@
       "body": "mars",
       "role": "target",
       "type": "landing_zone",
-      "lat": -13.0,
-      "lon": 175.0,
+      "lat": -13,
+      "lon": 175,
       "window_km": 60,
       "compare_res_m": 200,
       "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
@@ -1232,8 +1232,8 @@
       "body": "mars",
       "role": "target",
       "type": "landing_zone",
-      "lat": 10.0,
-      "lon": 162.0,
+      "lat": 10,
+      "lon": 162,
       "window_km": 60,
       "compare_res_m": 200,
       "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
@@ -1331,8 +1331,8 @@
       "body": "mars",
       "role": "target",
       "type": "crater",
-      "lat": -29.0,
-      "lon": -166.0,
+      "lat": -29,
+      "lon": -166,
       "window_km": 300,
       "compare_res_m": 200,
       "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
@@ -1411,8 +1411,8 @@
       "body": "mars",
       "role": "target",
       "type": "landing_zone",
-      "lat": -40.0,
-      "lon": 104.0,
+      "lat": -40,
+      "lon": 104,
       "window_km": 60,
       "compare_res_m": 200,
       "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
@@ -1528,7 +1528,7 @@
       "role": "target",
       "type": "crater",
       "lat": -40.6,
-      "lon": -160.0,
+      "lon": -160,
       "window_km": 300,
       "compare_res_m": 200,
       "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
@@ -1548,7 +1548,7 @@
       "body": "mars",
       "role": "target",
       "type": "landing_zone",
-      "lat": 39.0,
+      "lat": 39,
       "lon": -167.9,
       "window_km": 60,
       "compare_res_m": 200,
@@ -1586,8 +1586,8 @@
       "body": "mars",
       "role": "target",
       "type": "landing_zone",
-      "lat": 39.0,
-      "lon": 172.0,
+      "lat": 39,
+      "lon": 172,
       "window_km": 60,
       "compare_res_m": 200,
       "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
@@ -1624,7 +1624,7 @@
       "body": "mars",
       "role": "target",
       "type": "landing_zone",
-      "lat": 40.0,
+      "lat": 40,
       "lon": -171.2,
       "window_km": 60,
       "compare_res_m": 200,
@@ -1662,7 +1662,7 @@
       "body": "mars",
       "role": "target",
       "type": "landing_zone",
-      "lat": -32.0,
+      "lat": -32,
       "lon": 96.5,
       "window_km": 60,
       "compare_res_m": 200,
@@ -1700,8 +1700,8 @@
       "body": "mars",
       "role": "target",
       "type": "landing_zone",
-      "lat": 20.0,
-      "lon": -40.0,
+      "lat": 20,
+      "lon": -40,
       "window_km": 60,
       "compare_res_m": 200,
       "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
@@ -1729,6 +1729,3560 @@
         "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
         "No magnetic field: surface radiation far above Earth levels.",
         "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "copernicus",
+      "name": "Copernicus Crater",
+      "body": "moon",
+      "role": "target",
+      "region": "Imported Moon research location",
+      "type": "regional_terrain",
+      "compare_all_earth": true,
+      "lat": 9.62,
+      "lon": -20.079999999999927,
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "refine_center": false,
+      "dem_source": "lola_global_16",
+      "source": "Cached LOLA global 16 ppd DEM (NASA SVS Moon Kit)",
+      "blurb": "Research location from moon-data/moon_data.json. Terrain comparison covers a local regional window, not the entire named feature.",
+      "verify": "Regional screening at 2 km/pixel (~1.9 km native N-S grid); cannot resolve landing hazards, pits or individual boulders.",
+      "earth_limits": [
+        "Comparison describes regional terrain similarity, not operational safety or landing suitability.",
+        "Published thermal, composition and ice evidence is shown separately with its source and measurement scale.",
+        "Gravity, atmosphere, radiation and weathering differ from Earth."
+      ],
+      "tags": [
+        "planetary_import"
+      ]
+    },
+    {
+      "id": "tycho",
+      "name": "Tycho Crater",
+      "body": "moon",
+      "role": "target",
+      "region": "Imported Moon research location",
+      "type": "regional_terrain",
+      "compare_all_earth": true,
+      "lat": -43.31,
+      "lon": -11.170000000000073,
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "refine_center": false,
+      "dem_source": "lola_global_16",
+      "source": "Cached LOLA global 16 ppd DEM (NASA SVS Moon Kit)",
+      "blurb": "Research location from moon-data/moon_data.json. Terrain comparison covers a local regional window, not the entire named feature.",
+      "verify": "Regional screening at 2 km/pixel (~1.9 km native N-S grid); cannot resolve landing hazards, pits or individual boulders.",
+      "earth_limits": [
+        "Comparison describes regional terrain similarity, not operational safety or landing suitability.",
+        "Published thermal, composition and ice evidence is shown separately with its source and measurement scale.",
+        "Gravity, atmosphere, radiation and weathering differ from Earth."
+      ],
+      "tags": [
+        "planetary_import"
+      ]
+    },
+    {
+      "id": "aristarchus",
+      "name": "Aristarchus Crater",
+      "body": "moon",
+      "role": "target",
+      "region": "Imported Moon research location",
+      "type": "regional_terrain",
+      "compare_all_earth": true,
+      "lat": 23.73,
+      "lon": -47.49000000000001,
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "refine_center": false,
+      "dem_source": "lola_global_16",
+      "source": "Cached LOLA global 16 ppd DEM (NASA SVS Moon Kit)",
+      "blurb": "Research location from moon-data/moon_data.json. Terrain comparison covers a local regional window, not the entire named feature.",
+      "verify": "Regional screening at 2 km/pixel (~1.9 km native N-S grid); cannot resolve landing hazards, pits or individual boulders.",
+      "earth_limits": [
+        "Comparison describes regional terrain similarity, not operational safety or landing suitability.",
+        "Published thermal, composition and ice evidence is shown separately with its source and measurement scale.",
+        "Gravity, atmosphere, radiation and weathering differ from Earth."
+      ],
+      "tags": [
+        "planetary_import"
+      ]
+    },
+    {
+      "id": "south_pole_aitken",
+      "name": "South Pole-Aitken Basin",
+      "body": "moon",
+      "role": "target",
+      "region": "Imported Moon research location",
+      "type": "regional_terrain",
+      "compare_all_earth": true,
+      "lat": -53,
+      "lon": 169,
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "refine_center": false,
+      "dem_source": "lola_global_16",
+      "source": "Cached LOLA global 16 ppd DEM (NASA SVS Moon Kit)",
+      "blurb": "Research location from moon-data/moon_data.json. Terrain comparison covers a local regional window, not the entire named feature.",
+      "verify": "Regional screening at 2 km/pixel (~1.9 km native N-S grid); cannot resolve landing hazards, pits or individual boulders.",
+      "earth_limits": [
+        "Comparison describes regional terrain similarity, not operational safety or landing suitability.",
+        "Published thermal, composition and ice evidence is shown separately with its source and measurement scale.",
+        "Gravity, atmosphere, radiation and weathering differ from Earth."
+      ],
+      "tags": [
+        "planetary_import"
+      ]
+    },
+    {
+      "id": "mare_tranquillitatis",
+      "name": "Mare Tranquillitatis",
+      "body": "moon",
+      "role": "target",
+      "region": "Imported Moon research location",
+      "type": "regional_terrain",
+      "compare_all_earth": true,
+      "lat": 8.34,
+      "lon": 31.420000000000016,
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "refine_center": false,
+      "dem_source": "lola_global_16",
+      "source": "Cached LOLA global 16 ppd DEM (NASA SVS Moon Kit)",
+      "blurb": "Research location from moon-data/moon_data.json. Terrain comparison covers a local regional window, not the entire named feature.",
+      "verify": "Regional screening at 2 km/pixel (~1.9 km native N-S grid); cannot resolve landing hazards, pits or individual boulders.",
+      "earth_limits": [
+        "Comparison describes regional terrain similarity, not operational safety or landing suitability.",
+        "Published thermal, composition and ice evidence is shown separately with its source and measurement scale.",
+        "Gravity, atmosphere, radiation and weathering differ from Earth."
+      ],
+      "tags": [
+        "planetary_import"
+      ]
+    },
+    {
+      "id": "mare_serenitatis",
+      "name": "Mare Serenitatis",
+      "body": "moon",
+      "role": "target",
+      "region": "Imported Moon research location",
+      "type": "regional_terrain",
+      "compare_all_earth": true,
+      "lat": 25.9,
+      "lon": 17.900000000000006,
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "refine_center": false,
+      "dem_source": "lola_global_16",
+      "source": "Cached LOLA global 16 ppd DEM (NASA SVS Moon Kit)",
+      "blurb": "Research location from moon-data/moon_data.json. Terrain comparison covers a local regional window, not the entire named feature.",
+      "verify": "Regional screening at 2 km/pixel (~1.9 km native N-S grid); cannot resolve landing hazards, pits or individual boulders.",
+      "earth_limits": [
+        "Comparison describes regional terrain similarity, not operational safety or landing suitability.",
+        "Published thermal, composition and ice evidence is shown separately with its source and measurement scale.",
+        "Gravity, atmosphere, radiation and weathering differ from Earth."
+      ],
+      "tags": [
+        "planetary_import"
+      ]
+    },
+    {
+      "id": "mare_imbrium",
+      "name": "Mare Imbrium",
+      "body": "moon",
+      "role": "target",
+      "region": "Imported Moon research location",
+      "type": "regional_terrain",
+      "compare_all_earth": true,
+      "lat": 32.8,
+      "lon": -15.100000000000023,
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "refine_center": false,
+      "dem_source": "lola_global_16",
+      "source": "Cached LOLA global 16 ppd DEM (NASA SVS Moon Kit)",
+      "blurb": "Research location from moon-data/moon_data.json. Terrain comparison covers a local regional window, not the entire named feature.",
+      "verify": "Regional screening at 2 km/pixel (~1.9 km native N-S grid); cannot resolve landing hazards, pits or individual boulders.",
+      "earth_limits": [
+        "Comparison describes regional terrain similarity, not operational safety or landing suitability.",
+        "Published thermal, composition and ice evidence is shown separately with its source and measurement scale.",
+        "Gravity, atmosphere, radiation and weathering differ from Earth."
+      ],
+      "tags": [
+        "planetary_import"
+      ]
+    },
+    {
+      "id": "chang_e_4_site",
+      "name": "Chang'e 4 Landing Site (Von Kármán Crater)",
+      "body": "moon",
+      "role": "target",
+      "region": "Imported Moon research location",
+      "type": "regional_terrain",
+      "compare_all_earth": true,
+      "lat": -45.45,
+      "lon": 177.59000000000003,
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "refine_center": false,
+      "dem_source": "lola_global_16",
+      "source": "Cached LOLA global 16 ppd DEM (NASA SVS Moon Kit)",
+      "blurb": "Research location from moon-data/moon_data.json. Terrain comparison covers a local regional window, not the entire named feature.",
+      "verify": "Regional screening at 2 km/pixel (~1.9 km native N-S grid); cannot resolve landing hazards, pits or individual boulders.",
+      "earth_limits": [
+        "Comparison describes regional terrain similarity, not operational safety or landing suitability.",
+        "Published thermal, composition and ice evidence is shown separately with its source and measurement scale.",
+        "Gravity, atmosphere, radiation and weathering differ from Earth."
+      ],
+      "tags": [
+        "planetary_import"
+      ]
+    },
+    {
+      "id": "gale",
+      "name": "Gale Crater",
+      "body": "mars",
+      "role": "target",
+      "region": "Imported Mars research location",
+      "type": "regional_terrain",
+      "compare_all_earth": true,
+      "lat": -4.59,
+      "lon": 137.44,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "fetch_res_m": 200,
+      "heightmap_px": 128,
+      "refine_center": false,
+      "dem_source": "hrsc_mola_blend",
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Research location from mars-data/mars_data.json. Terrain comparison covers a local regional window, not the entire named feature.",
+      "verify": "Research coordinates are approximate; regional terrain screening at 200 m/pixel cannot resolve individual pits or landing hazards.",
+      "earth_limits": [
+        "Comparison describes regional terrain similarity, not operational safety or landing suitability.",
+        "Published thermal, composition and ice evidence is shown separately with its source and measurement scale.",
+        "Gravity, atmosphere, radiation and weathering differ from Earth."
+      ],
+      "tags": [
+        "planetary_import"
+      ]
+    },
+    {
+      "id": "oxia",
+      "name": "Oxia Planum",
+      "body": "mars",
+      "role": "target",
+      "region": "Imported Mars research location",
+      "type": "regional_terrain",
+      "compare_all_earth": true,
+      "lat": 18.27,
+      "lon": -24.629999999999995,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "fetch_res_m": 200,
+      "heightmap_px": 128,
+      "refine_center": false,
+      "dem_source": "hrsc_mola_blend",
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Research location from mars-data/mars_data.json. Terrain comparison covers a local regional window, not the entire named feature.",
+      "verify": "Research coordinates are approximate; regional terrain screening at 200 m/pixel cannot resolve individual pits or landing hazards.",
+      "earth_limits": [
+        "Comparison describes regional terrain similarity, not operational safety or landing suitability.",
+        "Published thermal, composition and ice evidence is shown separately with its source and measurement scale.",
+        "Gravity, atmosphere, radiation and weathering differ from Earth."
+      ],
+      "tags": [
+        "planetary_import"
+      ]
+    },
+    {
+      "id": "arsia",
+      "name": "Arsia Mons skylights",
+      "body": "mars",
+      "role": "target",
+      "region": "Imported Mars research location",
+      "type": "regional_terrain",
+      "compare_all_earth": true,
+      "lat": -8.35,
+      "lon": -120.10000000000002,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "fetch_res_m": 200,
+      "heightmap_px": 128,
+      "refine_center": false,
+      "dem_source": "hrsc_mola_blend",
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Research location from mars-data/mars_data.json. Terrain comparison covers a local regional window, not the entire named feature.",
+      "verify": "Research coordinates are approximate; regional terrain screening at 200 m/pixel cannot resolve individual pits or landing hazards.",
+      "earth_limits": [
+        "Comparison describes regional terrain similarity, not operational safety or landing suitability.",
+        "Published thermal, composition and ice evidence is shown separately with its source and measurement scale.",
+        "Gravity, atmosphere, radiation and weathering differ from Earth."
+      ],
+      "tags": [
+        "planetary_import"
+      ]
+    },
+    {
+      "id": "pavonis",
+      "name": "Pavonis Mons pit",
+      "body": "mars",
+      "role": "target",
+      "region": "Imported Mars research location",
+      "type": "regional_terrain",
+      "compare_all_earth": true,
+      "lat": 0.8,
+      "lon": -113.30000000000001,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "fetch_res_m": 200,
+      "heightmap_px": 128,
+      "refine_center": false,
+      "dem_source": "hrsc_mola_blend",
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Research location from mars-data/mars_data.json. Terrain comparison covers a local regional window, not the entire named feature.",
+      "verify": "Research coordinates are approximate; regional terrain screening at 200 m/pixel cannot resolve individual pits or landing hazards.",
+      "earth_limits": [
+        "Comparison describes regional terrain similarity, not operational safety or landing suitability.",
+        "Published thermal, composition and ice evidence is shown separately with its source and measurement scale.",
+        "Gravity, atmosphere, radiation and weathering differ from Earth."
+      ],
+      "tags": [
+        "planetary_import"
+      ]
+    },
+    {
+      "id": "moon_clavius",
+      "name": "Clavius",
+      "lat": -58.41,
+      "lon": -14.370000000000005,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_plato",
+      "name": "Plato",
+      "lat": 51.62,
+      "lon": -9.389999999999986,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "crater",
+      "window_km": 300,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ],
+      "diameter_km": 101,
+      "refine_center": true
+    },
+    {
+      "id": "moon_eratosthenes",
+      "name": "Eratosthenes",
+      "lat": 14.52,
+      "lon": -11.319999999999936,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "crater",
+      "window_km": 174,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ],
+      "diameter_km": 58,
+      "refine_center": true
+    },
+    {
+      "id": "moon_kepler",
+      "name": "Kepler",
+      "lat": 8.1,
+      "lon": -38.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "crater",
+      "window_km": 93,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ],
+      "diameter_km": 31,
+      "refine_center": true
+    },
+    {
+      "id": "moon_aristillus",
+      "name": "Aristillus",
+      "lat": 33.9,
+      "lon": 1.1999999999999886,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "crater",
+      "window_km": 165,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ],
+      "diameter_km": 55,
+      "refine_center": true
+    },
+    {
+      "id": "moon_autolycus",
+      "name": "Autolycus",
+      "lat": 30.7,
+      "lon": 1.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "crater",
+      "window_km": 117,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ],
+      "diameter_km": 39,
+      "refine_center": true
+    },
+    {
+      "id": "moon_archimedes",
+      "name": "Archimedes",
+      "lat": 29.7,
+      "lon": -4.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "crater",
+      "window_km": 249,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ],
+      "diameter_km": 83,
+      "refine_center": true
+    },
+    {
+      "id": "moon_ptolemaeus",
+      "name": "Ptolemaeus",
+      "lat": -9.2,
+      "lon": -1.7999999999999545,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "crater",
+      "window_km": 300,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ],
+      "diameter_km": 153,
+      "refine_center": true
+    },
+    {
+      "id": "moon_alphonsus",
+      "name": "Alphonsus",
+      "lat": -13.4,
+      "lon": -2.1000000000000227,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "crater",
+      "window_km": 300,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ],
+      "diameter_km": 119,
+      "refine_center": true
+    },
+    {
+      "id": "moon_arzachel",
+      "name": "Arzachel",
+      "lat": -18.2,
+      "lon": -1.8999999999999773,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "crater",
+      "window_km": 291,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ],
+      "diameter_km": 97,
+      "refine_center": true
+    },
+    {
+      "id": "moon_theophilus",
+      "name": "Theophilus",
+      "lat": -11.4,
+      "lon": 26.400000000000006,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "crater",
+      "window_km": 300,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ],
+      "diameter_km": 100,
+      "refine_center": true
+    },
+    {
+      "id": "moon_cyrillus",
+      "name": "Cyrillus",
+      "lat": -13.2,
+      "lon": 24.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "crater",
+      "window_km": 279,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ],
+      "diameter_km": 93,
+      "refine_center": true
+    },
+    {
+      "id": "moon_catharina",
+      "name": "Catharina",
+      "lat": -18.0,
+      "lon": 23.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "crater",
+      "window_km": 300,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ],
+      "diameter_km": 100,
+      "refine_center": true
+    },
+    {
+      "id": "moon_mare_crisium",
+      "name": "Mare Crisium",
+      "lat": 17.0,
+      "lon": 59.099999999999994,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (mare)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Mare from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_mare_nectaris",
+      "name": "Mare Nectaris",
+      "lat": -15.2,
+      "lon": 34.599999999999994,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (mare)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Mare from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_mare_fecunditatis",
+      "name": "Mare Fecunditatis",
+      "lat": -7.8,
+      "lon": 51.30000000000001,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (mare)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Mare from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_oceanus_procellarum",
+      "name": "Oceanus Procellarum",
+      "lat": 18.4,
+      "lon": -57.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (oceanus)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Oceanus from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_mare_humorum",
+      "name": "Mare Humorum",
+      "lat": -24.2,
+      "lon": -39.30000000000001,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (mare)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Mare from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_mare_nubium",
+      "name": "Mare Nubium",
+      "lat": -21.3,
+      "lon": -15.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (mare)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Mare from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_mare_vaporum",
+      "name": "Mare Vaporum",
+      "lat": 13.3,
+      "lon": 3.5999999999999943,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (mare)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Mare from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_mare_frigoris",
+      "name": "Mare Frigoris",
+      "lat": 56.0,
+      "lon": 1.4000000000000057,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (mare)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Mare from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_mare_australe",
+      "name": "Mare Australe",
+      "lat": -38.9,
+      "lon": 95.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (mare)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Mare from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_mare_smythii",
+      "name": "Mare Smythii",
+      "lat": -1.3,
+      "lon": 87.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (mare)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Mare from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_mare_marginis",
+      "name": "Mare Marginis",
+      "lat": 13.3,
+      "lon": 86.10000000000002,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (mare)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Mare from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_mare_orientale",
+      "name": "Mare Orientale",
+      "lat": -19.4,
+      "lon": -95.30000000000001,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (mare)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Mare from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_lacus_mortis",
+      "name": "Lacus Mortis",
+      "lat": 45.0,
+      "lon": 27.19999999999999,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (lacus)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Lacus from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_lacus_somniorum",
+      "name": "Lacus Somniorum",
+      "lat": 38.0,
+      "lon": 29.19999999999999,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (lacus)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Lacus from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_sinus_iridum",
+      "name": "Sinus Iridum",
+      "lat": 44.1,
+      "lon": -11.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (sinus)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Sinus from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_sinus_medii",
+      "name": "Sinus Medii",
+      "lat": 2.4,
+      "lon": -1.6000000000000227,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (sinus)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Sinus from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_palus_putredinis",
+      "name": "Palus Putredinis",
+      "lat": 26.5,
+      "lon": -0.39999999999997726,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (palus)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Palus from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_aristarchus_plateau",
+      "name": "Aristarchus Plateau",
+      "lat": 26.0,
+      "lon": -50.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (plateau)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Plateau from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_montes_apenninus",
+      "name": "Montes Apenninus",
+      "lat": 19.9,
+      "lon": -2.7000000000000455,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (montes)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Montes from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_montes_alpes",
+      "name": "Montes Alpes",
+      "lat": 48.5,
+      "lon": -0.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (montes)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Montes from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_montes_caucasus",
+      "name": "Montes Caucasus",
+      "lat": 38.4,
+      "lon": 10.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (montes)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Montes from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_montes_carpathus",
+      "name": "Montes Carpathus",
+      "lat": 14.5,
+      "lon": -6.7000000000000455,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (montes)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Montes from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_montes_haemus",
+      "name": "Montes Haemus",
+      "lat": 19.9,
+      "lon": 9.199999999999989,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (montes)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Montes from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_montes_jura",
+      "name": "Montes Jura",
+      "lat": 47.1,
+      "lon": -13.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (montes)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Montes from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_montes_recti",
+      "name": "Montes Recti",
+      "lat": 48.0,
+      "lon": -20.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (montes)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Montes from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_montes_teneriffe",
+      "name": "Montes Teneriffe",
+      "lat": 47.4,
+      "lon": -23.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (montes)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Montes from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_rupes_recta",
+      "name": "Rupes Recta",
+      "lat": -22.1,
+      "lon": -7.7000000000000455,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (rupes)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Rupes from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_rupes_altai",
+      "name": "Rupes Altai",
+      "lat": -24.3,
+      "lon": 22.599999999999994,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (rupes)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Rupes from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_rupes_cauchy",
+      "name": "Rupes Cauchy",
+      "lat": 9.0,
+      "lon": 37.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (rupes)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Rupes from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_rima_hadley",
+      "name": "Rima Hadley",
+      "lat": 25.0,
+      "lon": 3.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (rima)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Rima from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_rima_ariadaeus",
+      "name": "Rima Ariadaeus",
+      "lat": 4.6,
+      "lon": 17.30000000000001,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (rima)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Rima from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_rima_hyginus",
+      "name": "Rima Hyginus",
+      "lat": 7.8,
+      "lon": 6.300000000000011,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (rima)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Rima from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_rimae_triesnecker",
+      "name": "Rimae Triesnecker",
+      "lat": 4.2,
+      "lon": 3.5999999999999943,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (rima)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Rima from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_rimae_gassendi",
+      "name": "Rimae Gassendi",
+      "lat": -17.5,
+      "lon": -40.19999999999999,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (rima)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Rima from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_rimae_posidonius",
+      "name": "Rimae Posidonius",
+      "lat": 31.8,
+      "lon": 29.900000000000006,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (rima)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Rima from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_vallis_schr_teri",
+      "name": "Vallis Schröteri",
+      "lat": 26.2,
+      "lon": -51.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (vallis)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Vallis from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_vallis_alpes",
+      "name": "Vallis Alpes",
+      "lat": 49.5,
+      "lon": 3.1999999999999886,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (vallis)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Vallis from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_vallis_bouvard",
+      "name": "Vallis Bouvard",
+      "lat": -38.3,
+      "lon": -73.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (vallis)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Vallis from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_vallis_inghirami",
+      "name": "Vallis Inghirami",
+      "lat": -44.0,
+      "lon": -72.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (vallis)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Vallis from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_vallis_rheita",
+      "name": "Vallis Rheita",
+      "lat": -42.5,
+      "lon": 51.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (vallis)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Vallis from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_vallis_snellius",
+      "name": "Vallis Snellius",
+      "lat": -31.0,
+      "lon": 56.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (vallis)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Vallis from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_dorsum_oppel",
+      "name": "Dorsum Oppel",
+      "lat": 18.5,
+      "lon": -12.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (dorsum)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Dorsum from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_dorsum_azara",
+      "name": "Dorsum Azara",
+      "lat": 26.0,
+      "lon": 19.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (dorsum)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Dorsum from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_dorsum_bucher",
+      "name": "Dorsum Bucher",
+      "lat": 31.0,
+      "lon": 39.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (dorsum)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Dorsum from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_dorsum_cushman",
+      "name": "Dorsum Cushman",
+      "lat": 1.0,
+      "lon": -11.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (dorsum)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Dorsum from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_dorsum_heim",
+      "name": "Dorsum Heim",
+      "lat": 32.0,
+      "lon": -36.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (dorsum)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Dorsum from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_dorsum_higazy",
+      "name": "Dorsum Higazy",
+      "lat": 2.0,
+      "lon": -16.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (dorsum)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Dorsum from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_dorsum_niggli",
+      "name": "Dorsum Niggli",
+      "lat": 29.0,
+      "lon": -12.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (dorsum)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Dorsum from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_dorsum_owen",
+      "name": "Dorsum Owen",
+      "lat": 25.0,
+      "lon": 11.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (dorsum)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Dorsum from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_dorsum_scilla",
+      "name": "Dorsum Scilla",
+      "lat": 32.0,
+      "lon": 32.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (dorsum)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Dorsum from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_dorsum_thera",
+      "name": "Dorsum Thera",
+      "lat": 24.0,
+      "lon": -41.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (dorsum)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Dorsum from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_dorsum_von_cotta",
+      "name": "Dorsum Von Cotta",
+      "lat": 12.0,
+      "lon": -41.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (dorsum)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Dorsum from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_dorsum_zirkel",
+      "name": "Dorsum Zirkel",
+      "lat": 28.0,
+      "lon": -15.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (dorsum)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Dorsum from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_promontorium_heraclides",
+      "name": "Promontorium Heraclides",
+      "lat": 40.4,
+      "lon": -19.799999999999955,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (promontorium)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Promontorium from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_promontorium_laplace",
+      "name": "Promontorium Laplace",
+      "lat": 46.0,
+      "lon": -26.100000000000023,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (promontorium)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Promontorium from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_promontorium_agarum",
+      "name": "Promontorium Agarum",
+      "lat": 14.0,
+      "lon": 66.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (promontorium)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Promontorium from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_promontorium_deville",
+      "name": "Promontorium Deville",
+      "lat": 43.0,
+      "lon": 51.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (promontorium)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Promontorium from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_promontorium_fresnel",
+      "name": "Promontorium Fresnel",
+      "lat": 28.4,
+      "lon": 4.800000000000011,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (promontorium)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Promontorium from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_promontorium_kelvin",
+      "name": "Promontorium Kelvin",
+      "lat": 27.3,
+      "lon": 33.099999999999994,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (promontorium)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Promontorium from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_promontorium_lavin",
+      "name": "Promontorium Lavin",
+      "lat": 39.5,
+      "lon": 26.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (promontorium)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Promontorium from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_promontorium_taenarium",
+      "name": "Promontorium Taenarium",
+      "lat": 19.5,
+      "lon": 6.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (promontorium)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Promontorium from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_serenitatis_basin",
+      "name": "Serenitatis Basin",
+      "lat": 28.0,
+      "lon": 17.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (basin)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Basin from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_crisium_basin",
+      "name": "Crisium Basin",
+      "lat": 18.0,
+      "lon": 59.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (basin)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Basin from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_nectaris_basin",
+      "name": "Nectaris Basin",
+      "lat": -16.0,
+      "lon": 34.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (basin)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Basin from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_humorum_basin",
+      "name": "Humorum Basin",
+      "lat": -24.0,
+      "lon": -40.0,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (basin)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Basin from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_schr_dinger_basin",
+      "name": "Schrödinger Basin",
+      "lat": -75.0,
+      "lon": 132.39999999999998,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (basin)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Basin from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_apollo_basin",
+      "name": "Apollo Basin",
+      "lat": -36.1,
+      "lon": -151.7,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (basin)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Basin from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_mendeleev_basin",
+      "name": "Mendeleev Basin",
+      "lat": 5.7,
+      "lon": 141.10000000000002,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (basin)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Basin from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_korolev_basin",
+      "name": "Korolev Basin",
+      "lat": -4.4,
+      "lon": -163.7,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (basin)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Basin from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_gagarin_crater",
+      "name": "Gagarin Crater",
+      "lat": -19.9,
+      "lon": 149.10000000000002,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_tsiolkovsky_crater",
+      "name": "Tsiolkovsky Crater",
+      "lat": -20.4,
+      "lon": 129.10000000000002,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "crater",
+      "window_km": 300,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ],
+      "diameter_km": 185,
+      "refine_center": true
+    },
+    {
+      "id": "moon_hertzsprung_crater",
+      "name": "Hertzsprung Crater",
+      "lat": -2.6,
+      "lon": 128.10000000000002,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (crater)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Crater from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_mare_moscoviense",
+      "name": "Mare Moscoviense",
+      "lat": 27.3,
+      "lon": 147.89999999999998,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (mare)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Mare from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_mare_ingenii",
+      "name": "Mare Ingenii",
+      "lat": -33.7,
+      "lon": 163.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (mare)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Mare from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_luna_16_landing",
+      "name": "Luna 16 landing",
+      "lat": 0.68,
+      "lon": 56.30000000000001,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_luna_20_landing",
+      "name": "Luna 20 landing",
+      "lat": 3.57,
+      "lon": 56.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_luna_24_landing",
+      "name": "Luna 24 landing",
+      "lat": 12.75,
+      "lon": 62.19999999999999,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_chang_e_3_landing",
+      "name": "Chang'e 3 landing",
+      "lat": 44.12,
+      "lon": -19.50999999999999,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_chang_e_5_landing",
+      "name": "Chang'e 5 landing",
+      "lat": 43.06,
+      "lon": 51.920000000000016,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_surveyor_1_landing",
+      "name": "Surveyor 1 landing",
+      "lat": -2.45,
+      "lon": -43.31999999999999,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_surveyor_3_landing",
+      "name": "Surveyor 3 landing",
+      "lat": -3.01,
+      "lon": -23.420000000000073,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_surveyor_5_landing",
+      "name": "Surveyor 5 landing",
+      "lat": 1.41,
+      "lon": 23.180000000000007,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_surveyor_6_landing",
+      "name": "Surveyor 6 landing",
+      "lat": 0.49,
+      "lon": 1.4000000000000057,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_surveyor_7_landing",
+      "name": "Surveyor 7 landing",
+      "lat": -40.96,
+      "lon": -11.470000000000027,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_apollo_11_landing",
+      "name": "Apollo 11 landing",
+      "lat": 0.674,
+      "lon": 23.47,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_apollo_14_landing",
+      "name": "Apollo 14 landing",
+      "lat": -3.645,
+      "lon": -17.49000000000001,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_apollo_15_landing",
+      "name": "Apollo 15 landing",
+      "lat": 26.13,
+      "lon": 3.6299999999999955,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_apollo_16_landing",
+      "name": "Apollo 16 landing",
+      "lat": -8.97,
+      "lon": 15.5,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_apollo_17_landing",
+      "name": "Apollo 17 landing",
+      "lat": 20.19,
+      "lon": 30.77000000000001,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing_site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing_site from moon-data/moon_features.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_features.json",
+      "source_id": null,
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_luna_9",
+      "name": "Luna 9",
+      "lat": 7.13,
+      "lon": -64.37,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing site from moon-data/moon_landers.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_landers.json",
+      "source_id": "nasa_11",
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_luna_13",
+      "name": "Luna 13",
+      "lat": 18.87,
+      "lon": -62.05000000000001,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing site from moon-data/moon_landers.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_landers.json",
+      "source_id": "nasa_17",
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_surveyor_6",
+      "name": "Surveyor 6",
+      "lat": 0.4742,
+      "lon": -1.427500000000009,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing site from moon-data/moon_landers.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_landers.json",
+      "source_id": "nasa_24",
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_luna_16",
+      "name": "Luna 16",
+      "lat": -0.5137,
+      "lon": 56.3638,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing site from moon-data/moon_landers.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_landers.json",
+      "source_id": "nasa_36",
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_luna_17",
+      "name": "Luna 17",
+      "lat": 38.23764,
+      "lon": -35.00162999999998,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing site from moon-data/moon_landers.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_landers.json",
+      "source_id": "nasa_37",
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_luna_21",
+      "name": "Luna 21",
+      "lat": 25.9994,
+      "lon": 30.407600000000002,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing site from moon-data/moon_landers.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_landers.json",
+      "source_id": "nasa_57",
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_chang_e_5",
+      "name": "Chang'e 5",
+      "lat": 43.0576,
+      "lon": -51.91609999999997,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing site from moon-data/moon_landers.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_landers.json",
+      "source_id": "nasa_85",
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_chandrayaan_3",
+      "name": "Chandrayaan 3",
+      "lat": -69.3741,
+      "lon": 32.31999999999999,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing site from moon-data/moon_landers.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_landers.json",
+      "source_id": "nasa_90",
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_slim",
+      "name": "SLIM",
+      "lat": -13.316,
+      "lon": 25.251000000000005,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing site from moon-data/moon_landers.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_landers.json",
+      "source_id": "nasa_91",
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_odysseus_im_1",
+      "name": "Odysseus (IM-1)",
+      "lat": -80.13,
+      "lon": 1.4399999999999977,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing site from moon-data/moon_landers.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_landers.json",
+      "source_id": "nasa_92",
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_chang_e_6",
+      "name": "Chang'e 6",
+      "lat": -41.6385,
+      "lon": -153.98519999999996,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing site from moon-data/moon_landers.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_landers.json",
+      "source_id": "nasa_93",
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
+      ]
+    },
+    {
+      "id": "moon_blue_ghost_1",
+      "name": "Blue Ghost 1",
+      "lat": 18.562,
+      "lon": 61.81,
+      "body": "moon",
+      "role": "target",
+      "region": "Moon (landing site)",
+      "type": "landing_zone",
+      "window_km": 80,
+      "compare_res_m": 2000,
+      "fetch_res_m": 2000,
+      "heightmap_px": 128,
+      "dem_source": "lola_global_16",
+      "source": "NASA SVS / LRO LOLA global 16 ppd DEM",
+      "blurb": "Landing site from moon-data/moon_landers.json; regional terrain comparison around the saved coordinate.",
+      "catalog_source": "moon-data/moon_landers.json",
+      "source_id": "nasa_94",
+      "verify": "2 km comparison grid from ~1.9 km native N-S terrain data. Small pits, boulders, narrow rilles and landing hazards are not resolved.",
+      "earth_limits": [
+        "Moon gravity, vacuum and radiation differ from Earth.",
+        "This is regional terrain similarity, not a landing or operations clearance.",
+        "Lunar dust is contextual/filter evidence and is excluded from the similarity score."
+      ],
+      "tags": [
+        "moon_catalog"
       ]
     }
   ],

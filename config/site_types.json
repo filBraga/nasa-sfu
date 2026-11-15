@@ -81,6 +81,17 @@
         "flat_fraction",
         "texture"
       ]
+    },
+    "regional_terrain": {
+      "label": "Regional terrain screening",
+      "short": "regional terrain",
+      "description": "Local terrain similarity at the stated grid resolution. Includes researched craters, plains and volcanic locations; does not infer whole-feature shape or small hazards.",
+      "metrics": [
+        "slope",
+        "roughness",
+        "hypsometry",
+        "flat_fraction"
+      ]
     }
   }
 }

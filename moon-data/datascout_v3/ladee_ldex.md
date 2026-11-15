@@ -1,5 +1,12 @@
 # Dataset card: LADEE LDEX derived dust density
 
+**Subsequent extraction:** `../scripts/sample_dust.mjs` now parses and validates
+the native v2.0 table into `../data/enrichment/dust.json`. See
+`../data/dust/README.md` for units, 26 × 11 bin coverage, hashes, missing values
+and the label field-width discrepancy. This card's original metadata-only
+verification status below is retained as discovery history. Orbital profiles
+remain contextual and do not become site-level surface dust scores.
+
 Human-researched candidate facts; see source and saved access evidence.
 
 - **id:** ladee_ldex

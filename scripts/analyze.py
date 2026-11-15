@@ -9,6 +9,8 @@ Sites with `compare_bodies` (the #team places) are compared with every target on
 """
 
 import json
+import argparse
+import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -78,6 +80,12 @@ def public_features(f):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--body", choices=("moon", "mars"), help="Rebuild one body's comparisons; preserve other bodies from the existing results export")
+    args = parser.parse_args()
+    previous = None
+    if args.body:
+        previous = json.loads((WEB_DATA_DIR / "results.json").read_text(encoding="utf-8"))
     cfg = load_config()
     types = json.loads((ROOT / "config" / "site_types.json").read_text(encoding="utf-8"))["types"]
     sites = cfg["sites"]
@@ -94,17 +102,26 @@ def main():
     data_sources = json.loads(src_path.read_text(encoding="utf-8")) if src_path.exists() else {"datasets": []}
     dem_source = {b: d["id"] for d in data_sources["datasets"] for b in d.get("dem_for", [])}
 
-    raw = {s["id"]: load_raw(s["id"]) for s in sites}
+    raw = {s["id"]: load_raw(s["id"]) for s in sites if not args.body or s["body"] in ("earth", args.body)}
     site_out = {}
     for s in sites:
+        if s["id"] not in raw:
+            if s["id"] not in previous["sites"]:
+                raise SystemExit(f"No saved export for {s['id']}; run a full analysis first")
+            site_out[s["id"]] = previous["sites"][s["id"]]
+            continue
         z, res = raw[s["id"]]
         meta = {k: s.get(k) for k in ("id", "name", "region", "body", "role", "lat", "lon", "diameter_km",
                                       "window_km", "source", "blurb", "earth_limits", "type",
-                                      "sun_elevation_deg", "verify", "tags", "compare_bodies", "place_id")}
+                                      "sun_elevation_deg", "verify", "tags", "compare_bodies", "place_id", "compare_all_earth", "source_id", "catalog_source")}
         meta["types"] = s.get("types") or ([s["type"]] if s.get("type") else [])
         meta["has_target"] = (s["role"] != "analog" or bool(set(meta["types"]) & target_types)
-                              or any(t["body"] in s.get("compare_bodies", []) for t in targets))
-        meta["heightmap"] = export_heightmap(s, z, res, hm_dir)
+                              or any(t["body"] in s.get("compare_bodies", []) for t in targets)
+                              or any(t.get("compare_all_earth") and t["body"] in s.get("compare_bodies", ["moon", "mars"]) for t in targets))
+        if args.body and s["body"] == "earth" and s["id"] in previous["sites"]:
+            meta["heightmap"] = previous["sites"][s["id"]]["heightmap"]
+        else:
+            meta["heightmap"] = export_heightmap(s, z, res, hm_dir)
         meta["dem_source"] = s.get("dem_source") or dem_source.get(s["body"])
         meta["coord_source"] = data_sources.get("site_coordinates", {}).get(s["id"])
         site_out[s["id"]] = {k: v for k, v in meta.items() if v is not None}
@@ -125,6 +142,7 @@ def main():
             "sources": L.get("sources", {}), "source_ids": L.get("source_ids", {}),
             "normalize": L.get("normalize", "none"),
             "planetary_value": L.get("planetary_value"),
+            "score_excluded_bodies": L.get("score_excluded_bodies", []),
             "code": f"analog/layers.py: site_values(), compare_layer(); files in data/layers/{L['id']}/",
             "method": ("Wasserstein distance of raw values " if L.get("normalize", "none") == "none"
                        else f"Wasserstein distance of {L['normalize']}-normalised values ")
@@ -171,7 +189,9 @@ def main():
     # ---- per-site facts for the viewer's facts strip (independent of any comparison)
     facts_res = {"earth": 200.0, "mars": 200.0, "moon": 80.0}
     for s in sites:
-        res = facts_res[s["body"]]
+        if s["id"] not in raw:
+            continue
+        res = max(facts_res[s["body"]], float(s.get("fetch_res_m", 0)))
         z0, r0 = raw[s["id"]]
         slope = slope_deg(resample(z0, r0, res), res)
         slope = slope[np.isfinite(slope)]
@@ -200,8 +220,9 @@ def main():
         print("Sites waiting for a target of their type: "
               + ", ".join(f"{s['id']} ({'/'.join(s['types'])})" for s in waiting))
 
-    def overall_of(scores):
-        on = [k for k, d in dimensions.items() if d["default_on"] and k in scores]
+    def overall_of(scores, body):
+        on = [k for k, d in dimensions.items() if d["default_on"] and k in scores
+              and body not in d.get("score_excluded_bodies", [])]
         return sum(dimensions[k]["weight"] * scores[k] for k in on) / sum(dimensions[k]["weight"] for k in on)
 
     cache = {}
@@ -213,8 +234,11 @@ def main():
             cache[key] = site_features(resample(z, r0, res), res, site, metrics, sun, BODY_RADIUS[site["body"]])
         return cache[key]
 
-    comparisons = []
+    comparisons = [] if not args.body else [c for c in previous["comparisons"]
+        if c["earth"] in site_out and c["target"] in site_out and site_out[c["target"]]["body"] != args.body]
     for t in targets:
+        if args.body and t["body"] != args.body:
+            continue
         ttype = t["type"]
         metrics = types[ttype]["metrics"]
         res, sun = float(t["compare_res_m"]), t.get("sun_elevation_deg")
@@ -222,7 +246,8 @@ def main():
         t_layers = {L["id"]: site_values(L, t, res) for L in layers}
         not_applicable = [k for k in METRICS if k not in metrics]
         candidates = [e for e in earth if e["role"] == "control" or ttype in e.get("types", [])
-                      or t["body"] in e.get("compare_bodies", [])]
+                      or t["body"] in e.get("compare_bodies", [])
+                      or (t.get("compare_all_earth") and t["body"] in e.get("compare_bodies", ["moon", "mars"]))]
         print(f"\n=== {t['name']} ({t['body']}, {types[ttype]['label']}) @ {res:.0f} m"
               + (f"  [crater centre refined by {ft['center_offset_km']} km]" if "center_offset_km" in ft else "")
               + (f"  [sun {sun} deg: {ft['illum_mean']:.0%} of directions lit on average]" if "illum_mean" in ft else ""))
@@ -236,12 +261,13 @@ def main():
                 ev = site_values(L, e, res) if tv is not None else None
                 if tv is not None and ev is not None:
                     scores[L["id"]], layer_data[L["id"]] = compare_layer(L, ev, tv, e["body"], t["body"])
-            overall = overall_of(scores)
+            overall = overall_of(scores, t["body"])
             comparisons.append({
                 "earth": e["id"], "target": t["id"], "res_m": res, "target_type": ttype,
                 "is_pair": any(p["earth"] == e["id"] and p["target"] == t["id"] for p in cfg["pairs"]),
                 "scores": {k: round(v, 3) for k, v in scores.items()},
                 "not_applicable": not_applicable,
+                "score_excluded": [k for k, d in dimensions.items() if t["body"] in d.get("score_excluded_bodies", [])],
                 "overall": round(overall, 3), "verdict": verdict(overall),
                 "notes": explain(fe, ft, e["name"], t["name"]),
                 "layers": layer_data,
@@ -273,8 +299,9 @@ def main():
         "pairs": cfg["pairs"],
         "comparisons": comparisons,
     }
-    (WEB_DATA_DIR / "results.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
+    (WEB_DATA_DIR / "results.json").write_text(json.dumps(out, separators=(",", ":"), allow_nan=False), encoding="utf-8")
     print(f"\nWrote {WEB_DATA_DIR / 'results.json'}")
+    subprocess.run(["node", str(ROOT / "scripts" / "export_evidence.mjs")], check=True)
 
 
 if __name__ == "__main__":
