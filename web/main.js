@@ -1,6 +1,10 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
+import {
+  ALGORITHMS, DEFAULT_ALGORITHM, SIMILARITY_POLICY, USER_METHODS,
+  compareEvidenceScores, metricCategory, parseSiteValues,
+} from "./scoring.js";
 
 // ------------------------------------------------------------------ constants
 // x: start position, also the drawn orbit radius around Earth (distances not to scale).
@@ -465,7 +469,7 @@ function renderTopMatches() {
     const top = state.data.comparisons
       .filter((c) => c.target === t.id && state.data.sites[c.earth].role !== "control")
       .map((c) => ({ c, s: scoreOf(c) }))
-      .sort((a, b) => (b.s.overall ?? -1) - (a.s.overall ?? -1))
+      .sort(byScore)
       .slice(0, TOP_N);
     html += `<section class="card tm-group"><div class="tm-target" style="color:${COLOR[t.body]}">${esc(t.name)}
       <span class="body">${BODY[t.body].name} <span class="type-tag">${esc(typeShort(t.type))}</span></span></div>`;
@@ -474,7 +478,7 @@ function renderTopMatches() {
       html += `<button class="tm-row ${active ? "active" : ""}" data-earth="${c.earth}" data-target="${c.target}">
         <span class="dot" style="background:${COLOR[s.verdict]}"></span>
         <span class="name">${esc(state.data.sites[c.earth].name)}${isTeam(state.data.sites[c.earth]) ? ` <span class="type-tag team">#team</span>` : ""}</span>
-        <span class="val" style="color:${COLOR[s.verdict]}">${fmt(s.overall)}</span></button>`;
+        <span class="val" style="color:${COLOR[s.verdict]}">${scoreTxt(s)}</span></button>`;
     }
     if (!top.length) html += `<p class="tm-empty">No Canadian candidates of this type yet.</p>`;
     html += `</section>`;
@@ -541,7 +545,7 @@ function fillSelects() {
 function bestComparison(filter) {
   return state.data.comparisons.filter(filter)
     .map((c) => ({ c, s: scoreOf(c), ctl: state.data.sites[c.earth].role === "control" }))
-    .sort((a, b) => (a.ctl - b.ctl) || ((b.s.overall ?? -1) - (a.s.overall ?? -1)))[0]?.c;
+    .sort((a, b) => (a.ctl - b.ctl) || byScore(a, b))[0]?.c;
 }
 
 function esc(s) { return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
@@ -565,8 +569,36 @@ function saveDims() {
   try { localStorage.setItem(DIM_KEY, JSON.stringify([...state.dims])); } catch { /* ignore */ }
 }
 
-/** Weighted mean over the dimensions the user switched on that this comparison has data for,
- *  leaving out any dimension whose data comes from a source the user filtered out. */
+// ------------------------------------------------------------------ scoring algorithm + weights (Filters tab)
+const SCORING_KEY = "analog-explorer-scoring-v1";
+const W_MAX = 3; // top of the weight sliders
+
+function initScoring() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(SCORING_KEY)) || {}; } catch { /* storage unavailable */ }
+  const fromUrl = new URLSearchParams(location.search).get("algo"); // e.g. ?algo=geometric
+  const algo = fromUrl || saved.algo;
+  state.algo = ALGORITHMS[algo] ? algo : DEFAULT_ALGORITHM;
+  state.weights = saved.weights && typeof saved.weights === "object" ? saved.weights : {};
+  state.catWeights = saved.catWeights && typeof saved.catWeights === "object" ? saved.catWeights : {};
+  state.minCoverage = Number.isFinite(saved.minCoverage) ? saved.minCoverage : SIMILARITY_POLICY.min_coverage;
+}
+
+function saveScoring() {
+  try {
+    localStorage.setItem(SCORING_KEY, JSON.stringify({
+      algo: state.algo, weights: state.weights, catWeights: state.catWeights, minCoverage: state.minCoverage,
+    }));
+  } catch { /* ignore */ }
+}
+
+/** Weight of a dimension: the slider value if the user moved it, else the exported default. */
+const weightOf = (k) => state.weights[k] ?? state.data.dimensions[k].weight;
+const catWeightOf = (cat) => state.catWeights[cat] ?? SIMILARITY_POLICY.dimension_weights[cat] ?? 1;
+const categoryOf = (k) => metricCategory(k, state.data.dimensions[k]);
+
+/** Overall score with the chosen algorithm, over the dimensions the user switched on that this
+ *  comparison has data for, leaving out any dimension whose data comes from a source the user filtered out. */
 function scoreOf(c) {
   const dims = state.data.dimensions;
   const na = new Set(c.not_applicable || []); // terrain metrics this target's type doesn't use
@@ -574,10 +606,23 @@ function scoreOf(c) {
   const used = scored.filter((k) => blockedBy(k, c).length === 0);
   const filtered = scored.filter((k) => blockedBy(k, c).length > 0);
   const missing = [...state.dims].filter((k) => c.scores[k] == null && !na.has(k));
-  const wsum = used.reduce((s, k) => s + dims[k].weight, 0);
-  const overall = wsum > 0 ? used.reduce((s, k) => s + dims[k].weight * c.scores[k], 0) / wsum : null;
-  return { overall, verdict: overall == null ? "weak" : verdictOf(overall), used, missing, filtered };
+  const weights = Object.fromEntries([...used, ...missing].map((k) => [k, weightOf(k)]));
+  const r = ALGORITHMS[state.algo].combine({
+    scores: Object.fromEntries(used.map((k) => [k, c.scores[k]])),
+    expected: [...used, ...missing], // filtered-out sources leave the expected set (fix/calculation policy)
+    dims, weights, categoryWeights: state.catWeights, minCoverage: state.minCoverage,
+    body: state.data.sites[c.target]?.body,
+  });
+  const shown = r.overall ?? r.observed_score;
+  return {
+    overall: r.overall, observed_score: r.observed_score, coverage: r.coverage, groups: r.groups,
+    withheld: r.overall == null && r.observed_score != null,
+    verdict: shown == null ? "weak" : verdictOf(shown), used, missing, filtered,
+  };
 }
+const byScore = (a, b) => compareEvidenceScores(a.s, b.s);
+/** "0.62", or "0.41*" when the algorithm withheld the score for low evidence coverage. */
+const scoreTxt = (s) => (s.overall != null ? fmt(s.overall) : s.observed_score != null ? `${fmt(s.observed_score)}*` : "-");
 
 // ------------------------------------------------------------------ source filter ("only data from X")
 const SRC_KEY = "analog-explorer-sources-off";
@@ -671,20 +716,21 @@ function renderDims() {
   const dims = state.data.dimensions, nSites = Object.keys(state.data.sites).length;
   const row = (k) => {
     const d = dims[k];
-    const n = d.group === "layer" ? (d.sites_with_data || []).length : nSites;
+    const n = d.group !== "terrain" ? (d.sites_with_data || []).length : nSites;
     const allTypes = Object.keys(state.data.site_types || {});
     const applies = d.applies_to && d.applies_to.length < allTypes.length ? d.applies_to.map(typeShort).join(", ") : "";
     const avail = d.group === "terrain" ? applies : n === 0 ? "no data yet" : `${n}/${nSites} sites`;
-    return `<label class="dim-row ${d.group === "layer" && n === 0 ? "empty" : ""}" data-dim-info="${k}">
+    return `<label class="dim-row ${d.group !== "terrain" && n === 0 ? "empty" : ""}" data-dim-info="${k}">
       <input type="checkbox" data-dim="${k}" ${state.dims.has(k) ? "checked" : ""}>
       <span class="dim-name">${esc(d.label)}</span>
-      <span class="dim-meta">${avail ? esc(avail) + " · " : ""}w ${d.weight}</span>
+      <span class="dim-meta">${avail ? esc(avail) + " · " : ""}w ${+weightOf(k).toFixed(2)}</span>
       <button type="button" class="info-btn" data-info-btn="${k}" aria-label="Where ${esc(d.label)} comes from">i</button></label>`;
   };
   const keys = Object.keys(dims);
   $("dims").innerHTML = `<h2>Score dimensions <span class="hint">pick what the score is based on</span></h2>
     <div class="dim-group"><h3>Terrain (from elevation)</h3>${keys.filter((k) => dims[k].group === "terrain").map(row).join("")}</div>
     <div class="dim-group"><h3>Data layers</h3>${keys.filter((k) => dims[k].group === "layer").map(row).join("") || '<p class="hint">No layers in config/layers.json</p>'}</div>
+    ${keys.some((k) => dims[k].group === "user") ? `<div class="dim-group"><h3>Your datasets</h3>${keys.filter((k) => dims[k].group === "user").map(row).join("")}</div>` : ""}
     <div class="dim-actions"><button data-act="all">All</button><button data-act="terrain">Terrain only</button><button data-act="default">Defaults</button></div>`;
   $("dims").querySelectorAll("input[data-dim]").forEach((cb) => cb.addEventListener("change", () => {
     cb.checked ? state.dims.add(cb.dataset.dim) : state.dims.delete(cb.dataset.dim);
@@ -749,6 +795,17 @@ function dimInfoHtml(k) {
   let moreId = null;
 
   html += `<div class="tip-h">Data source</div>`;
+  if (d.group === "user") {
+    const have = new Set(d.sites_with_data || []);
+    html += `<p>Added in this browser${d.file ? ` from <code>${esc(d.file)}</code>` : ""}. Values for ${have.size} site${have.size === 1 ? "" : "s"}.</p>`;
+    if (c) {
+      const val = (s) => (have.has(s.id) ? `${d.values[s.id]}${d.unit ? " " + esc(d.unit) : ""}` : `<span class="tip-warn">no value</span>`);
+      html += `<ul>${[e, t].map((s) => `<li>${siteName(s)}: ${val(s)}</li>`).join("")}</ul>`;
+    }
+    html += `<p class="hint">Only you see it: it is saved in this browser, not in the project. Remove it under "Add a dataset".</p>`;
+    html += `<div class="tip-h">How it's scored</div><p class="hint">${esc(d.method)}</p>`;
+    return html;
+  }
   if (d.group === "terrain") {
     if (c) {
       html += `<ul>${[e, t].map((s) => {
@@ -892,9 +949,217 @@ $("panel").addEventListener("scroll", () => hideTip(true), { passive: true });
 function dimsChanged() {
   saveDims();
   renderDims();
+  renderScoring();
   renderPanel();
   renderTopMatches();
   buildPairLines();
+}
+
+/** Re-score everything after a weight/algorithm change; at most once per frame while a slider is dragged. */
+let rescorePending = false;
+function scoresChanged() {
+  saveScoring();
+  if (rescorePending) return;
+  rescorePending = true;
+  requestAnimationFrame(() => {
+    rescorePending = false;
+    renderDims();
+    renderPanel();
+    renderTopMatches();
+    buildPairLines();
+  });
+}
+
+/** A Filters-pane card, created if the page's HTML doesn't have it (e.g. a cached older index.html). */
+function filtersCard(id, { before = null } = {}) {
+  let el = $(id);
+  if (el) return el;
+  const pane = document.querySelector('.pane[data-pane="filters"]');
+  el = Object.assign(document.createElement("section"), { id, className: "card" });
+  const ref = before && $(before);
+  ref && ref.parentElement === pane ? pane.insertBefore(el, ref) : pane.appendChild(el);
+  return el;
+}
+
+function renderScoring() {
+  filtersCard("scoring", { before: "dims" });
+  const A = ALGORITHMS[state.algo], dims = state.data.dimensions;
+  const selected = Object.keys(dims).filter((k) => state.dims.has(k));
+  const num = (v) => (+v).toFixed(2);
+  const slider = (attr, key, label, value, max, step, show, title = "") => `
+    <label class="w-row"${title ? ` title="${esc(title)}"` : ""}><span class="w-name">${label}</span>
+      <input type="range" ${attr}="${esc(key)}" min="0" max="${max}" step="${step}" value="${value}">
+      <output>${show(value)}</output></label>`;
+  const cats = [...new Set(selected.map(categoryOf))];
+  const changed = Object.keys(state.weights).length + Object.keys(state.catWeights).length
+    + (state.minCoverage !== SIMILARITY_POLICY.min_coverage ? 1 : 0);
+  $("scoring").innerHTML = `<h2>Scoring algorithm <span class="hint">how the dimensions are combined</span></h2>
+    <select id="algo-select" class="algo-select">${Object.entries(ALGORITHMS).map(([id, a]) =>
+      `<option value="${id}" ${id === state.algo ? "selected" : ""}>${esc(a.label)} (${esc(a.origin)})</option>`).join("")}</select>
+    <p class="hint algo-summary">${esc(A.summary)}</p>
+    <h3 class="w-head">Dimension weights ${changed ? `<button type="button" class="link-btn" id="w-reset">reset ${changed}</button>` : ""}</h3>
+    ${selected.map((k) => slider("data-w", k, esc(dims[k].label), weightOf(k), W_MAX, 0.05, num,
+      `default ${dims[k].weight}`)).join("") || '<p class="hint">No dimensions selected below.</p>'}
+    ${A.usesCategories ? `
+      <h3 class="w-head">Category weights <span class="hint">metrics share their category's budget</span></h3>
+      ${cats.map((cat) => slider("data-cw", cat, esc(cat), catWeightOf(cat), W_MAX, 0.05, num)).join("")}
+      <h3 class="w-head">Evidence needed</h3>
+      ${slider("data-cov", "min", "Minimum coverage", state.minCoverage, 1, 0.05, (v) => `${Math.round(v * 100)}%`,
+        "Below this share of the selected evidence, the overall score is withheld (shown with *)")}` : ""}`;
+  const el = $("scoring");
+  el.querySelector("#algo-select").onchange = (ev) => { state.algo = ev.target.value; renderScoring(); scoresChanged(); };
+  el.querySelector("#w-reset")?.addEventListener("click", () => {
+    state.weights = {}; state.catWeights = {}; state.minCoverage = SIMILARITY_POLICY.min_coverage;
+    renderScoring(); scoresChanged();
+  });
+  el.querySelectorAll("input[type=range]").forEach((r) => r.addEventListener("input", () => {
+    const v = +r.value;
+    if (r.dataset.w) state.weights[r.dataset.w] = v;
+    else if (r.dataset.cw) state.catWeights[r.dataset.cw] = v;
+    else state.minCoverage = v;
+    r.nextElementSibling.textContent = r.dataset.cov ? `${Math.round(v * 100)}%` : num(v);
+    scoresChanged();
+  }));
+  // show the reset button once something moved, without re-rendering under the user's pointer
+  el.querySelectorAll("input[type=range]").forEach((r) => r.addEventListener("change", () => renderScoring()));
+}
+
+// ------------------------------------------------------------------ datasets added by the viewer (kept in this browser)
+const USER_KEY = "analog-explorer-user-datasets-v1";
+let userDatasets = [];
+
+function loadUserDatasets() {
+  try { userDatasets = JSON.parse(localStorage.getItem(USER_KEY)) || []; } catch { userDatasets = []; }
+  if (!Array.isArray(userDatasets)) userDatasets = [];
+  userDatasets = userDatasets.filter((ds) => ds?.id && ds.values && USER_METHODS[ds.method]);
+  userDatasets.forEach(injectUserDataset);
+}
+
+function saveUserDatasets() {
+  try { localStorage.setItem(USER_KEY, JSON.stringify(userDatasets)); return true; } catch { return false; }
+}
+
+/** Turn a dataset into a score dimension: one similarity per comparison where both sites have a value. */
+function injectUserDataset(ds) {
+  const m = USER_METHODS[ds.method];
+  const have = Object.keys(ds.values).filter((id) => state.data.sites[id]);
+  state.data.dimensions[ds.id] = {
+    group: "user", label: ds.label, weight: 1, unit: ds.unit || "", default_on: false, category: ds.id,
+    description: ds.description || `Your dataset: ${ds.label}.`, method: m.describe(ds.scale, ds.unit),
+    sites_with_data: have, values: ds.values, file: ds.file,
+  };
+  for (const c of state.data.comparisons) {
+    const a = ds.values[c.earth], b = ds.values[c.target];
+    const v = a != null && b != null ? m.score(a, b, ds.scale) : null;
+    if (Number.isFinite(v)) c.scores[ds.id] = Math.min(1, Math.max(0, v));
+    else delete c.scores[ds.id];
+  }
+}
+
+function removeUserDataset(id) {
+  userDatasets = userDatasets.filter((ds) => ds.id !== id);
+  saveUserDatasets();
+  delete state.data.dimensions[id];
+  for (const c of state.data.comparisons) delete c.scores[id];
+  state.dims.delete(id);
+  delete state.weights[id];
+  delete state.catWeights[id];
+  saveScoring();
+  renderUserData();
+  dimsChanged();
+}
+
+function siteLookup() {
+  const m = new Map();
+  for (const s of Object.values(state.data.sites)) { m.set(s.name.toLowerCase(), s.id); }
+  for (const s of Object.values(state.data.sites)) { m.set(s.id.toLowerCase(), s.id); } // ids win over names
+  return m;
+}
+
+function downloadTemplate() {
+  const q = (v) => `"${String(v).replace(/"/g, '""')}"`;
+  const rows = Object.values(state.data.sites)
+    .sort((a, b) => a.body.localeCompare(b.body) || a.name.localeCompare(b.name))
+    .map((s) => [s.id, q(s.name), s.body, s.role, ""].join(","));
+  const csv = ["# Fill in the last column. Rows left empty are ignored. Keep the first column as it is.",
+    "site,name,body,role,value", ...rows].join("\n");
+  const a = Object.assign(document.createElement("a"), {
+    href: URL.createObjectURL(new Blob([csv], { type: "text/csv" })), download: "analog_sites_template.csv",
+  });
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+function renderUserData() {
+  const el = filtersCard("user-data");
+  const methods = Object.entries(USER_METHODS).map(([id, m]) => `<option value="${id}">${esc(m.label)}</option>`).join("");
+  el.innerHTML = `<h2>Add a dataset <span class="hint">score the sites on your own values</span></h2>
+    <p class="hint">One value per site: a CSV with <code>site,value</code> rows (site id or name), or JSON.
+      A pair is scored when both its Earth site and its target have a value.</p>
+    <div class="ud-grid">
+      <label>Name <input id="ud-name" type="text" placeholder="e.g. Snow-free days"></label>
+      <label>Unit <input id="ud-unit" type="text" placeholder="optional"></label>
+    </div>
+    <label class="ud-file">File <input id="ud-file" type="file" accept=".csv,.tsv,.txt,.json,text/csv,application/json"></label>
+    <textarea id="ud-text" rows="5" spellcheck="false" placeholder="…or paste here&#10;site,value&#10;haughton,254.4&#10;jezero,214.7"></textarea>
+    <div class="ud-grid">
+      <label>Compare by <select id="ud-method">${methods}</select></label>
+      <label>Scale <input id="ud-scale" type="number" step="any" min="0" placeholder="auto"></label>
+    </div>
+    <div class="dim-actions"><button type="button" id="ud-add">Add dataset</button><button type="button" id="ud-template">Download site list (CSV)</button></div>
+    <p id="ud-msg" class="hint" role="status"></p>
+    ${userDatasets.length ? `<h3 class="w-head">Your datasets</h3><ul class="ud-list">${userDatasets.map((ds) => `
+      <li><span><b>${esc(ds.label)}</b> <span class="hint">${Object.keys(ds.values).length} sites · ${esc(USER_METHODS[ds.method].label.toLowerCase())}${ds.method === "difference" ? ` · scale ${ds.scale}` : ""}</span></span>
+        <button type="button" class="only-btn" data-ud-remove="${esc(ds.id)}">remove</button></li>`).join("")}</ul>` : ""}`;
+
+  const msg = (text, warn = false) => { const p = el.querySelector("#ud-msg"); p.textContent = text; p.className = warn ? "tip-warn" : "hint"; };
+  el.querySelector("#ud-method").onchange = (ev) => { el.querySelector("#ud-scale").disabled = ev.target.value !== "difference"; };
+  el.querySelector("#ud-template").onclick = downloadTemplate;
+  el.querySelector("#ud-file").onchange = async (ev) => {
+    const f = ev.target.files[0];
+    if (!f) return;
+    el.querySelector("#ud-text").value = await f.text();
+    el.querySelector("#ud-text").dataset.file = f.name;
+    const name = el.querySelector("#ud-name");
+    if (!name.value) name.value = f.name.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
+  };
+  el.querySelectorAll("[data-ud-remove]").forEach((b) => { b.onclick = () => removeUserDataset(b.dataset.udRemove); });
+  el.querySelector("#ud-add").onclick = () => {
+    const text = el.querySelector("#ud-text").value;
+    const label = el.querySelector("#ud-name").value.trim();
+    const method = el.querySelector("#ud-method").value;
+    if (!label) return msg("Give the dataset a name.", true);
+    let rows;
+    try { rows = parseSiteValues(text); } catch (err) { return msg(`Could not read the data: ${err.message}`, true); }
+    if (!rows.length) return msg("No site,value rows found.", true);
+    const lookup = siteLookup(), values = {}, unknown = [];
+    for (const [site, v] of rows) {
+      const id = lookup.get(site.toLowerCase());
+      id ? (values[id] = v) : unknown.push(site);
+    }
+    const n = Object.keys(values).length;
+    if (n < 2) return msg(`Only ${n} row${n === 1 ? "" : "s"} matched a site. Use the site ids from "Download site list".`, true);
+    if (method === "ratio" && Object.values(values).some((v) => v <= 0)) return msg("Ratio needs every value > 0. Use Difference instead.", true);
+    let scale = +el.querySelector("#ud-scale").value;
+    if (!(scale > 0)) { // auto: a quarter of the value range, so the extremes score ~0.02
+      const vs = Object.values(values);
+      scale = +((Math.max(...vs) - Math.min(...vs)) / 4 || 1).toPrecision(3);
+    }
+    const slug = label.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "").slice(0, 24) || "data";
+    const ds = { id: `user_${slug}_${Date.now().toString(36)}`, label, unit: el.querySelector("#ud-unit").value.trim(),
+      method, scale, file: el.querySelector("#ud-text").dataset.file || null, values };
+    userDatasets.push(ds);
+    const saved = saveUserDatasets();
+    injectUserDataset(ds);
+    const pairs = state.data.comparisons.filter((c) => c.scores[ds.id] != null).length;
+    state.dims.add(ds.id);
+    renderUserData();
+    dimsChanged();
+    msg(`Added "${label}": ${n} sites, ${pairs} scored pair${pairs === 1 ? "" : "s"}.`
+      + (unknown.length ? ` Not matched: ${unknown.slice(0, 5).join(", ")}${unknown.length > 5 ? ` and ${unknown.length - 5} more` : ""}.` : "")
+      + (pairs === 0 ? " No pair has values on both sides yet: add values for Moon/Mars targets too." : "")
+      + (saved ? "" : " (Browser storage is unavailable, so it will be gone after a reload.)"), pairs === 0);
+  };
 }
 
 // ------------------------------------------------------------------ facts strip (bottom of the 3D view)
@@ -1110,15 +1375,18 @@ function renderPanel() {
 
   $("score-card").innerHTML = `
     <div class="score-row">
-      <div class="score-big" style="color:${COLOR[sc.verdict]}">${fmt(sc.overall)}</div>
+      <div class="score-big" style="color:${COLOR[sc.verdict]}">${scoreTxt(sc)}</div>
       <div>
-        ${sc.overall == null ? `<span class="chip weak">${sc.filtered.length ? "nothing left after source filter" : "no dimensions selected"}</span>` : `<span class="chip ${sc.verdict}">${sc.verdict} analog</span>`}
+        ${sc.withheld ? `<span class="chip weak" title="Partial score from the available measurements; the overall score needs ${Math.round(state.minCoverage * 100)}% evidence coverage">withheld: ${Math.round(sc.coverage * 100)}% coverage</span>`
+          : sc.overall == null ? `<span class="chip weak">${sc.filtered.length ? "nothing left after source filter" : "no dimensions selected"}</span>` : `<span class="chip ${sc.verdict}">${sc.verdict} analog</span>`}
         <span class="chip role${isTeam(e) ? " team" : ""}">${c.is_pair ? "calibration pair" : roleLabel(e)}</span>
         <span class="chip role">${esc(typeShort(c.target_type))}</span>
         <div class="pair-names"><b>${esc(e.name)}</b> vs <b>${esc(t.name)}</b><br>
-        based on ${sc.used.length} dimension${sc.used.length === 1 ? "" : "s"}${sc.filtered.length ? `, ${sc.filtered.length} excluded by source filter` : ""}${sc.missing.length ? `, ${sc.missing.length} selected without data` : ""} · ${c.res_m} m/pixel</div>
+        based on ${sc.used.length} dimension${sc.used.length === 1 ? "" : "s"}${sc.filtered.length ? `, ${sc.filtered.length} excluded by source filter` : ""}${sc.missing.length ? `, ${sc.missing.length} selected without data` : ""} · ${c.res_m} m/pixel<br>
+        <button type="button" class="link-btn algo-link" title="Change the algorithm or weights in the Filters tab">${esc(ALGORITHMS[state.algo].label)}</button>${sc.coverage != null && !sc.withheld ? ` · ${Math.round(sc.coverage * 100)}% coverage` : ""}</div>
       </div>
     </div>`;
+  $("score-card").querySelector(".algo-link").onclick = () => setPane("filters");
 
   const bar = (k) => {
     const d = dims[k], v = c.scores[k];
@@ -1136,7 +1404,7 @@ function renderPanel() {
         <div class="bar"></div></div>`;
     }
     return `<div class="metric" data-dim-info="${k}">
-      <div class="top"><span>${esc(d.label)} <span class="hint">w=${d.weight}</span></span><b>${v.toFixed(2)}</b></div>
+      <div class="top"><span>${esc(d.label)} <span class="hint">w=${+weightOf(k).toFixed(2)}${ALGORITHMS[state.algo].usesCategories ? ` · ${esc(categoryOf(k))}` : ""}</span></span><b>${v.toFixed(2)}</b></div>
       <div class="bar"><div style="width:${v * 100}%;background:${COLOR[verdictOf(v)]}"></div></div></div>`;
   };
   const holds = sc.used.filter((k) => c.scores[k] >= 0.6), breaks = sc.used.filter((k) => c.scores[k] < 0.6);
@@ -1234,12 +1502,12 @@ function renderPanel() {
     bins.hypsometry_area, { xLabel: "area fraction" });
 
   const ranked = state.data.comparisons.filter((x) => x.target === state.targetId)
-    .map((x) => ({ x, s: scoreOf(x) })).sort((a, b) => (b.s.overall ?? -1) - (a.s.overall ?? -1));
+    .map((x) => ({ x, s: scoreOf(x) })).sort(byScore);
   $("ranking").innerHTML = `<h2>All Earth sites vs ${esc(t.name)} <span class="hint">controls should rank low</span></h2>
     <table><thead><tr><th>#</th><th>Earth site</th><th>Type</th><th class="num">Score</th></tr></thead><tbody>
     ${ranked.map(({ x, s: r }, i) => { const s = state.data.sites[x.earth]; return `<tr class="clickable ${x.earth === state.earthId ? "selected" : ""}" data-earth="${s.id}">
       <td>${i + 1}</td><td>${esc(s.name)}</td><td>${roleLabel(s)}</td>
-      <td class="num" style="color:${COLOR[r.verdict]}">${fmt(r.overall)}</td></tr>`; }).join("")}
+      <td class="num" style="color:${COLOR[r.verdict]}">${scoreTxt(r)}</td></tr>`; }).join("")}
     </tbody></table>`;
   $("ranking").querySelectorAll("tr[data-earth]").forEach((tr) => tr.addEventListener("click", () => select(tr.dataset.earth, null)));
 
@@ -1414,8 +1682,10 @@ async function boot() {
   const first = state.data.pairs[0];
   state.earthId = state.data.sites[hashEarth] ? hashEarth : first.earth;
   state.targetId = state.data.sites[hashTarget] ? hashTarget : first.target;
+  loadUserDatasets(); // before initDims, so a saved selection can include them
   initDims();
   initSources();
+  initScoring();
   if (!currentComparison()) { // link names an Earth site and a target of different types
     const best = bestComparison((c) => c.earth === state.earthId) || bestComparison((c) => c.target === state.targetId);
     if (best && state.data.sites[state.earthId].has_target !== false) { state.earthId = best.earth; state.targetId = best.target; }
@@ -1425,7 +1695,9 @@ async function boot() {
   focusBody(BODY[view] ? view : "all", false);
   fillSelects();
   renderDims();
+  renderScoring();
   renderSourceFilter();
+  renderUserData();
   renderPanel();
   renderTopMatches();
   setView(view === "compare" ? "compare" : "globes");
