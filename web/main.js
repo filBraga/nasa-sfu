@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { renderEvidence } from "./evidence.js";
 import { renderLunarDust } from "./lunar-dust.js";
+import { aggregateSimilarity, compareEvidenceScores, scoreText, scoreDescription } from "./similarity.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
 
@@ -206,7 +207,8 @@ function buildPairLines() {
     const sc = scoreOf(c), color = COLOR[sc.verdict];
     const line = new THREE.Line(new THREE.BufferGeometry(),
       new THREE.LineDashedMaterial({ color, dashSize: 0.12, gapSize: 0.07, transparent: true, opacity: 0.9 }));
-    const tag = label(fmt(sc.overall), "score");
+    const tag = label(scoreText(sc), "score");
+    tag.element.title = scoreDescription(sc);
     tag.element.style.color = color;
     line.add(tag);
     globes.scene.add(line);
@@ -407,13 +409,13 @@ function focusBody(body, animate = true) {
 
 function renderTopMatches() {
   const targets = Object.values(state.data.sites).filter((s) => s.role === "target");
-  let html = `<div class="tm-head"><span>Click one to draw its line on the planets</span>
+  let html = `<div class="tm-head"><span>Click to draw a comparison. * = partial similarity; evidence is incomplete.</span>
     <button class="tm-clear" ${state.link ? "" : "disabled"}>Clear</button></div>`;
   for (const t of targets) {
     const top = state.data.comparisons
       .filter((c) => c.target === t.id && state.data.sites[c.earth].role !== "control")
       .map((c) => ({ c, s: scoreOf(c) }))
-      .sort((a, b) => (b.s.overall ?? -1) - (a.s.overall ?? -1))
+      .sort((a, b) => compareEvidenceScores(a.s, b.s))
       .slice(0, TOP_N);
     html += `<section class="card tm-group"><div class="tm-target" style="color:${COLOR[t.body]}">${esc(t.name)}
       <span class="body">${BODY[t.body].name} <span class="type-tag">${esc(typeShort(t.type))}</span></span></div>`;
@@ -422,7 +424,7 @@ function renderTopMatches() {
       html += `<button class="tm-row ${active ? "active" : ""}" data-earth="${c.earth}" data-target="${c.target}">
         <span class="dot" style="background:${COLOR[s.verdict]}"></span>
         <span class="name">${esc(state.data.sites[c.earth].name)}${isTeam(state.data.sites[c.earth]) ? ` <span class="type-tag team">#team</span>` : ""}</span>
-        <span class="val" style="color:${COLOR[s.verdict]}">${fmt(s.overall)}</span></button>`;
+        <span class="val" title="${scoreDescription(s)}" style="color:${s.overall == null ? COLOR.partial : COLOR[s.verdict]}">${scoreText(s)}<small class="hint"> ${Math.round(s.coverage * 100)}%</small></span></button>`;
     }
     if (!top.length) html += `<p class="tm-empty">No Canadian candidates of this type yet.</p>`;
     html += `</section>`;
@@ -489,7 +491,7 @@ function fillSelects() {
 function bestComparison(filter) {
   return state.data.comparisons.filter(filter)
     .map((c) => ({ c, s: scoreOf(c), ctl: state.data.sites[c.earth].role === "control" }))
-    .sort((a, b) => (a.ctl - b.ctl) || ((b.s.overall ?? -1) - (a.s.overall ?? -1)))[0]?.c;
+    .sort((a, b) => (a.ctl - b.ctl) || compareEvidenceScores(a.s, b.s))[0]?.c;
 }
 
 function esc(s) { return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
@@ -513,8 +515,7 @@ function saveDims() {
   try { localStorage.setItem(DIM_KEY, JSON.stringify([...state.dims])); } catch { /* ignore */ }
 }
 
-/** Weighted mean over the dimensions the user switched on that this comparison has data for,
- *  leaving out any dimension whose data comes from a source the user filtered out. */
+/** Category geometric mean with explicit evidence coverage; identical to the export policy. */
 function scoreOf(c) {
   const dims = state.data.dimensions;
   const na = new Set(c.not_applicable || []); // terrain metrics this target's type doesn't use
@@ -524,9 +525,15 @@ function scoreOf(c) {
   const used = scored.filter((k) => blockedBy(k, c).length === 0);
   const filtered = scored.filter((k) => blockedBy(k, c).length > 0);
   const missing = [...state.dims].filter((k) => c.scores[k] == null && !na.has(k) && !filterOnly.includes(k));
-  const wsum = used.reduce((s, k) => s + dims[k].weight, 0);
-  const overall = wsum > 0 ? used.reduce((s, k) => s + dims[k].weight * c.scores[k], 0) / wsum : null;
-  return { overall, verdict: overall == null ? "weak" : verdictOf(overall), used, missing, filtered, filterOnly };
+  // Deliberately switched-off sources/dimensions leave the expected evidence set.
+  const expected = [...state.dims].filter(k => blockedBy(k, c).length === 0);
+  const result = aggregateSimilarity(c.scores, dims, expected, {
+    body, notApplicable: c.not_applicable || [], config: state.data.scoring,
+    dimensionWeights: state.data.site_types[c.target_type]?.dimension_weights || {},
+  });
+  const overall = result.score;
+  return { overall, observed_score: result.observed_score, coverage: result.coverage, groups: result.groups,
+    verdict: overall == null ? "weak" : verdictOf(overall), used, missing, filtered, filterOnly };
 }
 
 // ------------------------------------------------------------------ source filter ("only data from X")
@@ -1141,13 +1148,14 @@ function renderPanel() {
 
   $("score-card").innerHTML = `
     <div class="score-row">
-      <div class="score-big" style="color:${COLOR[sc.verdict]}">${fmt(sc.overall)}</div>
+      <div class="score-big" title="${scoreDescription(sc)}" style="color:${sc.overall == null ? COLOR.partial : COLOR[sc.verdict]}">${scoreText(sc)}</div>
       <div>
-        ${sc.overall == null ? `<span class="chip weak">${sc.filtered.length ? "nothing left after source filter" : sc.filterOnly.length ? "selected filters do not contribute to this score" : "no dimensions selected"}</span>` : `<span class="chip ${sc.verdict}">${sc.verdict} analog</span>`}
+        ${sc.overall == null ? `<span class="chip weak">${sc.observed_score != null ? "insufficient evidence" : sc.filtered.length ? "nothing left after source filter" : sc.filterOnly.length ? "selected filters do not contribute to this score" : "no dimensions selected"}</span>` : `<span class="chip ${sc.verdict}">${sc.verdict} analog</span>`}
         <span class="chip role${isTeam(e) ? " team" : ""}">${c.is_pair ? "calibration pair" : roleLabel(e)}</span>
         <span class="chip role">${esc(typeShort(c.target_type))}</span>
         <div class="pair-names"><b>${esc(e.name)}</b> vs <b>${esc(t.name)}</b><br>
-        based on ${sc.used.length} dimension${sc.used.length === 1 ? "" : "s"}${sc.filtered.length ? `, ${sc.filtered.length} excluded by source filter` : ""}${sc.missing.length ? `, ${sc.missing.length} selected without data` : ""} · ${c.res_m} m/pixel</div>
+        based on ${sc.used.length} metric${sc.used.length === 1 ? "" : "s"}${sc.filtered.length ? `, ${sc.filtered.length} excluded by source filter` : ""}${sc.missing.length ? `, ${sc.missing.length} selected without data` : ""} · ${c.res_m} m/pixel<br>
+        Evidence coverage: ${(sc.coverage * 100).toFixed(0)}%${sc.overall == null && sc.observed_score != null ? ` · observed similarity ${sc.observed_score.toFixed(2)} (incomplete)` : ""}</div>
       </div>
     </div>`;
 
@@ -1207,13 +1215,12 @@ function renderPanel() {
   $("layer-charts").innerHTML = layerIds.map((k) => caveats(k) + layerChart(k)).join("");
   function layerChart(k) {
     const d = dims[k], L = c.layers[k];
-    if (L.kind === "relative") { // e.g. cold: Earth site placed between the coldest and warmest Earth site
+    if (L.kind === "relative" || L.kind === "absolute") {
       const u = d.unit ? " " + esc(d.unit) : "";
       const s = c.scores[k];
       return `<h2>${esc(d.label)} <span class="hint">${esc(e.name)} ${L.earth_value}${u} · ${esc(t.name)} ${L.target_value}${u}</span></h2>
         <div class="frac-row"><span>${esc(e.name)}</span><div class="bar"><div style="width:${s * 100}%;background:${COLOR.earth}"></div></div><b>${s.toFixed(2)}</b></div>
-        <p class="hint">Scored against the other Earth sites: coldest (${L.earth_min}${u}) = 1.0, warmest (${L.earth_max}${u}) = 0.0.
-        Every Earth site is warmer than ${esc(t.name)}, so colder = closer.</p>`;
+        <p class="hint">${L.kind === "absolute" ? `Absolute target difference ${L.distance.toFixed(1)}${u}; provisional half-similarity tolerance ${L.tau.toFixed(1)}${u}. ${esc(L.note || "")}` : `Scored against the Earth cohort (${L.earth_min} to ${L.earth_max}${u}).`}</p>`;
     }
     if (L.kind === "fraction") { // e.g. barren ground: share of area below a threshold
       const pct = (v) => `${Math.round(v * 100)}%`;
@@ -1274,12 +1281,12 @@ function renderPanel() {
     bins.hypsometry_area, { xLabel: "area fraction" });
 
   const ranked = state.data.comparisons.filter((x) => x.target === state.targetId)
-    .map((x) => ({ x, s: scoreOf(x) })).sort((a, b) => (b.s.overall ?? -1) - (a.s.overall ?? -1));
-  $("ranking").innerHTML = `<h2>All Earth sites vs ${esc(t.name)} <span class="hint">controls should rank low</span></h2>
+    .map((x) => ({ x, s: scoreOf(x) })).sort((a, b) => compareEvidenceScores(a.s, b.s));
+  $("ranking").innerHTML = `<h2>All Earth sites vs ${esc(t.name)} <span class="hint">* = partial similarity; complete scores appear first</span></h2>
     <table><thead><tr><th>#</th><th>Earth site</th><th>Type</th><th class="num">Score</th></tr></thead><tbody>
     ${ranked.map(({ x, s: r }, i) => { const s = state.data.sites[x.earth]; return `<tr class="clickable ${x.earth === state.earthId ? "selected" : ""}" data-earth="${s.id}">
       <td>${i + 1}</td><td>${esc(s.name)}</td><td>${roleLabel(s)}</td>
-      <td class="num" style="color:${COLOR[r.verdict]}">${fmt(r.overall)}</td></tr>`; }).join("")}
+      <td class="num" title="${scoreDescription(r)}" style="color:${r.overall == null ? COLOR.partial : COLOR[r.verdict]}">${scoreText(r)} <small class="hint">${Math.round(r.coverage * 100)}% evidence</small></td></tr>`; }).join("")}
     </tbody></table>`;
   $("ranking").querySelectorAll("tr[data-earth]").forEach((tr) => tr.addEventListener("click", () => select(tr.dataset.earth, null)));
 

@@ -22,7 +22,9 @@ test('every researched location has target metadata, ranked comparisons, and val
     const comparisons = data.comparisons.filter(c => c.target === target.id);
     assert.ok(comparisons.length > 0, `${target.id}: no comparisons`);
     for (const c of comparisons) {
-      assert.ok(Number.isFinite(c.overall) && c.overall >= 0 && c.overall <= 1);
+      assert.ok(Number.isFinite(c.observed_score) && c.observed_score >= 0 && c.observed_score <= 1);
+      if (c.overall == null) assert.ok(c.coverage < data.scoring.min_coverage);
+      else assert.ok(Number.isFinite(c.overall) && c.overall >= 0 && c.overall <= 1);
       assert.ok(Object.values(c.scores).every(v => Number.isFinite(v) && v >= 0 && v <= 1));
       assert.equal(c.earth_features.res_m, c.target_features.res_m);
       if (target.tags?.includes('planetary_import')) {

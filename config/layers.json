@@ -24,9 +24,9 @@
     },
     {
       "id": "cold",
-      "label": "How cold (typical temperature)",
+      "label": "Temperature midpoint (provisional proxy)",
       "unit": "K",
-      "description": "Typical surface temperature: the mean of the site's typical low and high (data/facts/temperature/). Earth: MODIS summer night and day. Moon: Diviner coldest and hottest over a lunar day. Mars: THEMIS early morning and late afternoon. Every Earth site is far warmer than Mars and the Moon, so each Earth site is scored against the other Earth sites: the coldest scores 1.0, the warmest 0.0. Together with the day-night swing this makes up the Temperature category (half weight each).",
+      "description": "Absolute difference in the midpoint of each site's reported low/high surface temperatures. This is a temperature-range midpoint proxy, not a time-average. Temporal sampling differs across MODIS, THEMIS and Diviner; interpret provisionally.",
       "sources": {
         "earth": "Google Earth Engine: MODIS/061/MOD11A2 (mean of LST_Night_1km and LST_Day_1km, Jun-Aug)",
         "mars": "Mars Odyssey THEMIS: mean of early-morning and late-afternoon brightness temperature, northern summer",
@@ -36,7 +36,11 @@
         "kind": "temperature",
         "mean_of": ["low_k", "high_k"]
       },
-      "compare": "relative",
+      "compare": "absolute",
+      "scale": 51.65,
+      "p": 1,
+      "scale_origin": "Provisional e-folding scale frozen from the previous Earth midpoint normalization span (305.95 - 254.30 K). Not a scientifically calibrated mission tolerance.",
+      "caveat": "Reported endpoints have different local-time and seasonal support. Midpoint similarity is a proxy; it does not establish equivalent thermal exposure.",
       "weight": 0.5,
       "default_on": true,
       "source_ids": {

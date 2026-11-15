@@ -24,6 +24,7 @@ from analog.facts import read_facts  # noqa: E402
 from analog.layers import Constant, compare_layer, earth_range, inventory, load_registry, site_values  # noqa: E402
 from analog.layers import _threshold_for as threshold_for  # noqa: E402
 from analog.sources import RADIUS_M, resample  # noqa: E402
+from analog.similarity import aggregate_similarity, metric_category, policy  # noqa: E402
 from analog.terrain import (HYPSO_Q, ILLUM_BINS, PROFILE_R, ROUGH_BINS, SLOPE_BINS,  # noqa: E402
                             SPECTRUM_WAVELENGTHS, site_features, slope_deg)
 
@@ -82,10 +83,13 @@ def public_features(f):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--body", choices=("moon", "mars"), help="Rebuild one body's comparisons; preserve other bodies from the existing results export")
+    parser.add_argument("--calculations-only", action="store_true", help="Recalculate all scores without rewriting terrain assets; use exported terrain at its actual coarser resolution if a raw DEM cache is absent")
     args = parser.parse_args()
     previous = None
-    if args.body:
+    if args.body or args.calculations_only:
         previous = json.loads((WEB_DATA_DIR / "results.json").read_text(encoding="utf-8"))
+    if args.body and previous.get("scoring", {}).get("version") != policy()["version"]:
+        raise SystemExit("Scoring policy changed: run --calculations-only for both bodies first")
     cfg = load_config()
     types = json.loads((ROOT / "config" / "site_types.json").read_text(encoding="utf-8"))["types"]
     sites = cfg["sites"]
@@ -102,7 +106,22 @@ def main():
     data_sources = json.loads(src_path.read_text(encoding="utf-8")) if src_path.exists() else {"datasets": []}
     dem_source = {b: d["id"] for d in data_sources["datasets"] for b in d.get("dem_for", [])}
 
-    raw = {s["id"]: load_raw(s["id"]) for s in sites if not args.body or s["body"] in ("earth", args.body)}
+    fallback = set()
+    raw = {}
+    for s in sites:
+        if args.body and s["body"] not in ("earth", args.body):
+            continue
+        if (RAW_DIR / f"{s['id']}.npz").exists():
+            raw[s["id"]] = load_raw(s["id"])
+        elif args.calculations_only and s["id"] in previous["sites"]:
+            hm = previous["sites"][s["id"]]["heightmap"]
+            z = np.fromfile(WEB_DATA_DIR / hm["file"], dtype="<f4").reshape(hm["size"], hm["size"])
+            if not np.isfinite(z).all():
+                raise ValueError(f"Invalid exported terrain: {s['id']}")
+            raw[s["id"]] = z, hm["extent_km"] * 1000 / hm["size"]
+            fallback.add(s["id"])
+        else:
+            raw[s["id"]] = load_raw(s["id"])
     site_out = {}
     for s in sites:
         if s["id"] not in raw:
@@ -118,7 +137,7 @@ def main():
         meta["has_target"] = (s["role"] != "analog" or bool(set(meta["types"]) & target_types)
                               or any(t["body"] in s.get("compare_bodies", []) for t in targets)
                               or any(t.get("compare_all_earth") and t["body"] in s.get("compare_bodies", ["moon", "mars"]) for t in targets))
-        if args.body and s["body"] == "earth" and s["id"] in previous["sites"]:
+        if (args.calculations_only or (args.body and s["body"] == "earth")) and s["id"] in previous["sites"]:
             meta["heightmap"] = previous["sites"][s["id"]]["heightmap"]
         else:
             meta["heightmap"] = export_heightmap(s, z, res, hm_dir)
@@ -191,7 +210,7 @@ def main():
     for s in sites:
         if s["id"] not in raw:
             continue
-        res = max(facts_res[s["body"]], float(s.get("fetch_res_m", 0)))
+        res = max(facts_res[s["body"]], raw[s["id"]][1])
         z0, r0 = raw[s["id"]]
         slope = slope_deg(resample(z0, r0, res), res)
         slope = slope[np.isfinite(slope)]
@@ -220,18 +239,41 @@ def main():
         print("Sites waiting for a target of their type: "
               + ", ".join(f"{s['id']} ({'/'.join(s['types'])})" for s in waiting))
 
-    def overall_of(scores, body):
-        on = [k for k, d in dimensions.items() if d["default_on"] and k in scores
-              and body not in d.get("score_excluded_bodies", [])]
-        return sum(dimensions[k]["weight"] * scores[k] for k in on) / sum(dimensions[k]["weight"] for k in on)
+    for key, d in dimensions.items():
+        d["category"] = metric_category(key, d)
+    for L in layers:
+        if L.get("compare") == "absolute":
+            dimensions[L["id"]]["method"] = (
+                f"exp(-ln(2) * (absolute midpoint difference / {L.get('tau', L['scale'] * np.log(2)):.3f} K)^1). "
+                "Provisional tolerance; reported endpoint statistics have different temporal support.")
+            dimensions[L["id"]]["description"] = L.get("description", "")
+            dimensions[L["id"]]["code"] = "analog/layers.py: compare_layer() absolute target difference"
 
     cache = {}
+    layer_cache = {}
 
-    def features(site, res, metrics, sun):
-        key = (site["id"], res, sun, tuple(sorted(metrics)))
+    def values(layer, site, res, extent):
+        key = layer["id"], site["id"], res, extent
+        if key not in layer_cache:
+            layer_cache[key] = site_values(layer, {**site, "window_km": extent}, res)
+        return layer_cache[key]
+
+    def features(site, res, metrics, sun, extent):
+        key = (site["id"], res, sun, tuple(sorted(metrics)), extent)
         if key not in cache:
             z, r0 = raw[site["id"]]
-            cache[key] = site_features(resample(z, r0, res), res, site, metrics, sun, BODY_RADIUS[site["body"]])
+            grid = resample(z, r0, res)
+            n = min(len(grid), int(round(extent * 1000 / res)))
+            start = (len(grid) - n) // 2
+            common = grid[start:start+n, start:start+n]
+            base_metrics = set(metrics) - {"profile", "depth"}
+            f = site_features(common, res, site, base_metrics, sun, BODY_RADIUS[site["body"]])
+            if set(metrics) & {"profile", "depth"}:
+                full = site_features(grid, res, site, {"profile", "depth"}, sun, BODY_RADIUS[site["body"]])
+                for field in ("center_offset_km", "profile", "sector_profiles", "rim_m", "floor_m", "depth_m", "depth_over_diameter"):
+                    f[field] = full[field]
+            f["comparison_extent_km"] = n * res / 1000
+            cache[key] = f
         return cache[key]
 
     comparisons = [] if not args.body else [c for c in previous["comparisons"]
@@ -241,54 +283,64 @@ def main():
             continue
         ttype = t["type"]
         metrics = types[ttype]["metrics"]
-        res, sun = float(t["compare_res_m"]), t.get("sun_elevation_deg")
-        ft = features(t, res, metrics, sun)
-        t_layers = {L["id"]: site_values(L, t, res) for L in layers}
+        # Never upsample a coarser input and then treat its derivatives as finer evidence.
+        res = max(float(t["compare_res_m"]), raw[t["id"]][1], max(raw[e["id"]][1] for e in earth))
+        sun = t.get("sun_elevation_deg")
         not_applicable = [k for k in METRICS if k not in metrics]
         candidates = [e for e in earth if e["role"] == "control" or ttype in e.get("types", [])
                       or t["body"] in e.get("compare_bodies", [])
                       or (t.get("compare_all_earth") and t["body"] in e.get("compare_bodies", ["moon", "mars"]))]
         print(f"\n=== {t['name']} ({t['body']}, {types[ttype]['label']}) @ {res:.0f} m"
-              + (f"  [crater centre refined by {ft['center_offset_km']} km]" if "center_offset_km" in ft else "")
-              + (f"  [sun {sun} deg: {ft['illum_mean']:.0%} of directions lit on average]" if "illum_mean" in ft else ""))
+              + "  [matched grid and common terrain window]")
         rows = []
         for e in candidates:
-            fe = features(e, res, metrics, sun)
+            extent = min(e["window_km"], t["window_km"])
+            fe, ft = features(e, res, metrics, sun, extent), features(t, res, metrics, sun, extent)
             scores, _ = score_pair(fe, ft, metrics)
             layer_data = {}
             for L in layers:
-                tv = t_layers[L["id"]]
-                ev = site_values(L, e, res) if tv is not None else None
+                tv = values(L, t, res, extent)
+                ev = values(L, e, res, extent) if tv is not None else None
                 if tv is not None and ev is not None:
-                    scores[L["id"]], layer_data[L["id"]] = compare_layer(L, ev, tv, e["body"], t["body"])
-            overall = overall_of(scores, t["body"])
+                    value, detail = compare_layer(L, ev, tv, e["body"], t["body"])
+                    if value is not None and np.isfinite(value) and 0 <= value <= 1:
+                        scores[L["id"]], layer_data[L["id"]] = value, detail
+            # The browser uses these same unrounded metric values and aggregation policy.
+            result = aggregate_similarity(scores, dimensions, [k for k, d in dimensions.items() if d["default_on"]],
+                body=t["body"], not_applicable=not_applicable, dimension_weights=types[ttype].get("dimension_weights", {}))
+            overall = result["score"]
             comparisons.append({
                 "earth": e["id"], "target": t["id"], "res_m": res, "target_type": ttype,
                 "is_pair": any(p["earth"] == e["id"] and p["target"] == t["id"] for p in cfg["pairs"]),
-                "scores": {k: round(v, 3) for k, v in scores.items()},
+                "scores": scores,
                 "not_applicable": not_applicable,
                 "score_excluded": [k for k, d in dimensions.items() if t["body"] in d.get("score_excluded_bodies", [])],
-                "overall": round(overall, 3), "verdict": verdict(overall),
+                "overall": overall, "verdict": verdict(overall),
+                "observed_score": result["observed_score"], "coverage": result["coverage"], "groups": result["groups"],
+                "comparison_extent_km": extent,
+                "calculation_source": "exported terrain at its actual resolution" if t["id"] in fallback else "cached native DEM",
+                "measurement_caveats": ["Temperature endpoints have different local-time/seasonal support; midpoint and swing are provisional proxies."] if "cold" in scores or "thermal_amplitude" in scores else [],
                 "notes": explain(fe, ft, e["name"], t["name"]),
                 "layers": layer_data,
                 "earth_features": public_features(fe), "target_features": public_features(ft),
             })
-            rows.append((overall, e, scores))
-        rows.sort(key=lambda x: -x[0])
+            rows.append((result["observed_score"], e, scores))
+        rows.sort(key=lambda x: -(x[0] if x[0] is not None else -1))
         cols = [k for k in dimensions if any(k in sc for _, _, sc in rows)]
         hdr = "  ".join(f"{k[:7]:>7}" for k in cols)
         print(f"  {'rank':<4} {'earth site':<28} {'overall':>7}  {hdr}")
         for i, (ov, e, sc) in enumerate(rows, 1):
             cells = "  ".join(f"{sc[k]:7.2f}" if k in sc else f"{'-':>7}" for k in cols)
             mark = " *" if e["role"] == "control" else " #" if "team" in e.get("tags", []) else ""
-            print(f"  {i:<4} {(e['name'] + mark)[:30]:<30} {ov:7.2f}  {cells}")
+            print(f"  {i:<4} {(e['name'] + mark)[:30]:<30} {ov if ov is not None else float('nan'):7.2f}  {cells}")
     print("\n(* = control site; it should rank below the real candidates; # = #team place)")
-    print("(overall uses the dimensions marked default_on; the viewer lets you choose)")
+    print("(table shows observed similarity; overall is withheld below the configured evidence coverage)")
 
     out = {
         "generated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "site_types": {k: {"label": v["label"], "short": v["short"], "description": v["description"],
-                           "metrics": v["metrics"]} for k, v in types.items()},
+                           "metrics": v["metrics"], "dimension_weights": v.get("dimension_weights", {})} for k, v in types.items()},
+        "scoring": policy(),
         "dimensions": dimensions,
         "bins": {"slope_deg": r(SLOPE_BINS, 2), "rough_log10_tri": r(ROUGH_BINS, 3),
                  "profile_r": r(PROFILE_R, 4), "hypsometry_area": r(HYPSO_Q, 3),
@@ -300,6 +352,16 @@ def main():
         "comparisons": comparisons,
     }
     (WEB_DATA_DIR / "results.json").write_text(json.dumps(out, separators=(",", ":"), allow_nan=False), encoding="utf-8")
+    validation = []
+    for pair in cfg["pairs"]:
+        matches = [c for c in comparisons if c["target"] == pair["target"]]
+        analog = next((c for c in matches if c["earth"] == pair["earth"]), None)
+        controls = [c for c in matches if site_out[c["earth"]]["role"] == "control"]
+        if analog:
+            validation.append({**pair, "analog": {k: analog[k] for k in ("overall", "observed_score", "coverage")},
+                "controls": [{"earth": c["earth"], **{k: c[k] for k in ("overall", "observed_score", "coverage")}} for c in controls],
+                "note": "Diagnostic only. No rank bonuses or tolerance fitting to force analogs above controls."})
+    (WEB_DATA_DIR / "calculation_validation.json").write_text(json.dumps({"scoring_version": policy()["version"], "pairs": validation}, indent=2), encoding="utf-8")
     print(f"\nWrote {WEB_DATA_DIR / 'results.json'}")
     subprocess.run(["node", str(ROOT / "scripts" / "export_evidence.mjs")], check=True)
 

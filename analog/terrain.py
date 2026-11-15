@@ -168,7 +168,7 @@ def power_spectrum(z, res):
 def site_features(z, res, site, metrics=None, sun_elev_deg=None, body_radius_m=None):
     """Features for one site. `metrics` limits the expensive ones (profile/depth, texture,
     illumination) to the dimensions the comparison actually uses."""
-    metrics = set(metrics or ["slope", "roughness", "hypsometry", "profile", "depth"])
+    metrics = set(["slope", "roughness", "hypsometry", "profile", "depth"] if metrics is None else metrics)
     n = z.shape[0]
     s = slope_deg(z, res)
     t = np.log10(tri(z) + 0.1)
