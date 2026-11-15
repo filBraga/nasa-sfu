@@ -29,6 +29,10 @@ const DAY_SECONDS = 21;
 // Orbits run faster than spins: at real speed the Moon's lap would take ~9.5 min on screen and
 // look frozen. x10 makes it ~1 min (Mars ~25 min). Spins stay at DAY_SECONDS; tune this knob only.
 const ORBIT_SPEEDUP = 10;
+// Spins run slower than the shared clock so pins are easy to catch with the mouse (Earth: one turn
+// in ~50 s instead of ~21 s), and stop entirely while the cursor is over a pin.
+const SPIN_SLOWDOWN = 2.4;
+let spinHold = false;
 const EARTH_R = 2; // scene units for Earth's radius; other bodies to true relative scale
 const CSS = getComputedStyle(document.documentElement);
 const cssColor = (v) => CSS.getPropertyValue(v).trim();
@@ -122,7 +126,7 @@ function updateOrbits(now) {
   const dt = orbitLast ? Math.min(0.05, (now - orbitLast) / 1000) : 0;
   orbitLast = now;
   if (state.focus === "all") orbitDays += (dt / DAY_SECONDS) * ORBIT_SPEEDUP;
-  if (state.focus !== "link") spinDays += dt / DAY_SECONDS;
+  if (state.focus !== "link" && !spinHold) spinDays += dt / (DAY_SECONDS * SPIN_SLOWDOWN);
   for (const [key, b] of Object.entries(BODY)) {
     const p = planets[key];
     if (b.orbitDays) {
@@ -1327,43 +1331,48 @@ function factRow(label, value, datasetId, extraTitle = "") {
   return `<dt>${label}</dt><dd>${v}${src}</dd>`;
 }
 
-function siteFactsHtml(s) {
+// The four plain-language facts per site. word: short value; detail: the number behind it;
+// dim: the score dimension that compares this fact between two sites.
+function siteFacts(s) {
   const f = s.facts || {}, L = f.layers || {};
-  const t = f.temperature;
-  const temp = t ? `${toC(t.low_k)} to ${toC(t.high_k)} °C` : null;
+  const t = f.temperature, tr = f.terrain, dl = L.surface_dust, pl = L.barren_ground;
+  const rows = [];
 
-  const tr = f.terrain;
+  rows.push({ label: "Temperature", dim: "cold", dataset: t?.dataset, extra: t?.what,
+    word: t ? `${toC(t.low_k)} to ${toC(t.high_k)} °C` : null, detail: "" });
+
   let terrain = null;
-  if (tr) {
-    const word = tr.flat_fraction >= 0.7 ? "flat" : tr.flat_fraction >= 0.4 ? "gently rolling" : tr.flat_fraction >= 0.15 ? "hilly" : "steep";
-    terrain = `${word} <span class="hint">(${pctTxt(tr.flat_fraction)} under 5°)</span>`;
-  }
+  if (tr) terrain = tr.flat_fraction >= 0.7 ? "flat" : tr.flat_fraction >= 0.4 ? "gently rolling" : tr.flat_fraction >= 0.15 ? "hilly" : "steep";
+  rows.push({ label: "Terrain", dim: "slope", dataset: tr?.dataset, word: terrain,
+    detail: tr ? `${pctTxt(tr.flat_fraction)} under 5°` : "",
+    extra: tr ? `median slope ${tr.slope_median}°, at ${tr.res_m} m/pixel` : "" });
 
-  const dl = L.surface_dust;
-  let dust = null;
-  if (s.body === "moon") dust = 'Present <span class="hint">(local coverage unmeasured)</span>';
+  let dust = null, dustDetail = "";
+  if (s.body === "moon") { dust = "present"; dustDetail = "local coverage unmeasured"; } // lunar regolith is everywhere
   if (dl && dl.fraction != null) {
-    const word = dl.fraction >= 0.4 ? "high" : dl.fraction >= 0.1 ? "moderate" : dl.fraction > 0.01 ? "low" : "very low";
-    const what = s.body === "earth" ? "bare fine soil" : s.body === "mars" ? "dust-covered" : "dusty";
-    dust = `${word} <span class="hint">(${pctTxt(dl.fraction)} ${what})</span>`;
+    dust = dl.fraction >= 0.4 ? "high" : dl.fraction >= 0.1 ? "moderate" : dl.fraction > 0.01 ? "low" : "very low";
+    dustDetail = `${pctTxt(dl.fraction)} ${s.body === "earth" ? "bare fine soil" : s.body === "mars" ? "dust-covered" : "dusty"}`;
   }
+  rows.push({ label: "Dust", dim: "surface_dust", dataset: dl?.dataset, word: dust, detail: dustDetail, extra: "" });
 
-  const pl = L.barren_ground;
-  let plants = null;
+  let plants = null, plantsDetail = "";
   if (pl) {
     if (pl.constant) plants = "none";
     else {
       const veg = 1 - pl.fraction;
-      const word = veg >= 0.6 ? "high" : veg >= 0.25 ? "moderate" : veg >= 0.05 ? "low" : "almost none";
-      plants = `${word} <span class="hint">(${pctTxt(veg)} vegetated)</span>`;
+      plants = veg >= 0.6 ? "high" : veg >= 0.25 ? "moderate" : veg >= 0.05 ? "low" : "almost none";
+      plantsDetail = `${pctTxt(veg)} vegetated`;
     }
   }
-  return `<dl>
-    ${factRow("Temperature", temp, t?.dataset, t?.what)}
-    ${factRow("Terrain", terrain, tr?.dataset, tr ? `median slope ${tr.slope_median}°, at ${tr.res_m} m/pixel` : "")}
-    ${factRow("Dust", dust, dl?.dataset)}
-    ${factRow("Plants", plants, pl?.dataset, pl?.constant ? (pl.note || "") : "")}
-  </dl>`;
+  rows.push({ label: "Plants", dim: "barren_ground", dataset: pl?.dataset, word: plants, detail: plantsDetail,
+    extra: pl?.constant ? (pl.note || "") : "" });
+  return rows;
+}
+
+function siteFactsHtml(s) {
+  return `<dl>${siteFacts(s).map((r) => `<div class="fr">` + factRow(r.label,
+    r.word == null ? null : esc(r.word) + (r.detail ? ` <span class="hint">(${esc(r.detail)})</span>` : ""),
+    r.dataset, r.extra) + `</div>`).join("")}</dl>`;
 }
 
 function renderFacts() {
@@ -1899,7 +1908,9 @@ function closePinCard() {
   const hadLink = pinCard.siteId && state.link;
   pinCard.marker = null; pinCard.siteId = null;
   pinCard.el.hidden = true;
+  stage.classList.remove("card-open");
   pinCard.leader.style.display = "none";
+  viewShiftGoal = 0;
   if (hadLink) setLink(null); // the line belonged to the card; zoom back out and let things spin again
 }
 
@@ -1922,39 +1933,44 @@ function renderPinCard() {
     const matches = matchesFor(site).slice(0, 3);
     const types = (site.types || [site.type]).filter(Boolean).map(typeShort).map(esc).join(" / ");
     const head = `<button class="pc-close" aria-label="Close">✕</button>
-      <div class="pc-eyebrow">${esc(BODY[site.body].name)}${types ? ` · ${types}` : ""}${site.role === "control" ? " · control" : isTeam(site) ? " · #team" : ""}</div>
+      <div class="pc-eyebrow" style="color:${accent}"><i style="background:${accent}"></i>${esc(BODY[site.body].name)}${types ? ` · ${types}` : ""}${site.role === "control" ? " · control" : isTeam(site) ? " · #team" : ""}</div>
       <h3 class="pc-title">${esc(site.name)}</h3>`;
     if (!matches.length) {
       el.innerHTML = head + `<p class="pc-text">No ${onEarth ? "Moon or Mars target" : "Earth candidate"} of this type yet, so there is nothing to compare it with.</p>`;
     } else {
       const c = currentComparison() || matches[0].c;
-      const sc = scoreOf(c), dims = state.data.dimensions;
-      const ranked = sc.used.slice().sort((a, b) => c.scores[b] - c.scores[a]);
-      const similar = ranked.filter((k) => c.scores[k] >= 0.6).slice(0, 3);
-      const different = ranked.filter((k) => c.scores[k] < 0.6).reverse().slice(0, 2);
-      const bar = (k) => `<div class="pc-metric" data-dim-info="${k}"><span>${esc(dims[k].label)}</span>
-        <i><b style="width:${c.scores[k] * 100}%;background:${COLOR[verdictOf(c.scores[k])]}"></b></i><em>${c.scores[k].toFixed(2)}</em></div>`;
-      const row = ({ c: mc, s, other }) => {
-        const active = mc.earth === c.earth && mc.target === c.target;
-        return `<button class="pc-match ${active ? "active" : ""}" data-earth="${mc.earth}" data-target="${mc.target}">
-          <span class="dot" style="background:${isTeam(other) ? COLOR.team : COLOR[other.body]}"></span>
-          <span class="name">${esc(other.name)}${onEarth ? ` <small>${esc(BODY[other.body].name)}</small>` : ""}</span>
-          <span class="val" style="color:${COLOR[s.verdict]}">${fmt(s.overall)}</span></button>`;
-      };
+      const sc = scoreOf(c);
+      const e = state.data.sites[c.earth], t = state.data.sites[c.target], other = onEarth ? t : e;
+      const dot = (s) => `<i style="background:${s.body === "earth" ? COLOR.earth : COLOR[s.body]}"></i>`;
+      // the same fact cards as the strip under the globes, one per site, side by side
+      const factCard = (s) => `
+        <section class="fact-card" style="--body:${s.body === "earth" ? COLOR.earth : COLOR[s.body]};border-top-color:var(--body)">
+          <header><span class="body">${BODY[s.body].name}</span><b title="${esc(s.name)}">${esc(s.name)}</b></header>
+          ${siteFactsHtml(s)}
+        </section>`;
+      const others = matches.filter(({ c: mc }) => !(mc.earth === c.earth && mc.target === c.target));
+      const pct = sc.overall == null ? "–" : Math.round(sc.overall * 100);
       el.innerHTML = head + `
-        <div class="pc-label">${onEarth ? "Best Moon & Mars matches" : "Best Earth analogs"}</div>
-        <div class="pc-matches">${matches.map(row).join("")}</div>
-        ${similar.length ? `<div class="pc-label">Similar</div>${similar.map(bar).join("")}` : ""}
-        ${different.length ? `<div class="pc-label">Different</div>${different.map(bar).join("")}` : ""}
-        ${!sc.used.length ? `<p class="pc-text">No metrics selected for this pair. Pick some in Filters.</p>` : ""}
+        <div class="pc-hero">
+          <div class="pc-big" style="color:${COLOR[sc.verdict]}">${pct}<small>%</small></div>
+          <div class="pc-vs">
+            <span class="pc-verdict" style="--v:${COLOR[sc.verdict]}">${sc.overall == null ? "No score" : sc.verdict[0].toUpperCase() + sc.verdict.slice(1) + " match"}</span>
+            <span class="pc-other" title="${esc(other.name)}">with <b style="color:${isTeam(other) ? COLOR.team : COLOR[other.body]}">${esc(other.name)}</b></span>
+          </div>
+        </div>
+        <div class="pc-facts">${factCard(e)}${factCard(t)}</div>
+        ${others.length ? `<div class="pc-section">Other matches</div>
+        <div class="pc-others">${others.map(({ c: mc, s: os, other: o }) => `
+          <button class="pc-match" data-earth="${mc.earth}" data-target="${mc.target}">
+            ${dot(o)}<span class="name">${esc(o.name)}</span><span class="where" style="color:${COLOR[o.body]}">${esc(BODY[o.body].name)}</span>
+            <b style="color:${COLOR[os.verdict]}">${os.overall == null ? "–" : Math.round(os.overall * 100) + "%"}</b></button>`).join("")}</div>` : ""}
         <div class="pc-actions">
-          <button class="pc-primary" data-act="3d">Open 3D terrain <span aria-hidden="true">→</span></button>
-          <button class="pc-secondary" data-act="details" title="Full breakdown in the side panel" aria-label="Full breakdown">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>
+          <button class="pc-primary" data-act="3d">Open 3D terrain</button>
         </div>`;
     }
   }
   el.hidden = false;
+  stage.classList.toggle("card-open", !m.userData.ref);
   pinCard.leader.style.display = "";
   placePinCard();
 }
@@ -1965,17 +1981,28 @@ pinCard.el.addEventListener("click", (ev) => {
   if (t.classList.contains("pc-close")) return closePinCard();
   if (t.classList.contains("pc-match")) { setLink({ earth: t.dataset.earth, target: t.dataset.target }); return renderPinCard(); }
   if (t.dataset.act === "3d") { closePinCardQuiet(); setView("compare"); return; }
-  if (t.dataset.act === "details") { setPanelCollapsed(false); setPane("scores"); }
 });
 // leaving for the 3D view keeps the selected pair, just hides the card
 function closePinCardQuiet() {
   pinCard.marker = null; pinCard.siteId = null;
   pinCard.el.hidden = true; pinCard.leader.style.display = "none";
+  stage.classList.remove("card-open");
+  viewShiftGoal = 0;
 }
 addEventListener("keydown", (ev) => { if (ev.key === "Escape" && pinCard.marker) closePinCard(); });
 
 // keep the card beside its pin as the camera flies / the globes move; flip side near the edges
 const _p = new THREE.Vector3();
+// Sliding the globes view up (camera view offset) so a docked card never hides its pin. Eased per frame.
+let viewShift = 0, viewShiftGoal = 0;
+function applyViewShift() {
+  viewShift += (viewShiftGoal - viewShift) * 0.12;
+  const w = stage.clientWidth, h = stage.clientHeight;
+  if (viewShiftGoal === 0 && Math.abs(viewShift) < 0.5) {
+    viewShift = 0;
+    if (globes.camera.view) globes.camera.clearViewOffset();
+  } else globes.camera.setViewOffset(w, h, 0, viewShift, w, h);
+}
 function placePinCard() {
   const m = pinCard.marker;
   if (!m || pinCard.el.hidden) return;
@@ -1986,11 +2013,20 @@ function placePinCard() {
   m.getWorldPosition(_p).project(globes.camera);
   const x = (_p.x + 1) / 2 * w, y = (1 - _p.y) / 2 * h;
   const cw = pinCard.el.offsetWidth, ch = pinCard.el.offsetHeight, gap = 56;
-  const right = x + gap + cw <= w - 16 || x - gap - cw < 16;
-  const left = right ? Math.min(x + gap, w - 16 - cw) : x - gap - cw;
-  const top = Math.max(64, Math.min(y - 40, h - ch - 16));
+  const fitsR = x + gap + cw <= w - 16, fitsL = x - gap - cw >= 16;
+  let left, top, ax, ay;
+  if (fitsR || fitsL) {
+    left = fitsR ? x + gap : x - gap - cw;
+    top = Math.max(64, Math.min(y - 40, h - ch - 16));
+    ax = fitsR ? left : left + cw; ay = Math.min(Math.max(y, top + 18), top + ch - 18);
+  } else { // too wide to sit beside the pin: dock at the bottom and slide the view up to keep the pin in sight
+    left = Math.max(16, (w - cw) / 2);
+    top = h - ch - 16;
+    ax = Math.min(Math.max(x, left + 24), left + cw - 24); ay = top;
+    viewShiftGoal = Math.min(Math.max(viewShift + y - (top - 60), 0), ch);
+  }
+  if (fitsR || fitsL) viewShiftGoal = 0;
   pinCard.el.style.transform = `translate(${Math.round(left)}px, ${Math.round(top)}px)`;
-  const ax = right ? left : left + cw, ay = Math.min(Math.max(y, top + 18), top + ch - 18);
   const ln = pinCard.leader.querySelector("line"), dot = pinCard.leader.querySelector("circle");
   ln.setAttribute("x1", x); ln.setAttribute("y1", y); ln.setAttribute("x2", ax); ln.setAttribute("y2", ay);
   dot.setAttribute("cx", x); dot.setAttribute("cy", y);
@@ -2010,6 +2046,7 @@ renderer.domElement.addEventListener("pointermove", (ev) => {
   raycaster.setFromCamera(ndc, globes.camera);
   const hit = raycaster.intersectObjects([...markers.filter((m) => m.visible), ...Object.values(planets).map((p) => p.mesh)], false)[0];
   const name = hit?.object.userData.name;
+  spinHold = !!name;
   siteTip.hidden = !name;
   renderer.domElement.style.cursor = name ? "pointer" : "";
   if (!name) return;
@@ -2017,7 +2054,7 @@ renderer.domElement.addEventListener("pointermove", (ev) => {
   siteTip.style.left = ev.clientX - rect.left + 14 + "px";
   siteTip.style.top = ev.clientY - rect.top + 14 + "px";
 });
-renderer.domElement.addEventListener("pointerleave", () => { siteTip.hidden = true; });
+renderer.domElement.addEventListener("pointerleave", () => { siteTip.hidden = true; spinHold = false; });
 
 function resize() {
   const w = stage.clientWidth, h = stage.clientHeight;
@@ -2038,6 +2075,7 @@ function loop() {
     globes.controls.update();
     updatePairLines();
     placePinCard();
+    applyViewShift();
     renderer.render(globes.scene, globes.camera);
     labelsGlobes.render(globes.scene, globes.camera);
   } else {

@@ -47,7 +47,7 @@
         <h1 class="intro-name" aria-label="Analog Explorer">${letters}</h1>
         <p class="intro-tag">The Sun is running, and the planets chase it. Every track you see is a helix.
           Find the Canadian terrain that matches the Moon and Mars.</p>
-        <button class="intro-enter" type="button">Explore the planets <kbd>Enter</kbd></button>
+        <button class="intro-enter" type="button">Explore the planets <span class="intro-arrow" aria-hidden="true">→</span></button>
       </div>
       <label class="intro-toggle">
         <input type="checkbox">
