@@ -775,8 +775,8 @@
     },
     {
       "id": "team_place_03",
-      "name": "Earth location place-03",
-      "region": "Map coordinate 38.75, 86.35",
+      "name": "Qarqan, Taklamakan Desert",
+      "region": "Qarqan County, Xinjiang, China",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -802,8 +802,8 @@
     },
     {
       "id": "team_place_06",
-      "name": "Earth location place-06",
-      "region": "Map coordinate 66.14, -120.01",
+      "name": "Déline, Great Bear Lake",
+      "region": "Déline District, Northwest Territories, Canada",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -829,8 +829,8 @@
     },
     {
       "id": "team_place_08",
-      "name": "Earth location place-08",
-      "region": "Map coordinate 21.12, 57.44",
+      "name": "Ad Dakhiliyah desert",
+      "region": "Ad Dakhiliyah Governorate, Oman",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -855,8 +855,8 @@
     },
     {
       "id": "team_place_10",
-      "name": "Earth location place-10",
-      "region": "Map coordinate 25.24, 1.08",
+      "name": "Reggane",
+      "region": "Reggane District, Adrar, Algeria",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -881,8 +881,8 @@
     },
     {
       "id": "team_place_13",
-      "name": "Earth location place-13",
-      "region": "Map coordinate 20.59, 58.12",
+      "name": "Eastern Oman desert",
+      "region": "Oman",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -907,8 +907,8 @@
     },
     {
       "id": "team_place_17",
-      "name": "Earth location place-17",
-      "region": "Map coordinate 20.53, 0.15",
+      "name": "Tessalit",
+      "region": "Tessalit Cercle, Kidal, Mali",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -933,8 +933,8 @@
     },
     {
       "id": "team_place_18",
-      "name": "Earth location place-18",
-      "region": "Map coordinate 22.42, -13.82",
+      "name": "Aousserd",
+      "region": "Aousserd, Western Sahara",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -959,8 +959,8 @@
     },
     {
       "id": "team_place_19",
-      "name": "Earth location place-19",
-      "region": "Map coordinate 24.64, -2.95",
+      "name": "Bordj Badji Mokhtar",
+      "region": "Bordj Badji Mokhtar, Algeria",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -985,8 +985,8 @@
     },
     {
       "id": "team_place_20",
-      "name": "Earth location place-20",
-      "region": "Map coordinate 22.91, 2.63",
+      "name": "Abalessa",
+      "region": "Abalessa District, Tamanrasset, Algeria",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1011,8 +1011,8 @@
     },
     {
       "id": "team_place_21",
-      "name": "Earth location place-21",
-      "region": "Map coordinate 16.4, 29.55",
+      "name": "Sodari, North Kordofan",
+      "region": "Sodari, North Kordofan, Sudan",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1037,8 +1037,8 @@
     },
     {
       "id": "team_place_22",
-      "name": "Earth location place-22",
-      "region": "Map coordinate 28.77, 22.73",
+      "name": "Al Wahat desert",
+      "region": "Al Wahat District, Libya",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1063,8 +1063,8 @@
     },
     {
       "id": "team_place_24",
-      "name": "Earth location place-24",
-      "region": "Map coordinate 27.95, 23.56",
+      "name": "Al Wahat desert (east)",
+      "region": "Al Wahat District, Libya",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1089,8 +1089,8 @@
     },
     {
       "id": "team_place_25",
-      "name": "Earth location place-25",
-      "region": "Map coordinate 26.84, 22.03",
+      "name": "Kufra desert",
+      "region": "Kufra District, Libya",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1115,8 +1115,8 @@
     },
     {
       "id": "team_place_27",
-      "name": "Earth location place-27",
-      "region": "Map coordinate 27.08, -2.79",
+      "name": "Zaouiet Kounta",
+      "region": "Zaouiet Kounta District, Adrar, Algeria",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1141,8 +1141,8 @@
     },
     {
       "id": "team_place_28",
-      "name": "Earth location place-28",
-      "region": "Map coordinate 42.3, 88.98",
+      "name": "Gaochang, Turpan",
+      "region": "Gaochang District, Turpan, Xinjiang, China",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1168,8 +1168,8 @@
     },
     {
       "id": "team_place_29",
-      "name": "Earth location place-29",
-      "region": "Map coordinate 25.74, 24.17",
+      "name": "Kufra desert (east)",
+      "region": "Kufra District, Libya",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1194,8 +1194,8 @@
     },
     {
       "id": "team_place_30",
-      "name": "Earth location place-30",
-      "region": "Map coordinate 39.72, 99.19",
+      "name": "Gaotai",
+      "region": "Gaotai County, Gansu, China",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1221,8 +1221,8 @@
     },
     {
       "id": "team_place_31",
-      "name": "Earth location place-31",
-      "region": "Map coordinate 18.1, -2.6",
+      "name": "Tombouctou desert",
+      "region": "Tombouctou Cercle, Taoudénit Region, Mali",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1247,8 +1247,8 @@
     },
     {
       "id": "team_place_32",
-      "name": "Earth location place-32",
-      "region": "Map coordinate 19.68, -12.54",
+      "name": "Adrar (Mauritania)",
+      "region": "Adrar Region, Mauritania",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1273,8 +1273,8 @@
     },
     {
       "id": "team_place_36",
-      "name": "Earth location place-36",
-      "region": "Map coordinate 58.83, 27.22",
+      "name": "Jõgeva County",
+      "region": "Jõgeva County, Estonia",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1299,8 +1299,8 @@
     },
     {
       "id": "team_place_37",
-      "name": "Earth location place-37",
-      "region": "Map coordinate 45.09, 106.63",
+      "name": "Ölziit, Dundgovi",
+      "region": "Ölziit, Dundgovi, Mongolia",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1325,8 +1325,8 @@
     },
     {
       "id": "team_place_39",
-      "name": "Earth location place-39",
-      "region": "Map coordinate 40.96, 97.75",
+      "name": "Subei",
+      "region": "Subei Mongolian Autonomous County, Gansu, China",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1351,8 +1351,8 @@
     },
     {
       "id": "team_place_40",
-      "name": "Earth location place-40",
-      "region": "Map coordinate 30.15, 83.0",
+      "name": "Zhongba",
+      "region": "Zhongba County, Tibet (Xizang), China",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1377,8 +1377,8 @@
     },
     {
       "id": "team_place_42",
-      "name": "Earth location place-42",
-      "region": "Map coordinate 44.26, 102.76",
+      "name": "Bogd, Övörkhangai",
+      "region": "Bogd, Övörkhangai, Mongolia",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1403,8 +1403,8 @@
     },
     {
       "id": "team_place_46",
-      "name": "Earth location place-46",
-      "region": "Map coordinate 33.46, 93.14",
+      "name": "Amdo",
+      "region": "Amdo County, Tibet (Xizang), China",
       "body": "earth",
       "role": "analog",
       "tags": [
@@ -1429,8 +1429,8 @@
     },
     {
       "id": "team_place_48",
-      "name": "Earth location place-48",
-      "region": "Map coordinate 27.1, 16.77",
+      "name": "Al Jufra",
+      "region": "Al Jufra District, Libya",
       "body": "earth",
       "role": "analog",
       "tags": [

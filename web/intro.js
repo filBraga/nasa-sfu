@@ -33,10 +33,11 @@
     if (active) return;
     active = true;
 
-    const title = "ANALOG EXPLORER";
-    let i = 0; // one word per line, letters staggered across both
-    const letters = title.split(" ").map((w) =>
-      `<span class="w">${[...w].map((c) => `<span style="--i:${i++}">${c}</span>`).join("")}</span>`).join("");
+    // "ASTROLOG" big, "· ANALOG EXPLORER" as a smaller second line; letters staggered across both
+    const lines = [["ASTROLOG", ""], ["· ANALOG EXPLORER", " sub"]];
+    let i = 0;
+    const letters = lines.map(([text, cls]) =>
+      `<span class="w${cls}">${[...text].map((c) => `<span style="--i:${i++}">${c === " " ? "&nbsp;" : c}</span>`).join("")}</span>`).join("");
     const root = document.createElement("div");
     root.id = "intro";
     root.setAttribute("role", "dialog");
@@ -44,7 +45,7 @@
     root.innerHTML = `
       <div class="intro-copy">
         <div class="intro-kicker">NASA Space Apps Challenge · 2026</div>
-        <h1 class="intro-name" aria-label="Analog Explorer">${letters}</h1>
+        <h1 class="intro-name" aria-label="Astrolog · Analog Explorer">${letters}</h1>
         <p class="intro-tag">The Sun is running, and the planets chase it. Every track you see is a helix.
           Find the Canadian terrain that matches the Moon and Mars.</p>
         <button class="intro-enter" type="button">Explore the planets <span class="intro-arrow" aria-hidden="true">→</span></button>
