@@ -1,0 +1,339 @@
+
+<html>
+
+<head>
+   <title>PDS: Data Set Information</title>
+   <META  NAME="keywords"  CONTENT="Planetary Data System">
+   <META  NAME="description" CONTENT="This website serves as a mechanism for searching the PDS planetary archives.">
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="google-site-verification" content="cvIsjQqyHkboRduTpBWbeK09KBShH5qSXKwFi0wltIk" />
+<link href="/css/main.css?v=20260610" type="text/css" rel="stylesheet" media="all" />
+<script src="/scripts/email.js" type="text/javascript"></script>
+<script src="/js/popWindow.js" type="text/javascript"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/feedback/css/feedback.css"  type="text/css" media="screen" />
+<script src="/feedback/js/modernizr-custom.js"></script>
+<script src="/feedback/js/config.js"></script>
+<script src="/feedback/js/feedback.js"></script>
+
+<script src="/pds-app-bar/pds-app-bar.js" type="text/javascript"></script>
+<link href="/pds-app-bar/pds-app-bar.css" type="text/css" rel="stylesheet"></link>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous"/>
+
+<script type="text/javascript">
+$(fixEmail);
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-33523145-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T8PNBVMXSM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-33523145-1');
+  gtag('config', 'G-T8PNBVMXSM');
+</script>
+
+   
+</head>
+
+<body class="menu_data menu_item_data_keyword_search ">
+
+<div id="header-container">
+   <!-- Header Logo -->
+
+<a id="logo" href="/" onclick="this.blur()" >
+	<img src="/images/nasa_logo(280x280).png" alt="NASA logo">
+</a>
+
+   <div id="menu-container">
+      <!-- Main menu -->
+
+<div id="menu">
+
+<a class="nonvisual" name="mainMenu"></a>
+
+<h2 class="nonvisual">Main menu</h2>
+<ul>
+  <li id="home"><a href="/">Home</a></li>
+  <li id="data"><a href="/datasearch/data-search/">Data Search</a></li>
+  <li id="tools"><a href="/tools/about/">Tools</a></li>
+  <li id="datastandards"><a href="/datastandards/about/">Data Standards</a></li>
+</ul>
+
+<div class="clear"></div>
+</div>
+
+      <div id="submenu">
+<div id="submenu_data">
+<h2 class="nonvisual">Menu: Data Search</h2>
+<ul>
+  <li id="data_data_search"><a href="/datasearch/data-search/">Data Search</a></li>
+  <li id="data_keyword_search"><a href="/datasearch/keyword-search/">Keyword Search</a></li>
+  <li id="data_data_releases"><a href="/datasearch/subscription-service/SS-Release.shtml">Data Releases</a></li>
+</ul>
+</div>
+<div class="clear"></div>
+</div>
+
+   </div>
+   <!-- Header Links -->
+<ul id="header-links">
+  <li><a href="http://www.nasa.gov">NASA Portal</a></li>
+  <li><a href="/site-help.shtml">Site Help</a></li>
+  <li><a href="/contact/contact.shtml">Contact Us</a></li>
+  <li><a href="mailto:pds-operator@jpl.nasa.gov?subject=Feedback for pds.nasa.gov">Feedback</a></li>
+</ul>
+
+</div>
+
+<!-- Main content -->
+<div id="content">
+   <div style="border-top: 1px solid white;">
+   <table width="760" align="center" bgColor="#FFFFFF" BORDER="0" CELLPADDING="10" CELLSPACING="0">
+   <tr>
+      <td>
+         <table width="760" border="0" cellspacing="3" cellpadding="2">
+		    <tr valign="TOP">
+               <td valign="TOP" colspan="2" class="pageTitle">
+                  <b>Data Set Information</b><br/>
+               </td>
+            </tr>
+
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>DATA_SET_NAME</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          LRO MOON LAMP 5 GRIDDED DATA RECORD V1.0<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>DATA_SET_ID</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          LRO-L-LAMP-5-GDR-V1.0<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>NSSDC_DATA_SET_ID</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>DATA_SET_TERSE_DESCRIPTION</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>DATA_SET_DESCRIPTION</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          
+                  DATA SET OVERVIEW : The Lunar Reconnaissance Orbiter (LRO) Lyman Alpha Mapping Project (LAMP) CODMAC Level 5 Gridded Data Record is a collection of gridded data products (maps) derived from the far ultraviolet photon detections obtained by the LAMP instrument, corrected for instrumental effects, radiometrically calibrated, and correlated with the auxiliary information needed to locate the observations in space and time. These gridded data products are presented as standalone maps, formatted as standard PDS images, with detached PDS labels. The LAMP GDR archive will be of interest to investigators studying the far ultraviolet properties of the Moon.   PARAMETERS : The fundamental parameters contained in the LAMP GDR data set are:  1) far-UV brightness 2) far-UV albedo 3) H2O absorption feature depths 4) raw far-UV photon counts 5) calibrated far-UV photon counts 6) exposure times 7) far-UV illumination 8) statistical errors (noise) 9) data quality   PROCESSING : LAMP GDR data products are generated at the LAMP Science Operations Center (SOC), located at the Southwest Research Institute in Boulder, Colorado. The map processing proceeds generally as follows. (Please refer to the LAMP EDR and RDR Data Product SIS documents for more information about the LAMP EDR and RDR data products, as this discussion assumes the existence of LAMP RDR products containing radiometrically calibrated and spatially located far-UV photon detections.) From each RDR product a corresponding 'exposure record' is generated that records the exposure time of each LAMP spatial pixel in each map cell. Calibrated photon counts (i.e., photons/cm2, where the cm2 is related to the wavelength-dependent instrument effective area) from the RDR products are then paired with these exposure records, one-to-one, to produce integrated photon count and exposure maps. These, in turn, are used to generate the brightness maps themselves. Far-UV illumination models are separately used to estimate the time-dependent far-UV flux incident on the Moon's night side and permanently shaded regions (PSRs). These, combined with the brightness maps yield the albedo maps. Finally, the ratios of the off-band brightness/albedo to the on-band brightness/albedo yields the H2O absorption feature depth maps.   DATA : As alluded to above, the LAMP Gridded Data Record contains the following nine types of maps:  1) far-UV brightness - units are photons/cm2/sec/sr - four wavelength ranges are included: Lyman-alpha (119.57 nm - 123.57 nm) full stellar (129.57 nm - 189.57 nm) on-band (129.57 nm - 155.57 nm) off-band (155.57 nm - 189.57 nm) 2) far-UV albedo - units are dimensionless albedo - the above four wavelength ranges are used 3) H2O absorption feature depths (ratios) - units are dimensionless 4) raw photon counts - units are photons - the above four wavelength ranges are used 5) calibrated photon counts - units are photons/cm2 - the above four wavelength ranges are used 6) exposure times - units are secs 7) far-UV illumination - units are photons/cm2/sec - the above four wavelength ranges are used 8) statistical errors (noise) - units are photons/cm2 - the above four wavelength ranges are used 9) data quality - units are dimensionless - the above four wavelength ranges are used  All of these maps are derived from 'night side' data (i.e., when the LAMP detector FOV was located on the night side of the Moon or in a permanently shaded region [PSR] and the instrument aperture door was open). In addition to the cumulative ensemble average maps generated using data taken during the whole nominal ESMD phase of the LRO mission, monthly maps are also provided for all of the above products except for the H2O absorption feature depth maps.  Each map is a polar stereographic map centered on either the north or south lunar pole and extending 10 degrees in latitude away from the pole (i.e., to either +80 deg or -80 deg latitude). Each map has a true resolution at the pole of 240 meters/pixel, thus yielding a map of 2501 x 2501 pixels. Each map element is stored using a 4-byte floating point value, thus giving a total size of 25 MB per map image.  For each map type (except for the exposure and H2O absorption feature depth maps) there are 112 maps (4 wavelength ranges x 2 poles x 14 [13 monthly + 1 cumulative]). Since the exposure times are the same for all wavelengths, there are only 28 exposure maps. Also, there are only 4 H2O absorption feature depth maps (2 [brightness and albedo as ratio source] x 2 poles). All told, there are 816 total maps in the GDR data set.   ANCILLARY DATA : Other than the ancillary data used in the generation of the LAMP RDR data set, the only ancillary data specifically used in the creation of the LAMP GDR data set is the illumination model (used to generate the illumination maps, which are in turn used to derive the albedo maps).  The ancillary data used in the generation of the LAMP RDR data set include those calibration values required to apply instrumental corrections and calibrations to the science data as well as trajectory and pointing information for the LRO spacecraft and clock conversion tables required to enable the geometric calibration of the science data. The source of the instrumental calibration data are the LAMP engineers and LAMP scientists at the Southwest Research Institute in San Antonio, Texas [see GLADSTONEETAL2008 for further details], while the source of the spacecraft trajectory, pointing, and clock data are SPICE kernels provided to the LAMP SOC by the LRO MOC, having been ultimately generated by the MOC itself, the Flight Dynamics Facility (FDF) at GSFC, or the Navigation and Ancillary Information Facility (NAIF) at JPL.   COORDINATE SYSTEM : The Lunar Reconnaissance Orbiter mission uses a standard coordinate system to describe all RDR (and hence GDR) data, namely lunar planetocentric/body-fixed coordinates with east-positive longitude from 0 to 360 degrees. A mean Earth/polar axis (ME) reference system (also called the mean Earth/rotation system) is used, with the z-axis being the mean rotational pole and with the prime meridian (zero degrees longitude) defined by the mean Earth direction.  The ME reference system is used for all LRO archival data. This LRO standard is documented in 'A Standardized Lunar Coordinate System for the Lunar Reconnaissance Orbiter, LRO Project White Paper, 451-SCI-000958, Version 4, May 14, 2008'. Using coordinates in the ME system is consistent with recommendations from the International Astronomical Union (IAU)/International Association of Geodesy (IAG) Working Group on Cartographic Coordinates and Rotational Elements.  A Jet Propulsion Laboratory (JPL) planetary and lunar ephemeris and corresponding Euler angle set are used to define an ME frame to which the LRO data are registered. The LRO Data Working Group (LDWG) determines which ephemeris and Euler angle set should be used. Alternatively, LRO data can be registered to an existing or new reference frame in the ME system, via ties to surface points known in the frame (examples include Lunar Laser Ranging [LLR] retroreflectors, points in images and Digital Elevation Models).  When a JPL planetary and lunar ephemeris is used, the JPL Navigation and Ancillary Information Facility (NAIF) provides the necessary lunar ephemeris file (SPK) and binary lunar orientation file (PCK) in a Principal Axes (PA) reference frame for use with the SPICE Toolkit. NAIF also provides the frames kernel (FK) used for accessing the PA orientation in the PCK and for transforming from the PA frame to the ME frame.  Alternatively, the JPL lunar ephemeris information is available in an ASCII format not requiring the use of the SPICE Toolkit. This information is available from a JPL website: http://ssd.jpl.nasa.gov.   SOFTWARE : Because the LAMP GDR data product files adhere to the image format described in version 3 of the PDS standards reference, the PDS-supplied NASAView software should be able to successfully read these files. There are likely other such image readers freely available in the public domain capable of reading the LAMP GDR maps.   MEDIA/FORMAT : The LAMP GDR data product files are written in standard PDS image (.img) format, and the format of each file is described in an accompanying detached PDS label. The GDR archive itself will be written on hard drive media and physically delivered from the LAMP SOC to the PDS Imaging Node, where it will be made generally available via the World Wide Web.
+             
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>DATA_SET_RELEASE_DATE</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          2011-03-15T00:00:00.000Z<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>START_TIME</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          2009-09-16T12:00:00.000Z<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>STOP_TIME</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          2010-09-14T12:00:00.000Z<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>MISSION_NAME</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          
+    	           LUNAR RECONNAISSANCE ORBITER<br>  	       	
+              
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>MISSION_START_DATE</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          2009-06-18T12:00:00.000Z<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>MISSION_STOP_DATE</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          N/A (ongoing)<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>TARGET_NAME</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          MOON<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>TARGET_TYPE</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          SATELLITE<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>INSTRUMENT_HOST_ID</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          LRO<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>INSTRUMENT_NAME</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          LYMAN ALPHA MAPPING PROJECT<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>INSTRUMENT_ID</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          LAMP<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>INSTRUMENT_TYPE</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          SPECTROGRAPH<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>NODE_NAME</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          Imaging<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>ARCHIVE_STATUS</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          LOCALLY_ARCHIVED_ACCUMULATING<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>CONFIDENCE_LEVEL_NOTE</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          
+                  Confidence level information is provided as part of the LAMP GDR data set itself, by means of the supplied statistical error and data quality maps. In the case where a given map cell contains no data at all, the value assigned is the IEEE NaN value.
+             
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>CITATION_DESCRIPTION</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          Kaufmann, D.E., LRO L LAMP GRIDDED DATA RECORD V1.0, LRO-L-LAMP-5-GDR-V1.0, NASA Planetary Data System, 2011.<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>ABSTRACT_TEXT</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          The Lunar Reconnaissance Orbiter (LRO) Lyman Alpha Mapping Project (LAMP) CODMAC Level 5 Gridded Data Record is a collection of gridded data products (maps) derived from the far ultraviolet photon detections obtained by the LAMP instrument, corrected for instrumental effects, radiometrically calibrated, and correlated with the auxiliary information needed to locate the observations in space and time. These gridded data products are presented as standalone maps, formatted as standard PDS images. The LAMP GDR archive will be of interest to investigators studying the far ultraviolet properties of the Moon.<br>
+
+               </td>
+            </TR>     
+      
+            <TR>
+               <td bgcolor="#E7EEF9" width=200 valign=top>PRODUCER_FULL_NAME</td> 
+               <td bgcolor="#E7EEF9" width=560 valign=top>
+          DAVID E. KAUFMANN<br>
+
+               </td>
+            </TR>     
+      
+	   <tr bgcolor="#E7EEF9">
+	       <td>SEARCH/ACCESS DATA</td>
+	       <td>
+	       
+				<li><a href="http://pds-imaging.jpl.nasa.gov/volumes/lro.html" target="_new">Imaging Online Data Volumes</a><br>
+		
+	       </td>
+	    </tr>
+		            
+         </table>
+      </td>
+   </tr>
+</table>
+</div>
+</div>
+
+<div id="footer" style="color: black; background: #CCCCCC; vertical-align: middle;">
+
+  <div class="left footer-section">
+    <a href="http://www.usa.gov"><img class="left" src="/images/usa-gov.gif" alt="logo for USA government website" border="0" /></a>
+    <div class="block-info">
+      <a href="https://www.nasa.gov/about/highlights/HP_Privacy.html">Privacy / Copyright</a><br />
+      <a href="https://www.nasa.gov/FOIA/index.html">Freedom of Information Act</a>
+    </div>
+  </div>
+
+  <div class="middle footer-section">
+    <a href="http://www.nasa.gov/">NASA</a>
+    <a href="http://www.caltech.edu/">Caltech</a>
+    <a href="https://www.jpl.nasa.gov/privacy">Privacy</a>
+    <a href="https://www.jpl.nasa.gov/imagepolicy">Image Policy</a>
+    <a href="https://www.jpl.nasa.gov/faq.php">FAQ</a>
+    <a href="https://www.jpl.nasa.gov/contact_JPL.php">Feedback</a>
+  </div>
+
+  <div class="right footer-section"> 
+    <img src="/images/nasa_logo(220x220).png" alt="NASA logo (220x220)" width="75" /> 
+    <p class="block-info">
+      Webmaster: <a href="mailto:pds_operator@jpl.nasa.gov">PDS Operator</a><br />
+      NASA Official: <a href="mailto:robin.l.fergason@nasa.gov">Dr. Robin Fergason</a><br />
+      Clearance: CL#22-1582<br />
+      Last updated: July 2026
+    </p>
+  </div>
+</div>
+
+
+</BODY>
+</HTML>
+

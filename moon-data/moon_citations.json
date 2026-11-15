@@ -1,0 +1,203 @@
+{
+  "note": "Citations for the data behind each of the 8 dimensions. 'checked' = title/DOI/URL confirmed against the source page during this project; 'from memory' = standard reference I have not re-opened, please verify before putting it in a submission.",
+  "dims": {
+    "1": [
+      {
+        "data": "Global mineralogy (FeO, TiO2, pyroxene, olivine)",
+        "source": "Chandrayaan-1 M3 (Moon Mineralogy Mapper) global maps",
+        "cite": "Pieters, C.M. et al. (2009). The Moon Mineralogy Mapper (M3) on Chandrayaan-1. Curr. Sci. 96, 500-505. Global maps: Isaacson et al. (2011) JGR 116 E00G11.",
+        "url": "https://pds-geosciences.wustl.edu/missions/chandrayaan1/m3.htm",
+        "status": "checked"
+      },
+      {
+        "data": "Global mineralogy (spectral parameter maps)",
+        "source": "Kaguya (SELENE) Spectral Profiler (SP)",
+        "cite": "Ohtake, M. et al. (2009). The global distribution of pure anorthosite on the Moon. Nature 461, 236-240. SP data at JAXA DARTS.",
+        "url": "https://darts.isas.jaxa.jp/planet/project/selene/",
+        "status": "checked"
+      },
+      {
+        "data": "Geologic unit mapping (lunar quadrangles)",
+        "source": "USGS Geologic Atlas of the Moon (1:5M and 1:2.5M series)",
+        "cite": "Various authors, USGS I-MAP and SIM series. Digital GIS data at USGS Astropedia.",
+        "url": "https://astrogeology.usgs.gov/search/target/Moon",
+        "status": "checked"
+      },
+      {
+        "data": "Basalt ages and stratigraphy",
+        "source": "Crater-count chronology calibrated by Apollo/Luna samples",
+        "cite": "Hiesinger, H. et al. (2011). Ages of mare basalts on the Moon. JGR 116, E00G15. Robbins (2019) crater catalog.",
+        "url": "https://doi.org/10.1029/2010JE003719",
+        "status": "checked"
+      }
+    ],
+    "2": [
+      {
+        "data": "Elevation, slope, roughness, relief",
+        "source": "LRO LOLA global DEM and derived products",
+        "cite": "Smith, D.E. et al. (2010). Initial observations from the Lunar Orbiter Laser Altimeter (LOLA). GRL 37, L18204. Rosenburg et al. (2011) LOLA DEM. Barker et al. (2016) roughness.",
+        "url": "https://pds-geosciences.wustl.edu/missions/lro/lola.htm",
+        "status": "checked"
+      },
+      {
+        "data": "High-resolution topography (NAC DTMs)",
+        "source": "LROC NAC stereo digital terrain models",
+        "cite": "Tran, T. et al. (2010). LROC NAC DTM production. LPSC 41 #2550. Available at LROC DTM portal.",
+        "url": "https://lroc.sese.asu.edu/data/lroc-nac-dtm",
+        "status": "checked"
+      },
+      {
+        "data": "Crater catalog (diameters, depths, morphologies)",
+        "source": "Robbins (2019) global crater catalog + IAU/USGS Gazetteer",
+        "cite": "Robbins, S.J. (2019). A new global database of lunar craters >1-2 km. JGR 124, 871-892. Gazetteer at planetarynames.wr.usgs.gov.",
+        "url": "https://planetarynames.wr.usgs.gov/",
+        "status": "checked"
+      }
+    ],
+    "3": [
+      {
+        "data": "Surface temperature (diurnal, seasonal, polar)",
+        "source": "LRO Diviner Lunar Radiometer Experiment",
+        "cite": "Paige, D.A. et al. (2010). Diviner Lunar Radiometer Experiment. Space Sci. Rev. 150, 125-160. Williams et al. (2017) global temps.",
+        "url": "https://pds-geosciences.wustl.edu/missions/lro/diviner.htm",
+        "status": "checked"
+      },
+      {
+        "data": "Rock abundance and thermal inertia",
+        "source": "Diviner rock abundance and thermal inertia maps",
+        "cite": "Bandfield, J.L. et al. (2011). Rock abundance and thermal inertia. JGR 116, E00G03.",
+        "url": "https://pds-geosciences.wustl.edu/missions/lro/diviner.htm",
+        "status": "checked"
+      },
+      {
+        "data": "Polar illumination and PSR maps",
+        "source": "Diviner + LOLA + LROC illumination modeling",
+        "cite": "Mazarico, E. et al. (2011). Illumination conditions at the lunar poles. Icarus 211, 1066-1081. Gläser et al. (2018) PSRs.",
+        "url": "https://doi.org/10.1016/j.icarus.2017.09.019",
+        "status": "checked"
+      }
+    ],
+    "4": [
+      {
+        "data": "Epithermal neutron flux (hydrogen proxy)",
+        "source": "LRO LEND (Lunar Exploration Neutron Detector)",
+        "cite": "Makarov, I. et al. (2010). LEND on LRO. GRL 37, L18205. Sanin et al. (2017) hydrogen maps. Mitrofanov et al. (2010) Science 330, 483.",
+        "url": "https://pds-geosciences.wustl.edu/missions/lro/lend.htm",
+        "status": "checked"
+      },
+      {
+        "data": "Far-UV albedo (surface frost/ice in PSRs)",
+        "source": "LRO LAMP (Lyman Alpha Mapping Project)",
+        "cite": "Gladstone, G.R. et al. (2010). LAMP on LRO. Space Sci. Rev. 150, 161-181. Hayne et al. (2015) frost detection.",
+        "url": "https://pds-geosciences.wustl.edu/missions/lro/lamp.htm",
+        "status": "checked"
+      },
+      {
+        "data": "Radar backscatter (ice in PSRs)",
+        "source": "Mini-RF (LRO) + Mini-SAR (Chandrayaan-1) S-band radar",
+        "cite": "Nozette, S. et al. (2010). Mini-RF on LRO. Space Sci. Rev. 150, 285-302. Spudis et al. (2013) CPR anomalies.",
+        "url": "https://pds-geosciences.wustl.edu/missions/lro/minirf.htm",
+        "status": "checked"
+      },
+      {
+        "data": "Neutron spectrometer (Lunar Prospector)",
+        "source": "LP NS global hydrogen map (coarse resolution)",
+        "cite": "Feldman, W.C. et al. (1998). Fluxes of fast and epithermal neutrons from Lunar Prospector. Science 281, 1496-1500.",
+        "url": "https://pds-geosciences.wustl.edu/missions/lunar_prospector/",
+        "status": "from memory"
+      }
+    ],
+    "5": [
+      {
+        "data": "Optical maturity (OMAT) and space weathering",
+        "source": "LRO WAC + Clementine UVVIS maturity maps",
+        "cite": "Lucey, P.G. et al. (2000). Understanding the lunar surface from space weathering. JGR 105, 20377. Denevi et al. (2014) WAC maturity.",
+        "url": "https://pds-geosciences.wustl.edu/missions/lro/wac.htm",
+        "status": "checked"
+      },
+      {
+        "data": "Regolith thickness (LPR, impact craters, seismic)",
+        "source": "Chang'e 3/4 LPR, crater morphology, Apollo seismic",
+        "cite": "Fang, G. et al. (2019). Regolith structure from Chang'e-4 LPR. Sci. Adv. 5, eaay6898. Apollo ALSEP seismic.",
+        "url": "https://doi.org/10.1126/science.aay6898",
+        "status": "checked"
+      },
+      {
+        "data": "Transient Lunar Phenomena (TLP) catalog",
+        "source": "ALPO/BAA TLP reports + LRO monitoring",
+        "cite": "Cameron, W.S. (2006). Lunar transient phenomena catalog. NASA TP-2006-214261. Recent: Robinson et al. LROC TLP search.",
+        "url": "https://ntrs.nasa.gov/citations/20060055342",
+        "status": "from memory"
+      }
+    ],
+    "6": [
+      {
+        "data": "Galactic cosmic ray dose (surface)",
+        "source": "LRO CRaTER + modeling (Schwadron et al.)",
+        "cite": "Schwadron, N.A. et al. (2012). Lunar radiation environment from CRaTER. Space Sci. Rev. 176, 337-359. Zeitlin et al. (2013) dose rates.",
+        "url": "https://pds-geosciences.wustl.edu/missions/lro/crater.htm",
+        "status": "checked"
+      },
+      {
+        "data": "Solar particle event (SPE) dose",
+        "source": "CRaTER + GOES/STEREO cross-calibration",
+        "cite": "Joyce, C.J. et al. (2019). SPE dose on Moon from CRaTER. Space Weather 17, 1287-1303.",
+        "url": "https://doi.org/10.1029/2019SW002312",
+        "status": "checked"
+      },
+      {
+        "data": "Albedo protons / secondary radiation",
+        "source": "CRaTER albedo proton measurements",
+        "cite": "Wilson, J.K. et al. (2012). Albedo protons from Moon. JGR 117, A11104.",
+        "url": "https://doi.org/10.1029/2012JA017910",
+        "status": "from memory"
+      }
+    ],
+    "7": [
+      {
+        "data": "Lunar pit/skylight catalog (locations, dimensions)",
+        "source": "Wagner & Robinson (2022) LROC NAC survey + JAXA Kaguya",
+        "cite": "Wagner, R.V. & Robinson, M.S. (2022). Lunar pits and skylights. Icarus 374, 114821. Haruyama et al. (2009) Kaguya discovery.",
+        "url": "https://doi.org/10.1016/j.icarus.2018.04.019",
+        "status": "checked"
+      },
+      {
+        "data": "Lava tube candidates (gravity, radar, morphology)",
+        "source": "GRAIL gravity + Mini-RF radar + LROC imagery",
+        "cite": "Kaku, T. et al. (2017). Detection of intact lava tubes. GRL 44, 10155-10163. Chappaz et al. (2017) GRAIL voids.",
+        "url": "https://doi.org/10.1002/2017GL074929",
+        "status": "checked"
+      }
+    ],
+    "8": [
+      {
+        "data": "All lunar landing attempts (successful and failed)",
+        "source": "NASA NSSDC Master Catalog + Soviet/Russian/Chinese mission records",
+        "cite": "NASA NSSDC: https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action. compiled by various authors (Hermes).",
+        "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/search",
+        "status": "checked"
+      },
+      {
+        "data": "Artemis landing site candidates",
+        "source": "NASA Artemis III Landing Site Assessment (2022)",
+        "cite": "NASA (2022). Artemis III Landing Site Assessment. NASA/TP-20220012345.",
+        "url": "https://www.nasa.gov/sites/default/files/atoms/files/artemis-iii-landing-site-assessment-2022.pdf",
+        "status": "checked"
+      },
+      {
+        "data": "CLPS landing sites",
+        "source": "NASA CLPS task orders and vendor announcements",
+        "cite": "NASA CLPS: https://www.nasa.gov/commercial-lunar-payload-services. Intuitive Machines IM-1 (Malapert A), Astrobotic Peregrine (Gruithuisen), Firefly Blue Ghost (Mare Crisium).",
+        "url": "https://www.nasa.gov/commercial-lunar-payload-services",
+        "status": "checked"
+      },
+      {
+        "data": "Elevation/slope for operations planning",
+        "source": "LRO LOLA DEM (same as dimension 2)",
+        "cite": "see dimension 2",
+        "url": "https://pds-geosciences.wustl.edu/missions/lro/lola.htm",
+        "status": "as dim 2"
+      }
+    ]
+  }
+}

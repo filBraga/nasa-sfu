@@ -1,0 +1,227 @@
+{
+  "schema_version": "1.0",
+  "body": "Moon",
+  "requested": {
+    "lat": 9.625,
+    "lon_e": 339.925
+  },
+  "sampled": {
+    "lat": 9.59375,
+    "lon_e": 339.90625,
+    "row": 1286,
+    "col": 5438
+  },
+  "retrieved_at": "2026-11-15T00:45:55.659Z",
+  "source": {
+    "product_id": "LDEM_16_FLOAT",
+    "label_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/float_img/ldem_16_float.lbl",
+    "image_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/float_img/ldem_16_float.img",
+    "label": "PDS_VERSION_ID            = \"PDS3\"\r\n\r\n/*** GENERAL DATA DESCRIPTION PARAMETERS ***/\r\nPRODUCT_VERSION_ID        = \"V3.1\"\r\nDATA_SET_ID               = \"LRO-L-LOLA-4-GDR-V1.0\"\r\nPRODUCT_ID                = \"LDEM_16_FLOAT\"\r\nINSTRUMENT_HOST_NAME      = \"LUNAR RECONNAISSANCE ORBITER\"\r\nINSTRUMENT_NAME           = \"LUNAR ORBITER LASER ALTIMETER\"\r\nINSTRUMENT_ID             = \"LOLA\"\r\nMISSION_PHASE_NAME        = {\"COMMISSIONING\",\"NOMINAL MISSION\",\"SCIENCE\r\n                            MISSION\",\"EXTENDED SCIENCE MISSION\",\r\n                            \"SECOND EXTENDED SCIENCE MISSION\",\"THIRD\r\n                            EXTENDED SCIENCE MISSION\"} \r\nTARGET_NAME               = MOON\r\nSTART_TIME                = 2009-07-13T17:33:17\r\nSTOP_TIME                 = 2016-11-29T05:48:19\r\nPRODUCT_CREATION_TIME     = 2019-03-15\r\nPRODUCER_ID               = LRO_LOLA_TEAM\r\nPRODUCER_FULL_NAME        = \"DAVID E. SMITH\"\r\nPRODUCER_INSTITUTION_NAME = \"GODDARD SPACE FLIGHT CENTER\"\r\nDESCRIPTION               = \"This data product is a shape map (radius)\r\n   of the Moon at a resolution of 1.89521 km/pix by 1.89521 km/pix,\r\n   based on altimetry data acquired through mission phase LRO_ES_52\r\n   by the LOLA instrument. All LOLA data used for the generation of \r\n   this GDR products are geolocated using precision orbits based on a \r\n   revised lunar gravity field GRGM 900C[LEMOINEETAL2014].  The previous\r\n   version of this product was generated with data through LRO_ES_21.\r\n   An additional 505,763,339 data points have been added.\r\n\r\n   The gridfiles were produced in 45 degree latitude bands, and there \r\n   may be edge artifacts at this boundary.  Unlike previous versions of\r\n   these products, the Generic Mapping Tools (GMT) program 'grdblend' was\r\n   not used.  At higher resolutions, the GMT5.4.2 program 'surface' was\r\n   used to compensate for incomplete coverage. Tension was set to 0.5\r\n   and Anisotropy to 0.5 to minimize latitude distortion. The map is in\r\n   the form of a binary table with one row for each 0.0625 degrees \r\n   of latitude, pixel registered.  Map values are relative to a radius \r\n   of 1737.4 km.\r\n\r\n   This label describes an IMG file in the form of a binary resampling\r\n   to pixel registration.\r\n\"\r\n\r\nOBJECT                    = UNCOMPRESSED_FILE\r\nFILE_NAME                 = \"LDEM_16_FLOAT.IMG\"\r\nRECORD_TYPE               = FIXED_LENGTH\r\nFILE_RECORDS              = 2880\r\nRECORD_BYTES              = 23040\r\n^IMAGE                    = \"LDEM_16_FLOAT.IMG\"\r\n\r\n\r\n  OBJECT                  = IMAGE\r\n    NAME                  = HEIGHT\r\n    DESCRIPTION           = \"Each sample represents height relative to a\r\n      reference radius (OFFSET) and is generated using preliminary LOLA data\r\n      produced by the LOLA team.\"\r\n    LINES                 = 2880\r\n    LINE_SAMPLES          = 5760\r\n    MAXIMUM               = 10.790\r\n    MINIMUM               = -9.075\r\n    SAMPLE_TYPE           = PC_REAL\r\n    SAMPLE_BITS           = 32\r\n    UNIT                  = KILOMETER\r\n    SCALING_FACTOR        = 1\r\n    OFFSET                = 1737.4\r\n\r\n/* NOTE:                                                                   */\r\n/* Conversion from Digital Number to HEIGHT in kilometers is:              */\r\n/* HEIGHT = (DN * SCALING_FACTOR).                                         */\r\n/* The conversion from Digital Number to PLANETARY_RADIUS in kilometers is:*/\r\n/* PLANETARY_RADIUS = (DN * SCALING_FACTOR) + OFFSET                       */\r\n/* where OFFSET is the radius of a reference sphere.                       */\r\n/* The planetopotential TOPOGRAPHY is PLANETARY_RADIUS - GEOID_RADIUS,     */\r\n/* where GEOID_RADIUS is derived from a gravitational equipotential model. */\r\n/* By convention, the average GEOID_RADIUS at the equator is OFFSET.       */\r\n\r\n  END_OBJECT              = IMAGE\r\nEND_OBJECT                = UNCOMPRESSED_FILE\r\nOBJECT                    = IMAGE_MAP_PROJECTION\r\n ^DATA_SET_MAP_PROJECTION     = \"DSMAP.CAT\"\r\n MAP_PROJECTION_TYPE          = \"SIMPLE CYLINDRICAL\"\r\n MAP_RESOLUTION               = 16 <pix/deg>\r\n A_AXIS_RADIUS                = 1737.4 <km>\r\n B_AXIS_RADIUS                = 1737.4 <km>\r\n C_AXIS_RADIUS                = 1737.4 <km>\r\n FIRST_STANDARD_PARALLEL      = 'N/A'\r\n SECOND_STANDARD_PARALLEL     = 'N/A'\r\n POSITIVE_LONGITUDE_DIRECTION = \"EAST\"\r\n CENTER_LATITUDE              = 0 <deg>\r\n CENTER_LONGITUDE             = 180 <deg>\r\n REFERENCE_LATITUDE           = 'N/A'\r\n REFERENCE_LONGITUDE          = 'N/A'\r\n LINE_FIRST_PIXEL             = 1\r\n LINE_LAST_PIXEL              = 2880\r\n SAMPLE_FIRST_PIXEL           = 1\r\n SAMPLE_LAST_PIXEL            = 5760\r\n MAP_PROJECTION_ROTATION      = 0.0\r\n MAP_SCALE                    = 1.89521 <km/pix>\r\n MAXIMUM_LATITUDE             = 90 <deg>\r\n MINIMUM_LATITUDE             = -90 <deg>\r\n WESTERNMOST_LONGITUDE        = 0 <deg>\r\n EASTERNMOST_LONGITUDE        = 360 <deg>\r\n LINE_PROJECTION_OFFSET       = 1439.5 <pix>\r\n SAMPLE_PROJECTION_OFFSET     = 2879.5 <pix>\r\n COORDINATE_SYSTEM_TYPE       = \"BODY-FIXED ROTATING\"\r\n COORDINATE_SYSTEM_NAME       = \"MEAN EARTH/POLAR AXIS OF DE421\"\r\nEND_OBJECT                    = IMAGE_MAP_PROJECTION\r\n\r\nEND\r\n"
+  },
+  "elevation_window_m": [
+    [
+      -3491.0831451416016,
+      -3474.0638732910156,
+      -3366.0800457000732,
+      -3383.455991744995,
+      -3443.7642097473145
+    ],
+    [
+      -3503.3857822418213,
+      -3479.1300296783447,
+      -3200.774908065796,
+      -3162.2116565704346,
+      -3253.5958290100098
+    ],
+    [
+      -3448.6405849456787,
+      -3495.0079917907715,
+      -3381.2222480773926,
+      -3387.6025676727295,
+      -3390.7783031463623
+    ],
+    [
+      -3127.2101402282715,
+      -3348.019599914551,
+      -3391.150951385498,
+      -3436.4538192749023,
+      -3498.260259628296
+    ],
+    [
+      -2926.5692234039307,
+      -3028.412103652954,
+      -3202.0115852355957,
+      -3384.6704959869385,
+      -3477.8053760528564
+    ]
+  ],
+  "measurements": {
+    "geology": {
+      "category": "geology_materials",
+      "value": null,
+      "status": "not_implemented"
+    },
+    "mineralogy": {
+      "category": "geology_materials",
+      "value": null,
+      "status": "not_implemented"
+    },
+    "surface_materials": {
+      "category": "geology_materials",
+      "value": null,
+      "status": "not_implemented"
+    },
+    "elevation": {
+      "category": "terrain",
+      "value": -3381.222,
+      "unit": "m",
+      "status": "extracted",
+      "source_product_ids": [
+        "LDEM_16_FLOAT"
+      ],
+      "statistic": "nearest pixel",
+      "method": "Float32 little-endian DN times 1000; height relative to 1737.4 km reference sphere",
+      "resolution_m": {
+        "east_west": 1868.703,
+        "north_south": 1895.209
+      },
+      "neighborhood_m": {
+        "east_west": 9343.517,
+        "north_south": 9476.047
+      },
+      "quality_notes": [
+        "Coarse regional terrain only; not landing or rover hazard certification.",
+        "LOLA gridded product includes interpolation; pixel validity checked by finite values and conservative height bounds.",
+        "Slope and roughness depend on spatial scale; local tangent-plane approximation."
+      ]
+    },
+    "slope": {
+      "category": "terrain",
+      "value": 1.414,
+      "unit": "degree",
+      "status": "extracted",
+      "source_product_ids": [
+        "LDEM_16_FLOAT"
+      ],
+      "statistic": "least-squares plane slope",
+      "method": "5 by 5 pixel window; local spherical spacing at sampled latitude",
+      "resolution_m": {
+        "east_west": 1868.703,
+        "north_south": 1895.209
+      },
+      "neighborhood_m": {
+        "east_west": 9343.517,
+        "north_south": 9476.047
+      },
+      "quality_notes": [
+        "Coarse regional terrain only; not landing or rover hazard certification.",
+        "LOLA gridded product includes interpolation; pixel validity checked by finite values and conservative height bounds.",
+        "Slope and roughness depend on spatial scale; local tangent-plane approximation."
+      ]
+    },
+    "roughness": {
+      "category": "terrain",
+      "value": 138.737,
+      "unit": "m",
+      "status": "extracted",
+      "source_product_ids": [
+        "LDEM_16_FLOAT"
+      ],
+      "statistic": "RMS residual from fitted plane",
+      "method": "5 by 5 pixel window; local spherical spacing at sampled latitude",
+      "resolution_m": {
+        "east_west": 1868.703,
+        "north_south": 1895.209
+      },
+      "neighborhood_m": {
+        "east_west": 9343.517,
+        "north_south": 9476.047
+      },
+      "quality_notes": [
+        "Coarse regional terrain only; not landing or rover hazard certification.",
+        "LOLA gridded product includes interpolation; pixel validity checked by finite values and conservative height bounds.",
+        "Slope and roughness depend on spatial scale; local tangent-plane approximation."
+      ]
+    },
+    "relief": {
+      "category": "terrain",
+      "value": 576.817,
+      "unit": "m",
+      "status": "extracted",
+      "source_product_ids": [
+        "LDEM_16_FLOAT"
+      ],
+      "statistic": "maximum minus minimum",
+      "method": "5 by 5 pixel window; local spherical spacing at sampled latitude",
+      "resolution_m": {
+        "east_west": 1868.703,
+        "north_south": 1895.209
+      },
+      "neighborhood_m": {
+        "east_west": 9343.517,
+        "north_south": 9476.047
+      },
+      "quality_notes": [
+        "Coarse regional terrain only; not landing or rover hazard certification.",
+        "LOLA gridded product includes interpolation; pixel validity checked by finite values and conservative height bounds.",
+        "Slope and roughness depend on spatial scale; local tangent-plane approximation."
+      ]
+    },
+    "temperature": {
+      "category": "environment",
+      "value": null,
+      "status": "not_implemented"
+    },
+    "illumination": {
+      "category": "environment",
+      "value": null,
+      "status": "not_implemented"
+    },
+    "hydrogen": {
+      "category": "resources",
+      "value": null,
+      "status": "not_implemented"
+    },
+    "ice": {
+      "category": "resources",
+      "value": null,
+      "status": "not_implemented"
+    },
+    "dust": {
+      "category": "surface_processes",
+      "value": null,
+      "status": "not_implemented"
+    },
+    "wind": {
+      "category": "surface_processes",
+      "value": null,
+      "status": "not_applicable"
+    },
+    "biology": {
+      "category": "biology",
+      "value": null,
+      "status": "not_implemented"
+    },
+    "caves": {
+      "category": "subsurface",
+      "value": null,
+      "status": "not_implemented"
+    },
+    "lava_tubes": {
+      "category": "subsurface",
+      "value": null,
+      "status": "not_implemented"
+    },
+    "landing": {
+      "category": "operations",
+      "value": null,
+      "status": "not_implemented"
+    },
+    "mobility": {
+      "category": "operations",
+      "value": null,
+      "status": "not_implemented"
+    }
+  },
+  "ready_for_scoring": false
+}

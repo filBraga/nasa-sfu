@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Moon geospatial layers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --bg:#0b0d12; --panel:#141821e6; --line:#262c3a; --txt:#e6e9ef; --dim:#8b93a5; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; height:100%; background:var(--bg); color:var(--txt); font:13px/1.45 -apple-system,Segoe UI,Roboto,sans-serif; overflow:hidden; }
+  #stage { position:fixed; inset:0; }
+  #stage canvas { display:block; }
+  #labels { position:fixed; inset:0; pointer-events:none; }
+  .label { font-size:11px; color:#fff; text-shadow:0 0 3px #000,0 0 3px #000; white-space:nowrap; transform:translate(10px,-50%); pointer-events:none; }
+  .panel { position:fixed; background:var(--panel); border:1px solid var(--line); border-radius:10px; backdrop-filter:blur(6px); }
+  #layers { left:12px; top:12px; width:340px; max-height:calc(100% - 24px); overflow:auto; padding:12px; }
+  #layers h1 { font-size:15px; margin:0 0 2px; }
+  #layers .sub { color:var(--dim); font-size:11.5px; margin-bottom:10px; }
+  .row { display:flex; align-items:center; gap:8px; padding:6px 4px; border-top:1px solid var(--line); }
+  .row:first-of-type { border-top:0; }
+  .swatch { width:11px; height:11px; border-radius:50%; flex:none; }
+  .row label { flex:1; cursor:pointer; }
+  .count { color:var(--dim); font-variant-numeric:tabular-nums; }
+  button { background:#1f2533; color:var(--txt); border:1px solid var(--line); border-radius:6px; padding:2px 7px; font-size:11px; cursor:pointer; }
+  button:hover { background:#2a3144; }
+  details { margin:0 0 2px 19px; color:var(--dim); font-size:11.5px; }
+  details summary { cursor:pointer; }
+  details p { margin:4px 0; }
+  details a { color:#7db4ff; text-decoration:none; }
+  .opts { border-top:1px solid var(--line); margin-top:8px; padding-top:8px; display:grid; gap:4px; }
+  .opts label { cursor:pointer; }
+  .note { color:var(--dim); font-size:11px; margin-top:8px; }
+  #search { width:100%; margin:8px 0 2px; background:#0f131b; border:1px solid var(--line); color:var(--txt); border-radius:6px; padding:6px 8px; }
+  #detail { right:12px; top:12px; width:330px; max-height:calc(100% - 24px); overflow:auto; padding:12px; display:none; }
+  #detail h2 { margin:0 0 2px; font-size:15px; }
+  #detail .kind { color:var(--dim); margin-bottom:8px; }
+  #detail ul { margin:6px 0; padding-left:16px; }
+  #detail .tag { display:inline-block; padding:1px 7px; border-radius:10px; margin:0 4px 4px 0; font-size:11px; color:#000; }
+  #detail .close { position:absolute; right:8px; top:8px; }
+  .sc { border-top:1px solid var(--line); padding:5px 0; }
+  .sch { display:flex; align-items:center; gap:7px; }
+  .sch span:nth-child(2) { flex:1; }
+  .sct { color:var(--dim); font-size:11.5px; margin:2px 0 0 18px; }
+  .sct b { color:var(--txt); font-weight:600; }
+  #tip { position:fixed; pointer-events:none; background:#000c; border:1px solid var(--line); border-radius:6px; padding:3px 7px; font-size:12px; display:none; z-index:5; }
+  #hint { position:fixed; left:50%; bottom:10px; transform:translateX(-50%); color:var(--dim); font-size:11.5px; background:#0009; padding:3px 10px; border-radius:12px; }
+  #err { position:fixed; inset:auto 12px 12px 12px; background:#5b1a1a; padding:8px 12px; border-radius:8px; display:none; }
+.kv{display:flex;justify-content:space-between;gap:8px;margin-top:3px}.kv b{text-align:right;font-weight:600}.src{font-size:10px;opacity:.55;text-align:right}.nodata{opacity:.5;font-style:italic}.res{margin-bottom:4px}
+.srcs{margin-top:5px;font-size:10px}.srcs summary{cursor:pointer;opacity:.7}.cit{margin-top:4px;opacity:.8;word-break:break-word}.cit a{color:#8ab4ff}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div id="labels"></div>
+
+<div id="layers" class="panel">
+  <h1>Moon: 8 layers</h1>
+  <div class="sub" id="sub"></div>
+  <label>Locations: <select id="scope"><option value="comparison">Geographic comparison subset</option><option value="all">All saved records</option><option value="catalog">Catalogs and researched sites</option></select></label>
+  <div class="note" id="coverage"></div>
+  <button id="nearSide">Near side</button> <button id="farSide">Far side</button>
+  <div style="display:flex;gap:6px;margin-bottom:6px">
+    <button id="allOn">All on</button><button id="allOff">All off</button>
+  </div>
+  <div id="list"></div>
+  <input id="search" placeholder="Fly to a place (e.g. Copernicus, Tycho, Adams B 1)" list="names" autocomplete="off">
+  <datalist id="names"></datalist>
+  <div class="opts">
+    <label>Surface: <select id="optSurf"><option value="relief">LROC colour mosaic (NASA)</option></select></label>
+    <label><input type="checkbox" id="optStack"> Stack layers on separate shells</label>
+    <label><input type="checkbox" id="optLabels" checked> Show labels</label>
+    <label><input type="checkbox" id="optGrid" checked> Lat/lon grid</label>
+    <label><input type="checkbox" id="optSpin"> Auto-rotate</label>
+  </div>
+  <div class="note" id="note"></div>
+</div>
+
+<div id="legend" class="panel" style="display:none;right:12px;bottom:12px;padding:8px 12px;width:300px">
+  <div style="font-size:11.5px;margin-bottom:4px"><b>Elevation</b> (LOLA, metres above the Moon datum)</div>
+  <div style="height:12px;border-radius:3px;background:linear-gradient(90deg,#1b2a8a 0%,#2f6fd0 14%,#46b6a0 27%,#9acd5a 36%,#f0e060 46%,#e8a040 62%,#b8502a 80%,#ffffff 100%)"></div>
+  <div style="position:relative;height:14px;font-size:11px;color:var(--dim);margin-top:2px">
+    <span style="position:absolute;left:0">-8 km</span><span style="position:absolute;left:27.6%;transform:translateX(-50%)">0</span><span style="position:absolute;left:55.2%;transform:translateX(-50%)">+8 km</span><span style="position:absolute;right:0">+21 km</span></div>
+</div>
+<div id="detail" class="panel"><button class="close" id="close">x</button><div id="detailBody"></div></div>
+<div id="tip"></div>
+<div id="hint">Drag to rotate, scroll to zoom, click a dot for details</div>
+<div id="err"></div>
+
+<script src="data.js"></script>
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js" } }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from './vendor/OrbitControls.js';
+import { CSS2DRenderer, CSS2DObject } from './vendor/CSS2DRenderer.js';
+
+const D = window.MOON;
+if (!D) { const e = document.getElementById('err'); e.style.display = 'block'; e.textContent = 'data.js not found. Run: node moon-cli/viewer.mjs'; throw new Error('no data'); }
+
+const COLORS = {1:'#f4a259',2:'#b8c0cc',3:'#ff5d5d',4:'#4cc9f0',5:'#e9c46a',6:'#7bd389',7:'#b388ff',8:'#ffffff'};
+const TITLES = {
+  1:'Geology, minerals, surface materials', 2:'Terrain: elevation, slope, craters',
+  3:'Temperature, illumination, extremes', 4:'Water, ice, permafrost, resources',
+  5:'Dust, wind, erosion, aeolian', 6:'Biology, habitability, biosignatures',
+  7:'Caves, lava tubes, subsurface', 8:'Ops: landing, mobility, human factors'
+};
+const SHOWS = {
+  1:'Named mare and volcanic plains, researched facts, and LROC 643 nm Hapke reflectance-model parameters where the 70 S to 70 N product has valid pixels. These parameters are not mineral identifications.',
+  2:'Named terrain features, researched terrain facts, and saved LOLA samples.',
+  3:'Diviner midnight temperature across 70 S to 70 N, researched context, and polar summaries/illumination. Midnight mosaics, seasonal bins and long-term illumination have different time support; none is thermal inertia.',
+  4:'Researched resource and volatile context. A proxy is not direct proof of ice.',
+  5:'Researched surface-process facts and the Apollo 17 ALSEP LEAM dust-experiment reference. Lunar wind and aeolian processes are not applicable.',
+  6:'Researched radiation and biology context. Layer membership is not evidence of life.',
+  7:'278 LROC pit/skylight candidates. Accessible caves and lava tubes are not established by this listing.',
+  8:'NASA spacecraft, landers, impacts and hardware (table updated August 2025), plus researched operations facts. Unknown locations are excluded from dots.'
+};
+const LON0 = parseFloat(new URLSearchParams(location.search).get('lon0') ?? D.texLon0);
+
+const dims = [1,2,3,4,5,6,7,8];
+const stack = () => document.getElementById('optStack').checked;
+const radiusFor = d => stack() ? 1.04 + (d - 1) * 0.07 : 1.012;
+
+function ll2v(lat, lon, r) {
+  const la = lat * Math.PI / 180, ph = (lon - LON0) / 360 * 2 * Math.PI;
+  return new THREE.Vector3(-Math.cos(ph) * Math.cos(la) * r, Math.sin(la) * r, Math.sin(ph) * Math.cos(la) * r);
+}
+
+// ---------- renderer / scene
+const stage = document.getElementById('stage');
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+stage.appendChild(renderer.domElement);
+const labelR = new CSS2DRenderer({ element: document.getElementById('labels') });
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x05060a);
+const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100);
+camera.position.set(0, 0.7, 3.1);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.minDistance = 1.25; controls.maxDistance = 8; controls.enablePan = false;
+scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+const sun = new THREE.DirectionalLight(0xffffff, 1.1); sun.position.set(4, 2, 3); scene.add(sun);
+
+function resize() {
+  const w = innerWidth, h = innerHeight;
+  renderer.setSize(w, h); labelR.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix();
+}
+addEventListener('resize', resize); resize();
+
+// ---------- placeholder surface (no elevation/imagery loaded), replaced if moon_texture.jpg exists
+function makeTexture() {
+  const W = 2048, H = 1024, c = document.createElement('canvas'); c.width = W; c.height = H;
+  const g = c.getContext('2d'), img = g.createImageData(W, H);
+  const N = 64, M = 32, lat = new Float32Array((N + 1) * (M + 1));
+  let s = 12345; const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
+  for (let i = 0; i < lat.length; i++) lat[i] = rnd();
+  const smooth = t => t * t * (3 - 2 * t);
+  function noise(u, v, f) {
+    const x = u * N * f, y = v * M * f, xi = Math.floor(x), yi = Math.floor(y), tx = smooth(x - xi), ty = smooth(y - yi);
+    const gx = i => ((i % N) + N) % N, gy = j => Math.min(Math.max(j, 0), M);
+    const a = lat[gy(yi) * (N + 1) + gx(xi)], b = lat[gy(yi) * (N + 1) + gx(xi + 1)];
+    const c2 = lat[gy(yi + 1) * (N + 1) + gx(xi)], d2 = lat[gy(yi + 1) * (N + 1) + gx(xi + 1)];
+    return (a * (1 - tx) + b * tx) * (1 - ty) + (c2 * (1 - tx) + d2 * tx) * ty;
+  }
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+    const u = x / W, v = y / H;
+    let n = 0, amp = 0.55, f = 1, tot = 0;
+    for (let o = 0; o < 4; o++) { n += amp * noise((u * f) % 1, v, f); tot += amp; amp *= 0.5; f *= 2; }
+    n /= tot;
+    const k = (y * W + x) * 4;
+    img.data[k] = img.data[k+1] = img.data[k+2] = 90 + n * 100; img.data[k+3] = 255;
+  }
+  g.putImageData(img, 0, 0);
+  const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 4;
+  return tex;
+}
+const globe = new THREE.Mesh(new THREE.SphereGeometry(1, 96, 48), new THREE.MeshStandardMaterial({ map: makeTexture(), roughness: 1, metalness: 0 }));
+scene.add(globe);
+let realTexture = false, elevTexture = null;
+const placeholderTex = globe.material.map;
+const surf = document.getElementById('optSurf');
+function applySurface() {
+  const useElev = surf.value === 'elev' && elevTexture;
+  globe.material.map = useElev ? elevTexture : (reliefTexture || placeholderTex);
+  globe.material.needsUpdate = true;
+  document.getElementById('legend').style.display = useElev ? 'block' : 'none';
+}
+let reliefTexture = null;
+const tl = new THREE.TextureLoader();
+tl.load('moon_texture.jpg', t => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; reliefTexture = t; realTexture = true; applySurface(); updateNote(); }, undefined, () => {});
+surf.onchange = applySurface;
+
+// lat/lon grid
+const grid = new THREE.Group();
+(function () {
+  const mat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.16 });
+  for (let la = -60; la <= 60; la += 30) { const p = []; for (let lo = 0; lo <= 360; lo += 4) p.push(ll2v(la, lo + LON0, 1.002)); grid.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(p), mat)); }
+  for (let lo = 0; lo < 360; lo += 30) { const p = []; for (let la = -90; la <= 90; la += 3) p.push(ll2v(la, lo + LON0, 1.002)); grid.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(p), mat)); }
+})();
+scene.add(grid);
+
+// stacked shells (only visible in stack mode)
+const shells = {};
+dims.forEach(d => {
+  const m = new THREE.Mesh(new THREE.SphereGeometry(1, 36, 18), new THREE.MeshBasicMaterial({ color: COLORS[d], wireframe: true, transparent: true, opacity: 0.07, depthWrite: false }));
+  m.visible = false; scene.add(m); shells[d] = m;
+});
+
+// ---------- points per layer
+const pts = D.points;
+const comparisonKeys=new Set(D.spatial_audit.selected_keys);
+let activePoints=pts.filter(p=>comparisonKeys.has(p.source+'|'+p.record_id));
+let activeSet=new Set(activePoints);
+const byDim = {}; dims.forEach(d => byDim[d] = { bulk: [], key: [] });
+pts.forEach(p => p.d.forEach(d => byDim[d][p.lab ? 'key' : 'bulk'].push(p)));
+const clouds = {};     // d -> {bulk, key}
+const dotTex = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d');
+  g.beginPath(); g.arc(32, 32, 28, 0, 7); g.fillStyle = '#fff'; g.fill(); g.lineWidth = 4; g.strokeStyle = '#0006'; g.stroke(); return new THREE.CanvasTexture(c); })();
+function makeCloud(list, d, size) {
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(list.length * 3), 3));
+  const m = new THREE.Points(geo, new THREE.PointsMaterial({ color: COLORS[d], size, map: dotTex, alphaTest: 0.4, sizeAttenuation: false, transparent: true }));
+  m.userData = { list, allList:list, d }; scene.add(m); return m;
+}
+dims.forEach(d => { clouds[d] = { bulk: makeCloud(byDim[d].bulk, d, 5.5), key: makeCloud(byDim[d].key, d, 11) }; });
+function layoutPoints() {
+  dims.forEach(d => {
+    ['bulk', 'key'].forEach(t => {
+      const c = clouds[d][t], a = c.geometry.attributes.position.array;
+      c.userData.list.forEach((p, i) => { const v = ll2v(p.la, p.lo, radiusFor(d)); a[i*3] = v.x; a[i*3+1] = v.y; a[i*3+2] = v.z; });
+      c.geometry.attributes.position.needsUpdate = true; c.geometry.computeBoundingSphere();
+    });
+    shells[d].scale.setScalar(radiusFor(d) - 0.004);
+  });
+}
+
+// ---------- labels (one per labelled record)
+const markers = pts.filter(p => p.lab);
+markers.forEach(p => {
+  const el = document.createElement('div'); el.className = 'label'; el.textContent = p.n;
+  p._label = new CSS2DObject(el); scene.add(p._label);
+});
+
+// ---------- UI
+const on = {}; dims.forEach(d => on[d] = true);
+const counts = {}; dims.forEach(d => counts[d] = byDim[d].bulk.length + byDim[d].key.length);
+document.getElementById('sub').textContent = pts.length.toLocaleString() + ' records, built ' + D.built;
+const list = document.getElementById('list');
+dims.forEach(d => {
+  const ds = D.datasets.filter(x => x.d.includes(d));
+  const glob = ds.filter(x => (x.cov.startsWith('global') || x.cov.startsWith('about'))), site = ds.length - glob.length;
+  const row = document.createElement('div');
+  row.innerHTML = `<div class="row"><span class="swatch" style="background:${COLORS[d]}"></span>
+    <label><input type="checkbox" data-d="${d}" checked> ${d}. ${TITLES[d]}</label>
+    <span class="count" data-count="${d}">${counts[d].toLocaleString()}</span><button data-only="${d}">only</button></div>
+    <details><summary>What the dots show / data available</summary>
+      <p>${SHOWS[d]}</p>
+      <p><b>Global NASA datasets (${glob.length}):</b> ${glob.map(x => `<a href="${x.u}" target="_blank" rel="noreferrer">${x.n}</a> (${x.res})`).join('; ') || 'none listed'}</p>
+      <p><b>Per-site datasets:</b> ${site}</p></details>`;
+  list.appendChild(row);
+});
+function refreshVis() {
+  dims.forEach(d=>{
+    for(const type of ['bulk','key']) {
+      const cloud=clouds[d][type];cloud.userData.list=cloud.userData.allList.filter(p=>activeSet.has(p));
+      cloud.geometry.setAttribute('position',new THREE.BufferAttribute(new Float32Array(cloud.userData.list.length*3),3));
+    }
+    list.querySelector('[data-count="'+d+'"]').textContent=activePoints.filter(p=>p.d.includes(d)).length;
+  });
+  layoutPoints();
+  document.getElementById('sub').textContent=activePoints.length+' shown / '+pts.length+' saved records';
+  dl.replaceChildren();const names=new Set();for(const p of activePoints)if(!names.has(p.n)){names.add(p.n);const option=document.createElement('option');option.value=p.n;dl.appendChild(option);}
+  document.getElementById('coverage').textContent='Near side: '+activePoints.filter(p=>p.lo<=90||p.lo>=270).length+'; far side: '+activePoints.filter(p=>p.lo>90&&p.lo<270).length+'. '+D.spatial_audit.empty_cells.length+' of 24 geographic cells lack saved records. Subset markers retain their original evidence; coverage gaps remain.';
+  dims.forEach(d => { clouds[d].bulk.visible = clouds[d].key.visible = on[d]; shells[d].visible = on[d] && stack(); });
+  list.querySelectorAll('input[data-d]').forEach(i => i.checked = on[i.dataset.d]);
+}
+document.getElementById('scope').onchange=e=>{
+  activePoints=pts.filter(p=>e.target.value==='all'||(e.target.value==='catalog'?p.k!=='thermal region summary':comparisonKeys.has(p.source+'|'+p.record_id)));
+  activeSet=new Set(activePoints);refreshVis();
+  document.getElementById('detail').style.display='none';sel.visible=false;
+};
+list.addEventListener('change', e => { if (e.target.dataset.d) { on[e.target.dataset.d] = e.target.checked; refreshVis(); } });
+list.addEventListener('click', e => { const d = e.target.dataset.only; if (d) { dims.forEach(x => on[x] = (x == d)); refreshVis(); } });
+document.getElementById('allOn').onclick = () => { dims.forEach(d => on[d] = true); refreshVis(); };
+document.getElementById('allOff').onclick = () => { dims.forEach(d => on[d] = false); refreshVis(); };
+document.getElementById('optStack').onchange = () => { layoutPoints(); refreshVis(); };
+document.getElementById('optGrid').onchange = e => grid.visible = e.target.checked;
+document.getElementById('optSpin').onchange = e => controls.autoRotate = e.target.checked; controls.autoRotateSpeed = 0.6;
+function updateNote() {
+  document.getElementById('note').textContent = (realTexture ? 'Surface: NASA SVS / LROC colour mosaic, for visual context only. ' : 'Surface: placeholder; lunar mosaic not loaded. ') + D.unlocated.length + ' records have unknown locations. Dots show saved evidence, not complete coverage of all eight dimensions. Earth cannot reproduce lunar gravity, vacuum or radiation.';
+}
+updateNote();
+
+// ---------- search / fly to
+const dl = document.getElementById('names'), seen = new Set();
+pts.forEach(p => { if (!p.k.startsWith('cave') && !seen.has(p.n)) { seen.add(p.n); const o = document.createElement('option'); o.value = p.n; dl.appendChild(o); } });
+let fly = null;
+function flyTo(p) {
+  const target = ll2v(p.la, p.lo, 1).normalize().multiplyScalar(2.0);
+  fly = { from: camera.position.clone(), to: target, t: 0 }; select(p);
+}
+document.getElementById('search').addEventListener('change', e => {
+  const q = e.target.value.trim().toLowerCase(); if (!q) return;
+  const p = activePoints.find(x => x.n.toLowerCase() === q) || activePoints.find(x => x.n.toLowerCase().includes(q)); if (p) flyTo(p);
+});
+document.getElementById('nearSide').onclick=()=>{fly={from:camera.position.clone(),to:ll2v(0,0,3),t:0};};
+document.getElementById('farSide').onclick=()=>{fly={from:camera.position.clone(),to:ll2v(0,180,3),t:0};};
+
+// ---------- picking
+const ray = new THREE.Raycaster(); const mouse = new THREE.Vector2();
+const tip = document.getElementById('tip');
+function pick(ev) {
+  mouse.set(ev.clientX / innerWidth * 2 - 1, -(ev.clientY / innerHeight) * 2 + 1);
+  ray.setFromCamera(mouse, camera);
+  ray.params.Points.threshold = 0.012 * camera.position.length();
+  const objs = []; dims.forEach(d => { if (on[d]) objs.push(clouds[d].key, clouds[d].bulk); });
+  const hits = ray.intersectObjects(objs, false), cam = camera.position;
+  for (const h of hits) {
+    const v = h.point, r = v.length();
+    if (v.dot(cam) / r < r * 0.99) continue;           // far side of the planet
+    const p = h.object.userData.list[h.index]; if (p) return { p, h };
+  }
+  return null;
+}
+renderer.domElement.addEventListener('pointermove', ev => {
+  const r = pick(ev);
+  if (r) { tip.style.display = 'block'; tip.style.left = ev.clientX + 12 + 'px'; tip.style.top = ev.clientY + 12 + 'px'; tip.textContent = r.p.n + '  (' + r.p.k + ')'; renderer.domElement.style.cursor = 'pointer'; }
+  else { tip.style.display = 'none'; renderer.domElement.style.cursor = 'grab'; }
+});
+let down = null;
+renderer.domElement.addEventListener('pointerdown', ev => down = [ev.clientX, ev.clientY]);
+renderer.domElement.addEventListener('pointerup', ev => {
+  if (!down || Math.hypot(ev.clientX - down[0], ev.clientY - down[1]) > 4) return;
+  const r = pick(ev); if (r) select(r.p);
+});
+
+const sel = new THREE.Mesh(new THREE.RingGeometry(0.02, 0.026, 32), new THREE.MeshBasicMaterial({ color: 0xffff66, side: THREE.DoubleSide, depthTest: false }));
+sel.visible = false; sel.renderOrder = 10; scene.add(sel);
+function select(p) {
+  const d0 = p.d.find(d => on[d]) ?? p.d[0], v = ll2v(p.la, p.lo, radiusFor(d0) + 0.004);
+  sel.position.copy(v); sel.lookAt(v.clone().multiplyScalar(2)); sel.visible = true;
+  const body = document.getElementById('detailBody');
+  const esc = t => String(t).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+  const elLine = (p.el !== undefined && p.el !== null) ? `<li><b>Elevation (NASA LOLA): ${Math.round(p.el).toLocaleString()} m</b></li>` : '';
+  const info = elLine + (p.i || []).filter(Boolean).filter(t => !/^D\d /.test(t)).map(t => `<li>${esc(t)}</li>`).join('');
+  // records of each layer within 500 km (great-circle, Moon radius 1737.4 km)
+  const near = {}; dims.forEach(d => near[d] = 0);
+  const r1 = p.la * Math.PI / 180;
+  activePoints.forEach(q => {
+    if (q === p) return;
+    const r2 = q.la * Math.PI / 180, dl = (q.lo - p.lo) * Math.PI / 180;
+    const c = Math.sin(r1) * Math.sin(r2) + Math.cos(r1) * Math.cos(r2) * Math.cos(dl);
+    if (Math.acos(Math.min(1, Math.max(-1, c))) * 1737.4 <= 500) q.d.forEach(d => near[d]++);
+  });
+  const record = D.records[p.source];
+  const raw = (record?.sites || record?.features || record?.caves || record?.landers || record?.candidates || record?.points || []).find(r => (r.id ?? r.name) === p.record_id);
+  const res = d => raw?.facts?.some(f=>f.dim===d) ? [] : (p.i || []).filter(t => t.startsWith('D' + d + ' ')).map(t => esc(t.slice(3)));
+  const none = t => '<div class="nodata">'+t+'</div>';
+  const body8 = {};
+  const renderMeasurement=m=>{
+    const value=m.value==null?'Unknown':typeof m.value==='number'?m.value.toLocaleString(undefined,{maximumFractionDigits:3}):esc(m.value);
+    return '<div class="kv"><span>'+esc(m.key.replaceAll('_',' '))+'</span><b>'+value+' '+esc(m.unit??'')+'</b></div><div class="src">'+esc(m.status??'')+'</div><details class="srcs"><summary>Measurement source and method</summary><p>'+esc(m.method??m.note??'Published site fact; source status retained.')+'</p>'+(m.pixel_spacing_m?'<p>Native grid: '+m.pixel_spacing_m.map(v=>Number(v).toFixed(1)).join(' x ')+' m</p>':'')+(m.note?'<p>'+esc(m.note)+'</p>':'')+(m.local_time_h!==undefined?'<p>Local time: '+esc(m.local_time_h)+' h; seasonal Ls: '+esc(m.ls_range_deg?.join(' to ')??'not specified')+'</p>':'')+(m.source_url?'<a target="_blank" rel="noopener" href="'+esc(m.source_url)+'">Source product</a>':'')+'</details>';
+  };
+  dims.forEach(d => {
+    const group = D.layers[d];
+    const measures = raw?.dimensions?.[group.id]?.subdimensions;
+    body8[d] = measures ? Object.entries(measures).map(([key,m])=>'<div class="kv"><span>'+esc(key)+'</span><b>'+esc(m.value ?? 'unknown')+' '+esc(m.unit ?? '')+'</b></div><div class="src">'+esc(m.status ?? '')+' '+esc(m.method ?? '')+'</div>').join('') : none('No extracted measurement saved for this record');
+    const native=[...(raw?.measurements??[]),...(raw?.facts??[]).filter(f=>f.dim).map(f=>({...f,source_url:f.src})),...Object.entries(measures??{}).filter(([,m])=>m.value!==null).map(([key,m])=>({...m,key,dim:d}))];
+    const observations=[...native.filter(m=>m.dim===d),...(p.measurements??[]).filter(m=>m.dim===d&&!native.some(n=>n.dim===d&&n.key===m.key&&n.value!==null))];
+    if(observations.length)body8[d]=observations.map(m=>'<div class="kv"><span>'+esc(m.key)+'</span><b>'+esc(m.value??'unknown')+' '+esc(m.unit??'')+'</b></div><div class="src">'+esc(m.status)+' · '+esc(m.method??'')+'</div>'+(m.local_time_h!==undefined?'<div>Local time: '+esc(m.local_time_h)+' h; Ls: '+esc(m.ls_range_deg.join('–'))+'°; subsolar longitude: '+esc(m.subsolar_longitude_range_deg.join('–'))+'°; bin: '+esc(m.spatial_bin_m)+' m</div>':'')).join('');
+    if(observations.length)body8[d]=observations.map(renderMeasurement).join('');
+    if(d===3 && raw?.kind==='thermal region summary')body8[d]+='<div>Samples: '+raw.sample_count+'<br>Temperature range: '+raw.temperature_K.min.toFixed(1)+'–'+raw.temperature_K.max.toFixed(1)+' K<br>Local time range: '+raw.local_time_range_h.join('–')+' h<br>Latitude bounds: '+raw.bounds.minlat.toFixed(3)+' to '+raw.bounds.maxlat.toFixed(3)+'<br>Longitude bounds: '+raw.bounds.westernlon.toFixed(3)+' to '+raw.bounds.easternlon.toFixed(3)+' E</div>';
+    if(d===7 && p.source==='moon_caves.json')body8[d]='<div>Host: '+esc(raw.host_feature)+'<br>Depth: '+esc(raw.depth_text)+' m<br>Funnel: '+esc(raw.funnel_max_diameter_m ?? 'unknown')+' × '+esc(raw.funnel_min_diameter_m ?? 'unknown')+' m<br>'+esc(raw.comment)+'</div>';
+    if(d===8 && p.source==='moon_landers.json')body8[d]='<div>'+esc(raw.date)+' · '+esc(raw.type)+'<br>Location: '+esc(raw.location_status)+'</div>';
+  });
+  const rows = dims.map(d => {
+    let txt = body8[d] || none('No data');
+    const r = res(d);
+    if (r.length) txt = '<div class="res"><b>Researched here:</b> ' + r.join('; ') + '</div>' + txt;
+    const cs = ((D.cites || {})[d] || []).map(c => `<div class="cit"><b>${esc(c.data)}</b> <i>[${esc(c.status)}]</i><br>${esc(c.cite)}<br><a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.url)}</a></div>`).join('');
+    if (cs) txt += `<details class="srcs"><summary>Sources</summary>${cs}</details>`;
+    return `<div class="sc"><div class="sch"><span class="swatch" style="background:${COLORS[d]}"></span><span>${d}. ${TITLES[d].split(',')[0].split(':')[0]}</span><span class="count" title="records of this layer within 500 km">${near[d]} nearby</span></div><div class="sct">${txt}</div></div>`;
+  }).join('');
+  body.innerHTML = `<h2>${esc(p.n)}</h2><div class="kind">${esc(p.k)} &middot; ${p.la.toFixed(3)}&deg;, ${p.lo.toFixed(3)}&deg;E</div>
+    <ul>${info}</ul><div class="note">Record: ${esc(p.record_id)} · ${esc(p.source)}</div>${raw?.source_url ? `<a href="${esc(raw.source_url)}" target="_blank" rel="noopener">Original catalog entry</a>` : ''}<div class="note"><b>The 8 layers at this spot</b> ("nearby" = records of that layer within 500 km)</div>${rows}`;
+  document.getElementById('detail').style.display = 'block';
+}
+document.getElementById('close').onclick = () => { document.getElementById('detail').style.display = 'none'; sel.visible = false; };
+
+// ---------- loop
+const tmp = new THREE.Vector3();
+function frame() {
+  requestAnimationFrame(frame);
+  if (fly) { fly.t = Math.min(1, fly.t + 0.03); const k = fly.t * fly.t * (3 - 2 * fly.t); camera.position.lerpVectors(fly.from, fly.to, k); if (fly.t >= 1) fly = null; }
+  controls.update();
+  const show = document.getElementById('optLabels').checked, cam = camera.position;
+  const labelBoxes=[];
+  markers.forEach(p => {
+    const d = p.d.find(x => on[x]);
+    if (!show || d === undefined || !activeSet.has(p)) { p._label.visible = false; return; }
+    p._label.position.copy(ll2v(p.la, p.lo, radiusFor(d)));
+    tmp.copy(p._label.position); p._label.visible = tmp.dot(cam) > tmp.lengthSq();   // only the side facing the camera
+    if(p._label.visible){
+      tmp.project(camera);const x=(tmp.x+1)*innerWidth/2+10,y=(1-tmp.y)*innerHeight/2;
+      const box={x,y:y-9,w:Math.min(300,p.n.length*7+12),h:18};
+      if(labelBoxes.some(b=>box.x<b.x+b.w&&box.x+box.w>b.x&&box.y<b.y+b.h&&box.y+box.h>b.y))p._label.visible=false;
+      else labelBoxes.push(box);
+    }
+  });
+  renderer.render(scene, camera); labelR.render(scene, camera);
+}
+layoutPoints(); refreshVis(); frame();
+window.__moonReady = true; window.__select = select; window.__pts = pts;
+</script>
+</body>
+</html>

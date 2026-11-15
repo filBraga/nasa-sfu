@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "scoring_dimensions": [
+    {"id":"geology_materials","name":"Geology, mineralogy, surface materials","subdimensions":[{"id":"geology","name":"Geology","status":"candidate_sources_only"},{"id":"mineralogy","name":"Mineralogy","status":"candidate_sources_only"},{"id":"surface_materials","name":"Surface materials","status":"candidate_sources_only"}]},
+    {"id":"terrain","name":"Terrain","subdimensions":[{"id":"elevation","name":"Elevation","status":"measured"},{"id":"slope","name":"Slope","status":"measured"},{"id":"roughness","name":"Roughness","status":"measured"},{"id":"craters","name":"Craters","status":"candidate_sources_only"}]},
+    {"id":"environment","name":"Temperature, illumination, environmental extremes","subdimensions":[{"id":"temperature","name":"Temperature","status":"candidate_sources_only"},{"id":"illumination","name":"Illumination","status":"candidate_sources_only"},{"id":"environmental_extremes","name":"Environmental extremes","status":"not_assessed"}]},
+    {"id":"resources","name":"Water, ice, permafrost, resources","subdimensions":[{"id":"water","name":"Water","status":"candidate_sources_only"},{"id":"ice","name":"Ice","status":"candidate_sources_only"},{"id":"permafrost","name":"Permafrost","status":"not_applicable"},{"id":"resources","name":"Resources","status":"not_assessed"}]},
+    {"id":"surface_processes","name":"Dust, wind, erosion, aeolian processes","subdimensions":[{"id":"dust","name":"Dust","status":"candidate_sources_only"},{"id":"wind","name":"Wind","status":"not_applicable"},{"id":"erosion","name":"Erosion","status":"not_assessed"},{"id":"aeolian","name":"Aeolian processes","status":"not_applicable"}]},
+    {"id":"biology","name":"Biology, extremophiles, habitability, biosignatures","subdimensions":[{"id":"biology","name":"Biology","status":"not_assessed"},{"id":"extremophiles","name":"Extremophiles","status":"earth_analog_evidence_required"},{"id":"habitability","name":"Habitability","status":"not_assessed"},{"id":"biosignatures","name":"Biosignatures","status":"not_assessed"}]},
+    {"id":"subsurface","name":"Caves, lava tubes, subsurface","subdimensions":[{"id":"caves","name":"Caves","status":"candidate_sources_only"},{"id":"lava_tubes","name":"Lava tubes","status":"candidate_sources_only"},{"id":"subsurface","name":"Subsurface","status":"candidate_sources_only"}]},
+    {"id":"operations","name":"Ops","subdimensions":[{"id":"landing","name":"Landing","status":"not_assessed"},{"id":"mobility","name":"Mobility","status":"not_assessed"},{"id":"navigation","name":"Navigation","status":"not_assessed"},{"id":"robotics","name":"Robotics","status":"not_assessed"},{"id":"construction","name":"Construction","status":"not_assessed"},{"id":"human_factors","name":"Human factors","status":"not_assessed"}]}
+  ],
+  "hard_constraints": [
+    {"id":"gravity","target":"Moon","earth_analog":"not_reproducible_on_Earth","required_disclosure":"Earth cannot reproduce lunar gravity; analog data must label gravity as a non-transferable mismatch."},
+    {"id":"vacuum","target":"Moon","earth_analog":"not_reproducible_on_Earth","required_disclosure":"Earth cannot reproduce the lunar vacuum; disclose this failure explicitly."},
+    {"id":"mars_atmosphere","target":"Mars","earth_analog":"not_reproducible_on_Earth","required_disclosure":"Earth cannot reproduce the Martian atmosphere; disclose this failure explicitly."},
+    {"id":"radiation","target":"Moon_and_Mars","earth_analog":"not_fully_reproducible_on_Earth","required_disclosure":"Earth cannot reproduce the lunar or Martian radiation environment; disclose this mismatch explicitly."}
+  ],
+  "earth_analog_sources": [
+    {"id":"usgs_known_terrestrial_analog_sites","title":"Known Terrestrial Analog Sites for Planetary Science","doi":"10.5066/P9J72921","year":2020,"license":"CC0","local_dataset":"shapefile release; 192 points","assessment":"190 impact craters, one dune field, one volcanic site; AnalogBody blank for 191/192. Treat as a sparse feature catalog, not a comprehensive analog database.","exclusion_note":"Do not claim this catalog alone discovers representative analog environments."},
+    {"id":"usgs_tadp_paad","title":"Planetary Aeolian Analog Database (PAAD)","doi":"10.5066/P9IFVZEX","assessment":"USGS TADP first ingestion: 45 dune fields worldwide with bedforms, climate class, sand source/composition, elevation, coverage."},
+    {"id":"esa_catalogue_planetary_analogues","title":"ESA Catalogue of Planetary Analogues","year":2012,"assessment":"About 30 site chapters with coordinates and dossiers, cross-indexed by lunar and Martian features."},
+    {"id":"nasa_planetary_analog_explorer","title":"NASA Planetary Analog Explorer","assessment":"About 11 curated Earth-to-world image pairs; public-facing visual context, not a quantitative dataset."},
+    {"id":"pangaea_eac_mineralogy","title":"PANGAEA mineralogical database (ESA EAC)","assessment":"Analog minerals and Raman/VNIR spectral library."},
+    {"id":"mars_society_stations","title":"Mars Society stations","assessment":"MDRS Utah and FMARS Devon Island are operational analogs; not geospatial measurement datasets."}
+  ],
+  "already_done_examples": ["Atacama","Antarctica","Iceland","Hawaii","Mojave","Death Valley","Haughton"],
+  "analog_gap": "USGS OFR 2024-1042 survey reports no central repository for terrestrial analog field data; 84% of respondents said they would use one. Candidate analog discovery should use feature-specific evidence and disclose this repository gap.",
+  "scoring_policy": "No combined score until activity-specific weights and acceptance thresholds are supplied. Missing evidence is null, never zero. Every analog comparison records transferable properties and explicit physical mismatches."
+}

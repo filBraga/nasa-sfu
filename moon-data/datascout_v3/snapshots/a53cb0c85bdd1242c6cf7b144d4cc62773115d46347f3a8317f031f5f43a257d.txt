@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" lang="en"><head><!-- InstanceBegin template="/Templates/main.dwt" codeOutsideHTMLIsLocked="false" --><!-- InstanceBeginEditable name="doctitle" --><title>Requesting Specific UVS Data</title><!-- InstanceEndEditable -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="https://pds-atmospheres.nmsu.edu/atmospage_files/ladee.new.css" type="text/css" rel="stylesheet" media="all">
+<script language="JavaScript" src="https://pds-atmospheres.nmsu.edu/oodt/js/lastMod.js"></script>
+<script src="https://pds-atmospheres.nmsu.edu/atmospage_files/jquery-1.js" type="text/javascript"></script>
+<script src="https://pds-atmospheres.nmsu.edu/atmospage_files/email.js" type="text/javascript"></script>
+<script language="JavaScript" src="https://pds-atmospheres.nmsu.edu/oodt/js/color.js">
+</script>
+<script type="text/javascript">
+$(fixEmail);
+</script>
+<script type="text/javascript">
+function check() {
+
+  if(document.getElementById('dt1').checked == false && document.getElementById('dt2').checked == false && document.getElementById('dt3').checked == false){
+    alert("Please select at least one Data Type");
+  }
+  else{
+    document.postForm.submit();
+  }
+}
+</script>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="menu_section" type="text" value="data" --><!-- InstanceParam name="menu_item" type="text" value="" --><!-- InstanceParam name="left_sidebar" type="boolean" value="true" --><!-- InstanceParam name="standard_sidebar" type="boolean" value="true" --><!-- InstanceParam name="standard_page_content" type="boolean" value="true" --><!-- InstanceParam name="custom_page_class" type="text" value="" -->
+<link href="https://pds.nasa.gov/pds-app-bar/pds-app-bar.css" type="text/css" rel="stylesheet"><link href="https://pds.nasa.gov/pds-app-bar/pds-app-bar.css" type="text/css" rel="stylesheet"><script src="https://pds.nasa.gov/pds-app-bar/pds-app-bar.js" type="text/javascript"></script><link href="https://pds.nasa.gov/pds-app-bar/pds-app-bar.css" type="text/css" rel="stylesheet"><link href="https://pds.nasa.gov/pds-app-bar/pds-app-bar.css" type="text/css" rel="stylesheet"><script src="https://pds.nasa.gov/pds-app-bar/pds-app-bar.js" type="text/javascript"></script></head><body class="sidebar menu_data menu_item_"><!--[if IE]>
+<div id="IE">
+<![endif]--> 
+
+<!-- Header -->
+<div id="header">
+<!--
+<div class="nonvisual">
+  <h2>Menu: Skip within this page</h2>
+  <ul>
+    <li><a href="#mainContent">Skip to main content</a></li>
+    <li><a href="#mainMenu">Skip to menu</a></li>
+  </ul>
+</div>-->
+<p id="logo">
+  <a href="https://pds.nasa.gov/index.shtml" onclick="this.blur()"><img src="https://pds-atmospheres.nmsu.edu/atmospage_files/nasa-logo.gif" alt="NASA logo" border="0" height="50" width="60">&nbsp;PDS: The Planetary Atmospheres Node</a>
+</p>
+<form id="search" action="https://atmos.nmsu.edu/cgi-bin/retrieve_lines" method="post" enctype="application/x-www-form-urlencoded">
+<input name="q" value="" type="hidden">
+<input name="facet" value="" type="hidden">
+<input name="in" value="all" type="hidden">
+<label for="searchPhrase">Search for:</label><br>
+<input id="searchPhrase" class="text" size="30" name="DATA_SET" type="text"> <input class="submit" value="Go" type="submit"><br>
+</select>
+</form>
+<h2 class="nonvisual">Menu: Help Links</h2>
+<ul id="nasaLinks">
+  <li><a href="https://www.nasa.gov/">NASA Portal</a></li>
+  
+</ul>
+<ul id="nasaLinks">
+<img src="ladee_images/PDS_Planets_comet.jpg" border="0" width="100" alt="pds logo">
+</ul>
+<div class="clear"></div>
+
+</div>
+<!-- Main menu -->
+
+<div id="menu">
+
+<a class="nonvisual" name="mainMenu"></a>
+
+<h2 class="nonvisual">Main menu</h2>
+<ul>
+  <li id="home"><a href="https://pds-atmospheres.nmsu.edu/">Home</a></li>
+  <li id="about"><a href="https://pds-atmospheres.nmsu.edu/about_t_node/about_t_node.htm">About Us</a></li>
+  <li id="data"><a href="https://pds-atmospheres.nmsu.edu/data_and_services/data_and_services.htm">Data and Services</a></li>
+  <li id="education"><a href="https://pds-atmospheres.nmsu.edu/education_and_outreach/education_and_outreach.htm">Education</a></li>
+  <li id="contact"><a href="https://pds-atmospheres.nmsu.edu/contact_us/contact_us.htm">Contact Us</a></li>
+  
+  <li id="external"><a href="https://pds-atmospheres.nmsu.edu/other_i_sites/other_i_sites.htm">External Links</a></li>
+
+</ul>
+
+<div class="clear"></div>
+</div>
+
+
+<div id="submenu">
+<div id="submenu">
+<div id="submenu_data_and_services">
+<h2 class="nonvisual">Home submenu</h2>
+<ul>
+<li id="data_catalog"><a href="https://pds-atmospheres.nmsu.edu/data_and_services/atmospheres_data/catalog.htm">Data Catalog</a>
+
+
+<li id="home_ads"><a href="https://ui.adsabs.harvard.edu/">ADS NASA Astrophysics Data System</a>
+<li id="home_nrs"><a href="https://nspires.nasaprs.com/external/solicitations/solicitations.do?method=open&stack=push">NASA Research Solicitations</a>
+<li id="home_abstracts"><a href="https://nspires.nasaprs.com/external/solicitations/solicitations.do?method=past&stack=push">Abstracts of Funded NASA Proposals</a>
+</ul>
+</div>
+<div class="clear"></div>
+</div>
+
+<!-- <ul id="submenu_standards"><li>&nbsp;</li></ul> -->
+
+<div class="clear"></div>
+</div>
+
+<!-- Sidebar -->
+
+<div id="sidebar">
+
+					<div class="sidebarSection">
+						<h2>Atmospheres data and related services</h2>
+						<ul>
+                                                        <li><a href="https://pds-atmospheres.nmsu.edu/data_and_services/atmospheres_data/atmospheres_data.htm">Atmospheres data</a></li>
+							<li><a href="https://pds-atmospheres.nmsu.edu/data_and_services/software/software.htm">Software</a></li>
+
+							<li><a href="https://pds-atmospheres.nmsu.edu/data_and_services/document_submission/document_submission.htm">Document submission</a></li>
+							<li><a href="https://pds-atmospheres.nmsu.edu/data_and_services/nasa_abstracts/">Abstracts of funded NASA proposals</a></li>
+							<li><a href="https://atmos.nmsu.edu:8443/pds/power.jsp">Sphere</a></li> 
+						</ul>
+					</div>
+					<div class="sidebarSection">
+						<h2>PDS Nodes</h2>
+						<ul>
+                                                        <li><a href="https://pds.nasa.gov/">PDS</a></li>
+							<li><a href="https://pds-atmospheres.nmsu.edu/">Atmospheres</a></li>
+							<li><a href="https://pds-geosciences.wustl.edu/">Geosciences</a></li>
+							<li><a href="https://pds-imaging.jpl.nasa.gov/">Cartography and Imaging</a></li>
+							<li><a href="https://naif.jpl.nasa.gov/naif/">Navigation &amp; Ancillary Information Facility&nbsp;(NAIF)</a></li>
+							<li><a href="https://pds-ppi.igpp.ucla.edu/">Planetary Plasma Interactions&nbsp;(PPI)</a></li>
+							<li><a href="https://pds-rings.seti.org/">Ring-Moon Systems</a></li>
+							<li><a href="https://pds-smallbodies.astro.umd.edu/">Small Bodies</a></li>
+						</ul>
+					</div>
+<div class="sidebarSection2">
+                                                <h2>LADEE</h2>
+                                                <ul>
+                                                        <li><a href="mainr.html">Main</a></li>
+                                                        <li><div id="indenttext"><a href="nms.html">NMS</a></div></li>
+                                                        <li><div id="indenttext"><a href="uvs.html">UVS</a></div></li>
+                                                        <li><div id="indenttext"><a href="ldex.html">LDEX</a></div></li>
+                                                </ul>
+
+                                       </div>
+
+<div class="sidebarSection2">
+                                               <h2>PDS4 Help</h2>
+                                               <ul>
+
+                                               <li><a href="https://pds.nasa.gov/pds4/about/index.shtml">Introduction Materials</a></li>
+                                                <li><a href="https://atmos.nmsu.edu/PDS4BETA/phoenix/Concepts_130507_v1.pdf">Concepts Document</a></li>
+                                                <li><a href="https://atmos.nmsu.edu/PDS4BETA/phoenix/StdRef_4.0.8_130507_v1.pdf">Standards Reference</a></li>
+                                                </ul>
+                                        </div>
+					<div class="sidebarSection2">
+						<h2><a href="https://pds-atmospheres.nmsu.edu/splash.html">PDS4 Tools</a></h2>
+						<ul>
+							<li><a href="https://pds.nasa.gov/pds4/about/index.shtml">Minimal User's Tutorial</a></li>
+                                                        <li><a href="https://pds.nasa.gov/tools/data-search/">PDS4 Wide Search</a></li>
+                                                        <li><a href="https://pds.nasa.gov/pds4/software/transform/current/">PDS4 Label to Text</a></li>
+                                                        <li>PDS4 Label to PDS3 Label</li>
+                                                        <li><a href="https://pds.nasa.gov/pds4/software/generate/current/">PDS3 Label to PDS4 Label</a></li>
+                                                        <li><a href="https://pds.nasa.gov/pds4/software/pds4-tools/current/">Data Format Translations</a></li>
+                                                </ul>
+                                       </div>
+  <!-- InstanceBeginEditable name="leftSidebar" -->
+				<!-- InstanceEndEditable -->
+</div>
+<!-- Main content -->
+<div id="content">
+<a name="mainContent"></a>
+<div>
+<!-- InstanceBeginEditable name="content" -->
+                                                <div style="border-top: 1px solid white; position: relative;">
+<!-- main content begin -->
+<h1><!-- InstanceBeginEditable name="pageTitle" --></h1><ul>
+  <img src="ladee_images/LADEE_Logo_crop.png" style="top:10px; left:30px; position: absolute;" width="190">
+
+<div id="banholder">
+ <div id="banner">
+    <div id="bannertext" style="font-family: Tahoma, Geneva";>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lunar Dust Experiment (LDEX)
+    </div>
+  </div>
+  <div id="banner2">
+    <div id="bannertext2" style="font-family: Tahoma, Geneva";>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CERTIFIED</i>
+    </div>
+  </div>
+</div>
+<!--
+<img src="images/Main_Banner.jpg" width="850" alt="Main Banner" align="left">
+-->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+<div id="limittext4">
+<div id="indenttext">
+The Lunar Dust Experiment (LDEX) is an impact ionization dust detector. It measures the mass
+of individual dust grains with m &ge; 1.7x10<sup>-16</sup>kg (radius, r<sub>s</sub> &ge; 0.3 &mu;m) for impact speeds &asymp; 1.7 km/s and also measures the collective current due to grains below the threshold for individual detection, enabling the search for dust grains with radius r<sub>g</sub> &asymp; 0.1 &mu;m over the terminators. LDEX is either <b>ON</b> or <b>OFF</b> - No other operational modes.
+</div>
+<br>
+<big><b>Useful Mission Documents</b></big><br>
+<div id="indenttext">
+<b><u><a href="https://sbnarchive.psi.edu/pds4/ldex/ladee_ldex_20161118/document/ladee_mission_rev1_5.pdf">Mission Description</a></u></b><br>
+<br>
+<u><b><a href="https://sbnarchive.psi.edu/pds4/ldex/ladee_ldex_20161118/document/ladee_spacecraft_rev1_2.pdf">Spacecraft Description</a></b></u>
+</b><br><br>
+<b><u><a href="https://sbnarchive.psi.edu/pds4/ldex/ladee_ldex_20161118/document/ldex_pds_sis_reve.pdf">Instrument and Data Description</a></u> - Software Interface Specification (SIS)</b>
+
+<br><br>
+</div>
+<br>
+<big><b>Archive Bundle Contents (Housed at the Small Bodies/Dust Node)</big></b><br>
+<div id="indenttext">
+<b><u><a href="https://sbnarchive.psi.edu/pds4/ldex/ladee_ldex_20161118/document/">Document</a></u></b> - Directory containing the document collection, which includes refereces to refereed
+journals using this instrument, and information about calibration and explanation of data structures.<br>
+<br>
+<b><u><a href="https://sbnarchive.psi.edu/pds4/ldex/ladee_ldex_20161118/data_housekeeping/">Housekeeping Data</a></u></b> - Directory containing housekeeping data for the instrument.<br>
+<br>
+<b><u><a href="https://sbnarchive.psi.edu/pds4/ldex/ladee_ldex_20161118/data_reduced/">Reduced Data</a></u></b> - Directory containing processed data files.
+<br><br>
+<b><u><a href="https://sbnarchive.psi.edu/pds4/ldex/ladee_ldex_20161118/data_calibrated/">Calibrated Data</a></u></b> - Directory containing the calibrated data files.
+<b>
+Calibration Documentation is in the <a href="https://sbnarchive.psi.edu/pds4/ldex/ladee_ldex_20161118/document/ldex_pds_sis_reve.pdf">SIS</b></a>.
+<br><br>
+<b><u><a href="https://sbnarchive.psi.edu/pds4/ldex/ladee_ldex_20161118/data_derived/">Derived Data</a></u></b> – Directory containing derived values of dust density in the lunar atmosphere for grains with radii greater than 0.3 microns. The data consists of an ASCII table with dust density and errors  tabulated as a function of altitude every 1.5 hours from 19:30 through 0:00 to 10:30 local time. See Horyani, M., Z. et al., The Lunar Dust Experiment (LDEX) onboard the Lunar Atmosphere and Dust Environment Explorer (LADEE) Mission, Space Science Reviews, 185 104), 93-113, doi:10.1007/s11214-014-0118-7, 2014.
+</div>
+<br><br>
+<big><b>Other Useful Products for Interpreting the Data</big></b><br><br>
+<div id="indenttext">
+<b><u><a href="references.html">Publications</a></u></b> - A listing of team members to facilitate literature searches<br><br>
+Other Potentially Relevant Data
+
+<br>
+<div id="longindenttext">
+<b><u>Acceleration, Reconnection, Turbulence and Electrodynamics of the</u>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Moon's Interaction with the Sun (ARTEMIS)</u></b> (available soon from
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PPI Node)<br>
+<b><u><a href="related_data.html">
+Lunar Elevation Map<br>
+Solar Activity<br>
+Meteoroid Environment<br></a></u></b>
+</div>
+<br>
+<b><u><a href="naif.html">SPICE</a></u></b> - Archived LADEE SPICE ancillary data providing observation geometry (positions,
+orientations, instrument pointing, time conversions, etc.) are available from the PDS NAIF Node
+</div>
+<br><br>
+For assistance in understanding PDS4 contact neese"at"psi"dot"edu at the Small Bodies Dust Node.
+<br><br>
+<big><b>Citing the data for Publication</b></big>
+<br><br>
+<div id="indenttext">
+D. James, J. Szalay (2014), LADEE Lunar Dust Experiment, NASA Planetary Data System, <a href="https://doi.org/10.17189/1518954">https://doi.org/10.17189/1518954</a>.
+</div>
+</div> <!-- limittext -->
+<div id="ladeepicrightfloat6">
+<img src="ladee_images/LDEX_photo.jpg" width="500" alt="" align="left" border="0">
+</div>
+<div id="ladeepicrightfloat7">
+<a href="ladee_images/ldex4.jpg"><img src="ladee_images/ldex4.jpg" width="385" alt="" align="left" border="0"></a>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br>
+<div id="smalltext">
+This is a plot of the mass of the impacting dust grains (in kg) vs. time (in hours) of impact.  The data is a segment of the file mass_14040_14049.tab with the time plotted on the x-axis truncated from the UTC time in the file.
+</div>
+</div>
+
+<div class="clear"></div>
+<br><br>
+
+<!-- main content end -->
+						</div>
+					<!-- InstanceEndEditable -->
+</div>
+</div>
+
+
+
+<div id="footer" style="color: black; background: #CCCCCC; vertical-align: middle;">
+  <a href="https://www.nasa.gov/"><img class="left" src="https://pds-atmospheres.nmsu.edu/atmospage_files/usa-gov.gif" alt="Link to www.usa.gov" border="0"></a>
+
+  <p class="left">
+<a href="https://www.nasa.gov/about/highlights/HP_Privacy.html">Privacy</a> / <a href="http://www.jpl.nasa.gov/imagepolicy/">Copyright</a><br />
+<a href="https://www.nasa.gov/foia/">Freedom of Information Act</a>
+  </p>
+  
+  <p class="right">
+Curator: <a href="mailto:lhuber@nmsu.edu">Lyle Huber</a><br />
+ATM Mgr: <a href="mailto:nchanove@nmsu.edu">Nancy Chanover</a><br />
+Last updated:
+<script>
+  document.write(lastMod());
+</script>
+ 
+  </p>
+  
+  <img class="right" src="https://pds-atmospheres.nmsu.edu/atmospage_files/nasa-logo-small.gif" alt="Small NASA logo">
+  
+  <div style="clear: both;"></div>
+</div>
+
+
+    <!--[if IE]>
+    </div>
+    <![endif]--> 
+  <!-- InstanceEnd --></body></html>

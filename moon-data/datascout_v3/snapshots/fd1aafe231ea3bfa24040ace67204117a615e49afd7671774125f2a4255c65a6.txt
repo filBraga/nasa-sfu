@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Viewing WAC Hapke Photometric Parameter Maps</title>
+    <script src="/assets/application-807d4cb6c5920b5442e8d3ee5540c07ea59c083b7f7beaf92a15f3be914c61aa.js"></script>
+    <script src="https://use.fontawesome.com/f5e0eddffa.js"></script>
+    <link rel="stylesheet" media="screen" href="/assets/sitenav-96a21acec7fd435ced29fc15de81110358296de74e3cc3db11f4ecb6fae4142e.css" />
+<link rel="stylesheet" media="screen" href="/assets/application-d2c41767cf7b4dc75f6d769f6d0bd8c7b50b75da9a5519f5b834a5b650a907f0.css" />
+<link rel="stylesheet" media="screen" href="/assets/lroc-6c94ef0e6456769c2ff05e5ffc625ac94af89740ebdc83121496048481d873b5.css" />
+<link rel="stylesheet" media="screen" href="/assets/photometric-00762aa41b2c15a3b4c07674ae2ae2f42846a2fb006b2b78ea1b297117bd9939.css" />
+<link rel="stylesheet" media="screen" href="/assets/lunaserv-bb535285d64e448d9cb84ecbbc8572d68ce93da31fec7501837fb5ecd9eb0423.css" />
+<link rel="stylesheet" media="screen" href="/assets/lunaserv-custom-08f675a914d0c0b7b6f61bd3ea807d877b03d84feb3dbceebbeb0b33b4932a18.css" />
+  </head>
+  <body style="background-color:#000;color:#c5baa9">
+    <div id="site">
+      <div id="lroc_header">
+        <div class="headerEnclosure">
+
+  <!-- LROC Header -->
+  <div class="lrocheader">
+    <div class="hdrimg" style="text-align: center;background-image: url(/assets/header/moon_background-665e44b4cedae3feb1e2927b70d9dc364fecabe090dfe820592a0905ed01002e.png);background-color: #000000;">
+      <div id="hdrimgshade" style="text-align: center;">
+        <img style="z-index:2;" alt="Lunar Reconnaissance Orbiter Camera" title="Lunar Reconnaissance Orbiter Camera" src="/assets/header/lroc-26c170696a3a05451f85474d068dd0568b473b8457e729a2d8754905dae17fc7.png" />
+      </div>
+    </div>
+    <div class="hdrnav">
+      <div class="lrocnavbar">
+
+        <ul class="lnavx">
+          <li><a href="https://lroc.im-ldi.com">Home</a></li>
+          <li><a href="https://lroc.im-ldi.com/about">About</a></li>
+          <li><a href="https://lroc.im-ldi.com/images/">Images</a></li>
+          <li><a href="https://lroc.im-ldi.com/archive">Archive</a></li>
+          <li><a href="https://lroc.im-ldi.com/news">News</a></li>
+          <li><a href="https://lroc.im-ldi.com/educators/history">Educators</a></li>
+        </ul>
+
+      </div>
+    </div> <!-- /hdrnav -->
+  </div> <!-- /lrocheader -->
+
+</div> <!-- /headerEnclosure -->
+
+      </div>
+      <!-- Start Content -->
+      <div id="mastercontainer">
+        <div class="lrocnavbar" style="margin:0; padding:0; width:100%">
+          <ul class="lnavx">
+            <li><a href="/lroc">WMS Browser</a></li>
+            <li><a href="/lroc/thumbnails">Thumbnail Browser</a></li>
+            <li><a href="/lroc/search">Image Search</a></li>
+            <li><a class="last" href="/lroc/rdr_product_select">RDR Products</a></li>
+          </ul>
+        </div>
+<div id="aboutDialog" title="About This RDR" style="position: relative; z-index: 1000;">
+  <p><b>WAC Hapke Photometric Parameter Maps</b></p>
+<p> Spatially resolved near-global Hapke photometric parameter maps of the Moon from about 66,000 LROC Wide Angle Camera (WAC) multispectral observations acquired from February 2010 to October 2011. Maps consist of 9 Hapke parameters (w, b, c, B<sub>c0</sub>, h<sub>c</sub>, B<sub>s0</sub>, h<sub>s</sub>, &theta;, &phi;) [1] for each of the 7 bands of the WAC in Equirectangular projection (centered at 0&deg;N, 0&deg;E; 1&deg; by 1&deg; pixel scale). The parameters B<sub>c0</sub>, h<sub>c</sub>, &theta;, and &phi; (band 4, 5, 8, and 9) are constant values as described in [1]. Maps extend 0&deg;E-360&deg;E, 70&deg;N-70&deg;S. These maps were used to normalize the observed reflectance at standard angles incidence=phase=60&deg;, emission=0&deg; in 1&deg; latitude by 1&deg; longitude tiles. For more information on the derivation of the Hapke parameters, please refer to <a href=http://onlinelibrary.wiley.com/doi/10.1002/2013JE004580/abstract>Sato,
+ et al. (2014).</a>
+</p><p>
+<b>Free Parameters of the Hapke Model [1]:</b>
+</p>
+
+<p class=TextBody>&nbsp;</p>
+
+<div align=center>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:1.4pt;border-collapse:collapse'>
+ <thead>
+  <tr style='height:.2in'>
+   <td width=67 style='width:67.45pt;padding:1pt 1pt 1pt;
+   height:.2in'>
+   <p class=TableContents align=center style='text-align:center'><b>Symbols</b></p>
+   </td>
+   <td width=450 style='width:449.5pt;padding:1pt 1pt 1pt 1pt;
+   height:.2in'>
+   <p class=TableContents align=center style='text-align:left'><b>Name</b></p>
+   </td>
+  </tr>
+ </thead> 
+ <tr style='height:14.0pt'>
+  <td width=67 style='width:67.45pt;padding:1pt 1pt 1pt 1pt;
+  height:7.0pt'>
+  <p class=TableContents align=center style='text-align:center'>w</p>
+  </td>
+  <td width=450 style='width:449.5pt;padding:1pt 1pt 1pt 1pt;height:
+  7.0pt'>
+  <p class=TableContents align=center style='text-align:left'>Single scattering albedo</p>
+  </td>
+ </tr>
+  <tr style='height:7.0pt'>
+  <td width=67 style='width:67.45pt;padding:1pt 1pt 1pt 1pt;
+  height:7.0pt'>
+  <p class=TableContents align=center style='text-align:center'>b</p>
+  </td>
+  <td width=450 style='width:449.5pt;padding:1pt 1pt 1pt 1pt;height:
+  7.0pt'>
+  <p class=TableContents align=center style='text-align:left'>Henyey-Greenstein double-lobed single particle phase function parameter</p>
+  </td>
+ </tr>
+ </tr> 
+  <tr style='height:7.0pt'>
+  <td width=67 style='width:67.45pt;padding:1pt 1pt 1pt 1pt;
+  height:7.0pt'>
+  <p class=TableContents align=center style='text-align:center'>c</p>
+  </td>
+  <td width=450 style='width:449.5pt;padding:1pt 1pt 1pt 1pt;height:
+  7.0pt'>
+  <p class=TableContents align=center style='text-align:left'>Henyey-Greenstein double-lobed single particle phase function parameter</p>
+  </td>
+ </tr>
+ </tr>
+  <tr style='height:7.0pt'>
+  <td width=67 style='width:67.45pt;padding:1pt 1pt 1pt 1pt;
+  height:7.0pt'>
+  <p class=TableContents align=center style='text-align:center'>B<sub>c0</sub></p>
+  </td>
+  <td width=450 style='width:449.5pt;padding:1pt 1pt 1pt 1pt;height:
+  7.0pt'>
+  <p class=TableContents align=center style='text-align:left'>Amplitude of Coherent Backscatter Opposition Effect (CBOE) - fixed at 0.0</p>
+  </td>
+ </tr>
+ </tr>
+  <tr style='height:7.0pt'>
+  <td width=67 style='width:67.45pt;padding:1pt 1pt 1pt 1pt;
+  height:7.0pt'>
+  <p class=TableContents align=center style='text-align:center'>h<sub>c</sub></p>
+  </td>
+  <td width=450 style='width:449.5pt;padding:1pt 1pt 1pt 1pt;height:
+  7.0pt'>
+  <p class=TableContents align=center style='text-align:left'>Angular width of CBOE - fixed at 1.0</p>
+  </td>
+ </tr>
+ </tr>
+  <tr style='height:7.0pt'>
+  <td width=67 style='width:67.45pt;padding:1pt 1pt 1pt 1pt;
+  height:7.0pt'>
+  <p class=TableContents align=center style='text-align:center'>B<sub>s0</sub></p>
+  </td>
+  <td width=450 style='width:449.5pt;padding:1pt 1pt 1pt 1pt;height:
+  7.0pt'>
+  <p class=TableContents align=center style='text-align:left'>Amplitude of Shadow Hiding Opposition Effect (SHOE)</p>
+  </td>
+ </tr>
+ </tr>
+  <tr style='height:7.0pt'>
+  <td width=67 style='width:67.45pt;padding:1pt 1pt 1pt 1pt;
+  height:7.0pt'>
+  <p class=TableContents align=center style='text-align:center'>h<sub>s</sub></p>
+  </td>
+  <td width=450 style='width:449.5pt;padding:1pt 1pt 1pt 1pt;height:
+  7.0pt'>
+  <p class=TableContents align=center style='text-align:left'>Angular width of SHOE</p>
+  </td>
+ </tr>
+ </tr>
+  <tr style='height:7.0pt'>
+  <td width=67 style='width:67.45pt;padding:1pt 1pt 1pt 1pt;
+  height:14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>&theta;</p>
+  </td>
+  <td width=450 style='width:449.5pt;padding:1pt 1pt 1pt 1pt;height:
+  7.0pt'>
+  <p class=TableContents align=center style='text-align:left'>Effective value of the photometric roughness - fixed at 23.657</p>
+  </td>
+ </tr>
+ </tr>
+  <tr style='height:7.0pt'>
+  <td width=67 style='width:67.45pt;padding:1pt 1pt 1pt 1pt;
+  height:7.0pt'>
+  <p class=TableContents align=center style='text-align:center'>&phi;</p>
+  </td>
+  <td width=450 style='width:449.5pt;padding:1pt 1pt 1pt 1pt;height:
+  7.0pt'>
+  <p class=TableContents align=center style='text-align:left'>Filling factor - fixed at 1.0</p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+
+<p><b> PDS Product Naming Convention:</b>  The Hapke photometric parameter maps are archived as 9-band products for each of the 7 WAC bands as well as one 63-band product containing all 9 parameters for all 7 bands of the WAC. The 9 Hapke parameters are archived in the order presented in the table above to create each 9-band product (i.e. Band 1 is for the w parameter and Band 9 has the &phi; parameter). For the 63-band product, the WAC bands are in order of increasing wavelength (i.e. Band 1 contains the w parameter for 321 nm WAC band and Band 63 contains the phi parameter for the 689 nm WAC band).  All the product files are named in the following manner: WAC_HAPKEPARAMMAP_[wavelength, e.g., 321NM or 7BAND]</p>
+
+<p class=TextBody>&nbsp;</p>
+
+<div align=center>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:1.4pt;border-collapse:collapse'>
+ <thead>
+  <tr style='height:.4in'>
+   <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;
+   height:.4in'>
+   <p class=TableContents align=center style='text-align:center'><b>Product Name</b></p>
+   </td>
+   <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;
+   height:.4in'>
+   <p class=TableContents align=center style='text-align:center'><b>WAC Band</b></p>
+   </td>
+   <td width=78 style='width:78.45pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;
+   height:.4in'>
+   <p class=TableContents align=center style='text-align:center'><b># of Bands</b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr style='height:14.0pt'>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;
+  height:14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>WAC_HAPKEPARAMMAP_321NM</p>
+  </td>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'> 321 nm (WAC band 1)</p>
+  </td>
+  <td width=78 style='width:78.45pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>9</p>
+  </td>
+ </tr>
+ <tr style='height:14.0pt'>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;
+  height:14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>WAC_HAPKEPARAMMAP_360NM</p>
+  </td>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>360 nm (WAC band 2)</p>
+  </td>
+  <td width=78 style='width:78.45pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>9</p>
+  </td>
+ </tr>
+ <tr style='height:14.0pt'>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;
+  height:14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>WAC_HAPKEPARAMMAP_415NM</p>
+  </td>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>415 nm (WAC band 3)</p>
+  </td>
+  <td width=78 style='width:78.45pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>9</p>
+  </td>
+ </tr>
+ <tr style='height:14.0pt'>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;
+  height:14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>WAC_HAPKEPARAMMAP_566NM</p>
+  </td>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>566 nm (WAC band 4)</p>
+  </td>
+  <td width=78 style='width:78.45pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>9</p>
+  </td>
+ </tr>
+ <tr style='height:14.0pt'>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;
+  height:14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>WAC_HAPKEPARAMMAP_604NM</p>
+  </td>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>604 nm (WAC band 5)</p>
+  </td>
+  <td width=78 style='width:78.45pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>9</p>
+  </td>
+ </tr>
+ <tr style='height:14.0pt'>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;
+  height:14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>WAC_HAPKEPARAMMAP_643NM</p>
+  </td>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>643 nm (WAC band 6)</p>
+  </td>
+  <td width=78 style='width:78.45pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>9</p>
+  </td>
+ </tr>
+ <tr style='height:14.0pt'>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;
+  height:14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>WAC_HAPKEPARAMMAP_689NM</p>
+  </td>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>689 nm (WAC band 7)</p>
+  </td>
+  <td width=78 style='width:78.45pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>9</p>
+  </td>
+ </tr>
+ <tr style='height:14.0pt'>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;
+  height:14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>WAC_HAPKEPARAMMAP_7BAND</p>
+  </td>
+  <td width=223 style='width:222.5pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>All 7 wavelengths</p>
+  </td>
+  <td width=78 style='width:78.45pt;padding:1.4pt 1.4pt 1.4pt 1.4pt;height:
+  14.0pt'>
+  <p class=TableContents align=center style='text-align:center'>63</p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p><b>Product Citation:</b></p>
+<p>Sato, H., Robinson, M.S., Hapke, B., Denevi, B.W., Boyd, A.K. (2014) Resolved Hapke parameter maps of the Moon. <i>Journal of Geophysical Research Planets</i>, 119, 1775–1805. <a href=http://dx.doi.org/10.1002/2013JE004580 >doi:10.1002/2013JE004580</a>.</p>
+
+<p><b>RDR SIS:</b></p>
+<p><a href=http://lroc.sese.asu.edu/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/DOCUMENT/RDRSIS.PDF>http://lroc.sese.asu.edu/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/DOCUMENT/RDRSIS.PDF</a></p>
+
+<p><b>References:</b></p>
+<p>[1] Hapke, B. (2012) Theory of reflectance and emittance spectroscopy. Cambridge University Press, New York. </p>
+
+</div>
+<div>
+  <div style="float:right;margin:.5em 3em .5em 0em;">
+    <form method="get" action="/lroc/rdr_product_select">
+      <button id="returnToSelect">Return To RDR Select Page</button>
+    </form>
+  </div>
+  <div style="float:right;margin:.5em 3em .5em 0em;"><button id="aboutHtmlButton">About This RDR</button></div>
+  <h1>WAC Hapke Photometric Parameter Maps</h1>
+</div>
+
+
+
+    <h2><a href="/lroc/view_rdr_product/WAC_HAPKEPARAMMAP_7BAND">Hapke Parameter Maps for the 7 WAC Bands  (click for more information)</a></h2>
+    <h3></h3>
+    
+<div id="zoomify1" style="position:relative;"></div>
+
+<script type="text/javascript">
+"use strict"
+  var minLegendFontSize = 18;
+  $(document).ready(function() {
+    function sizeZoomifyAndLegend() {
+      var slctr = '';
+      var legendWidth = 0;
+
+      for (var i = 0; i < $('[id^="legend"]').length; i++) {
+        slctr = '#legend' + (i + 1);
+        while (($(slctr + '>h2').width() > $(slctr + '>img').width()) && parseInt($(slctr + '>h2').css('font-size')) > minLegendFontSize) {
+          $(slctr + '>h2').css('font-size', parseInt($(slctr + '>h2').css('font-size')) - 1);
+        }
+        legendWidth += Math.ceil($('#legend' + (i + 1)).outerWidth(true));
+      }
+  
+      if (legendWidth) {
+        $('#zoomify1').width(Math.floor($('#mastercontainer').innerWidth()) -
+            parseInt($('#mastercontainer').css('marginLeft')) -
+            parseInt($('#mastercontainer').css('marginRight')) -
+            legendWidth);
+      }
+      else {
+        $('#zoomify1').width(Math.floor($(window).width()*0.8));
+      }
+
+      $('#zoomify1').height(Math.floor($(window).height()*0.6));
+    }
+
+    sizeZoomifyAndLegend();
+    $(window).on('resize', sizeZoomifyAndLegend);
+
+    $("#zoomify1").zoomifyInit({
+      "imgWidth": 360,
+      "imgHeight": 140,
+      "bgColor": "#000000",
+    "controls": {
+        "zoom": true,
+        "fullScreen": true,
+        "mousePosition": true,
+        "overviewMap": true
+    },
+    "mouseWheelZoom": false,
+    "imgPath": "/ptif/zoomify/ser/estore/lroc/web/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/EXTRAS/BROWSE/WAC_HAPKEPARAMMAP/WAC_HAPKEPARAMMAP_7BAND.PYR.TIF"
+    });
+  });
+</script>
+
+
+
+<script type="text/javascript">
+  var number_of_divs = 0;
+
+  function show_hide_div(currDiv) {
+    for (var i = 0; i < number_of_divs; i++) {
+      i == currDiv ? $('#gridContain'+i).show() : $('#gridContain'+i).hide();
+    }
+  }
+
+  $(document).ready(function(){
+    show_hide_div($("#selectResolution").val());
+    $("#selectResolution").change(function() {
+        show_hide_div($("#selectResolution").val());
+    });
+  });
+
+</script>
+
+<style type="text/css">
+  td {
+    text-align: center;
+  }
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $(function() {
+        $('.download_container').pajinate({
+          items_per_page: 20,
+          num_page_links_to_display: 5,
+          nav_label_first: '<<',
+          nav_label_prev: '<',
+          nav_label_next: '>',
+          nav_label_last: '>>',
+          abort_on_small_lists: true
+        });
+      });
+      var max_height = 0;
+      var max_width = 0;
+      $(".download_container").each(function() {
+        max_height = $(this).height() > max_height ? $(this).height() : max_height;
+        max_width = $(this).width() > max_width ? $(this).width() : max_width;
+      });
+      $(".download_container").height(max_height);
+      $(".download_container").width(Math.round(max_width * 1.1));
+    });
+  </script>
+  <style type="text/css">
+    .first_link, .previous_link, .page_link, .next_link, .last_link, .ellipse {
+      margin: 0px 5px 0px 0px;
+    }
+    ul.content {
+      padding: 0;
+      margin: 0;
+      margin-top: .5em;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 25px;
+      height: 180px;
+    }
+    .download_container {
+      margin: 1em 0em 0em 0em;
+      float: left;
+      text-align: center;
+      max-height: 30em;
+    }
+    #page_container_1 h2, #page_container_2 h2 {
+      margin: 0em auto 1em auto;
+    }
+    .page_navigation, .content {
+      margin: 0px auto 0px auto;
+    }
+    .content_container {
+      padding: 2em 0em;
+      text-align: left;
+      display: inline-block;
+    }
+    .active_page {
+      color:#06f !important;
+      font-weight: bold !important;
+    }
+  </style>
+<hr style="clear:both">
+
+  <div class="download_container">
+    <h2>WAC Bands</h2>
+    <div class="page_navigation"></div>
+    <div class="content_container">
+      <ul class="content">
+          <li><a href="/lroc/view_rdr_product/WAC_HAPKEPARAMMAP_321NM">Hapke Parameter Maps for WAC 321 nm Band </a></li>
+          <li><a href="/lroc/view_rdr_product/WAC_HAPKEPARAMMAP_360NM">Hapke Parameter Maps for WAC 360 nm Band </a></li>
+          <li><a href="/lroc/view_rdr_product/WAC_HAPKEPARAMMAP_415NM">Hapke Parameter Maps for WAC 415 nm Band </a></li>
+          <li><a href="/lroc/view_rdr_product/WAC_HAPKEPARAMMAP_566NM">Hapke Parameter Maps for WAC 566 nm Band </a></li>
+          <li><a href="/lroc/view_rdr_product/WAC_HAPKEPARAMMAP_604NM">Hapke Parameter Maps for WAC 604 nm Band </a></li>
+          <li><a href="/lroc/view_rdr_product/WAC_HAPKEPARAMMAP_643NM">Hapke Parameter Maps for WAC 643 nm Band </a></li>
+          <li><a href="/lroc/view_rdr_product/WAC_HAPKEPARAMMAP_689NM">Hapke Parameter Maps for WAC 689 nm Band </a></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="download_container">
+    <h2>Supplemental Downloads</h2>
+    <div class="page_navigation"></div>
+    <div class="content_container">
+      <ul class="content">
+          <li>
+          <a href="https://pds.lroc.im-ldi.com/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/DATA/SDP/WAC_HAPKEPARAMMAP/WAC_HAPKEPARAMMAP_README.TXT" download="WAC_HAPKEPARAMMAP_README.TXT">Readme (3.40 KB)</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+        <br class="endspot">
+      </div>
+      <!-- End Content -->
+
+      <div id="footerbox">
+        <div id="footer">
+          <a target="_blank" href="https://science.nasa.gov/mission/lro"><img alt="NASA LRO" src="/assets/nasa_site-372f2315bf5bb8fcaa0042dc57f87f58b549a2f888d7bb36aa1bdfc3f4484425.jpg" /></a>
+          <a target="_blank" href="https://ser.im-ldi.com/"><img alt="Space Exploration Resources" src="/assets/ser-d919a0ea9fbf867a56067e9e746eeb8c31cbf8f945c6fcbf6f2f648a2497e4fc.jpg" /></a>
+          <a target="_blank" href="https://sese.asu.edu/"><img height="38" alt="Arizona State University" src="/assets/asu_earthspaceexplore_horiz_rgb_maroongold_150ppi-5ac7967e9ab45e57eb59070827f77153de3a0dfdeb602344f35619957c33c1ac.png" /></a>
+        </div><!-- footer -->
+      </div><!-- footerbox -->
+    </div> <!-- /site -->
+    <script type="application/javascript">
+//<![CDATA[
+
+      $(document).on("turbolinks:load", function() {
+        gtag('config', 'UA-39826759-1', {'page_location': event.data.url});
+      })
+
+//]]>
+</script>  </body>
+</html>

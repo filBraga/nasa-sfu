@@ -1,0 +1,36 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+SPACECRAFT_NAME               = "LUNAR RECONNAISSANCE ORBITER"
+INSTRUMENT_NAME               = "LYMAN ALPHA MAPPING PROJECT"
+TARGET_NAME                   = MOON
+
+OBJECT                        = TEXT
+  INTERCHANGE_FORMAT          = ASCII
+  PUBLICATION_DATE            = 2011-03-06
+  NOTE                        = "Comments on the LRO LAMP GDR Archive Volume"
+END_OBJECT                    = TEXT
+END
+
+
+Comments on the LRO LAMP GDR Archive Volume
+=============================================================================
+
+
+Known Errors and Anomalies
+==========================
+
+   None.
+
+
+New File Additions
+==================
+
+   In this initial GDR data release, there are 694 new GDR files supplied.
+   The maps in this initial release are derived from "night side" data only.
+   Day side maps are planned for a future release.
+
+
+Modifications to Existing Files
+===============================
+
+   None.

@@ -1,0 +1,46 @@
+Bundle Overview
+===============
+
+This bundle consists of two collections of raw ASCII data, from three months
+in 1975, and documentation for the Suprathermal Ion Detector Experiment
+(SIDE) and the Cold Cathode Ion Gage Experiment (CCIG; also known as the
+Cold Cathode Gage Experiment) which were two components of the Apollo 15
+Apollo Lunar Surface Experiments Package (ALSEP). The collections are:
+
+- Apollo 15 ALSEP ARCSAV SIDE/CCIG Raw Cleaned ASCII Data Collection 
+  (1975-092 to 1975-181):  Contains 90 daily ASCII tables of raw measurements
+  data acquired by Apollo 15 SIDE and CCIG instruments from 02 April to
+  30 June 1975. This collection also includes one ASCII table of SIDE- and
+  CCIG-related command verification data. These ASCII files are
+  transformations of raw binary data extracted from NASA's original daily
+  Apollo 15 ALSEP Archive Tapes (known as ARCSAV tapes) spanning April to
+  July 1975, then cleaned for obvious bit errors.
+
+- Apollo 15 ALSEP ARCSAV SIDE/CCIG Raw Cleaned ASCII Document Collection
+  (1975-092 to 1975-181):  Contains a document that describes the ASCII
+  products in the data collection above. It explains the file formats and
+  references publications that are relevant to understanding these data.
+  This collection also includes the Fortran programs used by the data
+  provider to transform the raw binary SIDE/CCIG data to ASCII for this
+  archive and a one-page sheet of SIDE calibration data.
+
+Note: An error was identified in October 2026 that affects columns "WD-4-5" 
+and "WD-9-10" in each data product in this bundle. Corrected data products 
+are being generated and will be redelivered; until then, users may correct 
+this error with the following algorithm.
+
+Divide word 4 (and 9) by 1024, multiply the integer part of the result by 24, 
+and subtract this from the errored value, i.e., for a given errored value of 
+A:
+
+  B = A/1024
+
+  C = int(B)
+
+  D = Cx24
+
+and, the corrected value E is:
+
+  E = A-D
+
+or, E=A-int(A/1024)x24
