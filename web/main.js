@@ -567,9 +567,9 @@ function globesHint() {
     const e = state.data.sites[state.link.earth], t = state.data.sites[state.link.target];
     return `${e.name} ↔ ${t.name} (${BODY[t.body].name}). Drag to orbit, or press All / Clear to zoom back out.`;
   }
-  if (state.focus === "all" || state.focus === "link") return "Pick a site in Top matches to draw its connection. Click a marker to compare.";
+  if (state.focus === "all" || state.focus === "link") return "Click a pin to see its best matches.";
   const sites = Object.values(state.data.sites).filter((s) => s.body === state.focus);
-  return `${BODY[state.focus].name}: ${sites.map((s) => `${s.name} (${roleLabel(s)})`).join(", ")}. Click a marker to compare.`;
+  return `${BODY[state.focus].name}: ${sites.map((s) => `${s.name} (${roleLabel(s)})`).join(", ")}. Click a pin to see its best matches.`;
 }
 
 // ------------------------------------------------------------------ panel
@@ -1369,7 +1369,7 @@ function setView(v) {
   $("body-switch").hidden = v !== "globes";
   globes.controls.enabled = v === "globes";
   cmp.controls.enabled = v === "compare";
-  if (v === "compare") buildCompare(true);
+  if (v === "compare") { closePinCardQuiet(); buildCompare(true); }
   else $("stage-hint").textContent = globesHint();
 }
 
@@ -1406,13 +1406,148 @@ renderer.domElement.addEventListener("pointerup", (ev) => {
   const ndc = new THREE.Vector2(((ev.clientX - rect.left) / rect.width) * 2 - 1, -((ev.clientY - rect.top) / rect.height) * 2 + 1);
   raycaster.setFromCamera(ndc, globes.camera);
   const hit = raycaster.intersectObjects(markers.filter((m) => m.visible), false)[0];
-  if (!hit) return;
-  if (hit.object.userData.ref) { $("stage-hint").textContent = hit.object.userData.ref.text; return; }
-  const site = state.data.sites[hit.object.userData.siteId];
-  if (site.body === "earth") select(site.id, null, { pair: site.role === "analog" });
-  else select(null, site.id, { pair: true });
-  setView("compare");
+  if (!hit) { if (pinCard.marker) closePinCard(); return; } // click on empty space / a planet closes the card
+  openPinCard(hit.object);
 });
+
+// ------------------------------------------------------------------ pin card
+// Clicking a pin opens a small card next to it: best matches + which metrics agree, with the match
+// line drawn on the globes. The 3D terrain view and the full breakdown are one click away from it.
+const pinCard = { el: document.createElement("div"), leader: document.createElementNS("http://www.w3.org/2000/svg", "svg"), marker: null, siteId: null };
+pinCard.el.className = "pin-card";
+pinCard.el.hidden = true;
+pinCard.leader.classList.add("pin-leader");
+pinCard.leader.innerHTML = `<line/><circle r="3"/>`;
+pinCard.leader.style.display = "none";
+stage.append(pinCard.leader, pinCard.el);
+
+// the other side's best matches for a site: Earth site -> targets, target -> Earth candidates
+function matchesFor(site) {
+  const own = site.body === "earth" ? "earth" : "target", other = own === "earth" ? "target" : "earth";
+  return state.data.comparisons
+    .filter((c) => c[own] === site.id && (own === "earth" || state.data.sites[c.earth].role !== "control"))
+    .map((c) => ({ c, s: scoreOf(c), other: state.data.sites[c[other]] }))
+    .sort((a, b) => (b.s.overall ?? -1) - (a.s.overall ?? -1));
+}
+
+function openPinCard(marker) {
+  pinCard.marker = marker;
+  pinCard.siteId = marker.userData.siteId || null;
+  siteTip.hidden = true;
+  if (marker.userData.ref) { // lander / reference site: no comparison, just what it is
+    pinCard.linked = false;
+    renderPinCard();
+    return;
+  }
+  const site = state.data.sites[pinCard.siteId];
+  const best = matchesFor(site)[0];
+  pinCard.linked = !!best;
+  if (best) setLink({ earth: best.c.earth, target: best.c.target });
+  else { setLink(null); select(site.body === "earth" ? site.id : null, site.body === "earth" ? null : site.id); }
+  renderPinCard();
+}
+
+function closePinCard() {
+  const hadLink = pinCard.siteId && state.link;
+  pinCard.marker = null; pinCard.siteId = null;
+  pinCard.el.hidden = true;
+  pinCard.leader.style.display = "none";
+  if (hadLink) setLink(null); // the line belonged to the card; zoom back out and let things spin again
+}
+
+function renderPinCard() {
+  const m = pinCard.marker;
+  if (!m) return;
+  const el = pinCard.el;
+  if (m.userData.ref) {
+    const body = Object.keys(planets).find((k) => planets[k].mesh === m.parent);
+    el.style.setProperty("--accent", COLOR[body] || "var(--muted)");
+    el.innerHTML = `<button class="pc-close" aria-label="Close">✕</button>
+      <div class="pc-eyebrow">${esc(BODY[body]?.name || "")} · reference</div>
+      <h3 class="pc-title">${esc(m.userData.ref.name)}</h3>
+      <p class="pc-text">${esc(m.userData.ref.text)}</p>`;
+  } else {
+    const site = state.data.sites[pinCard.siteId];
+    const onEarth = site.body === "earth";
+    const accent = isTeam(site) ? COLOR.team : COLOR[site.body];
+    el.style.setProperty("--accent", accent);
+    const matches = matchesFor(site).slice(0, 3);
+    const types = (site.types || [site.type]).filter(Boolean).map(typeShort).map(esc).join(" / ");
+    const head = `<button class="pc-close" aria-label="Close">✕</button>
+      <div class="pc-eyebrow">${esc(BODY[site.body].name)}${types ? ` · ${types}` : ""}${site.role === "control" ? " · control" : isTeam(site) ? " · #team" : ""}</div>
+      <h3 class="pc-title">${esc(site.name)}</h3>`;
+    if (!matches.length) {
+      el.innerHTML = head + `<p class="pc-text">No ${onEarth ? "Moon or Mars target" : "Earth candidate"} of this type yet, so there is nothing to compare it with.</p>`;
+    } else {
+      const c = currentComparison() || matches[0].c;
+      const sc = scoreOf(c), dims = state.data.dimensions;
+      const ranked = sc.used.slice().sort((a, b) => c.scores[b] - c.scores[a]);
+      const similar = ranked.filter((k) => c.scores[k] >= 0.6).slice(0, 3);
+      const different = ranked.filter((k) => c.scores[k] < 0.6).reverse().slice(0, 2);
+      const bar = (k) => `<div class="pc-metric" data-dim-info="${k}"><span>${esc(dims[k].label)}</span>
+        <i><b style="width:${c.scores[k] * 100}%;background:${COLOR[verdictOf(c.scores[k])]}"></b></i><em>${c.scores[k].toFixed(2)}</em></div>`;
+      const row = ({ c: mc, s, other }) => {
+        const active = mc.earth === c.earth && mc.target === c.target;
+        return `<button class="pc-match ${active ? "active" : ""}" data-earth="${mc.earth}" data-target="${mc.target}">
+          <span class="dot" style="background:${isTeam(other) ? COLOR.team : COLOR[other.body]}"></span>
+          <span class="name">${esc(other.name)}${onEarth ? ` <small>${esc(BODY[other.body].name)}</small>` : ""}</span>
+          <span class="val" style="color:${COLOR[s.verdict]}">${fmt(s.overall)}</span></button>`;
+      };
+      el.innerHTML = head + `
+        <div class="pc-label">${onEarth ? "Best Moon & Mars matches" : "Best Earth analogs"}</div>
+        <div class="pc-matches">${matches.map(row).join("")}</div>
+        ${similar.length ? `<div class="pc-label">Similar</div>${similar.map(bar).join("")}` : ""}
+        ${different.length ? `<div class="pc-label">Different</div>${different.map(bar).join("")}` : ""}
+        ${!sc.used.length ? `<p class="pc-text">No metrics selected for this pair. Pick some in Filters.</p>` : ""}
+        <div class="pc-actions">
+          <button class="pc-primary" data-act="3d">Open 3D terrain <span aria-hidden="true">→</span></button>
+          <button class="pc-secondary" data-act="details" title="Full breakdown in the side panel" aria-label="Full breakdown">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>
+        </div>`;
+    }
+  }
+  el.hidden = false;
+  pinCard.leader.style.display = "";
+  placePinCard();
+}
+
+pinCard.el.addEventListener("click", (ev) => {
+  const t = ev.target.closest("button");
+  if (!t) return;
+  if (t.classList.contains("pc-close")) return closePinCard();
+  if (t.classList.contains("pc-match")) { setLink({ earth: t.dataset.earth, target: t.dataset.target }); return renderPinCard(); }
+  if (t.dataset.act === "3d") { closePinCardQuiet(); setView("compare"); return; }
+  if (t.dataset.act === "details") { setPanelCollapsed(false); setPane("scores"); }
+});
+// leaving for the 3D view keeps the selected pair, just hides the card
+function closePinCardQuiet() {
+  pinCard.marker = null; pinCard.siteId = null;
+  pinCard.el.hidden = true; pinCard.leader.style.display = "none";
+}
+addEventListener("keydown", (ev) => { if (ev.key === "Escape" && pinCard.marker) closePinCard(); });
+
+// keep the card beside its pin as the camera flies / the globes move; flip side near the edges
+const _p = new THREE.Vector3();
+function placePinCard() {
+  const m = pinCard.marker;
+  if (!m || pinCard.el.hidden) return;
+  // the line was cleared or replaced from elsewhere (Clear, body switch, a Top matches row)
+  if (pinCard.linked && (!state.link || (state.link.earth !== pinCard.siteId && state.link.target !== pinCard.siteId))) return closePinCardQuiet();
+  if (matchMedia("(max-width: 820px)").matches) { pinCard.leader.style.display = "none"; return; } // bottom sheet
+  const w = stage.clientWidth, h = stage.clientHeight;
+  m.getWorldPosition(_p).project(globes.camera);
+  const x = (_p.x + 1) / 2 * w, y = (1 - _p.y) / 2 * h;
+  const cw = pinCard.el.offsetWidth, ch = pinCard.el.offsetHeight, gap = 56;
+  const right = x + gap + cw <= w - 16 || x - gap - cw < 16;
+  const left = right ? Math.min(x + gap, w - 16 - cw) : x - gap - cw;
+  const top = Math.max(64, Math.min(y - 40, h - ch - 16));
+  pinCard.el.style.transform = `translate(${Math.round(left)}px, ${Math.round(top)}px)`;
+  const ax = right ? left : left + cw, ay = Math.min(Math.max(y, top + 18), top + ch - 18);
+  const ln = pinCard.leader.querySelector("line"), dot = pinCard.leader.querySelector("circle");
+  ln.setAttribute("x1", x); ln.setAttribute("y1", y); ln.setAttribute("x2", ax); ln.setAttribute("y2", ay);
+  dot.setAttribute("cx", x); dot.setAttribute("cy", y);
+  pinCard.leader.style.opacity = m.visible ? 1 : 0;
+}
 
 // hover a dot on a planet to see the place's name. The planets are in the raycast too,
 // so dots on the far side (hidden behind the globe) don't answer.
@@ -1454,6 +1589,7 @@ function loop() {
     pulseHalos(performance.now());
     globes.controls.update();
     updatePairLines();
+    placePinCard();
     renderer.render(globes.scene, globes.camera);
     labelsGlobes.render(globes.scene, globes.camera);
   } else {
