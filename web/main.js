@@ -133,10 +133,53 @@ function updateOrbits(now) {
 // back down to the ground point. dir is a unit vector in the planet's frame.
 const PIN_LIFT = 0.07; // head height, as a share of the planet radius
 const stemMat = new THREE.LineBasicMaterial({ color: 0x94a3b8, transparent: true, opacity: 0.6 });
-function pin(m, dir, r) {
+function pin(m, dir, r, mat = stemMat) {
   m.position.copy(dir).multiplyScalar(r * (1 + PIN_LIFT));
   m.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(
-    [new THREE.Vector3(), dir.clone().multiplyScalar(-r * PIN_LIFT)]), stemMat));
+    [new THREE.Vector3(), dir.clone().multiplyScalar(-r * PIN_LIFT)]), mat));
+}
+
+// Earth sites get a soft glow behind the head that pulses, so they stand out on the busy texture.
+// One radial-gradient texture, tinted per site through the sprite material's color.
+const haloTex = (() => {
+  const c = document.createElement("canvas"); c.width = c.height = 64;
+  const g = c.getContext("2d"), grad = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+  grad.addColorStop(0, "rgba(255,255,255,0.9)");
+  grad.addColorStop(0.35, "rgba(255,255,255,0.45)");
+  grad.addColorStop(1, "rgba(255,255,255,0)");
+  g.fillStyle = grad; g.fillRect(0, 0, 64, 64);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+})();
+// a ring around the head: dark outline + white stroke (tinted per site), readable on snow and ocean alike
+const ringTex = (() => {
+  const c = document.createElement("canvas"); c.width = c.height = 64;
+  const g = c.getContext("2d");
+  g.beginPath(); g.arc(32, 32, 24, 0, Math.PI * 2);
+  g.lineWidth = 9; g.strokeStyle = "rgba(0,0,0,0.75)"; g.stroke();
+  g.lineWidth = 4.5; g.strokeStyle = "#fff"; g.stroke();
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+})();
+const halos = [];
+function addHalo(m, color, size) {
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({
+    map: haloTex, color, transparent: true, opacity: 0.85, depthWrite: false }));
+  s.scale.setScalar(size * 4.5);
+  const ring = new THREE.Sprite(new THREE.SpriteMaterial({ map: ringTex, color, transparent: true, depthWrite: false }));
+  ring.scale.setScalar(size * 3.6);
+  m.add(ring);
+  m.userData.ring = ring;
+  s.userData.base = size * 4.5;
+  s.userData.phase = Math.random() * Math.PI * 2; // out of step, so they don't all breathe together
+  m.add(s);
+  m.userData.halo = s;
+  halos.push(s);
+}
+function pulseHalos(now) {
+  for (const s of halos) {
+    const k = 0.5 + 0.5 * Math.sin(now / 450 + s.userData.phase);
+    s.scale.setScalar(s.userData.base * (0.85 + 0.45 * k));
+    s.material.opacity = (s.userData.dim ? 0.1 : 0.35 + 0.4 * k);
+  }
 }
 
 // Pins on the far side of a globe are hidden, so only the face toward the camera shows them.
@@ -145,7 +188,7 @@ function updatePinVisibility() {
   for (const m of markers) {
     m.parent.getWorldPosition(_c);
     m.getWorldPosition(_m);
-    const facing = _m.sub(_c).normalize().dot(_v.copy(globes.camera.position).sub(_c).normalize()) > 0.55; // 0.55: also drop pins edge-on at the rim, where they pile up
+    const facing = _m.sub(_c).normalize().dot(_v.copy(globes.camera.position).sub(_c).normalize()) > (m.userData.halo ? 0.42 : 0.55); // 0.55: also drop pins edge-on at the rim, where they pile up; Earth sites (Canada sits high on the globe) are allowed closer
     m.visible = facing;
     for (const c of m.children) if (c.isCSS2DObject) c.visible = facing && !!m.userData.linked;
   }
@@ -181,11 +224,15 @@ function buildGlobes() {
   for (const site of Object.values(state.data.sites)) {
     const p = planets[site.body];
     const color = site.role === "control" ? 0x8f9bb6 : isTeam(site) ? COLOR.team : site.body === "earth" ? COLOR.earth : COLOR[site.body];
-    const size = p.r * (site.role === "target" ? 0.038 : 0.03); // scale with the planet so markers stay subtle up close
+    const onEarth = site.body === "earth", control = site.role === "control";
+    // scale with the planet; Earth sites are drawn larger so they read against the busy texture
+    const size = p.r * (site.role === "target" ? 0.038 : onEarth && !control ? 0.04 : 0.03);
     const waiting = site.has_target === false; // e.g. dunes: no Mars dune target yet
     const m = new THREE.Mesh(new THREE.SphereGeometry(size, 16, 12),
       new THREE.MeshBasicMaterial({ color, transparent: waiting, opacity: waiting ? 0.35 : 1 }));
-    pin(m, latLonToVec(site.lat, site.lon, 1), p.r);
+    const stem = onEarth && !control ? new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.95 }) : stemMat;
+    pin(m, latLonToVec(site.lat, site.lon, 1), p.r, stem);
+    if (onEarth && !control && !waiting) addHalo(m, color, size);
     m.userData.siteId = site.id;
     m.userData.name = site.name;
     m.userData.baseOpacity = waiting ? 0.35 : 1;
@@ -253,6 +300,7 @@ function buildPairLines() {
     // while a line is shown, only the two linked sites keep their name and full-strength marker
     const dim = !!state.link && !linked;
     m.material.opacity = dim ? 0.25 : m.userData.baseOpacity;
+    if (m.userData.halo) { m.userData.halo.userData.dim = dim; m.userData.ring.material.opacity = dim ? 0.25 : 1; }
     const transparent = dim || m.userData.baseOpacity < 1;
     if (m.material.transparent !== transparent) { m.material.transparent = transparent; m.material.needsUpdate = true; }
     // #team places are many and spread worldwide: their names only show when linked
@@ -1127,10 +1175,10 @@ function renderPanel() {
         ${sc.overall == null ? `<span class="chip weak">${sc.filtered.length ? "nothing left after source filter" : "no dimensions selected"}</span>` : `<span class="chip ${sc.verdict}">${sc.verdict} analog</span>`}
         <span class="chip role${isTeam(e) ? " team" : ""}">${c.is_pair ? "calibration pair" : roleLabel(e)}</span>
         <span class="chip role">${esc(typeShort(c.target_type))}</span>
-        <div class="pair-names"><b>${esc(e.name)}</b> vs <b>${esc(t.name)}</b><br>
-        based on ${sc.used.length} dimension${sc.used.length === 1 ? "" : "s"}${sc.filtered.length ? `, ${sc.filtered.length} excluded by source filter` : ""}${sc.missing.length ? `, ${sc.missing.length} selected without data` : ""} · ${c.res_m} m/pixel</div>
       </div>
-    </div>`;
+    </div>
+    <div class="pair-names"><b>${esc(e.name)}</b> vs <b>${esc(t.name)}</b><br>
+    based on ${sc.used.length} dimension${sc.used.length === 1 ? "" : "s"}${sc.filtered.length ? `, ${sc.filtered.length} excluded by source filter` : ""}${sc.missing.length ? `, ${sc.missing.length} selected without data` : ""} · ${c.res_m} m/pixel</div>`;
 
   const bar = (k) => {
     const d = dims[k], v = c.scores[k];
@@ -1332,6 +1380,16 @@ document.querySelectorAll("#body-switch button").forEach((b) => {
   };
 });
 
+// hide / show the right panel; the stage's ResizeObserver refits the canvas. Remembered per browser.
+const PANEL_KEY = "analogExplorer.panelCollapsed";
+function setPanelCollapsed(v) {
+  $("app").classList.toggle("panel-collapsed", v);
+  try { v ? localStorage.setItem(PANEL_KEY, "1") : localStorage.removeItem(PANEL_KEY); } catch {}
+}
+try { if (localStorage.getItem(PANEL_KEY) === "1") setPanelCollapsed(true); } catch {}
+$("panel-close").onclick = () => setPanelCollapsed(true);
+$("panel-open").onclick = () => setPanelCollapsed(false);
+
 $("tab-globes").onclick = () => setView("globes");
 $("tab-compare").onclick = () => setView("compare");
 $("sel-earth").onchange = (ev) => select(ev.target.value, null);
@@ -1393,6 +1451,7 @@ function loop() {
   if (state.view === "globes") {
     updateFlight(performance.now());
     updateOrbits(performance.now());
+    pulseHalos(performance.now());
     globes.controls.update();
     updatePairLines();
     renderer.render(globes.scene, globes.camera);
