@@ -3,11 +3,21 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
 
 // ------------------------------------------------------------------ constants
+// x: start position, also the drawn orbit radius around Earth (distances not to scale).
+// Motion is real, from the NASA Planetary Fact Sheet (nssdc.gsfc.nasa.gov/planetary/factsheet):
+//   rotHours: sidereal rotation period; tiltDeg: axial tilt (obliquity) to the orbit;
+//   orbitDays: sidereal orbit period (0 = stays put). The Moon orbits Earth in 27.32 d and turns
+//   once in the same time (tidally locked), so its near side always faces Earth. Mars really orbits
+//   the Sun (686.98 d); here it circles Earth at that period, so its lap is slow on purpose.
 const BODY = {
-  earth: { name: "Earth", radiusKm: 6371, color: 0x3a6ea5, tex: "textures/earth.jpg", x: 0 },
-  moon:  { name: "Moon",  radiusKm: 1737, color: 0x9a9a9a, tex: "textures/moon.jpg",  x: -3.9 },
-  mars:  { name: "Mars",  radiusKm: 3390, color: 0xb5562f, tex: "textures/mars.jpg",  x: 4.1 },
+  earth: { name: "Earth", radiusKm: 6371, color: 0x3a6ea5, tex: "textures/earth.jpg", x: 0,    rotHours: 23.9345, tiltDeg: 23.44, orbitDays: 0 },
+  moon:  { name: "Moon",  radiusKm: 1737, color: 0x9a9a9a, tex: "textures/moon.jpg",  x: -3.3, rotHours: 655.72,  tiltDeg: 6.68,  orbitDays: 27.3217 },
+  mars:  { name: "Mars",  radiusKm: 3390, color: 0xb5562f, tex: "textures/mars.jpg",  x: 6.2,  rotHours: 24.6229, tiltDeg: 25.19, orbitDays: 686.98 },
 };
+// One Earth day of simulated time = 21 s on screen, one clock for every body. Picked to match the
+// cobe globe's spin (phi += 0.005 per frame at 60 fps = 0.3 rad/s, one turn in ~21 s) for Earth;
+// Mars and the Moon follow from their real periods.
+const DAY_SECONDS = 21;
 const EARTH_R = 2; // scene units for Earth's radius; other bodies to true relative scale
 const CSS = getComputedStyle(document.documentElement);
 const cssColor = (v) => CSS.getPropertyValue(v).trim();
@@ -90,9 +100,50 @@ function latLonToVec(latDeg, lonDeg, r) {
   return new THREE.Vector3(r * Math.cos(lat) * Math.cos(lon), r * Math.sin(lat), -r * Math.cos(lat) * Math.sin(lon));
 }
 
-function faceCamera(mesh, lonDeg, latDeg) {
-  // Euler XYZ applies the Y turn first (brings lon to +z), then the X tilt (brings lat to the equator)
-  mesh.rotation.set(THREE.MathUtils.degToRad(latDeg), THREE.MathUtils.degToRad(-90 - lonDeg), 0);
+
+// Orbits and spins share one simulated clock (days). Orbits only advance in the overview, so the
+// camera stays put while a planet is framed; spins stop only while a match line is shown.
+let orbitDays = 0, spinDays = 0, orbitLast = 0;
+const orbitAngle = (b) => (b.x < 0 ? Math.PI : 0) + (2 * Math.PI * orbitDays) / b.orbitDays;
+function updateOrbits(now) {
+  const dt = orbitLast ? Math.min(0.05, (now - orbitLast) / 1000) : 0;
+  orbitLast = now;
+  if (state.focus === "all") orbitDays += dt / DAY_SECONDS;
+  if (state.focus !== "link") spinDays += dt / DAY_SECONDS;
+  for (const [key, b] of Object.entries(BODY)) {
+    const p = planets[key];
+    if (b.orbitDays) {
+      const r = Math.abs(b.x), a = orbitAngle(b);
+      // orbit plane tilted ~30 deg toward the camera, so the loops read on screen instead of edge-on
+      p.group.position.set(r * Math.cos(a), r * Math.sin(a) * 0.5, -r * Math.sin(a) * 0.87);
+    }
+    // tidal lock: the Moon's spin is its orbit angle, turned so longitude 0 points back at Earth
+    p.mesh.rotation.y = key === "moon" ? orbitAngle(b) + Math.PI
+      : p.spin0 + (2 * Math.PI * spinDays * 24) / b.rotHours;
+  }
+  updatePinVisibility();
+}
+
+// Turn a marker dot into a pin: the dot is the head, lifted off the surface, with a thin stem
+// back down to the ground point. dir is a unit vector in the planet's frame.
+const PIN_LIFT = 0.07; // head height, as a share of the planet radius
+const stemMat = new THREE.LineBasicMaterial({ color: 0x94a3b8, transparent: true, opacity: 0.6 });
+function pin(m, dir, r) {
+  m.position.copy(dir).multiplyScalar(r * (1 + PIN_LIFT));
+  m.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(
+    [new THREE.Vector3(), dir.clone().multiplyScalar(-r * PIN_LIFT)]), stemMat));
+}
+
+// Pins on the far side of a globe are hidden, so only the face toward the camera shows them.
+const _c = new THREE.Vector3(), _m = new THREE.Vector3(), _v = new THREE.Vector3();
+function updatePinVisibility() {
+  for (const m of markers) {
+    m.parent.getWorldPosition(_c);
+    m.getWorldPosition(_m);
+    const facing = _m.sub(_c).normalize().dot(_v.copy(globes.camera.position).sub(_c).normalize()) > 0.55; // 0.55: also drop pins edge-on at the rim, where they pile up
+    m.visible = facing;
+    for (const c of m.children) if (c.isCSS2DObject) c.visible = facing && !!m.userData.linked;
+  }
 }
 
 function buildGlobes() {
@@ -108,27 +159,30 @@ function buildGlobes() {
     const mesh = new THREE.Mesh(new THREE.SphereGeometry(r, 96, 64), mat);
     const group = new THREE.Group();
     group.position.x = b.x;
-    group.add(mesh);
+    const tilt = new THREE.Group(); // axial tilt: the spin axis leans from the orbit's pole
+    tilt.rotation.z = THREE.MathUtils.degToRad(b.tiltDeg);
+    tilt.add(mesh);
+    group.add(tilt);
     const name = label(b.name, "planet");
     name.position.set(0, r + 0.35, 0);
     group.add(name);
     globes.scene.add(group);
     planets[key] = { group, mesh, r };
   }
-  // turn each globe so its sites of interest face the camera
-  faceCamera(planets.earth.mesh, -98, 58);  // Canada, Labrador to the Beaufort Sea
-  faceCamera(planets.mars.mesh, 137, 30);   // between Jezero (78E) and Arcadia (196E)
-  faceCamera(planets.moon.mesh, 15, -75);   // south pole, near side (Malapert, Mons Mouton)
+  // starting spin: these longitudes face the camera at load (the Moon's is set by tidal lock)
+  planets.earth.spin0 = THREE.MathUtils.degToRad(-90 - -98); // Canada
+  planets.mars.spin0 = THREE.MathUtils.degToRad(-90 - 137);  // between Jezero (78E) and Arcadia (196E)
 
   for (const site of Object.values(state.data.sites)) {
     const p = planets[site.body];
     const color = site.role === "control" ? 0x8f9bb6 : isTeam(site) ? COLOR.team : site.body === "earth" ? COLOR.earth : COLOR[site.body];
-    const size = p.r * (site.role === "target" ? 0.022 : 0.018); // scale with the planet so markers stay subtle up close
+    const size = p.r * (site.role === "target" ? 0.038 : 0.03); // scale with the planet so markers stay subtle up close
     const waiting = site.has_target === false; // e.g. dunes: no Mars dune target yet
     const m = new THREE.Mesh(new THREE.SphereGeometry(size, 16, 12),
       new THREE.MeshBasicMaterial({ color, transparent: waiting, opacity: waiting ? 0.35 : 1 }));
-    m.position.copy(latLonToVec(site.lat, site.lon, p.r * 1.005));
+    pin(m, latLonToVec(site.lat, site.lon, 1), p.r);
     m.userData.siteId = site.id;
+    m.userData.name = site.name;
     m.userData.baseOpacity = waiting ? 0.35 : 1;
     const l = label((isTeam(site) ? "#team " : "") + site.name + (waiting ? " (no target yet)" : ""),
       "site " + site.role + (waiting ? " waiting" : "") + (isTeam(site) ? " team" : ""));
@@ -148,12 +202,13 @@ function addReferenceMarkers() {
   const have = new Set(Object.keys(state.data.sites));
   const add = (body, item, kind, text) => {
     const p = planets[body];
-    const size = p.r * (kind === "site" ? 0.018 : 0.009);
+    const size = p.r * (kind === "site" ? 0.03 : 0.012);
     const m = new THREE.Mesh(new THREE.SphereGeometry(size, 12, 8),
       new THREE.MeshBasicMaterial({ color: kind === "site" ? COLOR.team : 0xffffff, transparent: kind !== "site", opacity: kind === "site" ? 1 : 0.7 }));
-    m.position.copy(latLonToVec(item.lat, item.lon_e, p.r * 1.005));
+    pin(m, latLonToVec(item.lat, item.lon_e, 1), p.r);
     m.userData.baseOpacity = m.material.opacity;
     m.userData.ref = { name: item.name, text };
+    m.userData.name = item.name;
     if (kind === "site") {
       const l = label(item.name, "site analog");
       l.position.set(0, size * 2.2, 0);
@@ -189,13 +244,15 @@ function buildPairLines() {
   for (const m of markers) {
     const linked = state.link && (m.userData.siteId === state.link.earth || m.userData.siteId === state.link.target);
     m.scale.setScalar(linked ? 1.8 : 1);
+    m.userData.linked = !!linked;
     // while a line is shown, only the two linked sites keep their name and full-strength marker
     const dim = !!state.link && !linked;
     m.material.opacity = dim ? 0.25 : m.userData.baseOpacity;
     const transparent = dim || m.userData.baseOpacity < 1;
     if (m.material.transparent !== transparent) { m.material.transparent = transparent; m.material.needsUpdate = true; }
     // #team places are many and spread worldwide: their names only show when linked
-    for (const c of m.children) if (c.isCSS2DObject) c.visible = !dim && (!m.userData.team || linked);
+    // names show on hover (see the tooltip below); only the linked pair keeps its labels up
+    for (const c of m.children) if (c.isCSS2DObject) c.visible = !!linked;
   }
   for (const c of shown) {
     const sc = scoreOf(c), color = COLOR[sc.verdict];
@@ -359,8 +416,8 @@ function globesCameraGoal(body) {
     return { pos: sphere.center.clone().addScaledVector(dir, dist), target: sphere.center, minDist: 1.5, dur: 1400 };
   }
   if (body === "link") body = "all"; // link was cleared
-  if (body === "all") { // the three globes span roughly 11 scene units side to side
-    const dist = Math.max(13, 6.2 / (tanHalf * globes.camera.aspect));
+  if (body === "all") { // Mars' orbit spans roughly 15 scene units side to side
+    const dist = Math.max(15, 7.6 / (tanHalf * globes.camera.aspect));
     return { pos: new THREE.Vector3(0, dist * 0.19, dist), target: new THREE.Vector3(), minDist: 3 };
   }
   const p = planets[body];
@@ -1278,7 +1335,7 @@ renderer.domElement.addEventListener("pointerup", (ev) => {
   const rect = renderer.domElement.getBoundingClientRect();
   const ndc = new THREE.Vector2(((ev.clientX - rect.left) / rect.width) * 2 - 1, -((ev.clientY - rect.top) / rect.height) * 2 + 1);
   raycaster.setFromCamera(ndc, globes.camera);
-  const hit = raycaster.intersectObjects(markers, false)[0];
+  const hit = raycaster.intersectObjects(markers.filter((m) => m.visible), false)[0];
   if (!hit) return;
   if (hit.object.userData.ref) { $("stage-hint").textContent = hit.object.userData.ref.text; return; }
   const site = state.data.sites[hit.object.userData.siteId];
@@ -1286,6 +1343,28 @@ renderer.domElement.addEventListener("pointerup", (ev) => {
   else select(null, site.id, { pair: true });
   setView("compare");
 });
+
+// hover a dot on a planet to see the place's name. The planets are in the raycast too,
+// so dots on the far side (hidden behind the globe) don't answer.
+const siteTip = document.createElement("div");
+siteTip.className = "label site-tip";
+siteTip.hidden = true;
+stage.append(siteTip);
+renderer.domElement.addEventListener("pointermove", (ev) => {
+  if (state.view !== "globes" || ev.buttons) { siteTip.hidden = true; return; }
+  const rect = renderer.domElement.getBoundingClientRect();
+  const ndc = new THREE.Vector2(((ev.clientX - rect.left) / rect.width) * 2 - 1, -((ev.clientY - rect.top) / rect.height) * 2 + 1);
+  raycaster.setFromCamera(ndc, globes.camera);
+  const hit = raycaster.intersectObjects([...markers.filter((m) => m.visible), ...Object.values(planets).map((p) => p.mesh)], false)[0];
+  const name = hit?.object.userData.name;
+  siteTip.hidden = !name;
+  renderer.domElement.style.cursor = name ? "pointer" : "";
+  if (!name) return;
+  siteTip.textContent = name;
+  siteTip.style.left = ev.clientX - rect.left + 14 + "px";
+  siteTip.style.top = ev.clientY - rect.top + 14 + "px";
+});
+renderer.domElement.addEventListener("pointerleave", () => { siteTip.hidden = true; });
 
 function resize() {
   const w = stage.clientWidth, h = stage.clientHeight;
@@ -1301,6 +1380,7 @@ function loop() {
   requestAnimationFrame(loop);
   if (state.view === "globes") {
     updateFlight(performance.now());
+    updateOrbits(performance.now());
     globes.controls.update();
     updatePairLines();
     renderer.render(globes.scene, globes.camera);
