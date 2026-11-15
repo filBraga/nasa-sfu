@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
+import { weightedGeometricMean } from "./scoring.js";
 
 // ------------------------------------------------------------------ constants
 const BODY = {
@@ -470,7 +471,7 @@ function saveDims() {
   try { localStorage.setItem(DIM_KEY, JSON.stringify([...state.dims])); } catch { /* ignore */ }
 }
 
-/** Weighted mean over the dimensions the user switched on that this comparison has data for,
+/** Weighted geometric mean over the dimensions the user switched on that this comparison has data for,
  *  leaving out any dimension whose data comes from a source the user filtered out. */
 function scoreOf(c) {
   const dims = state.data.dimensions;
@@ -479,8 +480,7 @@ function scoreOf(c) {
   const used = scored.filter((k) => blockedBy(k, c).length === 0);
   const filtered = scored.filter((k) => blockedBy(k, c).length > 0);
   const missing = [...state.dims].filter((k) => c.scores[k] == null && !na.has(k));
-  const wsum = used.reduce((s, k) => s + dims[k].weight, 0);
-  const overall = wsum > 0 ? used.reduce((s, k) => s + dims[k].weight * c.scores[k], 0) / wsum : null;
+  const overall = weightedGeometricMean(used.map((k) => [c.scores[k], dims[k].weight]));
   return { overall, verdict: overall == null ? "weak" : verdictOf(overall), used, missing, filtered };
 }
 
@@ -1017,11 +1017,12 @@ function renderPanel() {
     <div class="score-row">
       <div class="score-big" style="color:${COLOR[sc.verdict]}">${fmt(sc.overall)}</div>
       <div>
-        ${sc.overall == null ? `<span class="chip weak">${sc.filtered.length ? "nothing left after source filter" : "no dimensions selected"}</span>` : `<span class="chip ${sc.verdict}">${sc.verdict} analog</span>`}
+        ${sc.overall == null ? `<span class="chip weak">${sc.filtered.length ? "nothing left after source filter" : "no dimensions selected"}</span>` : `<span class="chip ${sc.verdict}">${sc.verdict} measured match</span>`}
         <span class="chip role${isTeam(e) ? " team" : ""}">${c.is_pair ? "calibration pair" : roleLabel(e)}</span>
         <span class="chip role">${esc(typeShort(c.target_type))}</span>
         <div class="pair-names"><b>${esc(e.name)}</b> vs <b>${esc(t.name)}</b><br>
-        based on ${sc.used.length} dimension${sc.used.length === 1 ? "" : "s"}${sc.filtered.length ? `, ${sc.filtered.length} excluded by source filter` : ""}${sc.missing.length ? `, ${sc.missing.length} selected without data` : ""} · ${c.res_m} m/pixel</div>
+        based on ${sc.used.length} dimension${sc.used.length === 1 ? "" : "s"}${sc.filtered.length ? `, ${sc.filtered.length} excluded by source filter` : ""}${sc.missing.length ? `, ${sc.missing.length} selected without data` : ""} · ${c.res_m} m/pixel<br>
+        Weighted geometric mean: a weak dimension pulls the match down. Gravity and atmospheric pressure are not included; this is not full planetary fidelity.</div>
       </div>
     </div>`;
 

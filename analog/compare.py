@@ -15,7 +15,7 @@ METRICS = {
     "slope":         (0.20, "Slope distribution", "Wasserstein distance between slope histograms (scale 8 deg)"),
     "roughness":     (0.15, "Surface roughness", "Wasserstein distance of log10 Terrain Ruggedness Index (scale 0.3)"),
     "hypsometry":    (0.15, "Hypsometry", "Mean gap between normalised elevation-area curves (scale 0.08)"),
-    "profile":       (0.30, "Crater profile shape", "Mean correlation of 8 compass-sector radial profiles with the target profile (r/R 0-1.5)"),
+    "profile":       (0.30, "Crater profile shape", "Lower-quartile correlation of 8 compass-sector radial profiles with the target profile (r/R 0-1.5)"),
     "depth":         (0.20, "Depth / diameter", "Log-ratio of depth/diameter (score 0.5 at a 2x difference)"),
     "flat_fraction": (0.20, "Flat ground (< 5 deg)", "Difference in the share of area flatter than 5 deg (scale 0.15)"),
     "illumination":  (0.30, "Sunlight at low sun", "Wasserstein distance of per-pixel lit fraction over 16 sun azimuths at the target's sun elevation, with body curvature (scale 0.15)"),
@@ -63,7 +63,9 @@ def _profile(a, b):
         ok = oka & okb
         c = np.corrcoef(pa[ok], pb[ok])[0, 1] if ok.sum() > 5 else 0.0
         corrs.append(c if np.isfinite(c) else 0.0)
-    return max(0.0, float(np.mean(corrs)))
+    # A mountain can resemble a crater in a few directions. Require at least
+    # three quarters of the compass sectors to share the target's bowl shape.
+    return max(0.0, float(np.quantile(corrs, 0.25)))
 
 
 def _depth(a, b):
@@ -101,8 +103,26 @@ def score_pair(a, b, metrics=None):
         v = SCORERS[k](a, b)
         if v is not None:
             s[k] = v
-    overall = sum(METRICS[k][0] * v for k, v in s.items()) / sum(METRICS[k][0] for k in s)
+    overall = weighted_geometric_mean((v, METRICS[k][0]) for k, v in s.items())
     return s, overall
+
+
+def weighted_geometric_mean(values):
+    """Combine 0-1 matches without letting a strong dimension erase a failure.
+
+    Only measured dimensions are passed in. A measured zero is a genuine mismatch;
+    missing dimensions are not silently treated as zero.
+    """
+    pairs = list(values)
+    if not pairs:
+        return None
+    total_weight = sum(weight for _, weight in pairs)
+    if total_weight <= 0 or any(not math.isfinite(weight) or not math.isfinite(score)
+                             or weight < 0 or not 0 <= score <= 1 for score, weight in pairs):
+        raise ValueError("scores must be in [0, 1] and weights must be nonnegative with a positive total")
+    if any(score == 0 and weight > 0 for score, weight in pairs):
+        return 0.0
+    return math.exp(sum(weight * math.log(score) for score, weight in pairs if weight > 0) / total_weight)
 
 
 def verdict(score):

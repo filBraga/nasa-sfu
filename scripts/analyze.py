@@ -17,7 +17,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from analog import RAW_DIR, ROOT, WEB_DATA_DIR, load_config  # noqa: E402
-from analog.compare import METRIC_INFO, METRICS, explain, score_pair, verdict  # noqa: E402
+from analog.compare import METRIC_INFO, METRICS, explain, score_pair, verdict, weighted_geometric_mean  # noqa: E402
 from analog.facts import read_facts  # noqa: E402
 from analog.layers import Constant, compare_layer, inventory, load_registry, site_values  # noqa: E402
 from analog.layers import _threshold_for as threshold_for  # noqa: E402
@@ -190,7 +190,7 @@ def main():
 
     def overall_of(scores):
         on = [k for k, d in dimensions.items() if d["default_on"] and k in scores]
-        return sum(dimensions[k]["weight"] * scores[k] for k in on) / sum(dimensions[k]["weight"] for k in on)
+        return weighted_geometric_mean((scores[k], dimensions[k]["weight"]) for k in on)
 
     cache = {}
 
@@ -228,7 +228,7 @@ def main():
             comparisons.append({
                 "earth": e["id"], "target": t["id"], "res_m": res, "target_type": ttype,
                 "is_pair": any(p["earth"] == e["id"] and p["target"] == t["id"] for p in cfg["pairs"]),
-                "scores": {k: round(v, 3) for k, v in scores.items()},
+                "scores": {k: round(v, 8) for k, v in scores.items()},
                 "not_applicable": not_applicable,
                 "overall": round(overall, 3), "verdict": verdict(overall),
                 "notes": explain(fe, ft, e["name"], t["name"]),

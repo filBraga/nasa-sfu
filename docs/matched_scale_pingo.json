@@ -1,0 +1,355 @@
+{
+  "mars_dem": "https://asc-pds-individual-investigations.s3.us-west-2.amazonaws.com/mars_mro_hirise_explorationzones_day_2023/data/esp_052490_2200_esp_052424_2200_tied-dem.tif",
+  "mars_map": "https://doi.org/10.5281/zenodo.13647425",
+  "mars_center": [
+    39.916,
+    202.105
+  ],
+  "mars_control_dem": "https://asc-pds-individual-investigations.s3.us-west-2.amazonaws.com/mars_mro_hirise_explorationzones_day_2023/data/esp_042930_2210_esp_043220_2210_tied-dem.tif",
+  "mars_control_center": [
+    40.744,
+    201.2786
+  ],
+  "window_m": 2000,
+  "resolution_m": 2,
+  "sites": {
+    "ap1": {
+      "valid_fraction": 0.6113,
+      "geometric_candidates": 0,
+      "in_mars_size_height_range": 0,
+      "candidates": [],
+      "relief_screen_candidates": [
+        {
+          "row": 648,
+          "col": 461,
+          "local_relief_m": 6.03
+        },
+        {
+          "row": 570,
+          "col": 661,
+          "local_relief_m": 4.76
+        },
+        {
+          "row": 490,
+          "col": 393,
+          "local_relief_m": 4.75
+        },
+        {
+          "row": 466,
+          "col": 302,
+          "local_relief_m": 4.68
+        },
+        {
+          "row": 378,
+          "col": 176,
+          "local_relief_m": 4.51
+        },
+        {
+          "row": 437,
+          "col": 514,
+          "local_relief_m": 3.09
+        }
+      ],
+      "valid_search_area_km2": 1.181,
+      "relief_peak_density_per_km2": 5.08,
+      "mapped_pingos_interior": [
+        {
+          "id": "38",
+          "row": 415,
+          "col": 506,
+          "valid_at_center": true,
+          "clearance_m": 84.4
+        },
+        {
+          "id": "56",
+          "row": 554,
+          "col": 792,
+          "valid_at_center": true,
+          "clearance_m": 220.7
+        }
+      ],
+      "mapped_pingo_matches": {
+        "mapped": 2,
+        "matched": 1,
+        "candidate_matches": 1,
+        "radius_m": 100
+      },
+      "random_match_baseline": {
+        "trials": 2000,
+        "random_mean_matches": 0.28,
+        "random_95th_percentile": 1.0,
+        "fraction_random_at_least_observed": 0.264
+      }
+    },
+    "ap8": {
+      "valid_fraction": 0.6726,
+      "geometric_candidates": 0,
+      "in_mars_size_height_range": 0,
+      "candidates": [],
+      "relief_screen_candidates": [
+        {
+          "row": 491,
+          "col": 490,
+          "local_relief_m": 6.21
+        },
+        {
+          "row": 515,
+          "col": 580,
+          "local_relief_m": 6.17
+        },
+        {
+          "row": 471,
+          "col": 416,
+          "local_relief_m": 6.16
+        },
+        {
+          "row": 539,
+          "col": 278,
+          "local_relief_m": 6.06
+        },
+        {
+          "row": 699,
+          "col": 619,
+          "local_relief_m": 4.72
+        },
+        {
+          "row": 270,
+          "col": 440,
+          "local_relief_m": 3.97
+        },
+        {
+          "row": 315,
+          "col": 630,
+          "local_relief_m": 3.4
+        }
+      ],
+      "valid_search_area_km2": 1.617,
+      "relief_peak_density_per_km2": 4.33
+    },
+    "tuktoyaktuk": {
+      "valid_fraction": 1.0,
+      "geometric_candidates": 6,
+      "in_mars_size_height_range": 1,
+      "candidates": [
+        {
+          "row": 498,
+          "col": 489,
+          "height_m": 40.79,
+          "diameter_m": 151.6,
+          "circularity": 0.62,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 320,
+          "col": 631,
+          "height_m": 11.8,
+          "diameter_m": 195.5,
+          "circularity": 0.51,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 774,
+          "col": 662,
+          "height_m": 11.64,
+          "diameter_m": 164.3,
+          "circularity": 0.6,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 360,
+          "col": 365,
+          "height_m": 6.77,
+          "diameter_m": 96.5,
+          "circularity": 0.57,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 196,
+          "col": 291,
+          "height_m": 5.49,
+          "diameter_m": 152.3,
+          "circularity": 0.53,
+          "mars_size_height_range": true
+        },
+        {
+          "row": 255,
+          "col": 822,
+          "height_m": 4.54,
+          "diameter_m": 62.6,
+          "circularity": 0.61,
+          "mars_size_height_range": false
+        }
+      ],
+      "relief_screen_candidates": [
+        {
+          "row": 498,
+          "col": 489,
+          "local_relief_m": 40.79
+        },
+        {
+          "row": 320,
+          "col": 631,
+          "local_relief_m": 11.8
+        },
+        {
+          "row": 774,
+          "col": 662,
+          "local_relief_m": 11.64
+        },
+        {
+          "row": 415,
+          "col": 794,
+          "local_relief_m": 7.29
+        },
+        {
+          "row": 360,
+          "col": 365,
+          "local_relief_m": 6.77
+        },
+        {
+          "row": 196,
+          "col": 291,
+          "local_relief_m": 5.49
+        },
+        {
+          "row": 455,
+          "col": 716,
+          "local_relief_m": 4.97
+        },
+        {
+          "row": 397,
+          "col": 236,
+          "local_relief_m": 4.77
+        },
+        {
+          "row": 222,
+          "col": 635,
+          "local_relief_m": 4.59
+        },
+        {
+          "row": 255,
+          "col": 822,
+          "local_relief_m": 4.54
+        },
+        {
+          "row": 671,
+          "col": 663,
+          "local_relief_m": 4.48
+        },
+        {
+          "row": 769,
+          "col": 778,
+          "local_relief_m": 4.35
+        },
+        {
+          "row": 283,
+          "col": 362,
+          "local_relief_m": 3.62
+        },
+        {
+          "row": 669,
+          "col": 764,
+          "local_relief_m": 3.52
+        }
+      ],
+      "valid_search_area_km2": 1.69,
+      "relief_peak_density_per_km2": 8.28,
+      "mapped_pingos_interior": [
+        {
+          "id": "P0651",
+          "row": 483,
+          "col": 488
+        }
+      ],
+      "mapped_pingo_matches": {
+        "mapped": 1,
+        "matched": 1,
+        "candidate_matches": 1,
+        "radius_m": 100
+      },
+      "random_match_baseline": {
+        "trials": 2000,
+        "random_mean_matches": 0.24,
+        "random_95th_percentile": 1.0,
+        "fraction_random_at_least_observed": 0.239
+      }
+    },
+    "prairie_nearby": {
+      "valid_fraction": 1.0,
+      "geometric_candidates": 0,
+      "in_mars_size_height_range": 0,
+      "candidates": [],
+      "relief_screen_candidates": [],
+      "valid_search_area_km2": 1.69,
+      "relief_peak_density_per_km2": 0.0
+    }
+  },
+  "earth_inventory_calibration": {
+    "1.5": {
+      "tuk_screened": 91,
+      "prairie_screened": 2,
+      "tuk_mapped_match": {
+        "mapped": 10,
+        "matched": 7,
+        "candidate_matches": 7,
+        "radius_m": 100
+      },
+      "random_match_baseline": {
+        "trials": 2000,
+        "random_mean_matches": 2.55,
+        "random_95th_percentile": 5.0,
+        "fraction_random_at_least_observed": 0.006
+      }
+    },
+    "2": {
+      "tuk_screened": 83,
+      "prairie_screened": 0,
+      "tuk_mapped_match": {
+        "mapped": 10,
+        "matched": 7,
+        "candidate_matches": 7,
+        "radius_m": 100
+      },
+      "random_match_baseline": {
+        "trials": 2000,
+        "random_mean_matches": 2.32,
+        "random_95th_percentile": 5.0,
+        "fraction_random_at_least_observed": 0.004
+      }
+    },
+    "3": {
+      "tuk_screened": 71,
+      "prairie_screened": 0,
+      "tuk_mapped_match": {
+        "mapped": 10,
+        "matched": 7,
+        "candidate_matches": 7,
+        "radius_m": 100
+      },
+      "random_match_baseline": {
+        "trials": 2000,
+        "random_mean_matches": 1.99,
+        "random_95th_percentile": 4.0,
+        "fraction_random_at_least_observed": 0.001
+      }
+    },
+    "4": {
+      "tuk_screened": 58,
+      "prairie_screened": 0,
+      "tuk_mapped_match": {
+        "mapped": 10,
+        "matched": 4,
+        "candidate_matches": 4,
+        "radius_m": 100
+      },
+      "random_match_baseline": {
+        "trials": 2000,
+        "random_mean_matches": 1.63,
+        "random_95th_percentile": 4.0,
+        "fraction_random_at_least_observed": 0.074
+      }
+    }
+  },
+  "ap8_map_pingo_polygons_total": 3,
+  "ap8_map_pingo_polygons_near_window": 0
+}

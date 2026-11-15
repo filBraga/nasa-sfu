@@ -1,0 +1,415 @@
+{
+  "method": "10 m Gaussian smoothing minus 200 m background; local peaks and half-height blobs",
+  "parameters": {
+    "min_height_m": 3,
+    "min_circularity": 0.45,
+    "diameter_m": [
+      60,
+      700
+    ],
+    "peak_separation_m": 150
+  },
+  "mars_reference": {
+    "source": "https://doi.org/10.1029/2024JE008724",
+    "region": "AP-1 and AP-9, near Arcadia Planitia (not the broad Arcadia site in config/sites.json)",
+    "feature": "pingo-like mounds; interpretation unconfirmed without ground truth",
+    "diameter_m": [
+      117,
+      440
+    ],
+    "height_m": [
+      4,
+      10
+    ]
+  },
+  "earth_windows": {
+    "tuktoyaktuk": {
+      "center": [
+        69.399971,
+        -133.0777525
+      ],
+      "dem_source": "https://canelevation-dem.s3.ca-central-1.amazonaws.com/hrdem-mosaic-2m/3_8-mosaic-2m-dtm.tif",
+      "resolution_m": 2.0,
+      "window_km": 4.0,
+      "relief_m": 49.3,
+      "geometric_candidates": 25,
+      "in_published_mars_range": 5,
+      "candidates": [
+        {
+          "row": 998,
+          "col": 989,
+          "height_m": 40.79,
+          "diameter_m": 151.6,
+          "circularity": 0.62,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 465,
+          "col": 1057,
+          "height_m": 31.61,
+          "diameter_m": 134.3,
+          "circularity": 0.61,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 820,
+          "col": 1131,
+          "height_m": 11.8,
+          "diameter_m": 195.4,
+          "circularity": 0.51,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 1274,
+          "col": 1162,
+          "height_m": 11.64,
+          "diameter_m": 164.3,
+          "circularity": 0.6,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 447,
+          "col": 1520,
+          "height_m": 9.9,
+          "diameter_m": 132.8,
+          "circularity": 0.46,
+          "mars_size_height_range": true
+        },
+        {
+          "row": 923,
+          "col": 1370,
+          "height_m": 8.94,
+          "diameter_m": 116.1,
+          "circularity": 0.61,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 807,
+          "col": 390,
+          "height_m": 7.98,
+          "diameter_m": 61.4,
+          "circularity": 0.62,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 1509,
+          "col": 768,
+          "height_m": 7.67,
+          "diameter_m": 109.0,
+          "circularity": 0.54,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 544,
+          "col": 619,
+          "height_m": 7.57,
+          "diameter_m": 97.7,
+          "circularity": 0.52,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 638,
+          "col": 1074,
+          "height_m": 7.29,
+          "diameter_m": 143.4,
+          "circularity": 0.6,
+          "mars_size_height_range": true
+        },
+        {
+          "row": 1078,
+          "col": 1636,
+          "height_m": 7.13,
+          "diameter_m": 116.6,
+          "circularity": 0.45,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 1463,
+          "col": 624,
+          "height_m": 7.08,
+          "diameter_m": 123.8,
+          "circularity": 0.5,
+          "mars_size_height_range": true
+        },
+        {
+          "row": 860,
+          "col": 865,
+          "height_m": 6.77,
+          "diameter_m": 96.5,
+          "circularity": 0.57,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 969,
+          "col": 561,
+          "height_m": 6.55,
+          "diameter_m": 133.3,
+          "circularity": 0.49,
+          "mars_size_height_range": true
+        },
+        {
+          "row": 1540,
+          "col": 1636,
+          "height_m": 6.39,
+          "diameter_m": 76.9,
+          "circularity": 0.5,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 1568,
+          "col": 865,
+          "height_m": 6.36,
+          "diameter_m": 101.9,
+          "circularity": 0.48,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 741,
+          "col": 1621,
+          "height_m": 6.14,
+          "diameter_m": 90.2,
+          "circularity": 0.59,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 337,
+          "col": 634,
+          "height_m": 6.08,
+          "diameter_m": 109.7,
+          "circularity": 0.53,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 1442,
+          "col": 1313,
+          "height_m": 5.95,
+          "diameter_m": 102.8,
+          "circularity": 0.61,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 696,
+          "col": 791,
+          "height_m": 5.49,
+          "diameter_m": 153.0,
+          "circularity": 0.52,
+          "mars_size_height_range": true
+        },
+        {
+          "row": 615,
+          "col": 1787,
+          "height_m": 5.02,
+          "diameter_m": 89.7,
+          "circularity": 0.46,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 755,
+          "col": 1322,
+          "height_m": 4.6,
+          "diameter_m": 63.2,
+          "circularity": 0.62,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 883,
+          "col": 1545,
+          "height_m": 4.36,
+          "diameter_m": 97.5,
+          "circularity": 0.53,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 1296,
+          "col": 492,
+          "height_m": 4.2,
+          "diameter_m": 107.8,
+          "circularity": 0.48,
+          "mars_size_height_range": false
+        },
+        {
+          "row": 685,
+          "col": 462,
+          "height_m": 3.06,
+          "diameter_m": 65.6,
+          "circularity": 0.49,
+          "mars_size_height_range": false
+        }
+      ],
+      "inventory_check": {
+        "mapped_pingos": 10,
+        "matched_pingos": 3,
+        "matched_candidates": 3,
+        "match_radius_m": 100,
+        "published_mars_range_pingos": 2,
+        "matched_mars_range_pingos": 1,
+        "mapped_details": [
+          {
+            "id": "P0649",
+            "height_m": 32.11485505104065,
+            "diameter_m": 228.7,
+            "nearest_candidate_m": 38.7
+          },
+          {
+            "id": "P0650",
+            "height_m": 5.754681497812271,
+            "diameter_m": 130.7,
+            "nearest_candidate_m": null
+          },
+          {
+            "id": "P0651",
+            "height_m": 46.7241362730662,
+            "diameter_m": 213.6,
+            "nearest_candidate_m": 29.3
+          },
+          {
+            "id": "P0652",
+            "height_m": 6.850666642189026,
+            "diameter_m": 115.2,
+            "nearest_candidate_m": null
+          },
+          {
+            "id": "P1238",
+            "height_m": 8.480806350708008,
+            "diameter_m": 145.7,
+            "nearest_candidate_m": 1.5
+          },
+          {
+            "id": "P1251",
+            "height_m": 2.684154748916626,
+            "diameter_m": 113.9,
+            "nearest_candidate_m": null
+          },
+          {
+            "id": "P1252",
+            "height_m": 11.39797377586365,
+            "diameter_m": 118.2,
+            "nearest_candidate_m": null
+          },
+          {
+            "id": "P1253",
+            "height_m": 3.411645412445068,
+            "diameter_m": 94.9,
+            "nearest_candidate_m": null
+          },
+          {
+            "id": "P1255",
+            "height_m": 2.604064106941223,
+            "diameter_m": 119.6,
+            "nearest_candidate_m": null
+          },
+          {
+            "id": "P2018",
+            "height_m": 6.896203219890594,
+            "diameter_m": 83.6,
+            "nearest_candidate_m": null
+          }
+        ],
+        "inventory_source": "https://doi.org/10.17632/kgbsjvrj32.1"
+      }
+    },
+    "prairie_nearby": {
+      "center": [
+        50.35,
+        -105.3
+      ],
+      "dem_source": "https://canelevation-dem.s3.ca-central-1.amazonaws.com/hrdem-mosaic-2m/4_3-mosaic-2m-dtm.tif",
+      "resolution_m": 2.0,
+      "window_km": 4.0,
+      "relief_m": 6.22,
+      "geometric_candidates": 0,
+      "in_published_mars_range": 0,
+      "candidates": []
+    }
+  },
+  "sensitivity": {
+    "tuktoyaktuk": [
+      {
+        "min_height_m": 3,
+        "min_circularity": 0.35,
+        "candidates": 34,
+        "in_published_mars_range": 10,
+        "mapped_pingos_recovered": 3
+      },
+      {
+        "min_height_m": 3,
+        "min_circularity": 0.45,
+        "candidates": 25,
+        "in_published_mars_range": 5,
+        "mapped_pingos_recovered": 3
+      },
+      {
+        "min_height_m": 3,
+        "min_circularity": 0.55,
+        "candidates": 10,
+        "in_published_mars_range": 1,
+        "mapped_pingos_recovered": 3
+      },
+      {
+        "min_height_m": 4,
+        "min_circularity": 0.35,
+        "candidates": 33,
+        "in_published_mars_range": 10,
+        "mapped_pingos_recovered": 3
+      },
+      {
+        "min_height_m": 4,
+        "min_circularity": 0.45,
+        "candidates": 24,
+        "in_published_mars_range": 5,
+        "mapped_pingos_recovered": 3
+      },
+      {
+        "min_height_m": 4,
+        "min_circularity": 0.55,
+        "candidates": 10,
+        "in_published_mars_range": 1,
+        "mapped_pingos_recovered": 3
+      }
+    ],
+    "prairie_nearby": [
+      {
+        "min_height_m": 3,
+        "min_circularity": 0.35,
+        "candidates": 0,
+        "in_published_mars_range": 0,
+        "mapped_pingos_recovered": null
+      },
+      {
+        "min_height_m": 3,
+        "min_circularity": 0.45,
+        "candidates": 0,
+        "in_published_mars_range": 0,
+        "mapped_pingos_recovered": null
+      },
+      {
+        "min_height_m": 3,
+        "min_circularity": 0.55,
+        "candidates": 0,
+        "in_published_mars_range": 0,
+        "mapped_pingos_recovered": null
+      },
+      {
+        "min_height_m": 4,
+        "min_circularity": 0.35,
+        "candidates": 0,
+        "in_published_mars_range": 0,
+        "mapped_pingos_recovered": null
+      },
+      {
+        "min_height_m": 4,
+        "min_circularity": 0.45,
+        "candidates": 0,
+        "in_published_mars_range": 0,
+        "mapped_pingos_recovered": null
+      },
+      {
+        "min_height_m": 4,
+        "min_circularity": 0.55,
+        "candidates": 0,
+        "in_published_mars_range": 0,
+        "mapped_pingos_recovered": null
+      }
+    ]
+  }
+}

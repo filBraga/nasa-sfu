@@ -27,16 +27,18 @@ No accounts are needed for the current datasets.
 ## Calibration step (where we are now)
 
 Known analogs are paired with targets, and **control** sites (prairie, mountains, Canadian Shield)
-must rank lower. If they don't, the method is wrong.
+test whether the score is measuring the intended kind of similarity. A control outranking a known
+analog exposes a limitation that needs investigation.
 
-| Target | 1st | 2nd | best control |
+| Target | Known pair | Top candidate | Best control |
 |---|---|---|---|
-| Jezero (Mars), 200 m | Haughton 0.68 | Mistastin 0.66 | Shield 0.41 |
-| Shackleton (Moon), 80 m | Mistastin 0.41 | Haughton 0.38 | Mountains 0.34 |
+| Jezero (Mars), 200 m | Haughton 0.54 | Haughton 0.54 | Coast Mountains 0.27 |
+| Shackleton (Moon), 80 m | Mistastin 0.19 | Haughton 0.24 | Coast Mountains 0.23 |
 
-Shackleton scores are low for everyone: it is ~37x deeper relative to its width than Mistastin
-(depth/diameter 0.19 vs 0.005). That is a real finding: low gravity + no erosion keeps lunar
-craters deep and sharp, something no Earth site reproduces.
+Shackleton remains a failed calibration case: the mountain control scores above the Mistastin
+pair. Its crater is ~37x deeper relative to its width than Mistastin (depth/diameter 0.19 vs
+0.005), and the current measurements cannot capture every difference between a lunar and Earth
+crater. The low scores and close ranking should not be read as a validated analog ranking.
 
 ## Site types (not only craters)
 
@@ -58,15 +60,24 @@ New metrics:
   Check: Shackleton's floor comes out lit from 0% of directions (it is permanently shadowed) and its rim ~45%.
 - **Texture:** shape of the terrain's power spectrum, 100 m - 20 km wavelengths.
 
-What the first run shows (terrain only, default dimensions):
+What the current exported results show (default dimensions, including available data layers):
 
-- **Mons Mouton Plateau:** Expedition Fiord uplands 0.42 > HMP plateau 0.32 > all controls. Works as intended.
-- **Malapert Massif:** the Coast Mountains control ranks first (0.45). Malapert is a 5 km massif, so a 30 km
-  window is mostly steep flanks, and terrain says "mountain". The base site itself is a small summit area;
-  a smaller window or summit-only analysis is the next refinement.
-- **Arcadia Planitia:** the Prairie control ranks first (0.63), Tuktoyaktuk second (0.51). Smooth plains
-  look alike in elevation data whatever they are made of. Telling ice-rich ground from farmland needs the
-  thermal / radar / ice layers, which is exactly what the data teams are adding.
+- **Mons Mouton Plateau:** Expedition Fiord uplands scores 0.35; the Coast Mountains control
+  scores 0.18. Several other candidates rank above Expedition Fiord.
+- **Malapert Massif:** Expedition Fiord uplands scores 0.27, close to the Coast Mountains control
+  at 0.27. A smaller summit-only window may distinguish a base site from steep flanks.
+- **Arcadia Planitia:** the Prairie control scores 0.38, above Tuktoyaktuk at 0.25. Flatness and
+  the current temperature, vegetation, and dust layers cannot establish buried ice. Direct ice
+  evidence is needed before calling an Earth site a strong Arcadia analog.
+
+See [the 2 m pingo-scale experiment](docs/ARCADIA_PINGO_EXPERIMENT.md) for a separate comparison
+of Tuktoyaktuk and a nearby Prairie control against published Arcadia-area landform measurements.
+The preliminary detector has low recovery against a mapped pingo inventory and is not included
+in the website score.
+
+A [matched-scale AP-1 study](docs/MATCHED_SCALE_PINGO_STUDY.md) now compares 2 m Earth and Mars
+DEMs. It finds that the sensitive relief screen also produces peaks in a local AP-8 control,
+so this evidence still does not justify a new score dimension.
 
 ## Data
 
@@ -84,13 +95,27 @@ What the first run shows (terrain only, default dimensions):
 | Slope distribution | 0.20 | Wasserstein distance between slope samples |
 | Surface roughness | 0.15 | Wasserstein distance of log10 Terrain Ruggedness Index |
 | Hypsometry | 0.15 | Gap between normalised elevation-area curves |
-| Crater profile shape | 0.30 | Correlation of 8 compass-sector radial profiles with the target profile |
+| Crater profile shape | 0.30 | Lower-quartile correlation of 8 compass-sector radial profiles with the target profile |
 | Depth / diameter | 0.20 | Log-ratio, 0.5 at a 2x difference |
 | Flat ground (< 5 deg) | 0.20 | Difference in flat-area share, scale 0.15 |
 | Sunlight at low sun | 0.30 | Wasserstein distance of per-pixel lit fraction (16 azimuths, curvature-corrected horizons) |
 | Terrain texture | 0.20 | Gap between normalised log power spectra |
 
-Each target type uses a subset (see Site types). Each score is 0-1; >= 0.7 strong, 0.4-0.7 partial, < 0.4 weak.
+Each target type uses a subset (see Site types). Each dimension scores 0-1. The combined
+**measured-feature match** is a weighted geometric mean:
+
+`match = exp(sum(weight × ln(dimension score)) / sum(weight))`
+
+A measured zero makes the combined match zero. This prevents a very weak dimension from being
+hidden by several strong ones. Dimensions without data are omitted, so a high match based on a
+small set of measurements is not proof of a complete analog. The website recalculates the same
+formula when score dimensions or data sources are filtered. The display bands are >= 0.7 strong,
+0.4-0.7 partial, and < 0.4 weak **measured matches**, not probabilities.
+
+Earth's gravity and atmospheric pressure cannot match the Moon or Mars and are not included in
+this number. The site describes them separately as limits. We deliberately do not apply an
+arbitrary planet-wide penalty: the number answers how well the measured features match, while
+the limits explain what the analog cannot reproduce.
 
 ## Layout
 

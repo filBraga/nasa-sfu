@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15T01:32:35+00:00",
+ "generated": "2026-11-15T07:26:16+00:00",
  "site_types": {
   "crater": {
    "label": "Impact crater",
@@ -127,7 +127,7 @@
    "group": "terrain",
    "label": "Crater profile shape",
    "weight": 0.3,
-   "method": "Mean correlation of 8 compass-sector radial profiles with the target profile (r/R 0-1.5)",
+   "method": "Lower-quartile correlation of 8 compass-sector radial profiles with the target profile (r/R 0-1.5)",
    "default_on": true,
    "description": "Whether the site has the same bowl-and-rim shape in all 8 compass directions as the target crater. Distances are divided by the crater radius, so different-sized craters can be compared.",
    "code": "analog/terrain.py: radial_profile(); analog/compare.py: _profile()",
@@ -3809,22 +3809,22 @@
    "target_type": "crater",
    "is_pair": true,
    "scores": {
-    "slope": 0.857,
-    "roughness": 0.488,
-    "hypsometry": 0.312,
-    "profile": 0.674,
-    "depth": 0.912,
-    "thermal_amplitude": 0.448,
-    "barren_ground": 0.297,
-    "surface_dust": 0.171,
-    "demo_tpi": 0.757
+    "slope": 0.85719602,
+    "roughness": 0.48768405,
+    "hypsometry": 0.31188077,
+    "profile": 0.76341877,
+    "depth": 0.91203283,
+    "thermal_amplitude": 0.44824088,
+    "barren_ground": 0.29715091,
+    "surface_dust": 0.17124932,
+    "demo_tpi": 0.75691959
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.585,
+   "overall": 0.54,
    "verdict": "partial",
    "notes": [
     "Median slope 2.2 deg at Haughton Crater vs 3.3 deg at Jezero Crater.",
@@ -4595,22 +4595,22 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.906,
-    "roughness": 0.66,
-    "hypsometry": 0.28,
-    "profile": 0.744,
-    "depth": 0.559,
-    "thermal_amplitude": 0.769,
-    "barren_ground": 0.019,
+    "slope": 0.90613936,
+    "roughness": 0.65977682,
+    "hypsometry": 0.28019528,
+    "profile": 0.59583186,
+    "depth": 0.55882682,
+    "thermal_amplitude": 0.76914426,
+    "barren_ground": 0.01855475,
     "surface_dust": 1.0,
-    "demo_tpi": 0.832
+    "demo_tpi": 0.83193393
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.648,
+   "overall": 0.483,
    "verdict": "partial",
    "notes": [
     "Median slope 2.5 deg at Mistastin Lake Crater vs 3.3 deg at Jezero Crater.",
@@ -5381,23 +5381,23 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.739,
-    "roughness": 0.256,
-    "hypsometry": 0.047,
-    "profile": 0.672,
-    "depth": 0.378,
-    "thermal_amplitude": 0.683,
-    "barren_ground": 0.019,
+    "slope": 0.73946006,
+    "roughness": 0.25555786,
+    "hypsometry": 0.0466653,
+    "profile": 0.51208411,
+    "depth": 0.37789019,
+    "thermal_amplitude": 0.68259007,
+    "barren_ground": 0.01900567,
     "surface_dust": 1.0,
-    "demo_tpi": 0.659
+    "demo_tpi": 0.6585182
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.5,
-   "verdict": "partial",
+   "overall": 0.312,
+   "verdict": "weak",
    "notes": [
     "Median slope 1.3 deg at Pingualuit Crater vs 3.3 deg at Jezero Crater.",
     "Flat ground (< 5 deg): 93% vs 70%.",
@@ -6167,22 +6167,22 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.627,
-    "roughness": 0.047,
-    "hypsometry": 0.074,
-    "profile": 0.069,
-    "depth": 0.235,
-    "thermal_amplitude": 0.874,
-    "barren_ground": 0.019,
-    "surface_dust": 1.0,
-    "demo_tpi": 0.553
+    "slope": 0.62738915,
+    "roughness": 0.04687307,
+    "hypsometry": 0.07386402,
+    "profile": 0.0,
+    "depth": 0.23487844,
+    "thermal_amplitude": 0.87417602,
+    "barren_ground": 0.01854918,
+    "surface_dust": 0.99958443,
+    "demo_tpi": 0.55343435
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.329,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 0.3 deg at Prairie control vs 3.3 deg at Jezero Crater.",
@@ -6953,23 +6953,23 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.116,
-    "roughness": 0.073,
-    "hypsometry": 0.779,
-    "profile": 0.589,
-    "depth": 0.302,
-    "thermal_amplitude": 0.613,
-    "barren_ground": 0.028,
-    "surface_dust": 0.914,
-    "demo_tpi": 0.702
+    "slope": 0.1157894,
+    "roughness": 0.07341589,
+    "hypsometry": 0.77920572,
+    "profile": 0.49142026,
+    "depth": 0.30219569,
+    "thermal_amplitude": 0.61307575,
+    "barren_ground": 0.02837377,
+    "surface_dust": 0.91391202,
+    "demo_tpi": 0.70189763
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.426,
-   "verdict": "partial",
+   "overall": 0.273,
+   "verdict": "weak",
    "notes": [
     "Median slope 22.1 deg at Coast Mountains control vs 3.3 deg at Jezero Crater.",
     "Flat ground (< 5 deg): 7% vs 70%.",
@@ -7739,23 +7739,23 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.732,
-    "roughness": 0.332,
-    "hypsometry": 0.041,
-    "profile": 0.59,
-    "depth": 0.158,
-    "thermal_amplitude": 0.72,
-    "barren_ground": 0.018,
+    "slope": 0.73204861,
+    "roughness": 0.33235613,
+    "hypsometry": 0.04070826,
+    "profile": 0.46107077,
+    "depth": 0.15791309,
+    "thermal_amplitude": 0.71960497,
+    "barren_ground": 0.01831564,
     "surface_dust": 1.0,
-    "demo_tpi": 0.87
+    "demo_tpi": 0.86952437
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.46,
-   "verdict": "partial",
+   "overall": 0.272,
+   "verdict": "weak",
    "notes": [
     "Median slope 1.3 deg at Canadian Shield control vs 3.3 deg at Jezero Crater.",
     "Flat ground (< 5 deg): 94% vs 70%.",
@@ -8525,22 +8525,22 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.868,
-    "roughness": 0.705,
-    "hypsometry": 0.259,
-    "profile": 0.21,
-    "depth": 0.411,
-    "thermal_amplitude": 0.592,
-    "barren_ground": 0.021,
-    "surface_dust": 0.956
+    "slope": 0.86782535,
+    "roughness": 0.70499631,
+    "hypsometry": 0.25900676,
+    "profile": 0.0,
+    "depth": 0.41080526,
+    "thermal_amplitude": 0.59226228,
+    "barren_ground": 0.02062514,
+    "surface_dust": 0.95632081
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.481,
-   "verdict": "partial",
+   "overall": 0.0,
+   "verdict": "weak",
    "notes": [
     "Median slope 2.9 deg at Interior Baffin Island vs 3.3 deg at Jezero Crater.",
     "Flat ground (< 5 deg): 81% vs 70%.",
@@ -9207,21 +9207,21 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.229,
-    "roughness": 0.114,
-    "hypsometry": 0.524,
+    "slope": 0.22889502,
+    "roughness": 0.11397213,
+    "hypsometry": 0.5241529,
     "profile": 0.0,
-    "depth": 0.195,
-    "thermal_amplitude": 0.738,
-    "barren_ground": 0.199,
-    "surface_dust": 0.207
+    "depth": 0.19516499,
+    "thermal_amplitude": 0.73844799,
+    "barren_ground": 0.19904542,
+    "surface_dust": 0.20722344
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.246,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 16.7 deg at Chukotka vs 3.3 deg at Jezero Crater.",
@@ -9889,12 +9889,12 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.593,
-    "roughness": 0.016,
-    "hypsometry": 0.471,
+    "slope": 0.59264412,
+    "roughness": 0.01629757,
+    "hypsometry": 0.47084309,
     "profile": 0.0,
     "depth": 0.0,
-    "thermal_amplitude": 0.901,
+    "thermal_amplitude": 0.9012531,
     "barren_ground": 1.0,
     "surface_dust": 1.0
    },
@@ -9903,7 +9903,7 @@
     "illumination",
     "texture"
    ],
-   "overall": 0.39,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 0.1 deg at Kyzylkum Desert vs 3.3 deg at Jezero Crater.",
@@ -10571,22 +10571,22 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.603,
-    "roughness": 0.032,
-    "hypsometry": 0.098,
-    "profile": 0.797,
-    "depth": 0.101,
-    "thermal_amplitude": 0.991,
+    "slope": 0.60290044,
+    "roughness": 0.03170966,
+    "hypsometry": 0.09806095,
+    "profile": 0.72354838,
+    "depth": 0.1006781,
+    "thermal_amplitude": 0.99115607,
     "barren_ground": 1.0,
-    "surface_dust": 0.939
+    "surface_dust": 0.93860618
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.55,
-   "verdict": "partial",
+   "overall": 0.322,
+   "verdict": "weak",
    "notes": [
     "Median slope 0.3 deg at Desert of northwestern Iraq vs 3.3 deg at Jezero Crater.",
     "Flat ground (< 5 deg): 100% vs 70%.",
@@ -11253,12 +11253,12 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.748,
-    "roughness": 0.452,
-    "hypsometry": 0.194,
-    "profile": 0.459,
-    "depth": 0.322,
-    "thermal_amplitude": 0.974,
+    "slope": 0.74766917,
+    "roughness": 0.45229533,
+    "hypsometry": 0.19379883,
+    "profile": 0.23056071,
+    "depth": 0.32230179,
+    "thermal_amplitude": 0.97378338,
     "barren_ground": 1.0,
     "surface_dust": 1.0
    },
@@ -11267,7 +11267,7 @@
     "illumination",
     "texture"
    ],
-   "overall": 0.589,
+   "overall": 0.445,
    "verdict": "partial",
    "notes": [
     "Median slope 1.6 deg at Balochistan vs 3.3 deg at Jezero Crater.",
@@ -11935,21 +11935,21 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.64,
-    "roughness": 0.064,
-    "hypsometry": 0.495,
+    "slope": 0.64011692,
+    "roughness": 0.06397489,
+    "hypsometry": 0.49503241,
     "profile": 0.0,
-    "depth": 0.025,
-    "thermal_amplitude": 0.935,
+    "depth": 0.02517588,
+    "thermal_amplitude": 0.93475527,
     "barren_ground": 1.0,
-    "surface_dust": 0.799
+    "surface_dust": 0.79945725
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.398,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 0.4 deg at Karakum Desert vs 3.3 deg at Jezero Crater.",
@@ -12617,12 +12617,12 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.594,
-    "roughness": 0.019,
-    "hypsometry": 0.603,
+    "slope": 0.59416736,
+    "roughness": 0.01930476,
+    "hypsometry": 0.60328026,
     "profile": 0.0,
-    "depth": 0.022,
-    "thermal_amplitude": 0.947,
+    "depth": 0.02181546,
+    "thermal_amplitude": 0.94664866,
     "barren_ground": 1.0,
     "surface_dust": 1.0
    },
@@ -12631,8 +12631,8 @@
     "illumination",
     "texture"
    ],
-   "overall": 0.414,
-   "verdict": "partial",
+   "overall": 0.0,
+   "verdict": "weak",
    "notes": [
     "Median slope 0.1 deg at Rub' al Khali (Empty Quarter) vs 3.3 deg at Jezero Crater.",
     "Flat ground (< 5 deg): 100% vs 70%.",
@@ -13299,21 +13299,21 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.604,
-    "roughness": 0.039,
-    "hypsometry": 0.502,
+    "slope": 0.60401075,
+    "roughness": 0.03886243,
+    "hypsometry": 0.50236652,
     "profile": 0.0,
     "depth": 0.0,
-    "thermal_amplitude": 0.845,
-    "barren_ground": 0.91,
-    "surface_dust": 0.999
+    "thermal_amplitude": 0.84546045,
+    "barren_ground": 0.90991872,
+    "surface_dust": 0.99928914
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.385,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 0.3 deg at Western Qatar desert vs 3.3 deg at Jezero Crater.",
@@ -13981,12 +13981,12 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.64,
-    "roughness": 0.085,
-    "hypsometry": 0.381,
-    "profile": 0.1,
-    "depth": 0.043,
-    "thermal_amplitude": 0.925,
+    "slope": 0.6402442,
+    "roughness": 0.08548716,
+    "hypsometry": 0.3809572,
+    "profile": 0.0,
+    "depth": 0.04336229,
+    "thermal_amplitude": 0.92466524,
     "barren_ground": 1.0,
     "surface_dust": 1.0
    },
@@ -13995,8 +13995,8 @@
     "illumination",
     "texture"
    ],
-   "overall": 0.426,
-   "verdict": "partial",
+   "overall": 0.0,
+   "verdict": "weak",
    "notes": [
     "Median slope 0.5 deg at Inland desert vs 3.3 deg at Jezero Crater.",
     "Flat ground (< 5 deg): 100% vs 70%.",
@@ -14663,22 +14663,22 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.219,
-    "roughness": 0.147,
-    "hypsometry": 0.3,
-    "profile": 0.05,
-    "depth": 0.969,
-    "thermal_amplitude": 0.988,
-    "barren_ground": 0.29,
-    "surface_dust": 0.977
+    "slope": 0.21914753,
+    "roughness": 0.14740887,
+    "hypsometry": 0.29990889,
+    "profile": 0.0,
+    "depth": 0.9685675,
+    "thermal_amplitude": 0.98779315,
+    "barren_ground": 0.29036335,
+    "surface_dust": 0.97669686
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.44,
-   "verdict": "partial",
+   "overall": 0.0,
+   "verdict": "weak",
    "notes": [
     "Median slope 16.8 deg at Pamir high plateau vs 3.3 deg at Jezero Crater.",
     "Flat ground (< 5 deg): 21% vs 70%.",
@@ -15345,22 +15345,22 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.687,
-    "roughness": 0.057,
-    "hypsometry": 0.043,
-    "flat_fraction": 0.339,
-    "texture": 0.152,
-    "thermal_amplitude": 0.485,
-    "barren_ground": 0.297,
-    "surface_dust": 0.576,
-    "demo_tpi": 0.758
+    "slope": 0.68715712,
+    "roughness": 0.0573777,
+    "hypsometry": 0.04290169,
+    "flat_fraction": 0.33933029,
+    "texture": 0.15211305,
+    "thermal_amplitude": 0.48467326,
+    "barren_ground": 0.29715091,
+    "surface_dust": 0.57626409,
+    "demo_tpi": 0.75789146
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.329,
+   "overall": 0.227,
    "verdict": "weak",
    "notes": [
     "Median slope 2.2 deg at Haughton Crater vs 0.3 deg at Arcadia Planitia.",
@@ -16046,23 +16046,23 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.948,
-    "roughness": 0.238,
-    "hypsometry": 0.16,
-    "flat_fraction": 0.995,
-    "texture": 0.061,
-    "thermal_amplitude": 0.625,
-    "barren_ground": 0.019,
-    "surface_dust": 0.102,
-    "demo_tpi": 0.693
+    "slope": 0.94752383,
+    "roughness": 0.23820589,
+    "hypsometry": 0.1602197,
+    "flat_fraction": 0.99527048,
+    "texture": 0.06141175,
+    "thermal_amplitude": 0.62543237,
+    "barren_ground": 0.01882777,
+    "surface_dust": 0.10192776,
+    "demo_tpi": 0.69260327
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.453,
-   "verdict": "partial",
+   "overall": 0.245,
+   "verdict": "weak",
    "notes": [
     "Median slope 0.4 deg at Tuktoyaktuk pingos vs 0.3 deg at Arcadia Planitia.",
     "Flat ground (< 5 deg): 100% vs 100%."
@@ -16747,23 +16747,23 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.96,
-    "roughness": 0.638,
-    "hypsometry": 0.407,
-    "flat_fraction": 0.893,
-    "texture": 0.194,
-    "thermal_amplitude": 0.945,
-    "barren_ground": 0.019,
-    "surface_dust": 0.099,
-    "demo_tpi": 0.543
+    "slope": 0.95960771,
+    "roughness": 0.63789236,
+    "hypsometry": 0.40741747,
+    "flat_fraction": 0.89271128,
+    "texture": 0.19355246,
+    "thermal_amplitude": 0.94522779,
+    "barren_ground": 0.01854918,
+    "surface_dust": 0.09872586,
+    "demo_tpi": 0.54271248
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.576,
-   "verdict": "partial",
+   "overall": 0.383,
+   "verdict": "weak",
    "notes": [
     "Median slope 0.3 deg at Prairie control vs 0.3 deg at Arcadia Planitia.",
     "Flat ground (< 5 deg): 98% vs 100%."
@@ -17448,22 +17448,22 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.07,
-    "roughness": 0.002,
-    "hypsometry": 0.125,
-    "flat_fraction": 0.002,
-    "texture": 0.482,
-    "thermal_amplitude": 0.663,
-    "barren_ground": 0.028,
-    "surface_dust": 0.108,
-    "demo_tpi": 0.758
+    "slope": 0.0701247,
+    "roughness": 0.0024548,
+    "hypsometry": 0.124666,
+    "flat_fraction": 0.00207409,
+    "texture": 0.48162273,
+    "thermal_amplitude": 0.66290566,
+    "barren_ground": 0.02837377,
+    "surface_dust": 0.10798067,
+    "demo_tpi": 0.7584966
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.194,
+   "overall": 0.049,
    "verdict": "weak",
    "notes": [
     "Median slope 22.1 deg at Coast Mountains control vs 0.3 deg at Arcadia Planitia.",
@@ -18149,23 +18149,23 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.827,
-    "roughness": 0.098,
-    "hypsometry": 0.326,
-    "flat_fraction": 0.664,
-    "texture": 0.108,
-    "thermal_amplitude": 0.778,
-    "barren_ground": 0.018,
-    "surface_dust": 0.099,
-    "demo_tpi": 0.731
+    "slope": 0.82715139,
+    "roughness": 0.09829339,
+    "hypsometry": 0.32619477,
+    "flat_fraction": 0.66381581,
+    "texture": 0.10768468,
+    "thermal_amplitude": 0.77809343,
+    "barren_ground": 0.01831564,
+    "surface_dust": 0.09868483,
+    "demo_tpi": 0.73065106
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.409,
-   "verdict": "partial",
+   "overall": 0.246,
+   "verdict": "weak",
    "notes": [
     "Median slope 1.3 deg at Canadian Shield control vs 0.3 deg at Arcadia Planitia.",
     "Flat ground (< 5 deg): 94% vs 100%."
@@ -18850,21 +18850,21 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.698,
-    "roughness": 0.045,
-    "hypsometry": 0.378,
-    "flat_fraction": 0.279,
-    "texture": 0.318,
-    "thermal_amplitude": 0.64,
-    "barren_ground": 0.021,
-    "surface_dust": 0.103
+    "slope": 0.6977239,
+    "roughness": 0.04480467,
+    "hypsometry": 0.37807993,
+    "flat_fraction": 0.27886234,
+    "texture": 0.31754172,
+    "thermal_amplitude": 0.64040051,
+    "barren_ground": 0.02062514,
+    "surface_dust": 0.10319219
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.345,
+   "overall": 0.228,
    "verdict": "weak",
    "notes": [
     "Median slope 2.9 deg at Interior Baffin Island vs 0.3 deg at Arcadia Planitia.",
@@ -19447,21 +19447,21 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.139,
-    "roughness": 0.004,
-    "hypsometry": 0.23,
-    "flat_fraction": 0.003,
-    "texture": 0.138,
-    "thermal_amplitude": 0.798,
-    "barren_ground": 0.199,
-    "surface_dust": 0.476
+    "slope": 0.13859937,
+    "roughness": 0.00374846,
+    "hypsometry": 0.23045118,
+    "flat_fraction": 0.00310753,
+    "texture": 0.13800673,
+    "thermal_amplitude": 0.79846798,
+    "barren_ground": 0.19904542,
+    "surface_dust": 0.47622428
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.223,
+   "overall": 0.073,
    "verdict": "weak",
    "notes": [
     "Median slope 16.7 deg at Chukotka vs 0.3 deg at Arcadia Planitia.",
@@ -20044,22 +20044,22 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.978,
-    "roughness": 0.48,
-    "hypsometry": 0.074,
+    "slope": 0.97820568,
+    "roughness": 0.47985909,
+    "hypsometry": 0.07426858,
     "flat_fraction": 1.0,
-    "texture": 0.09,
-    "thermal_amplitude": 0.834,
+    "texture": 0.08968201,
+    "thermal_amplitude": 0.83350686,
     "barren_ground": 1.0,
-    "surface_dust": 0.099
+    "surface_dust": 0.09868483
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.585,
-   "verdict": "partial",
+   "overall": 0.369,
+   "verdict": "weak",
    "notes": [
     "Median slope 0.1 deg at Kyzylkum Desert vs 0.3 deg at Arcadia Planitia.",
     "Flat ground (< 5 deg): 100% vs 100%."
@@ -20641,22 +20641,22 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.996,
-    "roughness": 0.93,
-    "hypsometry": 0.698,
+    "slope": 0.99564013,
+    "roughness": 0.92986305,
+    "hypsometry": 0.69824835,
     "flat_fraction": 1.0,
-    "texture": 0.175,
-    "thermal_amplitude": 0.917,
+    "texture": 0.1754119,
+    "thermal_amplitude": 0.91665191,
     "barren_ground": 1.0,
-    "surface_dust": 0.105
+    "surface_dust": 0.10513977
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.741,
-   "verdict": "strong",
+   "overall": 0.594,
+   "verdict": "partial",
    "notes": [
     "Median slope 0.3 deg at Desert of northwestern Iraq vs 0.3 deg at Arcadia Planitia.",
     "Flat ground (< 5 deg): 100% vs 100%."
@@ -21238,21 +21238,21 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.81,
-    "roughness": 0.072,
-    "hypsometry": 0.586,
-    "flat_fraction": 0.695,
-    "texture": 0.239,
-    "thermal_amplitude": 0.95,
+    "slope": 0.80987026,
+    "roughness": 0.07222682,
+    "hypsometry": 0.58571501,
+    "flat_fraction": 0.69458242,
+    "texture": 0.23947716,
+    "thermal_amplitude": 0.94972976,
     "barren_ground": 1.0,
-    "surface_dust": 0.099
+    "surface_dust": 0.09868483
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.56,
+   "overall": 0.41,
    "verdict": "partial",
    "notes": [
     "Median slope 1.6 deg at Balochistan vs 0.3 deg at Arcadia Planitia.",
@@ -21835,21 +21835,21 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.941,
-    "roughness": 0.509,
-    "hypsometry": 0.07,
-    "flat_fraction": 0.87,
-    "texture": 0.316,
-    "thermal_amplitude": 0.864,
+    "slope": 0.94058775,
+    "roughness": 0.5093708,
+    "hypsometry": 0.0700538,
+    "flat_fraction": 0.87000244,
+    "texture": 0.31564601,
+    "thermal_amplitude": 0.8644907,
     "barren_ground": 1.0,
-    "surface_dust": 0.123
+    "surface_dust": 0.12343979
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.603,
+   "overall": 0.449,
    "verdict": "partial",
    "notes": [
     "Median slope 0.4 deg at Karakum Desert vs 0.3 deg at Arcadia Planitia.",
@@ -22432,21 +22432,21 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.981,
-    "roughness": 0.564,
-    "hypsometry": 0.204,
+    "slope": 0.98118315,
+    "roughness": 0.56409894,
+    "hypsometry": 0.20392125,
     "flat_fraction": 1.0,
-    "texture": 0.135,
-    "thermal_amplitude": 0.977,
+    "texture": 0.13456212,
+    "thermal_amplitude": 0.97695279,
     "barren_ground": 1.0,
-    "surface_dust": 0.099
+    "surface_dust": 0.09868483
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.636,
+   "overall": 0.462,
    "verdict": "partial",
    "notes": [
     "Median slope 0.1 deg at Rub' al Khali (Empty Quarter) vs 0.3 deg at Arcadia Planitia.",
@@ -23029,21 +23029,21 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.997,
-    "roughness": 0.829,
-    "hypsometry": 0.077,
+    "slope": 0.99674634,
+    "roughness": 0.82892233,
+    "hypsometry": 0.07710524,
     "flat_fraction": 1.0,
-    "texture": 0.147,
-    "thermal_amplitude": 0.914,
-    "barren_ground": 0.91,
-    "surface_dust": 0.099
+    "texture": 0.14668913,
+    "thermal_amplitude": 0.91417826,
+    "barren_ground": 0.90991872,
+    "surface_dust": 0.09875504
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.642,
+   "overall": 0.431,
    "verdict": "partial",
    "notes": [
     "Median slope 0.3 deg at Western Qatar desert vs 0.3 deg at Arcadia Planitia.",
@@ -23626,21 +23626,21 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.946,
-    "roughness": 0.382,
-    "hypsometry": 0.313,
-    "flat_fraction": 0.989,
-    "texture": 0.183,
-    "thermal_amplitude": 1.0,
+    "slope": 0.94575636,
+    "roughness": 0.38214408,
+    "hypsometry": 0.31328468,
+    "flat_fraction": 0.98880389,
+    "texture": 0.18347072,
+    "thermal_amplitude": 0.99982071,
     "barren_ground": 1.0,
-    "surface_dust": 0.099
+    "surface_dust": 0.09868483
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.63,
+   "overall": 0.486,
    "verdict": "partial",
    "notes": [
     "Median slope 0.5 deg at Inland desert vs 0.3 deg at Arcadia Planitia.",
@@ -24223,21 +24223,21 @@
    "target_type": "periglacial_plains",
    "is_pair": false,
    "scores": {
-    "slope": 0.133,
-    "roughness": 0.005,
-    "hypsometry": 0.327,
-    "flat_fraction": 0.005,
-    "texture": 0.346,
-    "thermal_amplitude": 0.936,
-    "barren_ground": 0.29,
-    "surface_dust": 0.101
+    "slope": 0.13269713,
+    "roughness": 0.00481638,
+    "hypsometry": 0.32652764,
+    "flat_fraction": 0.00529241,
+    "texture": 0.34565014,
+    "thermal_amplitude": 0.93625984,
+    "barren_ground": 0.29036335,
+    "surface_dust": 0.10103937
    },
    "not_applicable": [
     "profile",
     "depth",
     "illumination"
    ],
-   "overall": 0.261,
+   "overall": 0.091,
    "verdict": "weak",
    "notes": [
     "Median slope 16.8 deg at Pamir high plateau vs 0.3 deg at Arcadia Planitia.",
@@ -24820,21 +24820,21 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.417,
-    "roughness": 0.16,
-    "hypsometry": 0.151,
-    "profile": 0.806,
-    "depth": 0.044,
-    "thermal_amplitude": 0.172,
-    "barren_ground": 0.297,
-    "demo_tpi": 0.739
+    "slope": 0.41690899,
+    "roughness": 0.15979203,
+    "hypsometry": 0.15114388,
+    "profile": 0.87635638,
+    "depth": 0.04380236,
+    "thermal_amplitude": 0.17241728,
+    "barren_ground": 0.29668675,
+    "demo_tpi": 0.73895083
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.349,
+   "overall": 0.24,
    "verdict": "weak",
    "notes": [
     "Median slope 2.5 deg at Haughton Crater vs 9.4 deg at Shackleton Crater.",
@@ -25375,8 +25375,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -25530,21 +25530,21 @@
    "target_type": "crater",
    "is_pair": true,
    "scores": {
-    "slope": 0.451,
-    "roughness": 0.22,
-    "hypsometry": 0.149,
-    "profile": 0.847,
-    "depth": 0.027,
-    "thermal_amplitude": 0.296,
-    "barren_ground": 0.019,
-    "demo_tpi": 0.821
+    "slope": 0.45076864,
+    "roughness": 0.2201569,
+    "hypsometry": 0.14939031,
+    "profile": 0.77834679,
+    "depth": 0.0265655,
+    "thermal_amplitude": 0.2959005,
+    "barren_ground": 0.01855731,
+    "demo_tpi": 0.82050814
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.361,
+   "overall": 0.193,
    "verdict": "weak",
    "notes": [
     "Median slope 3.2 deg at Mistastin Lake Crater vs 9.4 deg at Shackleton Crater.",
@@ -26085,8 +26085,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -26240,21 +26240,21 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.336,
-    "roughness": 0.08,
-    "hypsometry": 0.082,
-    "profile": 0.775,
-    "depth": 0.145,
-    "thermal_amplitude": 0.263,
-    "barren_ground": 0.019,
-    "demo_tpi": 0.614
+    "slope": 0.33643802,
+    "roughness": 0.07952524,
+    "hypsometry": 0.08176591,
+    "profile": 0.69508228,
+    "depth": 0.14461995,
+    "thermal_amplitude": 0.26265086,
+    "barren_ground": 0.01900177,
+    "demo_tpi": 0.61429673
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.315,
+   "overall": 0.192,
    "verdict": "weak",
    "notes": [
     "Median slope 1.5 deg at Pingualuit Crater vs 9.4 deg at Shackleton Crater.",
@@ -26795,8 +26795,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -26950,21 +26950,21 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.283,
-    "roughness": 0.023,
-    "hypsometry": 0.146,
-    "profile": 0.312,
-    "depth": 0.011,
-    "thermal_amplitude": 0.336,
-    "barren_ground": 0.019,
-    "demo_tpi": 0.543
+    "slope": 0.28278297,
+    "roughness": 0.02330653,
+    "hypsometry": 0.14596586,
+    "profile": 0.14074816,
+    "depth": 0.0113411,
+    "thermal_amplitude": 0.33629323,
+    "barren_ground": 0.01854792,
+    "demo_tpi": 0.54309448
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.184,
+   "overall": 0.08,
    "verdict": "weak",
    "notes": [
     "Median slope 0.4 deg at Prairie control vs 9.4 deg at Shackleton Crater.",
@@ -27505,8 +27505,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -27660,21 +27660,21 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.209,
-    "roughness": 0.26,
-    "hypsometry": 0.425,
-    "profile": 0.552,
-    "depth": 0.159,
-    "thermal_amplitude": 0.236,
-    "barren_ground": 0.028,
-    "demo_tpi": 0.774
+    "slope": 0.20923936,
+    "roughness": 0.26038909,
+    "hypsometry": 0.42461013,
+    "profile": 0.41936153,
+    "depth": 0.15854468,
+    "thermal_amplitude": 0.23585099,
+    "barren_ground": 0.02840201,
+    "demo_tpi": 0.77432465
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.304,
+   "overall": 0.229,
    "verdict": "weak",
    "notes": [
     "Median slope 24.2 deg at Coast Mountains control vs 9.4 deg at Shackleton Crater.",
@@ -28019,7 +28019,7 @@
      0.08756,
      0.12151,
      0.16346,
-     0.21636,
+     0.21637,
      0.2949,
      0.40851,
      0.59068,
@@ -28215,8 +28215,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -28370,21 +28370,21 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.353,
-    "roughness": 0.124,
-    "hypsometry": 0.075,
-    "profile": 0.642,
-    "depth": 0.008,
-    "thermal_amplitude": 0.277,
-    "barren_ground": 0.018,
-    "demo_tpi": 0.777
+    "slope": 0.3525439,
+    "roughness": 0.12408833,
+    "hypsometry": 0.07541396,
+    "profile": 0.45654873,
+    "depth": 0.00767641,
+    "thermal_amplitude": 0.27683347,
+    "barren_ground": 0.01831564,
+    "demo_tpi": 0.77709359
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.27,
+   "overall": 0.114,
    "verdict": "weak",
    "notes": [
     "Median slope 1.9 deg at Canadian Shield control vs 9.4 deg at Shackleton Crater.",
@@ -28724,9 +28724,9 @@
      0.55972,
      0.78151,
      1.01335,
-     1.18766,
-     1.22148,
-     1.11252,
+     1.18767,
+     1.22146,
+     1.11253,
      0.90001,
      0.66649,
      0.45273,
@@ -28925,8 +28925,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -29080,20 +29080,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.432,
-    "roughness": 0.239,
-    "hypsometry": 0.473,
-    "profile": 0.361,
-    "depth": 0.019,
-    "thermal_amplitude": 0.228,
-    "barren_ground": 0.021
+    "slope": 0.43185177,
+    "roughness": 0.23855091,
+    "hypsometry": 0.47323693,
+    "profile": 0.22808577,
+    "depth": 0.01924155,
+    "thermal_amplitude": 0.22786145,
+    "barren_ground": 0.02062749
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.273,
+   "overall": 0.154,
    "verdict": "weak",
    "notes": [
     "Median slope 3.7 deg at Interior Baffin Island vs 9.4 deg at Shackleton Crater.",
@@ -29531,8 +29531,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -29686,20 +29686,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.328,
-    "roughness": 0.351,
-    "hypsometry": 0.625,
+    "slope": 0.32830483,
+    "roughness": 0.35087897,
+    "hypsometry": 0.62462989,
     "profile": 0.0,
-    "depth": 0.007,
-    "thermal_amplitude": 0.284,
-    "barren_ground": 0.201
+    "depth": 0.00696222,
+    "thermal_amplitude": 0.28404251,
+    "barren_ground": 0.20064845
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.221,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 21.8 deg at Chukotka vs 9.4 deg at Shackleton Crater.",
@@ -30137,8 +30137,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -30292,12 +30292,12 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.264,
-    "roughness": 0.013,
-    "hypsometry": 0.279,
+    "slope": 0.26416464,
+    "roughness": 0.01319103,
+    "hypsometry": 0.27860332,
     "profile": 0.0,
     "depth": 0.0,
-    "thermal_amplitude": 0.427,
+    "thermal_amplitude": 0.42684033,
     "barren_ground": 1.0
    },
    "not_applicable": [
@@ -30305,7 +30305,7 @@
     "illumination",
     "texture"
    ],
-   "overall": 0.209,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 0.2 deg at Kyzylkum Desert vs 9.4 deg at Shackleton Crater.",
@@ -30534,8 +30534,8 @@
      0.14542,
      0.67612,
      1.41205,
-     1.8725,
-     1.85621,
+     1.87243,
+     1.85628,
      1.48345,
      1.02379,
      0.65358,
@@ -30743,8 +30743,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -30898,20 +30898,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.444,
-    "roughness": 0.173,
-    "hypsometry": 0.497,
-    "profile": 0.594,
-    "depth": 0.038,
-    "thermal_amplitude": 0.175,
-    "barren_ground": 0.192
+    "slope": 0.44441152,
+    "roughness": 0.17313991,
+    "hypsometry": 0.49695098,
+    "profile": 0.39386492,
+    "depth": 0.03760734,
+    "thermal_amplitude": 0.17549308,
+    "barren_ground": 0.19162871
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.337,
+   "overall": 0.22,
    "verdict": "weak",
    "notes": [
     "Median slope 2.3 deg at West Greenland vs 9.4 deg at Shackleton Crater.",
@@ -31349,8 +31349,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -31504,12 +31504,12 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.285,
-    "roughness": 0.024,
-    "hypsometry": 0.239,
+    "slope": 0.28455276,
+    "roughness": 0.02395937,
+    "hypsometry": 0.23931029,
     "profile": 0.0,
-    "depth": 0.001,
-    "thermal_amplitude": 0.412,
+    "depth": 0.00120909,
+    "thermal_amplitude": 0.4115596,
     "barren_ground": 1.0
    },
    "not_applicable": [
@@ -31517,7 +31517,7 @@
     "illumination",
     "texture"
    ],
-   "overall": 0.207,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 0.5 deg at Karakum Desert vs 9.4 deg at Shackleton Crater.",
@@ -31955,8 +31955,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -32110,20 +32110,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.355,
-    "roughness": 0.418,
-    "hypsometry": 0.543,
+    "slope": 0.35487661,
+    "roughness": 0.41824515,
+    "hypsometry": 0.54311446,
     "profile": 0.0,
-    "depth": 0.046,
-    "thermal_amplitude": 0.38,
-    "barren_ground": 0.292
+    "depth": 0.04630876,
+    "thermal_amplitude": 0.37993917,
+    "barren_ground": 0.29160488
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.248,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 19.5 deg at Pamir high plateau vs 9.4 deg at Shackleton Crater.",
@@ -32561,8 +32561,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -32716,20 +32716,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.278,
-    "roughness": 0.029,
-    "hypsometry": 0.362,
+    "slope": 0.27832504,
+    "roughness": 0.02916261,
+    "hypsometry": 0.36197611,
     "profile": 0.0,
     "depth": 0.0,
-    "thermal_amplitude": 0.231,
-    "barren_ground": 0.018
+    "thermal_amplitude": 0.23143748,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.121,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 0.6 deg at Arctic mainland vs 9.4 deg at Shackleton Crater.",
@@ -33167,8 +33167,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -33322,20 +33322,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.27,
-    "roughness": 0.011,
-    "hypsometry": 0.067,
-    "profile": 0.577,
-    "depth": 0.003,
-    "thermal_amplitude": 0.409,
-    "barren_ground": 0.596
+    "slope": 0.26963532,
+    "roughness": 0.01103101,
+    "hypsometry": 0.0665048,
+    "profile": 0.22173923,
+    "depth": 0.00253748,
+    "thermal_amplitude": 0.40944968,
+    "barren_ground": 0.59568135
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.288,
+   "overall": 0.079,
    "verdict": "weak",
    "notes": [
     "Median slope 0.2 deg at Great Lakes Depression vs 9.4 deg at Shackleton Crater.",
@@ -33773,8 +33773,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -33928,20 +33928,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.299,
-    "roughness": 0.053,
-    "hypsometry": 0.506,
-    "profile": 0.038,
-    "depth": 0.003,
-    "thermal_amplitude": 0.288,
-    "barren_ground": 0.018
+    "slope": 0.29875418,
+    "roughness": 0.05318804,
+    "hypsometry": 0.50609022,
+    "profile": 0.0,
+    "depth": 0.00266021,
+    "thermal_amplitude": 0.28775103,
+    "barren_ground": 0.01839709
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.161,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 1.0 deg at Nunavik vs 9.4 deg at Shackleton Crater.",
@@ -34379,8 +34379,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -34534,20 +34534,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.685,
-    "roughness": 0.679,
-    "hypsometry": 0.389,
+    "slope": 0.68464717,
+    "roughness": 0.67916382,
+    "hypsometry": 0.38850396,
     "profile": 0.0,
-    "depth": 0.002,
-    "thermal_amplitude": 0.27,
-    "barren_ground": 0.021
+    "depth": 0.00216503,
+    "thermal_amplitude": 0.27015045,
+    "barren_ground": 0.02115033
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.272,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 11.7 deg at Mackenzie Valley vs 9.4 deg at Shackleton Crater.",
@@ -34985,8 +34985,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -35140,20 +35140,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.312,
-    "roughness": 0.01,
-    "hypsometry": 0.01,
+    "slope": 0.31203496,
+    "roughness": 0.0095632,
+    "hypsometry": 0.00985,
     "profile": 0.0,
     "depth": 0.0,
-    "thermal_amplitude": 0.121,
-    "barren_ground": 0.029
+    "thermal_amplitude": 0.12132132,
+    "barren_ground": 0.02867377
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.069,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 0.0 deg at Arctic mainland (38) vs 9.4 deg at Shackleton Crater.",
@@ -35591,8 +35591,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -35746,20 +35746,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.794,
-    "roughness": 0.685,
-    "hypsometry": 0.564,
+    "slope": 0.79403736,
+    "roughness": 0.68522809,
+    "hypsometry": 0.56426844,
     "profile": 0.0,
-    "depth": 0.043,
-    "thermal_amplitude": 0.395,
-    "barren_ground": 0.018
+    "depth": 0.04279689,
+    "thermal_amplitude": 0.39489754,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.333,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 7.4 deg at Central Mongolia vs 9.4 deg at Shackleton Crater.",
@@ -36197,8 +36197,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -36352,20 +36352,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.279,
-    "roughness": 0.016,
-    "hypsometry": 0.023,
+    "slope": 0.27936091,
+    "roughness": 0.01646607,
+    "hypsometry": 0.02252273,
     "profile": 0.0,
-    "depth": 0.0,
-    "thermal_amplitude": 0.226,
-    "barren_ground": 0.018
+    "depth": 3.04e-05,
+    "thermal_amplitude": 0.2260562,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.078,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 0.3 deg at Kolyma Lowland vs 9.4 deg at Shackleton Crater.",
@@ -36803,8 +36803,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -36958,20 +36958,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.44,
-    "roughness": 0.453,
-    "hypsometry": 0.461,
-    "profile": 0.017,
-    "depth": 0.062,
-    "thermal_amplitude": 0.29,
-    "barren_ground": 0.019
+    "slope": 0.44018121,
+    "roughness": 0.45272664,
+    "hypsometry": 0.46100554,
+    "profile": 0.0,
+    "depth": 0.06165544,
+    "thermal_amplitude": 0.29008976,
+    "barren_ground": 0.01914122
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.23,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 17.8 deg at Eastern Yakutia vs 9.4 deg at Shackleton Crater.",
@@ -37409,8 +37409,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -37564,20 +37564,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.313,
-    "roughness": 0.077,
-    "hypsometry": 0.44,
+    "slope": 0.31345463,
+    "roughness": 0.07721068,
+    "hypsometry": 0.43953776,
     "profile": 0.0,
-    "depth": 0.001,
-    "thermal_amplitude": 0.279,
-    "barren_ground": 0.018
+    "depth": 0.00119005,
+    "thermal_amplitude": 0.279123,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.147,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 1.4 deg at Northern Yakutia vs 9.4 deg at Shackleton Crater.",
@@ -37813,8 +37813,8 @@
      0.83428,
      1.06766,
      1.26997,
-     1.37593,
-     1.33255,
+     1.37586,
+     1.33262,
      1.11332,
      0.7131,
      0.3717,
@@ -38015,8 +38015,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -38170,20 +38170,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.518,
-    "roughness": 0.456,
-    "hypsometry": 0.502,
-    "profile": 0.414,
-    "depth": 0.048,
-    "thermal_amplitude": 0.258,
-    "barren_ground": 0.018
+    "slope": 0.51757337,
+    "roughness": 0.45591214,
+    "hypsometry": 0.50168459,
+    "profile": 0.2699624,
+    "depth": 0.04841145,
+    "thermal_amplitude": 0.25797632,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.337,
+   "overall": 0.209,
    "verdict": "weak",
    "notes": [
     "Median slope 5.5 deg at Central Siberia vs 9.4 deg at Shackleton Crater.",
@@ -38621,8 +38621,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -38776,20 +38776,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.363,
-    "roughness": 0.152,
-    "hypsometry": 0.463,
+    "slope": 0.3631691,
+    "roughness": 0.15171897,
+    "hypsometry": 0.46329852,
     "profile": 0.0,
     "depth": 0.0,
-    "thermal_amplitude": 0.253,
-    "barren_ground": 0.018
+    "thermal_amplitude": 0.25280955,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.164,
+   "overall": 0.0,
    "verdict": "weak",
    "notes": [
     "Median slope 2.2 deg at Northern Siberia (Taymyr area) vs 9.4 deg at Shackleton Crater.",
@@ -39227,8 +39227,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -39382,20 +39382,20 @@
    "target_type": "crater",
    "is_pair": false,
    "scores": {
-    "slope": 0.291,
-    "roughness": 0.028,
-    "hypsometry": 0.071,
-    "profile": 0.422,
-    "depth": 0.003,
-    "thermal_amplitude": 0.265,
-    "barren_ground": 0.018
+    "slope": 0.29074596,
+    "roughness": 0.02824661,
+    "hypsometry": 0.07118384,
+    "profile": 0.25193937,
+    "depth": 0.00293077,
+    "thermal_amplitude": 0.26456138,
+    "barren_ground": 0.01839081
    },
    "not_applicable": [
     "flat_fraction",
     "illumination",
     "texture"
    ],
-   "overall": 0.193,
+   "overall": 0.068,
    "verdict": "weak",
    "notes": [
     "Median slope 0.9 deg at Kivalliq region vs 9.4 deg at Shackleton Crater.",
@@ -39833,8 +39833,8 @@
      0.23622,
      0.32431,
      0.43034,
-     0.57237,
-     0.74925,
+     0.57235,
+     0.74926,
      0.96228,
      1.14711,
      1.28409,
@@ -39988,21 +39988,21 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.273,
-    "roughness": 0.16,
-    "hypsometry": 0.147,
-    "flat_fraction": 0.017,
-    "illumination": 0.387,
-    "thermal_amplitude": 0.152,
-    "barren_ground": 0.304,
-    "demo_tpi": 0.916
+    "slope": 0.27283557,
+    "roughness": 0.15957075,
+    "hypsometry": 0.14747091,
+    "flat_fraction": 0.01670866,
+    "illumination": 0.38746479,
+    "thermal_amplitude": 0.15180705,
+    "barren_ground": 0.30367605,
+    "demo_tpi": 0.9163212
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.219,
+   "overall": 0.155,
    "verdict": "weak",
    "notes": [
     "Median slope 3.6 deg at HMP base-camp plateau vs 15.2 deg at Malapert Massif.",
@@ -40602,21 +40602,21 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.612,
-    "roughness": 0.486,
-    "hypsometry": 0.448,
-    "flat_fraction": 0.319,
-    "illumination": 0.122,
-    "thermal_amplitude": 0.103,
-    "barren_ground": 0.275,
-    "demo_tpi": 0.732
+    "slope": 0.61229213,
+    "roughness": 0.48647623,
+    "hypsometry": 0.44835326,
+    "flat_fraction": 0.31931718,
+    "illumination": 0.12174646,
+    "thermal_amplitude": 0.10299893,
+    "barren_ground": 0.27507519,
+    "demo_tpi": 0.73226377
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.325,
+   "overall": 0.266,
    "verdict": "weak",
    "notes": [
     "Median slope 11.8 deg at Expedition Fiord uplands vs 15.2 deg at Malapert Massif.",
@@ -41216,21 +41216,21 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.166,
-    "roughness": 0.012,
-    "hypsometry": 0.12,
-    "flat_fraction": 0.002,
-    "illumination": 0.033,
-    "thermal_amplitude": 0.309,
-    "barren_ground": 0.019,
-    "demo_tpi": 0.525
+    "slope": 0.1660547,
+    "roughness": 0.0119905,
+    "hypsometry": 0.12035058,
+    "flat_fraction": 0.00240387,
+    "illumination": 0.03349694,
+    "thermal_amplitude": 0.30915651,
+    "barren_ground": 0.01854792,
+    "demo_tpi": 0.52516866
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.089,
+   "overall": 0.036,
    "verdict": "weak",
    "notes": [
     "Median slope 0.4 deg at Prairie control vs 15.2 deg at Malapert Massif.",
@@ -41830,21 +41830,21 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.351,
-    "roughness": 0.488,
-    "hypsometry": 0.527,
-    "flat_fraction": 0.963,
-    "illumination": 0.127,
-    "thermal_amplitude": 0.217,
-    "barren_ground": 0.028,
-    "demo_tpi": 0.795
+    "slope": 0.35139508,
+    "roughness": 0.48841761,
+    "hypsometry": 0.52673769,
+    "flat_fraction": 0.9626506,
+    "illumination": 0.12668002,
+    "thermal_amplitude": 0.21681932,
+    "barren_ground": 0.02840201,
+    "demo_tpi": 0.79530813
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.391,
+   "overall": 0.272,
    "verdict": "weak",
    "notes": [
     "Median slope 24.2 deg at Coast Mountains control vs 15.2 deg at Malapert Massif.",
@@ -42189,7 +42189,7 @@
      0.08756,
      0.12151,
      0.16346,
-     0.21636,
+     0.21637,
      0.2949,
      0.40851,
      0.59068,
@@ -42444,21 +42444,21 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.207,
-    "roughness": 0.064,
-    "hypsometry": 0.069,
-    "flat_fraction": 0.005,
-    "illumination": 0.067,
-    "thermal_amplitude": 0.254,
-    "barren_ground": 0.018,
-    "demo_tpi": 0.727
+    "slope": 0.20701944,
+    "roughness": 0.06383967,
+    "hypsometry": 0.06904444,
+    "flat_fraction": 0.00485362,
+    "illumination": 0.06675127,
+    "thermal_amplitude": 0.25449478,
+    "barren_ground": 0.01831564,
+    "demo_tpi": 0.72658785
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.098,
+   "overall": 0.056,
    "verdict": "weak",
    "notes": [
     "Median slope 1.9 deg at Canadian Shield control vs 15.2 deg at Malapert Massif.",
@@ -42798,9 +42798,9 @@
      0.55972,
      0.78151,
      1.01335,
-     1.18766,
-     1.22148,
-     1.11252,
+     1.18767,
+     1.22146,
+     1.11253,
      0.90001,
      0.66649,
      0.45273,
@@ -43058,20 +43058,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.254,
-    "roughness": 0.123,
-    "hypsometry": 0.433,
-    "flat_fraction": 0.02,
-    "illumination": 0.484,
-    "thermal_amplitude": 0.209,
-    "barren_ground": 0.021
+    "slope": 0.25359029,
+    "roughness": 0.12272719,
+    "hypsometry": 0.43326703,
+    "flat_fraction": 0.01995003,
+    "illumination": 0.48388333,
+    "thermal_amplitude": 0.20947448,
+    "barren_ground": 0.02062749
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.253,
+   "overall": 0.154,
    "verdict": "weak",
    "notes": [
     "Median slope 3.7 deg at Interior Baffin Island vs 15.2 deg at Malapert Massif.",
@@ -43568,21 +43568,21 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.515,
-    "roughness": 0.559,
-    "hypsometry": 0.623,
-    "flat_fraction": 0.688,
-    "illumination": 0.106,
-    "thermal_amplitude": 0.261,
-    "barren_ground": 0.201
+    "slope": 0.51501681,
+    "roughness": 0.55866817,
+    "hypsometry": 0.62342239,
+    "flat_fraction": 0.68804418,
+    "illumination": 0.10649745,
+    "thermal_amplitude": 0.2611221,
+    "barren_ground": 0.20064845
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.407,
-   "verdict": "partial",
+   "overall": 0.326,
+   "verdict": "weak",
    "notes": [
     "Median slope 21.8 deg at Chukotka vs 15.2 deg at Malapert Massif.",
     "Flat ground (< 5 deg): 12% vs 7%.",
@@ -44078,12 +44078,12 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.155,
-    "roughness": 0.007,
-    "hypsometry": 0.261,
-    "flat_fraction": 0.002,
-    "illumination": 0.025,
-    "thermal_amplitude": 0.392,
+    "slope": 0.15512172,
+    "roughness": 0.00678638,
+    "hypsometry": 0.26145804,
+    "flat_fraction": 0.00198784,
+    "illumination": 0.0250074,
+    "thermal_amplitude": 0.39239704,
     "barren_ground": 1.0
    },
    "not_applicable": [
@@ -44091,7 +44091,7 @@
     "depth",
     "texture"
    ],
-   "overall": 0.19,
+   "overall": 0.047,
    "verdict": "weak",
    "notes": [
     "Median slope 0.2 deg at Kyzylkum Desert vs 15.2 deg at Malapert Massif.",
@@ -44320,8 +44320,8 @@
      0.14542,
      0.67612,
      1.41205,
-     1.8725,
-     1.85621,
+     1.87243,
+     1.85628,
      1.48345,
      1.02379,
      0.65358,
@@ -44588,20 +44588,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.26,
-    "roughness": 0.089,
-    "hypsometry": 0.555,
-    "flat_fraction": 0.014,
-    "illumination": 0.298,
-    "thermal_amplitude": 0.161,
-    "barren_ground": 0.192
+    "slope": 0.26016157,
+    "roughness": 0.08896321,
+    "hypsometry": 0.55534667,
+    "flat_fraction": 0.01429025,
+    "illumination": 0.29833485,
+    "thermal_amplitude": 0.16133191,
+    "barren_ground": 0.19162871
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.228,
+   "overall": 0.15,
    "verdict": "weak",
    "notes": [
     "Median slope 2.3 deg at West Greenland vs 15.2 deg at Malapert Massif.",
@@ -45098,12 +45098,12 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.167,
-    "roughness": 0.012,
-    "hypsometry": 0.3,
-    "flat_fraction": 0.002,
-    "illumination": 0.025,
-    "thermal_amplitude": 0.378,
+    "slope": 0.16659438,
+    "roughness": 0.01230986,
+    "hypsometry": 0.29972331,
+    "flat_fraction": 0.00221717,
+    "illumination": 0.02532227,
+    "thermal_amplitude": 0.37834937,
     "barren_ground": 1.0
    },
    "not_applicable": [
@@ -45111,7 +45111,7 @@
     "depth",
     "texture"
    ],
-   "overall": 0.196,
+   "overall": 0.053,
    "verdict": "weak",
    "notes": [
     "Median slope 0.5 deg at Karakum Desert vs 15.2 deg at Malapert Massif.",
@@ -45608,20 +45608,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.473,
-    "roughness": 0.498,
-    "hypsometry": 0.503,
-    "flat_fraction": 0.398,
-    "illumination": 0.147,
-    "thermal_amplitude": 0.349,
-    "barren_ground": 0.292
+    "slope": 0.4732683,
+    "roughness": 0.49754848,
+    "hypsometry": 0.50329234,
+    "flat_fraction": 0.39776876,
+    "illumination": 0.14722895,
+    "thermal_amplitude": 0.34928051,
+    "barren_ground": 0.29160488
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.36,
+   "overall": 0.327,
    "verdict": "weak",
    "notes": [
     "Median slope 19.5 deg at Pamir high plateau vs 15.2 deg at Malapert Massif.",
@@ -46118,20 +46118,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.163,
-    "roughness": 0.015,
-    "hypsometry": 0.42,
-    "flat_fraction": 0.002,
-    "illumination": 0.029,
-    "thermal_amplitude": 0.213,
-    "barren_ground": 0.018
+    "slope": 0.16343693,
+    "roughness": 0.01500328,
+    "hypsometry": 0.42026709,
+    "flat_fraction": 0.00199473,
+    "illumination": 0.02850681,
+    "thermal_amplitude": 0.21276195,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.113,
+   "overall": 0.039,
    "verdict": "weak",
    "notes": [
     "Median slope 0.6 deg at Arctic mainland vs 15.2 deg at Malapert Massif.",
@@ -46628,20 +46628,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.158,
-    "roughness": 0.006,
-    "hypsometry": 0.061,
-    "flat_fraction": 0.002,
-    "illumination": 0.028,
-    "thermal_amplitude": 0.376,
-    "barren_ground": 0.596
+    "slope": 0.15833419,
+    "roughness": 0.00567512,
+    "hypsometry": 0.06088776,
+    "flat_fraction": 0.00207902,
+    "illumination": 0.02840117,
+    "thermal_amplitude": 0.3764097,
+    "barren_ground": 0.59568135
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.133,
+   "overall": 0.039,
    "verdict": "weak",
    "notes": [
     "Median slope 0.2 deg at Great Lakes Depression vs 15.2 deg at Malapert Massif.",
@@ -47138,20 +47138,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.175,
-    "roughness": 0.027,
-    "hypsometry": 0.463,
-    "flat_fraction": 0.002,
-    "illumination": 0.052,
-    "thermal_amplitude": 0.265,
-    "barren_ground": 0.018
+    "slope": 0.17543325,
+    "roughness": 0.02736363,
+    "hypsometry": 0.46334551,
+    "flat_fraction": 0.0021452,
+    "illumination": 0.05221038,
+    "thermal_amplitude": 0.26453136,
+    "barren_ground": 0.01839709
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.133,
+   "overall": 0.051,
    "verdict": "weak",
    "notes": [
     "Median slope 1.0 deg at Nunavik vs 15.2 deg at Malapert Massif.",
@@ -47648,20 +47648,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.667,
-    "roughness": 0.669,
-    "hypsometry": 0.356,
-    "flat_fraction": 0.4,
-    "illumination": 0.199,
-    "thermal_amplitude": 0.248,
-    "barren_ground": 0.021
+    "slope": 0.6671738,
+    "roughness": 0.66853481,
+    "hypsometry": 0.35569066,
+    "flat_fraction": 0.40039857,
+    "illumination": 0.19898368,
+    "thermal_amplitude": 0.24835103,
+    "barren_ground": 0.02115033
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.373,
+   "overall": 0.287,
    "verdict": "weak",
    "notes": [
     "Median slope 11.7 deg at Mackenzie Valley vs 15.2 deg at Malapert Massif.",
@@ -48158,20 +48158,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.183,
-    "roughness": 0.005,
-    "hypsometry": 0.009,
-    "flat_fraction": 0.005,
-    "illumination": 0.266,
-    "thermal_amplitude": 0.112,
-    "barren_ground": 0.029
+    "slope": 0.18310006,
+    "roughness": 0.00491879,
+    "hypsometry": 0.00901806,
+    "flat_fraction": 0.00459678,
+    "illumination": 0.26635187,
+    "thermal_amplitude": 0.11153147,
+    "barren_ground": 0.02867377
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.111,
+   "overall": 0.041,
    "verdict": "weak",
    "notes": [
     "Median slope 0.0 deg at Arctic mainland (38) vs 15.2 deg at Malapert Massif.",
@@ -48668,20 +48668,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.466,
-    "roughness": 0.352,
-    "hypsometry": 0.517,
-    "flat_fraction": 0.158,
-    "illumination": 0.177,
-    "thermal_amplitude": 0.363,
-    "barren_ground": 0.018
+    "slope": 0.46608171,
+    "roughness": 0.35247824,
+    "hypsometry": 0.51680387,
+    "flat_fraction": 0.15771823,
+    "illumination": 0.17673238,
+    "thermal_amplitude": 0.36303183,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.292,
+   "overall": 0.228,
    "verdict": "weak",
    "notes": [
     "Median slope 7.4 deg at Central Mongolia vs 15.2 deg at Malapert Massif.",
@@ -49178,20 +49178,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.164,
-    "roughness": 0.008,
-    "hypsometry": 0.021,
-    "flat_fraction": 0.002,
-    "illumination": 0.053,
-    "thermal_amplitude": 0.208,
-    "barren_ground": 0.018
+    "slope": 0.16404521,
+    "roughness": 0.00847129,
+    "hypsometry": 0.02062044,
+    "flat_fraction": 0.00225533,
+    "illumination": 0.05276567,
+    "thermal_amplitude": 0.20781491,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.069,
+   "overall": 0.03,
    "verdict": "weak",
    "notes": [
     "Median slope 0.3 deg at Kolyma Lowland vs 15.2 deg at Malapert Massif.",
@@ -49688,21 +49688,21 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.665,
-    "roughness": 0.711,
-    "hypsometry": 0.422,
-    "flat_fraction": 0.657,
-    "illumination": 0.123,
-    "thermal_amplitude": 0.267,
-    "barren_ground": 0.019
+    "slope": 0.66468064,
+    "roughness": 0.71089376,
+    "hypsometry": 0.42206871,
+    "flat_fraction": 0.6565603,
+    "illumination": 0.12320099,
+    "thermal_amplitude": 0.26668137,
+    "barren_ground": 0.01914122
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.41,
-   "verdict": "partial",
+   "overall": 0.285,
+   "verdict": "weak",
    "notes": [
     "Median slope 17.8 deg at Eastern Yakutia vs 15.2 deg at Malapert Massif.",
     "Flat ground (< 5 deg): 13% vs 7%.",
@@ -50198,20 +50198,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.184,
-    "roughness": 0.04,
-    "hypsometry": 0.445,
-    "flat_fraction": 0.002,
-    "illumination": 0.087,
-    "thermal_amplitude": 0.257,
-    "barren_ground": 0.018
+    "slope": 0.18406559,
+    "roughness": 0.03972255,
+    "hypsometry": 0.44490879,
+    "flat_fraction": 0.00244357,
+    "illumination": 0.08696314,
+    "thermal_amplitude": 0.25659955,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.141,
+   "overall": 0.062,
    "verdict": "weak",
    "notes": [
     "Median slope 1.4 deg at Northern Yakutia vs 15.2 deg at Malapert Massif.",
@@ -50447,8 +50447,8 @@
      0.83428,
      1.06766,
      1.26997,
-     1.37593,
-     1.33255,
+     1.37586,
+     1.33262,
      1.11332,
      0.7131,
      0.3717,
@@ -50708,20 +50708,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.304,
-    "roughness": 0.235,
-    "hypsometry": 0.641,
-    "flat_fraction": 0.094,
-    "illumination": 0.316,
-    "thermal_amplitude": 0.237,
-    "barren_ground": 0.018
+    "slope": 0.30392739,
+    "roughness": 0.23455294,
+    "hypsometry": 0.64066643,
+    "flat_fraction": 0.09414868,
+    "illumination": 0.31593569,
+    "thermal_amplitude": 0.23715928,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.274,
+   "overall": 0.209,
    "verdict": "weak",
    "notes": [
     "Median slope 5.5 deg at Central Siberia vs 15.2 deg at Malapert Massif.",
@@ -51218,20 +51218,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.213,
-    "roughness": 0.078,
-    "hypsometry": 0.424,
-    "flat_fraction": 0.005,
-    "illumination": 0.097,
-    "thermal_amplitude": 0.232,
-    "barren_ground": 0.018
+    "slope": 0.21325873,
+    "roughness": 0.0780548,
+    "hypsometry": 0.42416802,
+    "flat_fraction": 0.00478829,
+    "illumination": 0.09667993,
+    "thermal_amplitude": 0.23240943,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.148,
+   "overall": 0.077,
    "verdict": "weak",
    "notes": [
     "Median slope 2.2 deg at Northern Siberia (Taymyr area) vs 15.2 deg at Malapert Massif.",
@@ -51728,20 +51728,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.171,
-    "roughness": 0.015,
-    "hypsometry": 0.065,
-    "flat_fraction": 0.002,
-    "illumination": 0.041,
-    "thermal_amplitude": 0.243,
-    "barren_ground": 0.018
+    "slope": 0.1707307,
+    "roughness": 0.01453202,
+    "hypsometry": 0.0651716,
+    "flat_fraction": 0.00212093,
+    "illumination": 0.04052975,
+    "thermal_amplitude": 0.24321297,
+    "barren_ground": 0.01839081
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.078,
+   "overall": 0.035,
    "verdict": "weak",
    "notes": [
     "Median slope 0.9 deg at Kivalliq region vs 15.2 deg at Malapert Massif.",
@@ -52238,21 +52238,21 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.723,
-    "roughness": 0.503,
-    "hypsometry": 0.034,
-    "flat_fraction": 0.102,
-    "illumination": 0.245,
-    "thermal_amplitude": 0.16,
-    "barren_ground": 0.304,
-    "demo_tpi": 0.86
+    "slope": 0.72344703,
+    "roughness": 0.50318293,
+    "hypsometry": 0.03437189,
+    "flat_fraction": 0.10221029,
+    "illumination": 0.24520392,
+    "thermal_amplitude": 0.16006356,
+    "barren_ground": 0.30367605,
+    "demo_tpi": 0.85953695
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.299,
+   "overall": 0.211,
    "verdict": "weak",
    "notes": [
     "Median slope 3.6 deg at HMP base-camp plateau vs 6.6 deg at Mons Mouton Plateau.",
@@ -52852,21 +52852,21 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.419,
-    "roughness": 0.366,
-    "hypsometry": 0.426,
-    "flat_fraction": 0.512,
-    "illumination": 0.392,
-    "thermal_amplitude": 0.109,
-    "barren_ground": 0.275,
-    "demo_tpi": 0.638
+    "slope": 0.41879405,
+    "roughness": 0.3660549,
+    "hypsometry": 0.42631372,
+    "flat_fraction": 0.51194667,
+    "illumination": 0.39187461,
+    "thermal_amplitude": 0.10860086,
+    "barren_ground": 0.27507519,
+    "demo_tpi": 0.63826552
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.373,
+   "overall": 0.345,
    "verdict": "weak",
    "notes": [
     "Median slope 11.8 deg at Expedition Fiord uplands vs 6.6 deg at Mons Mouton Plateau.",
@@ -53466,21 +53466,21 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.447,
-    "roughness": 0.038,
-    "hypsometry": 0.473,
-    "flat_fraction": 0.015,
-    "illumination": 0.01,
-    "thermal_amplitude": 0.326,
-    "barren_ground": 0.019,
-    "demo_tpi": 0.498
+    "slope": 0.44678929,
+    "roughness": 0.03808077,
+    "hypsometry": 0.47327657,
+    "flat_fraction": 0.01470496,
+    "illumination": 0.01040408,
+    "thermal_amplitude": 0.32597098,
+    "barren_ground": 0.01854792,
+    "demo_tpi": 0.49755425
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.178,
+   "overall": 0.059,
    "verdict": "weak",
    "notes": [
     "Median slope 0.4 deg at Prairie control vs 6.6 deg at Mons Mouton Plateau.",
@@ -54080,21 +54080,21 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.132,
-    "roughness": 0.16,
-    "hypsometry": 0.132,
-    "flat_fraction": 0.17,
-    "illumination": 0.414,
-    "thermal_amplitude": 0.229,
-    "barren_ground": 0.028,
-    "demo_tpi": 0.778
+    "slope": 0.13246242,
+    "roughness": 0.15951539,
+    "hypsometry": 0.13241232,
+    "flat_fraction": 0.16981589,
+    "illumination": 0.4141927,
+    "thermal_amplitude": 0.22861173,
+    "barren_ground": 0.02840201,
+    "demo_tpi": 0.77798295
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.213,
+   "overall": 0.175,
    "verdict": "weak",
    "notes": [
     "Median slope 24.2 deg at Coast Mountains control vs 6.6 deg at Mons Mouton Plateau.",
@@ -54439,7 +54439,7 @@
      0.08756,
      0.12151,
      0.16346,
-     0.21636,
+     0.21637,
      0.2949,
      0.40851,
      0.59068,
@@ -54694,21 +54694,21 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.557,
-    "roughness": 0.203,
-    "hypsometry": 0.308,
-    "flat_fraction": 0.03,
-    "illumination": 0.021,
-    "thermal_amplitude": 0.268,
-    "barren_ground": 0.018,
-    "demo_tpi": 0.627
+    "slope": 0.55700589,
+    "roughness": 0.20274913,
+    "hypsometry": 0.30791332,
+    "flat_fraction": 0.0296906,
+    "illumination": 0.02073281,
+    "thermal_amplitude": 0.26833629,
+    "barren_ground": 0.01831564,
+    "demo_tpi": 0.62731732
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.194,
+   "overall": 0.091,
    "verdict": "weak",
    "notes": [
     "Median slope 1.9 deg at Canadian Shield control vs 6.6 deg at Mons Mouton Plateau.",
@@ -55048,9 +55048,9 @@
      0.55972,
      0.78151,
      1.01335,
-     1.18766,
-     1.22148,
-     1.11252,
+     1.18767,
+     1.22146,
+     1.11253,
      0.90001,
      0.66649,
      0.45273,
@@ -55308,20 +55308,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.682,
-    "roughness": 0.39,
-    "hypsometry": 0.347,
-    "flat_fraction": 0.122,
-    "illumination": 0.384,
-    "thermal_amplitude": 0.221,
-    "barren_ground": 0.021
+    "slope": 0.68231388,
+    "roughness": 0.38977066,
+    "hypsometry": 0.34686834,
+    "flat_fraction": 0.12203843,
+    "illumination": 0.38355303,
+    "thermal_amplitude": 0.22086742,
+    "barren_ground": 0.02062749
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.337,
+   "overall": 0.257,
    "verdict": "weak",
    "notes": [
     "Median slope 3.7 deg at Interior Baffin Island vs 6.6 deg at Mons Mouton Plateau.",
@@ -55818,20 +55818,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.208,
-    "roughness": 0.217,
-    "hypsometry": 0.255,
-    "flat_fraction": 0.238,
-    "illumination": 0.346,
-    "thermal_amplitude": 0.275,
-    "barren_ground": 0.201
+    "slope": 0.20827964,
+    "roughness": 0.21682431,
+    "hypsometry": 0.25484731,
+    "flat_fraction": 0.23759138,
+    "illumination": 0.34583869,
+    "thermal_amplitude": 0.27532405,
+    "barren_ground": 0.20064845
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.26,
+   "overall": 0.255,
    "verdict": "weak",
    "notes": [
     "Median slope 21.8 deg at Chukotka vs 6.6 deg at Mons Mouton Plateau.",
@@ -56328,12 +56328,12 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.417,
-    "roughness": 0.022,
-    "hypsometry": 0.085,
-    "flat_fraction": 0.012,
-    "illumination": 0.008,
-    "thermal_amplitude": 0.414,
+    "slope": 0.41737285,
+    "roughness": 0.02155295,
+    "hypsometry": 0.08509148,
+    "flat_fraction": 0.01216004,
+    "illumination": 0.00776725,
+    "thermal_amplitude": 0.4137388,
     "barren_ground": 1.0
    },
    "not_applicable": [
@@ -56341,7 +56341,7 @@
     "depth",
     "texture"
    ],
-   "overall": 0.213,
+   "overall": 0.057,
    "verdict": "weak",
    "notes": [
     "Median slope 0.2 deg at Kyzylkum Desert vs 6.6 deg at Mons Mouton Plateau.",
@@ -56570,8 +56570,8 @@
      0.14542,
      0.67612,
      1.41205,
-     1.8725,
-     1.85621,
+     1.87243,
+     1.85628,
      1.48345,
      1.02379,
      0.65358,
@@ -56838,20 +56838,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.686,
-    "roughness": 0.279,
-    "hypsometry": 0.145,
-    "flat_fraction": 0.087,
-    "illumination": 0.523,
-    "thermal_amplitude": 0.17,
-    "barren_ground": 0.192
+    "slope": 0.68612089,
+    "roughness": 0.27937025,
+    "hypsometry": 0.1452924,
+    "flat_fraction": 0.08741638,
+    "illumination": 0.52259092,
+    "thermal_amplitude": 0.17010646,
+    "barren_ground": 0.19162871
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.336,
+   "overall": 0.263,
    "verdict": "weak",
    "notes": [
     "Median slope 2.3 deg at West Greenland vs 6.6 deg at Mons Mouton Plateau.",
@@ -57348,12 +57348,12 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.446,
-    "roughness": 0.039,
-    "hypsometry": 0.073,
-    "flat_fraction": 0.014,
-    "illumination": 0.008,
-    "thermal_amplitude": 0.399,
+    "slope": 0.44609529,
+    "roughness": 0.03900001,
+    "hypsometry": 0.0733509,
+    "flat_fraction": 0.01356285,
+    "illumination": 0.00786505,
+    "thermal_amplitude": 0.39892711,
     "barren_ground": 1.0
    },
    "not_applicable": [
@@ -57361,7 +57361,7 @@
     "depth",
     "texture"
    ],
-   "overall": 0.217,
+   "overall": 0.061,
    "verdict": "weak",
    "notes": [
     "Median slope 0.5 deg at Karakum Desert vs 6.6 deg at Mons Mouton Plateau.",
@@ -57858,20 +57858,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.229,
-    "roughness": 0.271,
-    "hypsometry": 0.299,
-    "flat_fraction": 0.411,
-    "illumination": 0.474,
-    "thermal_amplitude": 0.368,
-    "barren_ground": 0.292
+    "slope": 0.22857128,
+    "roughness": 0.27081748,
+    "hypsometry": 0.29878948,
+    "flat_fraction": 0.41097588,
+    "illumination": 0.47360791,
+    "thermal_amplitude": 0.36827724,
+    "barren_ground": 0.29160488
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.352,
+   "overall": 0.34,
    "verdict": "weak",
    "notes": [
     "Median slope 19.5 deg at Pamir high plateau vs 6.6 deg at Mons Mouton Plateau.",
@@ -58368,20 +58368,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.44,
-    "roughness": 0.048,
-    "hypsometry": 0.097,
-    "flat_fraction": 0.012,
-    "illumination": 0.009,
-    "thermal_amplitude": 0.224,
-    "barren_ground": 0.018
+    "slope": 0.43974588,
+    "roughness": 0.04764908,
+    "hypsometry": 0.09713482,
+    "flat_fraction": 0.0122022,
+    "illumination": 0.00885416,
+    "thermal_amplitude": 0.22433369,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.12,
+   "overall": 0.044,
    "verdict": "weak",
    "notes": [
     "Median slope 0.6 deg at Arctic mainland vs 6.6 deg at Mons Mouton Plateau.",
@@ -58878,20 +58878,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.426,
-    "roughness": 0.018,
-    "hypsometry": 0.272,
-    "flat_fraction": 0.013,
-    "illumination": 0.009,
-    "thermal_amplitude": 0.397,
-    "barren_ground": 0.596
+    "slope": 0.42601637,
+    "roughness": 0.01802368,
+    "hypsometry": 0.27153747,
+    "flat_fraction": 0.0127178,
+    "illumination": 0.00882135,
+    "thermal_amplitude": 0.39688194,
+    "barren_ground": 0.59568135
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.202,
+   "overall": 0.063,
    "verdict": "weak",
    "notes": [
     "Median slope 0.2 deg at Great Lakes Depression vs 6.6 deg at Mons Mouton Plateau.",
@@ -59388,20 +59388,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.472,
-    "roughness": 0.087,
-    "hypsometry": 0.454,
-    "flat_fraction": 0.013,
-    "illumination": 0.016,
-    "thermal_amplitude": 0.279,
-    "barren_ground": 0.018
+    "slope": 0.47202336,
+    "roughness": 0.08690447,
+    "hypsometry": 0.45397126,
+    "flat_fraction": 0.01312264,
+    "illumination": 0.01621644,
+    "thermal_amplitude": 0.27891874,
+    "barren_ground": 0.01839709
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.181,
+   "overall": 0.07,
    "verdict": "weak",
    "notes": [
     "Median slope 1.0 deg at Nunavik vs 6.6 deg at Mons Mouton Plateau.",
@@ -59898,21 +59898,21 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.433,
-    "roughness": 0.416,
-    "hypsometry": 0.52,
-    "flat_fraction": 0.408,
-    "illumination": 0.652,
-    "thermal_amplitude": 0.262,
-    "barren_ground": 0.021
+    "slope": 0.43333151,
+    "roughness": 0.41580197,
+    "hypsometry": 0.52031882,
+    "flat_fraction": 0.40827661,
+    "illumination": 0.65208738,
+    "thermal_amplitude": 0.2618584,
+    "barren_ground": 0.02115033
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.437,
-   "verdict": "partial",
+   "overall": 0.356,
+   "verdict": "weak",
    "notes": [
     "Median slope 11.7 deg at Mackenzie Valley vs 6.6 deg at Mons Mouton Plateau.",
     "Flat ground (< 5 deg): 20% vs 34%.",
@@ -60408,20 +60408,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.492,
-    "roughness": 0.016,
-    "hypsometry": 0.04,
-    "flat_fraction": 0.028,
-    "illumination": 0.093,
-    "thermal_amplitude": 0.118,
-    "barren_ground": 0.029
+    "slope": 0.49202036,
+    "roughness": 0.01561318,
+    "hypsometry": 0.04021731,
+    "flat_fraction": 0.02811942,
+    "illumination": 0.09265045,
+    "thermal_amplitude": 0.11759746,
+    "barren_ground": 0.02867377
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.129,
+   "overall": 0.068,
    "verdict": "weak",
    "notes": [
     "Median slope 0.0 deg at Arctic mainland (38) vs 6.6 deg at Mons Mouton Plateau.",
@@ -60918,20 +60918,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.761,
-    "roughness": 0.668,
-    "hypsometry": 0.422,
-    "flat_fraction": 0.965,
-    "illumination": 0.561,
-    "thermal_amplitude": 0.383,
-    "barren_ground": 0.018
+    "slope": 0.76050155,
+    "roughness": 0.6677526,
+    "hypsometry": 0.42182662,
+    "flat_fraction": 0.96479465,
+    "illumination": 0.56138872,
+    "thermal_amplitude": 0.38277647,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.589,
+   "overall": 0.461,
    "verdict": "partial",
    "notes": [
     "Median slope 7.4 deg at Central Mongolia vs 6.6 deg at Mons Mouton Plateau.",
@@ -61428,20 +61428,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.441,
-    "roughness": 0.027,
-    "hypsometry": 0.092,
-    "flat_fraction": 0.014,
-    "illumination": 0.016,
-    "thermal_amplitude": 0.219,
-    "barren_ground": 0.018
+    "slope": 0.44138254,
+    "roughness": 0.02690407,
+    "hypsometry": 0.09195974,
+    "flat_fraction": 0.01379631,
+    "illumination": 0.01638891,
+    "thermal_amplitude": 0.21911758,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.119,
+   "overall": 0.049,
    "verdict": "weak",
    "notes": [
     "Median slope 0.3 deg at Kolyma Lowland vs 6.6 deg at Mons Mouton Plateau.",
@@ -61938,20 +61938,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.279,
-    "roughness": 0.278,
-    "hypsometry": 0.498,
-    "flat_fraction": 0.249,
-    "illumination": 0.396,
-    "thermal_amplitude": 0.281,
-    "barren_ground": 0.019
+    "slope": 0.27874864,
+    "roughness": 0.27766582,
+    "hypsometry": 0.49799703,
+    "flat_fraction": 0.24898455,
+    "illumination": 0.39599207,
+    "thermal_amplitude": 0.28118568,
+    "barren_ground": 0.01914122
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.308,
+   "overall": 0.258,
    "verdict": "weak",
    "notes": [
     "Median slope 17.8 deg at Eastern Yakutia vs 6.6 deg at Mons Mouton Plateau.",
@@ -62448,20 +62448,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.495,
-    "roughness": 0.126,
-    "hypsometry": 0.108,
-    "flat_fraction": 0.015,
-    "illumination": 0.028,
-    "thermal_amplitude": 0.271,
-    "barren_ground": 0.018
+    "slope": 0.49524966,
+    "roughness": 0.12615529,
+    "hypsometry": 0.10765134,
+    "flat_fraction": 0.01494784,
+    "illumination": 0.02756154,
+    "thermal_amplitude": 0.27055554,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.15,
+   "overall": 0.071,
    "verdict": "weak",
    "notes": [
     "Median slope 1.4 deg at Northern Yakutia vs 6.6 deg at Mons Mouton Plateau.",
@@ -62697,8 +62697,8 @@
      0.83428,
      1.06766,
      1.26997,
-     1.37593,
-     1.33255,
+     1.37586,
+     1.33262,
      1.11332,
      0.7131,
      0.3717,
@@ -62958,21 +62958,21 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.818,
-    "roughness": 0.745,
-    "hypsometry": 0.159,
-    "flat_fraction": 0.576,
-    "illumination": 0.685,
-    "thermal_amplitude": 0.25,
-    "barren_ground": 0.018
+    "slope": 0.81775165,
+    "roughness": 0.74491931,
+    "hypsometry": 0.15887093,
+    "flat_fraction": 0.57592674,
+    "illumination": 0.68487448,
+    "thermal_amplitude": 0.25005795,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.527,
-   "verdict": "partial",
+   "overall": 0.385,
+   "verdict": "weak",
    "notes": [
     "Median slope 5.5 deg at Central Siberia vs 6.6 deg at Mons Mouton Plateau.",
     "Flat ground (< 5 deg): 42% vs 34%.",
@@ -63468,20 +63468,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.574,
-    "roughness": 0.248,
-    "hypsometry": 0.52,
-    "flat_fraction": 0.029,
-    "illumination": 0.03,
-    "thermal_amplitude": 0.245,
-    "barren_ground": 0.018
+    "slope": 0.57379716,
+    "roughness": 0.24789511,
+    "hypsometry": 0.52015784,
+    "flat_fraction": 0.02929094,
+    "illumination": 0.0300286,
+    "thermal_amplitude": 0.24504976,
+    "barren_ground": 0.01831564
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.227,
+   "overall": 0.108,
    "verdict": "weak",
    "notes": [
     "Median slope 2.2 deg at Northern Siberia (Taymyr area) vs 6.6 deg at Mons Mouton Plateau.",
@@ -63978,20 +63978,20 @@
    "target_type": "base_highland",
    "is_pair": false,
    "scores": {
-    "slope": 0.459,
-    "roughness": 0.046,
-    "hypsometry": 0.288,
-    "flat_fraction": 0.013,
-    "illumination": 0.013,
-    "thermal_amplitude": 0.256,
-    "barren_ground": 0.018
+    "slope": 0.4593706,
+    "roughness": 0.04615241,
+    "hypsometry": 0.28755045,
+    "flat_fraction": 0.01297418,
+    "illumination": 0.01258846,
+    "thermal_amplitude": 0.25644088,
+    "barren_ground": 0.01839081
    },
    "not_applicable": [
     "profile",
     "depth",
     "texture"
    ],
-   "overall": 0.151,
+   "overall": 0.057,
    "verdict": "weak",
    "notes": [
     "Median slope 0.9 deg at Kivalliq region vs 6.6 deg at Mons Mouton Plateau.",
