@@ -16,6 +16,7 @@ from rasterio.warp import Resampling, reproject
 from scipy.stats import wasserstein_distance
 
 from . import ROOT
+from .facts import FACTS_DIR, read_facts
 from .sources import local_crs, local_grid
 
 LAYER_DIR = ROOT / "data" / "layers"
@@ -64,11 +65,27 @@ class Constant(float):
     """A known value for a whole site instead of a raster, e.g. 'Mars has no vegetation' (100% barren)."""
 
 
+def fact_value(layer, site_id):
+    """One number per site from data/facts/<kind>/<site_id>.json, for layers defined by `facts`,
+    e.g. {"kind": "temperature", "mean_of": ["low_k", "high_k"]}. None when the fact is missing."""
+    spec = layer["facts"]
+    fact = read_facts(site_id).get(spec["kind"])
+    if not fact:
+        return None
+    vals = [fact.get(k) for k in spec["mean_of"]]
+    if any(v is None for v in vals):
+        return None
+    return float(np.mean(vals))
+
+
 def site_values(layer, site, res, log=print):
     """Finite layer values for a site, a Constant for bodies the layer defines by a known value,
     or None when there is no (usable) file."""
     if site["body"] != "earth" and layer.get("planetary_value") is not None:
         return Constant(layer["planetary_value"])
+    if layer.get("facts"):  # a single site-wide value, compared as a one-point distribution
+        v = fact_value(layer, site["id"])
+        return None if v is None else np.array([v], np.float32)
     path = layer_file(layer["id"], site["id"])
     if path is None:
         return None
@@ -158,8 +175,30 @@ def _compare_fraction(layer, a, b, body_a="earth", body_b=None):
     return score, out
 
 
+def earth_range(layer, sites):
+    """(lowest, highest) typical value over all Earth sites, for compare = "relative" layers."""
+    vals = [fact_value(layer, s["id"]) for s in sites if s["body"] == "earth"]
+    vals = [v for v in vals if v is not None]
+    return (min(vals), max(vals)) if vals else None
+
+
+def _compare_relative(layer, a, b):
+    """Score the Earth site against the other Earth sites, not against the target directly:
+    lowest Earth value = 1.0, highest = 0.0. Used for `cold`: every Earth site is far warmer than
+    Mars and the Moon, so a raw temperature gap scores them all near 0; colder = closer is fair."""
+    if not layer.get("_range"):
+        raise ValueError(f"layer {layer['id']}: relative compare needs the Earth range (set by analyze.py)")
+    lo, hi = layer["_range"]
+    ta, tb = float(np.median(a)), float(np.median(b))
+    score = float(np.clip((hi - ta) / max(hi - lo, 1e-9), 0.0, 1.0))
+    return score, {"kind": "relative", "earth_value": round(ta, 1), "target_value": round(tb, 1),
+                   "earth_min": round(lo, 1), "earth_max": round(hi, 1)}
+
+
 def compare_layer(layer, a, b, body_a="earth", body_b=None):
     """Score two sites' layer values; returns the score plus chart data for the viewer."""
+    if layer.get("compare") == "relative":
+        return _compare_relative(layer, a, b)
     if layer.get("compare") in ("fraction_below", "fraction"):
         return _compare_fraction(layer, a, b, body_a, body_b)
     if layer.get("compare") == "ratio":
@@ -193,6 +232,11 @@ def inventory(layers, site_ids):
     """Which layer files exist, and which files don't match any site (typo in the name?)."""
     report = {}
     for layer in layers:
+        if layer.get("facts"):  # values come from data/facts/<kind>/, not from GeoTIFFs
+            d = FACTS_DIR / layer["facts"]["kind"]
+            found = sorted(p.stem for p in d.glob("*.json")) if d.exists() else []
+            report[layer["id"]] = {"sites": [s for s in found if s in site_ids], "unknown_files": []}
+            continue
         d = LAYER_DIR / layer["id"]
         found = sorted(p.stem for p in d.glob("*.tif")) if d.exists() else []
         report[layer["id"]] = {

@@ -11,7 +11,7 @@
         "mars": "Mars Odyssey THEMIS projected brightness temperature (ASU / NASA PDS): mean afternoon (12-17 h) minus mean pre-dawn (0-7 h), northern summer",
         "moon": "LRO Diviner 240 m south-polar temperatures (Williams et al. 2019), via UCLA / PDS"
       },
-      "weight": 0.15,
+      "weight": 0.5,
       "default_on": true,
       "source_ids": {
         "earth": "modis_lst",
@@ -21,6 +21,29 @@
       "compare": "ratio",
       "ratio_halving": 4,
       "ratio_floor": 0.5
+    },
+    {
+      "id": "cold",
+      "label": "How cold (typical temperature)",
+      "unit": "K",
+      "description": "Typical surface temperature: the mean of the site's typical low and high (data/facts/temperature/). Earth: MODIS summer night and day. Moon: Diviner coldest and hottest over a lunar day. Mars: THEMIS early morning and late afternoon. Every Earth site is far warmer than Mars and the Moon, so each Earth site is scored against the other Earth sites: the coldest scores 1.0, the warmest 0.0. Together with the day-night swing this makes up the Temperature category (half weight each).",
+      "sources": {
+        "earth": "Google Earth Engine: MODIS/061/MOD11A2 (mean of LST_Night_1km and LST_Day_1km, Jun-Aug)",
+        "mars": "Mars Odyssey THEMIS: mean of early-morning and late-afternoon brightness temperature, northern summer",
+        "moon": "LRO Diviner 240 m south-polar temperatures: mean of the coldest and hottest over a lunar day"
+      },
+      "facts": {
+        "kind": "temperature",
+        "mean_of": ["low_k", "high_k"]
+      },
+      "compare": "relative",
+      "weight": 0.5,
+      "default_on": true,
+      "source_ids": {
+        "earth": "modis_lst",
+        "mars": "themis_ir",
+        "moon": "diviner"
+      }
     },
     {
       "id": "albedo",
@@ -35,7 +58,7 @@
       "normalize": "none",
       "scale": 0.05,
       "weight": 0.1,
-      "default_on": true,
+      "default_on": false,
       "source_ids": {
         "earth": "modis_albedo",
         "mars": "tes_albedo",
@@ -57,7 +80,7 @@
       "planetary_value": 1.0,
       "normalize": "none",
       "scale": 0.25,
-      "weight": 0.1,
+      "weight": 1.0,
       "default_on": true,
       "source_ids": {
         "earth": "modis_ndvi"
@@ -78,7 +101,7 @@
       "threshold": 50,
       "normalize": "none",
       "scale": 0.25,
-      "weight": 0.1,
+      "weight": 1.0,
       "default_on": true,
       "source_ids": {
         "earth": "openlandmap_sand",
@@ -107,7 +130,7 @@
       "normalize": "none",
       "scale": 0.15,
       "weight": 0.1,
-      "default_on": true,
+      "default_on": false,
       "source_ids": {
         "earth": "rcm_compact_pol",
         "moon": "minirf_cpr"

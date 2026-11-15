@@ -1,6 +1,6 @@
 {
  "dataset": "modis_lst",
- "low_k": 273.7,
- "high_k": 277.8,
- "what": "typical summer (June-August 2023) night (~22:30) and day (~10:30) land surface temperature"
+ "low_k": 253.1,
+ "high_k": 255.5,
+ "what": "typical (full year 2023) night (~22:30) and day (~10:30) land surface temperature"
 }

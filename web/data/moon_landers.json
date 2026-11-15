@@ -1,0 +1,2704 @@
+{
+  "schema_version": "1.0",
+  "body": "Moon",
+  "source": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+  "url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+  "retrieved_at": "2026-11-15T03:08:55.703Z",
+  "sha256": "586aef752114a651b5a056299fdf2d850b6dfbb418580f49b6c099dfe70e705f",
+  "source_last_updated": "13 August 2025, DRW",
+  "scope": "All rows in the retrieved NASA table, including impacts and hardware. This historical table is not a complete current list of lunar landing attempts.",
+  "coordinate_convention": "Planetocentric latitude, east-positive longitude in degrees, as provided by source; uncertainty and source precision retained.",
+  "note": "Raw source cells retain qualifiers such as > and Unknown. Numeric fields are null when the source is qualified or unavailable. Source note references resolve to the archived HTML snapshot as well as the live page.",
+  "snapshot": "data/catalogs/landers.html",
+  "landers": [
+    {
+      "id": "nasa_1",
+      "name": "Luna 2",
+      "date": "13 September 1959",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 30,
+      "lon_e": 0,
+      "location_status": "approximately_known",
+      "coordinates_text": "30., 0.",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1959-014A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#a"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 2",
+        "Impact",
+        "13 September 1959",
+        "30 N, 0 E",
+        "30., 0.",
+        "a",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_2",
+      "name": "Luna 2 booster 3rd stage",
+      "date": "13 September 1959",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1959-014A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#b"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 2 booster 3rd stage",
+        "Impact",
+        "13 September 1959",
+        "Unknown",
+        "Unknown",
+        "b",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_3",
+      "name": "Ranger 4",
+      "date": "26 April 1962",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -15.5,
+      "lon_e": 229.3,
+      "location_status": "approximately_known",
+      "coordinates_text": "-15.5, 229.3",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1962-012A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#c"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Ranger 4",
+        "Impact",
+        "26 April 1962",
+        "15.5 S, 130.7 W",
+        "-15.5, 229.3",
+        "c",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_4",
+      "name": "Ranger 6",
+      "date": "2 February 1964",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 9.3864,
+      "lon_e": 21.4806,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "9.3864, 21.4806",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1964-007A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Ranger 6",
+        "Impact",
+        "2 February 1964",
+        "9.3864 N, 21.4806 E",
+        "9.3864, 21.4806",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_5",
+      "name": "Ranger 7",
+      "date": "31 July 1964",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -10.634,
+      "lon_e": 339.323,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-10.6340, 339.3230",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1964-041A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Ranger 7",
+        "Impact",
+        "31 July 1964",
+        "10.6340 S, 20.6770 W",
+        "-10.6340, 339.3230",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_6",
+      "name": "Ranger 8",
+      "date": "20 February 1965",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 2.6376,
+      "lon_e": 24.7881,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "2.6376, 24.7881",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1965-010A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Ranger 8",
+        "Impact",
+        "20 February 1965",
+        "2.6376 N, 24.7881 E",
+        "2.6376, 24.7881",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_7",
+      "name": "Ranger 9",
+      "date": "24 March 1965",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -12.8281,
+      "lon_e": 357.6116,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-12.8281, 357.6116",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1965-023A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Ranger 9",
+        "Impact",
+        "24 March 1965",
+        "12.8281 S, 2.3884 W",
+        "-12.8281, 357.6116",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_8",
+      "name": "Luna 5",
+      "date": "12 May 1965",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -1.35,
+      "lon_e": 334.52,
+      "location_status": "approximately_known",
+      "coordinates_text": "-1.35, 334.52",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1965-036A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#e"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 5",
+        "Impact",
+        "12 May 1965",
+        "1.35 S, 25.48 W",
+        "-1.35, 334.52",
+        "e",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_9",
+      "name": "Luna 7",
+      "date": "7 October 1965",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 9,
+      "lon_e": 311,
+      "location_status": "approximately_known",
+      "coordinates_text": "9., 311.",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1965-077A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#c"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 7",
+        "Impact",
+        "7 October 1965",
+        "9 N, 49 W",
+        "9., 311.",
+        "c",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_10",
+      "name": "Luna 8",
+      "date": "6 December 1965",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 9.1,
+      "lon_e": 296.7,
+      "location_status": "approximately_known",
+      "coordinates_text": "9.1, 296.7",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1965-099A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#c"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 8",
+        "Impact",
+        "6 December 1965",
+        "9.1 N, 63.3 W",
+        "9.1, 296.7",
+        "c",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_11",
+      "name": "Luna 9",
+      "date": "3 February 1966",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": 7.13,
+      "lon_e": 295.63,
+      "location_status": "approximately_known",
+      "coordinates_text": "7.13, 295.63",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1966-006A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#f"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 9",
+        "Soft Landing",
+        "3 February 1966",
+        "7.13 N, 64.37 W",
+        "7.13, 295.63",
+        "f",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_12",
+      "name": "Surveyor 1",
+      "date": "2 June 1966",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": -2.4745,
+      "lon_e": 316.6602,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-2.4745, 316.6602",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1966-045A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Surveyor 1",
+        "Soft Landing",
+        "2 June 1966",
+        "2.4745 S, 43.3398 W",
+        "-2.4745, 316.6602",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_13",
+      "name": "Luna 10",
+      "date": "Unknown (1966)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1966-027A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#g"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 10",
+        "Impact",
+        "Unknown (1966)",
+        "Unknown",
+        "Unknown",
+        "g",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_14",
+      "name": "Luna 11",
+      "date": "Unknown (1966)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1966-078A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#g"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 11",
+        "Impact",
+        "Unknown (1966)",
+        "Unknown",
+        "Unknown",
+        "g",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_15",
+      "name": "Surveyor 2",
+      "date": "22 September 1966",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 5.5,
+      "lon_e": 348,
+      "location_status": "approximately_known",
+      "coordinates_text": "5.5, 348.0",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1966-084A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#c"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Surveyor 2",
+        "Impact",
+        "22 September 1966",
+        "5.5 N, 12.0 W",
+        "5.5, 348.0",
+        "c",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_16",
+      "name": "Lunar Orbiter 1",
+      "date": "29 October 1966",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 6.35,
+      "lon_e": 160.71,
+      "location_status": "approximately_known",
+      "coordinates_text": "6.35, 160.71",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1966-073A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#h"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Lunar Orbiter 1",
+        "Impact",
+        "29 October 1966",
+        "6.35 N, 160.71 E",
+        "6.35, 160.71",
+        "h",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_17",
+      "name": "Luna 13",
+      "date": "24 December 1966",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": 18.87,
+      "lon_e": 297.95,
+      "location_status": "approximately_known",
+      "coordinates_text": "18.87, 297.95",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1966-116A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#c"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 13",
+        "Soft Landing",
+        "24 December 1966",
+        "18.87 N, 62.05 W",
+        "18.87, 297.95",
+        "c",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_18",
+      "name": "Luna 12",
+      "date": "Unknown (1967)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1966-094A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#g"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 12",
+        "Impact",
+        "Unknown (1967)",
+        "Unknown",
+        "Unknown",
+        "g",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_19",
+      "name": "Surveyor 3",
+      "date": "20 April 1967",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": -3.0162,
+      "lon_e": 336.582,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-3.0162, 336.5820",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1967-035A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Surveyor 3",
+        "Soft Landing",
+        "20 April 1967",
+        "3.0162 S, 23.4180 W",
+        "-3.0162, 336.5820",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_20",
+      "name": "Surveyor 4",
+      "date": "17 July 1967",
+      "outcome": "Impact (?)",
+      "type": "Impact (?)",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown (0.5, 358.5)",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1967-068A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#i"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Surveyor 4",
+        "Impact (?)",
+        "17 July 1967",
+        "Unknown (0.5 N, 1.5 W)",
+        "Unknown (0.5, 358.5)",
+        "i",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_21",
+      "name": "Surveyor 5",
+      "date": "11 September 1967",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": 1.4551,
+      "lon_e": 23.1943,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "1.4551, 23.1943",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1967-084A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Surveyor 5",
+        "Soft Landing",
+        "11 September 1967",
+        "1.4551 N, 23.1943 E",
+        "1.4551, 23.1943",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_22",
+      "name": "Lunar Orbiter 3",
+      "date": "9 October 1967",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 14.3,
+      "lon_e": 267.3,
+      "location_status": "approximately_known",
+      "coordinates_text": "14.3, 267.3",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1967-008A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#j"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Lunar Orbiter 3",
+        "Impact",
+        "9 October 1967",
+        "14.3 N, 92.7 W",
+        "14.3, 267.3",
+        "j",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_23",
+      "name": "Lunar Orbiter 2",
+      "date": "11 October 1967",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 3,
+      "lon_e": 119.1,
+      "location_status": "approximately_known",
+      "coordinates_text": "3.0, 119.1",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1966-100A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#j"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Lunar Orbiter 2",
+        "Impact",
+        "11 October 1967",
+        "3.0 N, 119.1 E",
+        "3.0, 119.1",
+        "j",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_24",
+      "name": "Surveyor 6",
+      "date": "10 November 1967",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": 0.4742,
+      "lon_e": 358.5725,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "0.4742, 358.5725",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1967-112A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Surveyor 6",
+        "Soft Landing",
+        "10 November 1967",
+        "0.4742 N, 1.4275 W",
+        "0.4742, 358.5725",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_25",
+      "name": "Lunar Orbiter 4",
+      "date": "Unknown (1967)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1967-041A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#k"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Lunar Orbiter 4",
+        "Impact",
+        "Unknown (1967)",
+        "Unknown",
+        "Unknown",
+        "k",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_26",
+      "name": "Surveyor 7",
+      "date": "10 January 1968",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": -40.9812,
+      "lon_e": 348.4873,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-40.9812, 348.4873",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1968-001A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Surveyor 7",
+        "Soft Landing",
+        "10 January 1968",
+        "40.9812 S, 11.5127 W",
+        "-40.9812, 348.4873",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_27",
+      "name": "Lunar Orbiter 5",
+      "date": "31 January 1968",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -2.79,
+      "lon_e": 276.96,
+      "location_status": "approximately_known",
+      "coordinates_text": "-2.79, 276.96",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1967-075A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#l"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Lunar Orbiter 5",
+        "Impact",
+        "31 January 1968",
+        "2.79 S, 83.04 W",
+        "-2.79, 276.96",
+        "l",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_28",
+      "name": "Luna 14",
+      "date": "Unknown (1968-69)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1968-027A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#g"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 14",
+        "Impact",
+        "Unknown (1968-69)",
+        "Unknown",
+        "Unknown",
+        "g",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_29",
+      "name": "Apollo 10 LM descent stage",
+      "date": "Unknown (1969)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1969-043A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#g"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 10 LM descent stage",
+        "Impact",
+        "Unknown (1969)",
+        "Unknown",
+        "Unknown",
+        "g",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_30",
+      "name": "Apollo 11 LM descent stage",
+      "date": "20 July 1969",
+      "outcome": "Crewed Landing",
+      "type": "Crewed Landing",
+      "lat": 0.67416,
+      "lon_e": 23.47314,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "0.67416, 23.47314",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1969-059C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 11 LM descent stage",
+        "Crewed Landing",
+        "20 July 1969",
+        "0.67416 N, 23.47314 E",
+        "0.67416, 23.47314",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_31",
+      "name": "Luna 15",
+      "date": "21 July 1969",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 17,
+      "lon_e": 60,
+      "location_status": "approximately_known",
+      "coordinates_text": "17., 60.",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1969-058A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#c1"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 15",
+        "Impact",
+        "21 July 1969",
+        "17 N, 60 E",
+        "17., 60.",
+        "c1",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_32",
+      "name": "Apollo 11 LM ascent stage",
+      "date": "Unknown (1969)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1969-059C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#g"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 11 LM ascent stage",
+        "Impact",
+        "Unknown (1969)",
+        "Unknown",
+        "Unknown",
+        "g",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_33",
+      "name": "Apollo 12 LM descent stage",
+      "date": "19 November 1969",
+      "outcome": "Crewed Landing",
+      "type": "Crewed Landing",
+      "lat": -3.0128,
+      "lon_e": 336.5781,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-3.0128, 336.5781",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1969-099C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 12 LM descent stage",
+        "Crewed Landing",
+        "19 November 1969",
+        "3.0128 S, 23.4219 W",
+        "-3.0128, 336.5781",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_34",
+      "name": "Apollo 12 LM ascent stage",
+      "date": "20 November 1969",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -3.94,
+      "lon_e": 338.8,
+      "location_status": "approximately_known",
+      "coordinates_text": "-3.94, 338.80",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1969-099C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#m"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 12 LM ascent stage",
+        "Impact",
+        "20 November 1969",
+        "3.94 S, 21.20 W",
+        "-3.94, 338.80",
+        "m",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_35",
+      "name": "Apollo 13 S-IVB",
+      "date": "15 April 1970",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -2.555,
+      "lon_e": 332.1125,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-2.5550, 332.1125",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1970-029B",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 13 S-IVB",
+        "Impact",
+        "15 April 1970",
+        "2.5550 S, 27.8875 W",
+        "-2.5550, 332.1125",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_36",
+      "name": "Luna 16",
+      "date": "20 September 1970",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": -0.5137,
+      "lon_e": 56.3638,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-0.5137, 56.3638",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1970-072A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 16",
+        "Soft Landing",
+        "20 September 1970",
+        "0.5137 S, 56.3638 E",
+        "-0.5137, 56.3638",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_37",
+      "name": "Luna 17",
+      "date": "17 November 1970",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": 38.23764,
+      "lon_e": 324.99837,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "38.23764, 324.99837",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1970-095A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 17",
+        "Soft Landing",
+        "17 November 1970",
+        "38.23764 N, 35.00163 W",
+        "38.23764, 324.99837",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_38",
+      "name": "Lunokhod 1",
+      "date": "17 November 1970",
+      "outcome": "Rover",
+      "type": "Rover",
+      "lat": 38.315,
+      "lon_e": 324.9919,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "38.3150, 324.9919",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1970-095A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Lunokhod 1",
+        "Rover",
+        "17 November 1970",
+        "38.3150 N, 35.0081 W",
+        "38.3150, 324.9919",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_39",
+      "name": "Apollo 14 S-IVB",
+      "date": "4 February 1971",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -8.181,
+      "lon_e": 333.9695,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-8.1810, 333.9695",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-008B",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 14 S-IVB",
+        "Impact",
+        "4 February 1971",
+        "8.1810 S, 26.0305 W",
+        "-8.1810, 333.9695",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_40",
+      "name": "Apollo 14 LM descent stage",
+      "date": "5 February 1971",
+      "outcome": "Crewed Landing",
+      "type": "Crewed Landing",
+      "lat": -3.64589,
+      "lon_e": 342.52806,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-3.64589, 342.52806",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-008C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 14 LM descent stage",
+        "Crewed Landing",
+        "5 February 1971",
+        "3.64589 S, 17.47194 W",
+        "-3.64589, 342.52806",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_41",
+      "name": "Apollo 14 LM ascent stage",
+      "date": "7 February 1971",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -3.42,
+      "lon_e": 340.33,
+      "location_status": "approximately_known",
+      "coordinates_text": "-3.42, 340.33",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-008C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#m"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 14 LM ascent stage",
+        "Impact",
+        "7 February 1971",
+        "3.42 S, 19.67 W",
+        "-3.42, 340.33",
+        "m",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_42",
+      "name": "Apollo 15 S-IVB",
+      "date": "29 July 1971",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -1.2897,
+      "lon_e": 348.1755,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-1.2897, 348.1755",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-063B",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 15 S-IVB",
+        "Impact",
+        "29 July 1971",
+        "1.2897 S, 11.8245 W",
+        "-1.2897, 348.1755",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_43",
+      "name": "Apollo 15 LM descent stage",
+      "date": "30 July 1971",
+      "outcome": "Crewed Landing",
+      "type": "Crewed Landing",
+      "lat": 26.13239,
+      "lon_e": 3.6333,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "26.13239, 3.63330",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-063C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 15 LM descent stage",
+        "Crewed Landing",
+        "30 July 1971",
+        "26.13239 N, 3.63330 E",
+        "26.13239, 3.63330",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_44",
+      "name": "Apollo 15 LM ascent stage",
+      "date": "3 August 1971",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 26.36,
+      "lon_e": 0.25,
+      "location_status": "approximately_known",
+      "coordinates_text": "26.36, 0.25",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-063C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#m"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 15 LM ascent stage",
+        "Impact",
+        "3 August 1971",
+        "26.36 N, 0.25 E",
+        "26.36, 0.25",
+        "m",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_45",
+      "name": "Luna 18",
+      "date": "11 September 1971",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 3.76,
+      "lon_e": 56.66,
+      "location_status": "approximately_known",
+      "coordinates_text": "3.76, 56.66",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-073A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#n"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 18",
+        "Impact",
+        "11 September 1971",
+        "3.76 N, 56.66 E",
+        "3.76, 56.66",
+        "n",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_46",
+      "name": "Apollo 15 subsatellite",
+      "date": "Unknown (1973-)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-063D",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#g"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 15 subsatellite",
+        "Impact",
+        "Unknown (1973-)",
+        "Unknown",
+        "Unknown",
+        "g",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_47",
+      "name": "Luna 20",
+      "date": "21 February 1972",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": 3.7863,
+      "lon_e": 56.6242,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "3.7863, 56.6242",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1972-007A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 20",
+        "Soft Landing",
+        "21 February 1972",
+        "3.7863 N, 56.6242 E",
+        "3.7863, 56.6242",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_48",
+      "name": "Apollo 16 S-IVB",
+      "date": "19 April 1972",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 1.921,
+      "lon_e": 335.377,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "1.9210, 335.3770",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1972-031B",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 16 S-IVB",
+        "Impact",
+        "19 April 1972",
+        "1.9210 N, 24.6230 W",
+        "1.9210, 335.3770",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_49",
+      "name": "Apollo 16 LM descent stage",
+      "date": "21 April 1972",
+      "outcome": "Crewed Landing",
+      "type": "Crewed Landing",
+      "lat": -8.9734,
+      "lon_e": 15.5011,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-8.9734, 15.5011",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1972-031C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 16 LM descent stage",
+        "Crewed Landing",
+        "21 April 1972",
+        "8.9734 S, 15.5011 E",
+        "-8.9734, 15.5011",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_50",
+      "name": "Apollo 16 LM ascent stage",
+      "date": "Unknown (1972-73)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1972-031C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#g"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 16 LM ascent stage",
+        "Impact",
+        "Unknown (1972-73)",
+        "Unknown",
+        "Unknown",
+        "g",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_51",
+      "name": "Apollo 16 subsatellite",
+      "date": "29 May 1972",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 10.16,
+      "lon_e": 111.9,
+      "location_status": "approximately_known",
+      "coordinates_text": "10.16, 111.9",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1972-031D",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#o"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 16 subsatellite",
+        "Impact",
+        "29 May 1972",
+        "10.16 N, 111.9 E",
+        "10.16, 111.9",
+        "o",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_52",
+      "name": "Apollo 16 MS boom",
+      "date": "Unknown (1972)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1972-031A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#p"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 16 MS boom",
+        "Impact",
+        "Unknown (1972)",
+        "Unknown",
+        "Unknown",
+        "p",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_53",
+      "name": "Apollo 17 S-IVB",
+      "date": "10 December 1972",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -4.1681,
+      "lon_e": 347.6693,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-4.1681, 347.6693",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1972-096B",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 17 S-IVB",
+        "Impact",
+        "10 December 1972",
+        "4.1681 S, 12.3307 W",
+        "-4.1681, 347.6693",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_54",
+      "name": "Apollo 17 LM descent stage",
+      "date": "11 December 1972",
+      "outcome": "Crewed Landing",
+      "type": "Crewed Landing",
+      "lat": 20.1911,
+      "lon_e": 30.7723,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "20.1911, 30.7723",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1972-096C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 17 LM descent stage",
+        "Crewed Landing",
+        "11 December 1972",
+        "20.1911 N, 30.7723 E",
+        "20.1911, 30.7723",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_55",
+      "name": "Apollo 17 LM ascent stage",
+      "date": "15 December 1972",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 19.97,
+      "lon_e": 30.49,
+      "location_status": "approximately_known",
+      "coordinates_text": "19.97, 30.49",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1972-096C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#m"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Apollo 17 LM ascent stage",
+        "Impact",
+        "15 December 1972",
+        "19.97 N, 30.49 E",
+        "19.97, 30.49",
+        "m",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_56",
+      "name": "Luna 19",
+      "date": "Unknown (1973)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-082A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#g"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 19",
+        "Impact",
+        "Unknown (1973)",
+        "Unknown",
+        "Unknown",
+        "g",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_57",
+      "name": "Luna 21",
+      "date": "15 January 1973",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": 25.9994,
+      "lon_e": 30.4076,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "25.9994, 30.4076",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1973-001A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 21",
+        "Soft Landing",
+        "15 January 1973",
+        "25.9994 N, 30.4076 E",
+        "25.9994, 30.4076",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_58",
+      "name": "Lunokhod 2",
+      "date": "15 January 1973",
+      "outcome": "Rover",
+      "type": "Rover",
+      "lat": 25.8323,
+      "lon_e": 30.9222,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "25.8323, 30.9222",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1973-001A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Lunokhod 2",
+        "Rover",
+        "15 January 1973",
+        "25.8323 N, 30.9222 E",
+        "25.8323, 30.9222",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_59",
+      "name": "Explorer 35/ IMP-E",
+      "date": "Unknown (1973 or later)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1967-070A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#g"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Explorer 35/ IMP-E",
+        "Impact",
+        "Unknown (1973 or later)",
+        "Unknown",
+        "Unknown",
+        "g",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_60",
+      "name": "Luna 23",
+      "date": "6 November 1974",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": 12.6667,
+      "lon_e": 62.1511,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "12.6667, 62.1511",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1974-084A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 23",
+        "Soft Landing",
+        "6 November 1974",
+        "12.6667 N, 62.1511 E",
+        "12.6667, 62.1511",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_61",
+      "name": "Luna 22",
+      "date": "Unknown (1976)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1974-037A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#g"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 22",
+        "Impact",
+        "Unknown (1976)",
+        "Unknown",
+        "Unknown",
+        "g",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_62",
+      "name": "Luna 24",
+      "date": "18 August 1976",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": 12.7142,
+      "lon_e": 62.2129,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "12.7142, 62.2129",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1976-081A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 24",
+        "Soft Landing",
+        "18 August 1976",
+        "12.7142 N, 62.2129 E",
+        "12.7142, 62.2129",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_63",
+      "name": "Explorer 49/ RAE-B",
+      "date": "Unknown (1977 or later)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1973-039A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#g"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Explorer 49/ RAE-B",
+        "Impact",
+        "Unknown (1977 or later)",
+        "Unknown",
+        "Unknown",
+        "g",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_64",
+      "name": "Hiten",
+      "date": "10 April 1993",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -34,
+      "lon_e": 55.3,
+      "location_status": "approximately_known",
+      "coordinates_text": "-34.0, 55.3",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1990-007A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#q"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Hiten",
+        "Impact",
+        "10 April 1993",
+        "34.0 S, 55.3 E",
+        "-34.0, 55.3",
+        "q",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_65",
+      "name": "Hagoromo",
+      "date": "Unknown",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1990-007A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#r"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Hagoromo",
+        "Impact",
+        "Unknown",
+        "Unknown",
+        "Unknown",
+        "r",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_66",
+      "name": "Lunar Prospector",
+      "date": "31 July 1999",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -87.7,
+      "lon_e": 42,
+      "location_status": "approximately_known",
+      "coordinates_text": "-87.7, 42.0",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1998-001A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#o"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Lunar Prospector",
+        "Impact",
+        "31 July 1999",
+        "87.7 S, 42.0 E",
+        "-87.7, 42.0",
+        "o",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_67",
+      "name": "SMART-1",
+      "date": "3 September 2006",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -34.4,
+      "lon_e": 313.8,
+      "location_status": "approximately_known",
+      "coordinates_text": "-34.4, 313.8",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2003-043C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#s"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "SMART-1",
+        "Impact",
+        "3 September 2006",
+        "34.4 S, 46.2 W",
+        "-34.4, 313.8",
+        "s",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_68",
+      "name": "Chandraya'an 1 MIP",
+      "date": "14 November 2008",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -89,
+      "lon_e": 330,
+      "location_status": "approximately_known",
+      "coordinates_text": "-89., 330.",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2008-052A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#t"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Chandraya'an 1 MIP",
+        "Impact",
+        "14 November 2008",
+        "89 S, 30 W",
+        "-89., 330.",
+        "t",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_69",
+      "name": "Okina",
+      "date": "12 February 2009",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 28.213,
+      "lon_e": 200.967,
+      "location_status": "approximately_known",
+      "coordinates_text": "28.213, 200.967",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2007-039B",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#u"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Okina",
+        "Impact",
+        "12 February 2009",
+        "28.213 N, 159.033 W",
+        "28.213, 200.967",
+        "u",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_70",
+      "name": "Ouna",
+      "date": "Unknown (2009-)",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": null,
+      "lon_e": null,
+      "location_status": "unknown",
+      "coordinates_text": "Unknown",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2007-039C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#v"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Ouna",
+        "Impact",
+        "Unknown (2009-)",
+        "Unknown",
+        "Unknown",
+        "v",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_71",
+      "name": "Chang'e 1",
+      "date": "1 March 2009",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -1.5,
+      "lon_e": 52.36,
+      "location_status": "approximately_known",
+      "coordinates_text": "-1.50, 52.36",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2007-051A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#w"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Chang'e 1",
+        "Impact",
+        "1 March 2009",
+        "1.50 S, 52.36 E",
+        "-1.50, 52.36",
+        "w",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_72",
+      "name": "Kaguya",
+      "date": "10 June 2009",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -65.5,
+      "lon_e": 80.4,
+      "location_status": "approximately_known",
+      "coordinates_text": "-65.5, 80.4",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2007-039A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#x"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Kaguya",
+        "Impact",
+        "10 June 2009",
+        "65.5 S, 80.4 E",
+        "-65.5, 80.4",
+        "x",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_73",
+      "name": "LCROSS Centaur",
+      "date": "9 October 2009",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -84.6796,
+      "lon_e": 311.2907,
+      "location_status": "approximately_known",
+      "coordinates_text": "-84.6796, 311.2907",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2009-031D",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#y"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "LCROSS Centaur",
+        "Impact",
+        "9 October 2009",
+        "84.6796 S, 48.7093 W",
+        "-84.6796, 311.2907",
+        "y",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_74",
+      "name": "LCROSS spacecraft",
+      "date": "9 October 2009",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -84.719,
+      "lon_e": 310.39,
+      "location_status": "approximately_known",
+      "coordinates_text": "-84.719, 310.39",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2009-031B",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#y"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "LCROSS spacecraft",
+        "Impact",
+        "9 October 2009",
+        "84.719 S, 49.61 W",
+        "-84.719, 310.39",
+        "y",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_75",
+      "name": "GRAIL A",
+      "date": "17 December 2012",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 75.6088,
+      "lon_e": 333.406,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "75.6088, 333.4060",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2011-046A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "GRAIL A",
+        "Impact",
+        "17 December 2012",
+        "75.6088 N, 26.5940 W",
+        "75.6088, 333.4060",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_76",
+      "name": "GRAIL B",
+      "date": "17 December 2012",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 75.6508,
+      "lon_e": 333.1659,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "75.6508, 333.1659",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2011-046B",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "GRAIL B",
+        "Impact",
+        "17 December 2012",
+        "75.6508 N, 26.8341 W",
+        "75.6508, 333.1659",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_77",
+      "name": "Chang'e 3",
+      "date": "14 December 2013",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": 44.1214,
+      "lon_e": 340.4883,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "44.1214, 340.4883",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2013-070A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Chang'e 3",
+        "Soft Landing",
+        "14 December 2013",
+        "44.1214 N, 19.5117 W",
+        "44.1214, 340.4883",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_78",
+      "name": "Yutu Rover",
+      "date": "14 December 2013",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": 44.1208,
+      "lon_e": 340.4878,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "44.1208, 340.4878",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2013-070C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Yutu Rover",
+        "Soft Landing",
+        "14 December 2013",
+        "44.1208 N, 19.5122 W",
+        "44.1208, 340.4878",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_79",
+      "name": "LADEE",
+      "date": "18 April 2014",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 11.8494,
+      "lon_e": 266.7506,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "11.8494, 266.7506",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2013-047A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "LADEE",
+        "Impact",
+        "18 April 2014",
+        "11.8494 N, 93.2494 W",
+        "11.8494, 266.7506",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_80",
+      "name": "Chang'e 4",
+      "date": "3 January 2019",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": -45.4561,
+      "lon_e": 177.5885,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-45.4561, 177.5885",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2018-103A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Chang'e 4",
+        "Soft Landing",
+        "3 January 2019",
+        "45.4561 S, 177.5885 E",
+        "-45.4561, 177.5885",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_81",
+      "name": "Yutu 2",
+      "date": "3 January 2019",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": -45.46,
+      "lon_e": 177.59,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-45.46, 177.59",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2018-103A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#z"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Yutu 2",
+        "Soft Landing",
+        "3 January 2019",
+        "45.46 S, 177.59 E",
+        "-45.46, 177.59",
+        "z",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_82",
+      "name": "Beresheet",
+      "date": "11 April 2019",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 32.5956,
+      "lon_e": 19.3496,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "32.5956, 19.3496",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2019-009B",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Beresheet",
+        "Impact",
+        "11 April 2019",
+        "32.5956 N, 19.3496 E",
+        "32.5956, 19.3496",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_83",
+      "name": "Longjiang 2",
+      "date": "31 July 2019",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 16.6956,
+      "lon_e": 159.517,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "16.6956, 159.5170",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2018-045C",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Longjiang 2",
+        "Impact",
+        "31 July 2019",
+        "16.6956 N, 159.5170 E",
+        "16.6956, 159.5170",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_84",
+      "name": "Vikram",
+      "date": "6 September 2019",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -70.881,
+      "lon_e": 22.784,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-70.8810, 22.7840",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2019-042A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Vikram",
+        "Impact",
+        "6 September 2019",
+        "70.8810 S, 22.7840 E",
+        "-70.8810, 22.7840",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_85",
+      "name": "Chang'e 5",
+      "date": "1 December 2020",
+      "outcome": "Soft Landing",
+      "type": "Soft Landing",
+      "lat": 43.0576,
+      "lon_e": 308.0839,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "43.0576, 308.0839",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2020-087A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Chang'e 5",
+        "Soft Landing",
+        "1 December 2020",
+        "43.0576 N, 51.9161 W",
+        "43.0576, 308.0839",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_86",
+      "name": "Chang'e 5 Ascent Craft",
+      "date": "7 December 2020",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -30,
+      "lon_e": 0,
+      "location_status": "approximately_known",
+      "coordinates_text": "-30., 0.",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2020-087A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#aa"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Chang'e 5 Ascent Craft",
+        "Impact",
+        "7 December 2020",
+        "30. S, 0. E",
+        "-30., 0.",
+        "aa",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_87",
+      "name": "Chang'e 5-T1 Booster",
+      "date": "4 March 2022",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 5.226,
+      "lon_e": 234.486,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "5.226, 234.486",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2014-065A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#bb"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Chang'e 5-T1 Booster",
+        "Impact",
+        "4 March 2022",
+        "5.226 N, 234.486 E",
+        "5.226, 234.486",
+        "bb",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_88",
+      "name": "Hakuto-R Mission 1",
+      "date": "25 April 2023",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 47.581,
+      "lon_e": 44.094,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "47.581, 44.094",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2022-168A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Hakuto-R Mission 1",
+        "Impact",
+        "25 April 2023",
+        "47.581 N, 44.094 E",
+        "47.581, 44.094",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_89",
+      "name": "Luna 25",
+      "date": "19 August 2023",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": -57.865,
+      "lon_e": 61.36,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-57.865, 61.360",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2023-118A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Luna 25",
+        "Impact",
+        "19 August 2023",
+        "57.865 S, 61.360 E",
+        "-57.865, 61.360",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_90",
+      "name": "Chandrayaan 3",
+      "date": "23 August 2023",
+      "outcome": "Lander",
+      "type": "Lander",
+      "lat": -69.3741,
+      "lon_e": 32.32,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-69.3741, 32.32",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2023-098A",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Chandrayaan 3",
+        "Lander",
+        "23 August 2023",
+        "69.3741 S, 32.32 E",
+        "-69.3741, 32.32",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_91",
+      "name": "SLIM",
+      "date": "19 January 2024",
+      "outcome": "Lander",
+      "type": "Lander",
+      "lat": -13.316,
+      "lon_e": 25.251,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-13.3160, 25.2510",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2023-137D",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "SLIM",
+        "Lander",
+        "19 January 2024",
+        "13.3160 S, 25.2510 E",
+        "-13.3160, 25.2510",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_92",
+      "name": "Odysseus (IM-1)",
+      "date": "22 February 2024",
+      "outcome": "Lander",
+      "type": "Lander",
+      "lat": -80.13,
+      "lon_e": 1.44,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-80.13, 1.44",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=IM-1-NOVA",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Odysseus (IM-1)",
+        "Lander",
+        "22 February 2024",
+        "80.13 S, 1.44 E",
+        "-80.13, 1.44",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_93",
+      "name": "Chang'e 6",
+      "date": "1 June 2024",
+      "outcome": "Lander",
+      "type": "Lander",
+      "lat": -41.6385,
+      "lon_e": 206.0148,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-41.6385, 206.0148",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=CHANG-E-6",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Chang'e 6",
+        "Lander",
+        "1 June 2024",
+        "41.6385 S, 153.9852 W",
+        "-41.6385, 206.0148",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_94",
+      "name": "Blue Ghost 1",
+      "date": "2 March 2025",
+      "outcome": "Lander",
+      "type": "Lander",
+      "lat": 18.562,
+      "lon_e": 61.81,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "18.562, 61.810",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=BLUEGHOST",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Blue Ghost 1",
+        "Lander",
+        "2 March 2025",
+        "18.562 N, 61.810 E",
+        "18.562, 61.810",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_95",
+      "name": "Intuitive Machines 2",
+      "date": "6 March 2025",
+      "outcome": "Lander",
+      "type": "Lander",
+      "lat": -84.7906,
+      "lon_e": 29.1957,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "-84.7906, 29.1957",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=PRIME-1",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Intuitive Machines 2",
+        "Lander",
+        "6 March 2025",
+        "84.7906 S, 29.1957 E",
+        "-84.7906, 29.1957",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "nasa_96",
+      "name": "Hakuto-R Mission 2",
+      "date": "5 June 2025",
+      "outcome": "Impact",
+      "type": "Impact",
+      "lat": 60.4445,
+      "lon_e": 355.412,
+      "location_status": "imaged_by_LRO",
+      "coordinates_text": "60.4445, 355.412",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html",
+      "mission_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=RESILIENC",
+      "note_references": [
+        "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_artifact_impacts.html#d"
+      ],
+      "note": "Landing type is copied from NASA; impacts and hardware are included, not only landers.",
+      "source_cells": [
+        "Hakuto-R Mission 2",
+        "Impact",
+        "5 June 2025",
+        "60.4445 N, 4.588 W",
+        "60.4445, 355.412",
+        "d",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "source_notes_text": "Notes Columns at the end of each row (LO - Lunar Orbiters 1 through 5 ; Ap - Apollo 15, 16, 17 metric and pan cameras ; and LRO - Lunar Reconnaissance Orbiter) show when those missions were operating (darker shades) or the period before operations (lighter shades), so any object or impact could be in one of the images. White indicates the landing/impact occurred after the end of the given orbital mission and cannot be in those images. a - Impact site unknown, typically given as within the range of 29 - 31 N, 1 W to 1 E. b - 3rd stage booster of Luna 2 impacted approximately 30 minutes after Luna 2 (NSSDCA). c - Siddiqi, A., 2002, 2018; Ulivi and Harland, 2004. c1 - Siddiqi, A., 2002, 2018; Ulivi and Harland, 2004. Luna 15 crash sites also given as 12 N, 59 E or 17 N, 49 E. d - Object or impact imaged on surface by Lunar Reconnaissance Orbiter Camera (LROC), see LROC, 2016 and LROC, 2024. e - Ksanfomality, 2018. Other results for Luna 5 have been reported, various impact sites listed: 8.17 N, 23.43 W (Minikin and Ulubekhov, 1972); 30 S, 8 W (Harvey, 2007); Siddiqi, 2002); 31 S, 8 W (Ulivi and Harland, 2004; Siddiqi, 2018); or 1.6 S, 25 W (Huntress and Marov. 2011). f - Wagner et al., 2017: Luna 9 coordinates come from initial Pravda report, LROC images show no sign of lander at these coordinates, and area topography from LROC images does not match Luna 9 images, lander site is probably at least 10 km away, direction unknown. g - Object left in lunar orbit with no tracking or communication, orbit presumably decayed, estimated year of decay in parentheses if available. h - Boeing Co., 1968. For Lunar Orbiter 1, impact site also listed as 6.7 N, 162 E in other references (c) i - Cloud et al., 1967; Surveyor Project Staff, 1968. Possibly fragmented, contact lost 2.5 minutes before landing. Soft landing estimate 0.43 N, 1.62 W; ballistic trajectory (impact) estimate 0.47 N, 1.44 W [also estimated at 0.37 N, 1.55 W (soft); 0.469 N, 1.086 W (impact), O'Neil et al., 1968]. j - Boeing Co., 1968. For Lunar Orbiter 2, impact site is also listed in places as 4 N, 98 E. For Lunar Orbiter 3, some references give 14.6 N, 91.7 W or 14.3 N, 97.7 W k - Contact lost 17 July 1967, impact dates listed as 6 October, 31 October, or “no later than 31 October, 1967”, impact possibly between 22 and 30 degrees W longitude. l - Boeing Co., 1968 m - Coordinates estimated from seismic data in Toksoz et al., 1974, see Orloff, 2000; Wagner et al., 2017 n - Unconfirmed, contact lost with Luna 18 during landing phase 100 meters above surface, object identified in LROC image M119482862R at given coordinates may be lander. o - Ulivi and Harland, 2004 p - Apollo 16 mass spectrometer boom jettisoned after it failed to retract. q - Estimate from Uesugi, K., 1996. The same paper also lists an estimated impact point of 34.3 S, 55.6 E r - Lunar orbit/impact unconfirmed, Hagoromo may have gone into heliocentric orbit (NSSDCA). s - Burchell et al, 2015 t - Impacted in Shackleton crater near south pole, exact coordinates unknown, estimate from Sridharen et al., 2010 u - JAXA, Selene status, 18 February 2009. v - Projected to have impacted, location unknown (NSSDCA). w - Xinhua News Agency, 2009. Given as 1.66 S, 52.27 E in Siddiqi (2018) x - JAXA, 2009. Press release. y - Marshall et al., 2012, LCROSS and LCROSS Centaur impacted in permanently shadowed Cabeus crater, not easily observable. z - Yutu 2 rover still mobile as of January 2023, approximately 850 m northwest of Change'e 4, final coordinates TBD. aa - Pers. Comm., N. Petro; Jones, 2020, Chang'e 5 ascent vehicle intentionally crashed after returning samples to orbiter, most probable site is Crater Regiomontanus (-0.21, -29.84). bb - An object, considered most likely to be the booster stage of the Chang'e 5-T1, impacted the far side of the Moon on 4 March 2022 (NASA, 2022), double crater imaged by LROC camera. Coordinates based on DE 421 mean Earth/polar rotation axis reference frame (Williams et al., 2008). All dates in Universal Time Coordinated (UTC). All coordinates, explanations, and any future updates can be found in the NSSDCA database: https://nssdc.gsfc.nasa.gov/planetary/lunar/lunartimeline.html Precision of knowledge of location is reflected in the precision of the coordinates, 0.001 degrees equals approximately 30 meters. References Boeing Co., Lunar Orbiter V Extended Mission Spacecraft Operations and Subsystem Performance, NASA CR-1142, August, 1968. Burchell et al, SMART-1 end of life shallow regolith impact simulations, Meteoritics and Planet. Sci., 50, Nr 8, 1436-1448, 2015. Cloud, J.D., et al., Surveyor IV flight performance final report, NASA-CR-93487, SSD 68189-4, JPL, 1967. http://hdl.handle.net/2060/19680009190 Glavin, D.P., et al., In Situ Biological Contamination Studies of the Moon: Implications for Planetary Protection and Life Detection Missions, Earth Moon Planets, 107, 1, 87-93 Harvey, B., Soviet and Russian lunar exploration, Praxis, 2007. Huntress, W.T., and M.Y. Marov, Soviet robots in the solar system - mission technologies and discoveries, Praxis, 2011. JAXA, Kaguya impact press release, 11 June 2009, https://global.jaxa.jp/press/2009/06/20090611_kaguya_e.html Jones A., Chang’e-5 spacecraft smashes into moon after completing mission, Space News, 8 December 2020. https://spacenews.com/change-5-spacecraft-smashes-into-moon-after-completing-mission/ Ksanfomality, L.V., Luna-5 (1965): Some results from a failed mission to the Moon, Cosmic Research, 56, 4, 276-282, 2018. LROC, Spacecraft related coordinates - 2016 update, http://lroc.sese.asu.edu/posts/938 LROC, Featured Lunar Sites, https://www.lroc.asu.edu/featured_sites Marshall et al., Locating the LCROSS impact craters, Space Sci. Rev., 167, 71-92, 2012. Minikin, S.N., and A.T. Ulubekov, Earth-space-moon, Mashinostroeniye Press, Moscow, 1972. NASA Statement on March 4, 2022 Lunar Impact https://nssdc.gsfc.nasa.gov/planetary/lunar/nasa_statement_20220322.txt NSSDCA database, Lunar Timeline https://nssdc.gsfc.nasa.gov/planetary/lunar/lunartimeline.html O'Neil, W.J., et al., Surveyor 3 and Surveyor 4 flight paths, Tech. Rept. 32-1292, JPL, 1968. http://hdl.handle.net/2060/19690009698 Orloff, R.W., Apollo by the numbers, NASA SP-4029, 2000. https://history.nasa.gov/SP-4029.pdf Roncoli, R.B., Lunar constants and models document, JPL-32296, 2005. https://www.hq.nasa.gov/alsj/lunar_cmd_2005_jpl_d32296.pdf Siddiqi, A.A., Deep Space Chronicle, NASA SP-2002-4524, 2002. https://history.nasa.gov/monograph24.pdf Siddiqi, A.A., Beyond Earth, NASA SP-2018-4041, 2018. https://www.nasa.gov/connect/ebooks/beyond_earth_detail.html Sridharan, R., et al., The sunlit lunar atmosphere: A comprehensive study by CHACE on the Moon Impact Probe of Chandrayaan-1. Planet. Space Sci. 58, 1567–1577, 2010. Surveyor Project Staff, Surveyor IV mission report - Mission description and performance, NASA-CR-92707, Tech. Rept. 32-1210, NASA, 1968. http://hdl.handle.net/2060/19680006793 Toksoz, N., et al., Structure of the Moon, Rev. Geophys. Space Phys., 12, 4, p. 549, 1974. Ulivi, P., and D. Harland, Lunar Exploration: Human pioneers and robotic surveyors, Praxis, Chichester, UK, 2004. Uesugi, K., Results of the MUSES-A “Hiten” Mission, Adv. Space Res., 18, 11, 69-72, 1996. Wagner, R.V., et al., Coordinates of anthropogenic features on the Moon, Icarus, 283, 92-103, 2017. Williams, J.G., et al., DE421 Lunar orbit, physical librations, and surface coordinates, JPL IOM 335-JW, 2008. https://ssd.jpl.nasa.gov/ftp/eph/planets/ioms/de421.iom.v1.pdf Xinhua News Agency, China’s lunar probe Chang’e-1 impacts Moon, 2 March 2009. http://en.people.cn/90001/90781/90876/6603492.html Xin, L, China’s Chang’e-6 collects first rock samples from Moon’s far side, Nature, 4 June 2024. https://www.nature.com/articles/d41586-024-01625-0 Lunar Exploration Timeline Chronology of Lunar and Planetary Exploration Planetary Home Page NSSDCA General Spacecraft Query Lunar Reconnaissance Orbiter Camera Author/Curator: Dr. David R. Williams, dave.williams@nasa.gov NSSDCA, Mail Code 690.1 NASA Goddard Space Flight Center Greenbelt, MD 20771 +1-301-286-1258 NASA Official: Thomas Morgan, thomas.h.morgan@nasa.gov Last Updated: 13 August 2025, DRW"
+}

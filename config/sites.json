@@ -9,7 +9,8 @@
       "role": "analog",
       "types": [
         "crater",
-        "periglacial_plains"
+        "periglacial_plains",
+        "landing_zone"
       ],
       "lat": 75.38,
       "lon": -89.68,
@@ -63,7 +64,8 @@
       "body": "earth",
       "role": "analog",
       "types": [
-        "base_highland"
+        "base_highland",
+        "landing_zone"
       ],
       "lat": 75.433,
       "lon": -89.867,
@@ -79,7 +81,8 @@
       "body": "earth",
       "role": "analog",
       "types": [
-        "base_highland"
+        "base_highland",
+        "landing_zone"
       ],
       "lat": 79.433,
       "lon": -90.767,
@@ -95,7 +98,8 @@
       "body": "earth",
       "role": "analog",
       "types": [
-        "periglacial_plains"
+        "periglacial_plains",
+        "landing_zone"
       ],
       "lat": 69.4,
       "lon": -133.08,
@@ -850,6 +854,881 @@
         "Moon gravity is 0.165 g and there is no atmosphere: no wind, no erosion, regolith stays loose.",
         "Day/night temperature swings of ~250 K in sunlit areas.",
         "No atmosphere or magnetic field to block radiation and micrometeorites."
+      ]
+    },
+    {
+      "id": "mars_oxia_planum",
+      "name": "Oxia Planum",
+      "region": "Mars (mars_data)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 18.27,
+      "lon": -24.63,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (mars_data).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_s_meridiani_planum",
+      "name": "S. Meridiani Planum",
+      "region": "Mars (MSL 7-site shortlist (2007-200)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -3.05,
+      "lon": -5.39,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (MSL 7-site shortlist (2007-2008)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_holden_crater",
+      "name": "Holden crater",
+      "region": "Mars (MSL 7-site shortlist (2007-200)",
+      "body": "mars",
+      "role": "target",
+      "type": "crater",
+      "lat": -26.37,
+      "lon": -34.9,
+      "window_km": 300,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (MSL 7-site shortlist (2007-2008)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ],
+      "diameter_km": 152.7,
+      "refine_center": true
+    },
+    {
+      "id": "mars_eberswalde_crater",
+      "name": "Eberswalde crater",
+      "region": "Mars (MSL 7-site shortlist (2007-200)",
+      "body": "mars",
+      "role": "target",
+      "type": "crater",
+      "lat": -23.86,
+      "lon": -33.27,
+      "window_km": 187,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (MSL 7-site shortlist (2007-2008)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ],
+      "diameter_km": 62.2,
+      "refine_center": true
+    },
+    {
+      "id": "mars_mawrth_vallis_ellipse_2",
+      "name": "Mawrth Vallis (ellipse 2)",
+      "region": "Mars (MSL 7-site shortlist (2007-200)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 24.01,
+      "lon": -18.97,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (MSL 7-site shortlist (2007-2008)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_gale_crater",
+      "name": "Gale crater",
+      "region": "Mars (MSL 7-site shortlist (2007-200)",
+      "body": "mars",
+      "role": "target",
+      "type": "crater",
+      "lat": -4.49,
+      "lon": 137.42,
+      "window_km": 300,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (MSL 7-site shortlist (2007-2008)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ],
+      "diameter_km": 154.1,
+      "refine_center": true
+    },
+    {
+      "id": "mars_chloride_terra_meridiani",
+      "name": "Chloride (Terra Meridiani)",
+      "region": "Mars (MSL additional sites reviewed )",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -3.07,
+      "lon": -8.47,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (MSL additional sites reviewed Jul 2008).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_nili_fossae_carbonate",
+      "name": "Nili Fossae carbonate",
+      "region": "Mars (MSL additional sites reviewed )",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 21.69,
+      "lon": 78.85,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (MSL additional sites reviewed Jul 2008).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_eastern_melas_chasma",
+      "name": "Eastern Melas Chasma",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -11.7,
+      "lon": -70.0,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_western_coprates_chasma_valles_marineris",
+      "name": "Western Coprates Chasma, Valles Marineris",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -11.684,
+      "lon": -66.633,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_chryse_planitia_viking_1_ez",
+      "name": "Chryse Planitia / Viking 1 EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 22.3,
+      "lon": -48.3,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_eastern_outlet_of_valles_marineris_ez",
+      "name": "Eastern outlet of Valles Marineris EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -4.6,
+      "lon": -15.15,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_mitchell_christensen_equatorial_ez",
+      "name": "Mitchell & Christensen equatorial EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -18.83,
+      "lon": -49.21,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_sw_sinus_meridiani_ez",
+      "name": "SW Sinus Meridiani EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -2.2526,
+      "lon": -6.433,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_gusev_crater_ez_longo",
+      "name": "Gusev crater EZ (Longo)",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "crater",
+      "lat": -14.5,
+      "lon": 175.4,
+      "window_km": 300,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ],
+      "diameter_km": 158.1,
+      "refine_center": true
+    },
+    {
+      "id": "mars_gusev_apollinaris_sulci_ez_rice_et_al",
+      "name": "Gusev-Apollinaris Sulci EZ (Rice et al.)",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -13.0,
+      "lon": 175.0,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_hebrus_valles_ez",
+      "name": "Hebrus Valles EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 20.083,
+      "lon": 126.633,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_nili_fossae_resource_science_ez",
+      "name": "Nili Fossae resource & science EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 22.05,
+      "lon": 76.95,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_aram_chaos_ez",
+      "name": "Aram Chaos EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 2.4167,
+      "lon": -20.033,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_cerberus_zunil_crater_ez",
+      "name": "Cerberus / Zunil crater EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 10.0,
+      "lon": 162.0,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_southern_nectaris_fossae_ez",
+      "name": "Southern Nectaris Fossae EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -28.88,
+      "lon": -59.71,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_hadriacus_palus_cavi_ez",
+      "name": "Hadriacus Palus & Cavi EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -26.84,
+      "lon": 77.47,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_mclaughlin_crater_ez",
+      "name": "McLaughlin crater EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "crater",
+      "lat": 21.9,
+      "lon": -22.4,
+      "window_km": 273,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ],
+      "diameter_km": 90.9,
+      "refine_center": true
+    },
+    {
+      "id": "mars_south_of_firsoff_crater_arabia_terra_ez",
+      "name": "South of Firsoff crater, Arabia Terra EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "crater",
+      "lat": 0.391,
+      "lon": -8.362,
+      "window_km": 300,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ],
+      "diameter_km": 101.8,
+      "refine_center": true
+    },
+    {
+      "id": "mars_columbus_crater_ez",
+      "name": "Columbus crater EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "crater",
+      "lat": -29.0,
+      "lon": -166.0,
+      "window_km": 300,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ],
+      "diameter_km": 112.6,
+      "refine_center": true
+    },
+    {
+      "id": "mars_huygens_crater_ez",
+      "name": "Huygens crater EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "crater",
+      "lat": -13.5,
+      "lon": 55.5,
+      "window_km": 300,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ],
+      "diameter_km": 467.3,
+      "refine_center": true
+    },
+    {
+      "id": "mars_noctis_landing_ez",
+      "name": "Noctis Landing EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -6.494,
+      "lon": -92.453,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_deuteronilus_mensae_ez_head_et_al",
+      "name": "Deuteronilus Mensae EZ (Head et al.)",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 39.11,
+      "lon": 23.199,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_eastern_rim_of_hellas_basin_ez_rice_et_a",
+      "name": "Eastern rim of Hellas basin EZ (Rice et al.)",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -40.0,
+      "lon": 104.0,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_hellas_rim_ez_levy_holt",
+      "name": "Hellas rim EZ (Levy & Holt)",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -39.05,
+      "lon": 101.91,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_ismenius_cavus_ez",
+      "name": "Ismenius Cavus EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 33.817,
+      "lon": 17.167,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_hellas_east_rim_negele_crater_ez",
+      "name": "Hellas east rim / Negele crater EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -35.352,
+      "lon": 94.02,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_hale_crater_ez",
+      "name": "Hale crater EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "crater",
+      "lat": -35.3,
+      "lon": -36.86,
+      "window_km": 300,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ],
+      "diameter_km": 137.3,
+      "refine_center": true
+    },
+    {
+      "id": "mars_western_noachis_terra_chloride_ez",
+      "name": "Western Noachis Terra chloride EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -37.4214,
+      "lon": -9.421,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_newton_crater_ez",
+      "name": "Newton crater EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "crater",
+      "lat": -40.6,
+      "lon": -160.0,
+      "window_km": 300,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ],
+      "diameter_km": 299.9,
+      "refine_center": true
+    },
+    {
+      "id": "mars_erebus_montes_ez",
+      "name": "Erebus Montes EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 39.0,
+      "lon": -167.9,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_acheron_fossae_ez",
+      "name": "Acheron Fossae EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 39.8,
+      "lon": -139.4,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_arcadia_planitia_phlegra_dorsa_ez",
+      "name": "Arcadia Planitia / Phlegra Dorsa EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 39.0,
+      "lon": 172.0,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_protonilus_mensae_ez",
+      "name": "Protonilus Mensae EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 42.187,
+      "lon": 48.062,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_mid_latitude_ice_rich_ground_ez_stoker_h",
+      "name": "Mid-latitude ice-rich ground EZ (Stoker & Heldmann)",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 40.0,
+      "lon": -171.2,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_terra_sirenum_copernicus_crater_ez",
+      "name": "Terra Sirenum / Copernicus crater EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -49.2,
+      "lon": -169.2,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_ausonia_cavus_ez",
+      "name": "Ausonia Cavus EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": -32.0,
+      "lon": 96.5,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_kasei_valles_ez",
+      "name": "Kasei Valles EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 24.81,
+      "lon": -72.63,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_southern_acidalia_planitia_ez",
+      "name": "Southern Acidalia Planitia EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 20.0,
+      "lon": -40.0,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "mars_tempe_terra_ez",
+      "name": "Tempe Terra EZ",
+      "region": "Mars (HLS2 Exploration Zone workshop)",
+      "body": "mars",
+      "role": "target",
+      "type": "landing_zone",
+      "lat": 42.266,
+      "lon": -89.18,
+      "window_km": 60,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Candidate landing / exploration site from mars-data (HLS2 Exploration Zone workshop (Oct 2015)).",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale features; HiRISE DEMs would be needed."
       ]
     }
   ],

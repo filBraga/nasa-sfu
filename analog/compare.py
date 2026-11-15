@@ -11,8 +11,13 @@ import numpy as np
 from scipy.stats import wasserstein_distance
 
 # name: (weight, label, explanation)
+# The team compares four equal categories: slope, temperature (cold + swing), dust and plants
+# (the last three are data layers in config/layers.json, weights 0.5 + 0.5, 1, 1). Slope is the
+# only terrain metric in the default score; the others are still computed and can be ticked in
+# the viewer, where they count with the weights below.
+DEFAULT_ON = {"slope"}
 METRICS = {
-    "slope":         (0.20, "Slope distribution", "Wasserstein distance between slope histograms (scale 8 deg)"),
+    "slope":         (1.00, "Slope distribution", "Wasserstein distance between slope histograms (scale 8 deg)"),
     "roughness":     (0.15, "Surface roughness", "Wasserstein distance of log10 Terrain Ruggedness Index (scale 0.3)"),
     "hypsometry":    (0.15, "Hypsometry", "Mean gap between normalised elevation-area curves (scale 0.08)"),
     "profile":       (0.30, "Crater profile shape", "Mean correlation of 8 compass-sector radial profiles with the target profile (r/R 0-1.5)"),

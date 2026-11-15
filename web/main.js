@@ -138,7 +138,45 @@ function buildGlobes() {
     p.mesh.add(m);
     markers.push(m);
   }
+  addReferenceMarkers();
   buildPairLines();
+}
+
+// sites + landers from moon-data/ and mars-data/ (copied into web/data/). Sites that already exist as
+// comparison targets (same id, or id + "_crater") are skipped: those markers carry the comparison/links.
+function addReferenceMarkers() {
+  const have = new Set(Object.keys(state.data.sites));
+  const add = (body, item, kind, text) => {
+    const p = planets[body];
+    const size = p.r * (kind === "site" ? 0.018 : 0.009);
+    const m = new THREE.Mesh(new THREE.SphereGeometry(size, 12, 8),
+      new THREE.MeshBasicMaterial({ color: kind === "site" ? COLOR.team : 0xffffff, transparent: kind !== "site", opacity: kind === "site" ? 1 : 0.7 }));
+    m.position.copy(latLonToVec(item.lat, item.lon_e, p.r * 1.005));
+    m.userData.baseOpacity = m.material.opacity;
+    m.userData.ref = { name: item.name, text };
+    if (kind === "site") {
+      const l = label(item.name, "site analog");
+      l.position.set(0, size * 2.2, 0);
+      m.add(l);
+    }
+    p.mesh.add(m);
+    markers.push(m);
+  };
+  const ok = (x) => typeof x.lat === "number" && typeof x.lon_e === "number";
+  for (const c of state.ref.mars.caves?.caves || [])
+    if (ok(c)) add("mars", { ...c, name: c.id }, "lander", `Cave candidate ${c.id} (${c.type}): ${c.comment || ""}`);
+  for (const f of state.ref.mars.features?.features || []) // 2055 named features: only the big ones
+    if (ok(f) && f.diam_km >= 150) add("mars", f, "lander", `${f.name} (${f.type}), ${Math.round(f.diam_km)} km`);
+  for (const [body, ref] of Object.entries(state.ref)) {
+    for (const s of ref.data?.sites || []) {
+      if (have.has(s.id) || have.has(s.id.replace(/_crater$/, ""))) continue;
+      add(body, s, "site", `${s.name}: ${s.facts.length} sourced facts (see ${body}-data). Reference site, no terrain comparison yet.`);
+    }
+    for (const l of ref.landers?.landers || []) {
+      if (typeof l.lat !== "number" || typeof l.lon_e !== "number") continue;
+      add(body, l, "lander", `${l.name}${l.date ? " (" + l.date + ")" : ""}: ${l.outcome || l.type || ""}`);
+    }
+  }
 }
 
 function buildPairLines() {
@@ -452,7 +490,7 @@ function bestComparison(filter) {
 function esc(s) { return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
 
 // ------------------------------------------------------------------ dimensions (terrain metrics + data layers)
-const DIM_KEY = "analog-explorer-dims";
+const DIM_KEY = "analog-explorer-dims-v2"; // v2: four equal categories (slope, temperature, dust, plants)
 const verdictOf = (v) => (v >= 0.7 ? "strong" : v >= 0.4 ? "partial" : "weak");
 const fmt = (v) => (v == null ? "-" : v.toFixed(2));
 
@@ -1072,6 +1110,14 @@ function renderPanel() {
   $("layer-charts").innerHTML = layerIds.map((k) => caveats(k) + layerChart(k)).join("");
   function layerChart(k) {
     const d = dims[k], L = c.layers[k];
+    if (L.kind === "relative") { // e.g. cold: Earth site placed between the coldest and warmest Earth site
+      const u = d.unit ? " " + esc(d.unit) : "";
+      const s = c.scores[k];
+      return `<h2>${esc(d.label)} <span class="hint">${esc(e.name)} ${L.earth_value}${u} · ${esc(t.name)} ${L.target_value}${u}</span></h2>
+        <div class="frac-row"><span>${esc(e.name)}</span><div class="bar"><div style="width:${s * 100}%;background:${COLOR.earth}"></div></div><b>${s.toFixed(2)}</b></div>
+        <p class="hint">Scored against the other Earth sites: coldest (${L.earth_min}${u}) = 1.0, warmest (${L.earth_max}${u}) = 0.0.
+        Every Earth site is warmer than ${esc(t.name)}, so colder = closer.</p>`;
+    }
     if (L.kind === "fraction") { // e.g. barren ground: share of area below a threshold
       const pct = (v) => `${Math.round(v * 100)}%`;
       const bars = [[e, L.earth_value, COLOR.earth], [t, L.target_value, tColor]].map(([s, v, col]) => `
@@ -1234,6 +1280,7 @@ renderer.domElement.addEventListener("pointerup", (ev) => {
   raycaster.setFromCamera(ndc, globes.camera);
   const hit = raycaster.intersectObjects(markers, false)[0];
   if (!hit) return;
+  if (hit.object.userData.ref) { $("stage-hint").textContent = hit.object.userData.ref.text; return; }
   const site = state.data.sites[hit.object.userData.siteId];
   if (site.body === "earth") select(site.id, null, { pair: site.role === "analog" });
   else select(null, site.id, { pair: true });
@@ -1278,6 +1325,10 @@ async function boot() {
       and serve the site with <code>python -m http.server 8000 -d web</code> (opening the file directly will not work).`;
     return;
   }
+  const j = (f) => fetch("data/" + f).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+  const [md, ml, rd, rl] = await Promise.all([j("moon_data.json"), j("moon_landers.json"), j("mars_data.json"), j("mars_landers.json")]);
+  const [mc, mv, mf] = await Promise.all([j("mars_candidates.json"), j("mars_caves.json"), j("mars_features.json")]);
+  state.ref = { moon: { data: md, landers: ml }, mars: { data: rd, landers: rl, candidates: mc, caves: mv, features: mf } };
   // optional deep links: #moon, #mars, #earth, #compare[/<earthId>/<targetId>], #link/<earthId>/<targetId>
   const [view, hashEarth, hashTarget] = location.hash.slice(1).split("/");
   const first = state.data.pairs[0];

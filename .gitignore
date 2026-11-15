@@ -25,3 +25,5 @@ Thumbs.db
 *.log
 *.tmp
 node_modules/
+# Large data archive (share outside git)
+data.rar

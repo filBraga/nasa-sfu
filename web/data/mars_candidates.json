@@ -1,0 +1,543 @@
+{
+"sources": {
+"MSL": "https://marsoweb.nas.nasa.gov/landingsites/msl2009/memoranda/MSL_Site_Selection_March2009.pdf; https://science.nasa.gov/resource/four-finalist-landing-site-candidates-for-mars-science-laboratory/",
+"Mars2020": "https://ntrs.nasa.gov/api/citations/20205003827/downloads/Chojnacki_et_al-2018_JGR_Wind_Driven_Erosin.pdf; https://www.jpl.nasa.gov/news/scientists-to-debate-landing-site-for-next-mars-rover/; https://www.jpl.nasa.gov/news/scientists-shortlist-three-landing-sites-for-mars-2020/",
+"HLS2": "https://nasa.gov/wp-content/uploads/2015/06/mars-c-abstracts_in_order_of_presentation10242015_0.pdf; https://nasa.gov/wp-content/uploads/2015/06/hls220workshop20statement.pdf"
+},
+"note": "Blank coordinates mean the NASA document gives none. 49 EZ entries come from 45 abstracts (NASA says 47 EZs); several regions were proposed by more than one team. Collected by Hermes, not independently re-checked by Claude.",
+"count": 76,
+"candidates": [
+{
+"group": "MSL 7-site shortlist (2007-2008)",
+"name": "Miyamoto crater",
+"lat": null,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "MSL 7-site shortlist (2007-2008)",
+"name": "S. Meridiani Planum",
+"lat": -3.05,
+"lon_e": 354.61,
+"note": ""
+},
+{
+"group": "MSL 7-site shortlist (2007-2008)",
+"name": "Nili Fossae trough",
+"lat": null,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "MSL 7-site shortlist (2007-2008)",
+"name": "Holden crater",
+"lat": -26.37,
+"lon_e": 325.1,
+"note": ""
+},
+{
+"group": "MSL 7-site shortlist (2007-2008)",
+"name": "Eberswalde crater",
+"lat": -23.86,
+"lon_e": 326.73,
+"note": ""
+},
+{
+"group": "MSL 7-site shortlist (2007-2008)",
+"name": "Mawrth Vallis (ellipse 2)",
+"lat": 24.01,
+"lon_e": 341.03,
+"note": ""
+},
+{
+"group": "MSL 7-site shortlist (2007-2008)",
+"name": "Gale crater",
+"lat": -4.49,
+"lon_e": 137.42,
+"note": ""
+},
+{
+"group": "MSL additional sites reviewed Jul 2008",
+"name": "S. Meridiani Planum (new submission)",
+"lat": -3.05,
+"lon_e": 354.61,
+"note": ""
+},
+{
+"group": "MSL additional sites reviewed Jul 2008",
+"name": "Chloride (Terra Meridiani)",
+"lat": -3.07,
+"lon_e": 351.53,
+"note": ""
+},
+{
+"group": "MSL additional sites reviewed Jul 2008",
+"name": "Nili Fossae carbonate",
+"lat": 21.69,
+"lon_e": 78.85,
+"note": ""
+},
+{
+"group": "MSL additional sites reviewed Jul 2008",
+"name": "N. Meridiani Planum (dropped)",
+"lat": null,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "MSL final four (2008-11-19)",
+"name": "Eberswalde",
+"lat": -23.86,
+"lon_e": 326.73,
+"note": ""
+},
+{
+"group": "MSL final four (2008-11-19)",
+"name": "Gale",
+"lat": -4.49,
+"lon_e": 137.42,
+"note": ""
+},
+{
+"group": "MSL final four (2008-11-19)",
+"name": "Holden",
+"lat": -26.37,
+"lon_e": 325.1,
+"note": ""
+},
+{
+"group": "MSL final four (2008-11-19)",
+"name": "Mawrth Vallis",
+"lat": 24.01,
+"lon_e": 341.03,
+"note": ""
+},
+{
+"group": "Mars 2020 eight candidates (2015)",
+"name": "Eberswalde crater",
+"lat": -23.86,
+"lon_e": 326.73,
+"note": ""
+},
+{
+"group": "Mars 2020 eight candidates (2015)",
+"name": "Holden crater",
+"lat": -26.37,
+"lon_e": 325.1,
+"note": ""
+},
+{
+"group": "Mars 2020 eight candidates (2015)",
+"name": "Mawrth Vallis",
+"lat": 24.01,
+"lon_e": 341.03,
+"note": ""
+},
+{
+"group": "Mars 2020 eight candidates (2015)",
+"name": "SW Melas Chasma",
+"lat": null,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "Mars 2020 eight candidates (2015)",
+"name": "Nili Fossae",
+"lat": null,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "Mars 2020 eight candidates (2015)",
+"name": "Jezero crater",
+"lat": 18.45,
+"lon_e": 77.42,
+"note": "ellipse 18.40-18.52 N, 77.34-77.50 E"
+},
+{
+"group": "Mars 2020 eight candidates (2015)",
+"name": "NE Syrtis",
+"lat": null,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "Mars 2020 eight candidates (2015)",
+"name": "Columbia Hills (Gusev)",
+"lat": null,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "Mars 2020 final three/four (2017-2018)",
+"name": "Columbia Hills (Gusev)",
+"lat": null,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "Mars 2020 final three/four (2017-2018)",
+"name": "Jezero crater",
+"lat": 18.45,
+"lon_e": 77.42,
+"note": "selected Apr 2019"
+},
+{
+"group": "Mars 2020 final three/four (2017-2018)",
+"name": "NE Syrtis",
+"lat": null,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "Mars 2020 final three/four (2017-2018)",
+"name": "Midway",
+"lat": null,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Eastern Melas Chasma",
+"lat": -11.7,
+"lon_e": 290.0,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Western Coprates Chasma, Valles Marineris",
+"lat": -11.684,
+"lon_e": 293.367,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Chryse Planitia / Viking 1 EZ",
+"lat": 22.3,
+"lon_e": 311.7,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Eastern outlet of Valles Marineris EZ",
+"lat": -4.6,
+"lon_e": 344.85,
+"note": "EZ box 3.0-6.2 S, 36.7-33.6 W"
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Mitchell & Christensen equatorial EZ",
+"lat": -18.83,
+"lon_e": 310.79,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Gale crater EZ (Calef et al.)",
+"lat": null,
+"lon_e": null,
+"note": "text gives 137.4019 E, 4.5965 S"
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Gale crater / Aeolis Palus EZ (Yun)",
+"lat": -4.6,
+"lon_e": 137.0,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Gale crater ground-truth EZ (Montano et al.)",
+"lat": -4.0,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "SW Sinus Meridiani EZ",
+"lat": -2.2526,
+"lon_e": 353.5665,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Southern edge of Meridiani Planum EZ",
+"lat": -3.174,
+"lon_e": 355.483,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Meridiani Planum 'Land of Opportunity' EZ",
+"lat": null,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Gusev crater EZ (Longo)",
+"lat": -14.5,
+"lon_e": 175.4,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Zephyria Planum EZ",
+"lat": -1.5,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Apollinaris Sulci EZ (Kerber et al.)",
+"lat": -12.0,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Gusev-Apollinaris Sulci EZ (Rice et al.)",
+"lat": -13.0,
+"lon_e": 175.0,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Hebrus Valles EZ",
+"lat": 20.083,
+"lon_e": 126.633,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Hypanis fluvial-deltaic system, Xanthe Terra EZ",
+"lat": null,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Jezero crater watershed / Isidis EZ",
+"lat": 17.747,
+"lon_e": 77.037,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Nili Fossae resource & science EZ",
+"lat": 22.05,
+"lon_e": 76.95,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Aram Chaos EZ",
+"lat": 2.4167,
+"lon_e": 339.9667,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Cerberus / Zunil crater EZ",
+"lat": 10.0,
+"lon_e": 162.0,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Southern Nectaris Fossae EZ",
+"lat": -28.88,
+"lon_e": 300.29,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Hadriacus Palus & Cavi EZ",
+"lat": -26.84,
+"lon_e": 77.47,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Mawrth Vallis EZ (Horgan et al.)",
+"lat": 24.3,
+"lon_e": 340.8,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "McLaughlin crater EZ",
+"lat": 21.9,
+"lon_e": 337.6,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "South of Firsoff crater, Arabia Terra EZ",
+"lat": 0.391,
+"lon_e": 351.6375,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Columbus crater EZ",
+"lat": -29.0,
+"lon_e": 194.0,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Huygens crater EZ",
+"lat": -13.5,
+"lon_e": 55.5,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Noctis Landing EZ",
+"lat": -6.494,
+"lon_e": 267.547,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Deuteronilus Mensae EZ (Head et al.)",
+"lat": 39.11,
+"lon_e": 23.199,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Eastern rim of Hellas basin EZ (Rice et al.)",
+"lat": -40.0,
+"lon_e": 104.0,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Hellas rim EZ (Levy & Holt)",
+"lat": -39.05,
+"lon_e": 101.91,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Deuteronilus Mensae EZ (Plaut)",
+"lat": null,
+"lon_e": null,
+"note": "map only, about 40-42 N, 20-24 E"
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Ismenius Cavus EZ",
+"lat": 33.817,
+"lon_e": 17.167,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Hellas east rim / Negele crater EZ",
+"lat": -35.352,
+"lon_e": 94.02,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Hale crater EZ",
+"lat": -35.3,
+"lon_e": 323.14,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Western Noachis Terra chloride EZ",
+"lat": -37.4214,
+"lon_e": 350.5785,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Newton crater EZ",
+"lat": -40.6,
+"lon_e": 200.0,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Erebus Montes EZ",
+"lat": 39.0,
+"lon_e": 192.1,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Acheron Fossae EZ",
+"lat": 39.8,
+"lon_e": 220.6,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Arcadia Planitia / Phlegra Dorsa EZ",
+"lat": 39.0,
+"lon_e": 172.0,
+"note": "abstract prints '172 N, 39 E' transposed"
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Protonilus Mensae EZ",
+"lat": 42.187,
+"lon_e": 48.062,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Mid-latitude ice-rich ground EZ (Stoker & Heldmann)",
+"lat": 40.0,
+"lon_e": 188.8,
+"note": "site given as 46.16 N, 188.8 E"
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Terra Sirenum / Copernicus crater EZ",
+"lat": -49.2,
+"lon_e": 190.8,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Ausonia Cavus EZ",
+"lat": -32.0,
+"lon_e": 96.5,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Kasei Valles EZ",
+"lat": 24.81,
+"lon_e": 287.37,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Southern Acidalia Planitia EZ",
+"lat": 20.0,
+"lon_e": 320.0,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Holden crater EZ (GIS assessment)",
+"lat": null,
+"lon_e": null,
+"note": ""
+},
+{
+"group": "HLS2 Exploration Zone workshop (Oct 2015)",
+"name": "Tempe Terra EZ",
+"lat": 42.266,
+"lon_e": 270.82,
+"note": ""
+}
+]
+}

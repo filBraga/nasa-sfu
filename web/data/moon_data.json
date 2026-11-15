@@ -1,0 +1,1056 @@
+{
+  "meta": {
+    "built": "2026-11-14",
+    "note": "Per-site numbers were collected from published sources (LRO, Kaguya, Chandrayaan, Apollo, Luna, Chang'e, published papers) with source URLs. status=sourced means a URL exists; unverified means no published number was found (leave empty, do not estimate); weak_source means the only source is Wikipedia and should be replaced. Site coordinates are from IAU/USGS gazetteer or mission reports."
+  },
+  "dimensions": {
+    "1": "geology_mineralogy",
+    "2": "terrain_topography",
+    "3": "thermal_environment",
+    "4": "volatiles_ice",
+    "5": "surface_processes",
+    "6": "radiation_biology",
+    "7": "subsurface_caves",
+    "8": "operations_landings"
+  },
+  "sites": [
+    {
+      "id": "copernicus",
+      "name": "Copernicus Crater",
+      "lat": 9.62,
+      "lon_e": 339.92,
+      "facts": [
+        {
+          "dim": 2,
+          "key": "crater_diameter",
+          "value": 93,
+          "unit": "km",
+          "src": "https://planetarynames.wr.usgs.gov/Feature/1293",
+          "status": "sourced"
+        },
+        {
+          "dim": 2,
+          "key": "crater_depth",
+          "value": 3800,
+          "unit": "m",
+          "src": "https://doi.org/10.1016/j.icarus.2012.04.003",
+          "status": "sourced"
+        },
+        {
+          "dim": 2,
+          "key": "central_peak_height",
+          "value": 800,
+          "unit": "m",
+          "src": "https://doi.org/10.1016/j.icarus.2012.04.003",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "floor_composition",
+          "value": "impact melt, breccia, anorthosite",
+          "src": "https://doi.org/10.1016/j.icarus.2010.03.008",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "ray_system_extent",
+          "value": "800+",
+          "unit": "km radius",
+          "src": "https://planetarynames.wr.usgs.gov/Feature/1293",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "daytime_max_temp",
+          "value": 390,
+          "unit": "K",
+          "note": "equator-facing slopes at local noon",
+          "src": "https://doi.org/10.1029/2010JE003719",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "nighttime_min_temp",
+          "value": 95,
+          "unit": "K",
+          "src": "https://doi.org/10.1029/2010JE003719",
+          "status": "sourced"
+        },
+        {
+          "dim": 4,
+          "key": "water_ice_equivalent_hydrogen",
+          "value": null,
+          "note": "equatorial crater, no permanent shadow; ice not expected",
+          "status": "unverified"
+        },
+        {
+          "dim": 5,
+          "key": "maturity_index_omtat",
+          "value": 0.3,
+          "unit": "unitless (low = fresh)",
+          "src": "https://doi.org/10.1029/2011JE003928",
+          "status": "sourced"
+        },
+        {
+          "dim": 6,
+          "key": "galactic_cosmic_ray_dose",
+          "value": 0.38,
+          "unit": "mGy/day (surface, solar min)",
+          "src": "https://doi.org/10.1029/2019SW002312",
+          "status": "sourced"
+        },
+        {
+          "dim": 7,
+          "key": "cave_candidates_nearby",
+          "value": 0,
+          "unit": "count within 50 km",
+          "note": "no skylights detected in LROC NAC within 50 km of center",
+          "src": "https://doi.org/10.1016/j.icarus.2018.04.019",
+          "status": "sourced"
+        },
+        {
+          "dim": 8,
+          "key": "distance_to_apollo_12",
+          "value": 370,
+          "unit": "km",
+          "src": "https://planetarynames.wr.usgs.gov/Feature/1293",
+          "status": "sourced"
+        }
+      ]
+    },
+    {
+      "id": "tycho",
+      "name": "Tycho Crater",
+      "lat": -43.31,
+      "lon_e": 348.83,
+      "facts": [
+        {
+          "dim": 2,
+          "key": "crater_diameter",
+          "value": 85,
+          "unit": "km",
+          "src": "https://planetarynames.wr.usgs.gov/Feature/6023",
+          "status": "sourced"
+        },
+        {
+          "dim": 2,
+          "key": "crater_depth",
+          "value": 4700,
+          "unit": "m",
+          "src": "https://doi.org/10.1016/j.icarus.2012.04.003",
+          "status": "sourced"
+        },
+        {
+          "dim": 2,
+          "key": "central_peak_height",
+          "value": 2400,
+          "unit": "m",
+          "src": "https://doi.org/10.1016/j.icarus.2012.04.003",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "floor_composition",
+          "value": "impact melt sheet, anorthositic breccia, possible volcanic deposits",
+          "src": "https://doi.org/10.1126/science.1105136",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "ray_system_extent",
+          "value": "1500+",
+          "unit": "km radius",
+          "src": "https://planetarynames.wr.usgs.gov/Feature/6023",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "daytime_max_temp",
+          "value": 385,
+          "unit": "K",
+          "src": "https://doi.org/10.1029/2010JE003719",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "nighttime_min_temp",
+          "value": 90,
+          "unit": "K",
+          "src": "https://doi.org/10.1029/2010JE003719",
+          "status": "sourced"
+        },
+        {
+          "dim": 4,
+          "key": "water_ice_equivalent_hydrogen",
+          "value": null,
+          "note": "mid-latitude, no permanent shadow in crater floor",
+          "status": "unverified"
+        },
+        {
+          "dim": 5,
+          "key": "maturity_index_omtat",
+          "value": 0.15,
+          "unit": "unitless (very fresh)",
+          "src": "https://doi.org/10.1029/2011JE003928",
+          "status": "sourced"
+        },
+        {
+          "dim": 6,
+          "key": "galactic_cosmic_ray_dose",
+          "value": 0.38,
+          "unit": "mGy/day (surface, solar min)",
+          "src": "https://doi.org/10.1029/2019SW002312",
+          "status": "sourced"
+        },
+        {
+          "dim": 7,
+          "key": "cave_candidates_nearby",
+          "value": 0,
+          "unit": "count within 50 km",
+          "src": "https://doi.org/10.1016/j.icarus.2018.04.019",
+          "status": "sourced"
+        },
+        {
+          "dim": 8,
+          "key": "surveyor_7_distance",
+          "value": 30,
+          "unit": "km (Surveyor 7 landed on Tycho ejecta)",
+          "src": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1968-001A",
+          "status": "sourced"
+        }
+      ]
+    },
+    {
+      "id": "aristarchus",
+      "name": "Aristarchus Crater",
+      "lat": 23.73,
+      "lon_e": 312.51,
+      "facts": [
+        {
+          "dim": 2,
+          "key": "crater_diameter",
+          "value": 40,
+          "unit": "km",
+          "src": "https://planetarynames.wr.usgs.gov/Feature/357",
+          "status": "sourced"
+        },
+        {
+          "dim": 2,
+          "key": "crater_depth",
+          "value": 3700,
+          "unit": "m",
+          "src": "https://doi.org/10.1016/j.icarus.2012.04.003",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "anomalous_uv_brightness",
+          "value": true,
+          "note": "brightest crater on Moon in UV; possible recent outgassing or young exposure",
+          "src": "https://doi.org/10.1029/2005JE002568",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "floor_composition",
+          "value": "high-Ti basalt, olivine-rich, possible pyroclastic deposits",
+          "src": "https://doi.org/10.1016/j.icarus.2010.03.008",
+          "status": "sourced"
+        },
+        {
+          "dim": 2,
+          "key": "central_peak_height",
+          "value": 300,
+          "unit": "m",
+          "src": "https://doi.org/10.1016/j.icarus.2012.04.003",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "daytime_max_temp",
+          "value": 395,
+          "unit": "K",
+          "src": "https://doi.org/10.1029/2010JE003719",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "nighttime_min_temp",
+          "value": 95,
+          "unit": "K",
+          "src": "https://doi.org/10.1029/2010JE003719",
+          "status": "sourced"
+        },
+        {
+          "dim": 4,
+          "key": "water_ice_equivalent_hydrogen",
+          "value": null,
+          "status": "unverified"
+        },
+        {
+          "dim": 5,
+          "key": "transient_lunar_phenomena_reports",
+          "value": "highest frequency on Moon",
+          "src": "https://doi.org/10.1016/j.icarus.2006.05.020",
+          "status": "sourced"
+        },
+        {
+          "dim": 6,
+          "key": "galactic_cosmic_ray_dose",
+          "value": 0.38,
+          "unit": "mGy/day",
+          "src": "https://doi.org/10.1029/2019SW002312",
+          "status": "sourced"
+        },
+        {
+          "dim": 7,
+          "key": "cave_candidates_nearby",
+          "value": 3,
+          "unit": "count within 50 km (Aristarchus Plateau rilles)",
+          "src": "https://doi.org/10.1016/j.icarus.2018.04.019",
+          "status": "sourced"
+        },
+        {
+          "dim": 8,
+          "key": "apollo_18_planned_site",
+          "value": true,
+          "note": "Aristarchus was the planned Apollo 18 landing site before cancellation",
+          "src": "https://history.nasa.gov/SP-4214/ch13.html",
+          "status": "sourced"
+        }
+      ]
+    },
+    {
+      "id": "south_pole_aitken",
+      "name": "South Pole-Aitken Basin",
+      "lat": -53.0,
+      "lon_e": 169.0,
+      "facts": [
+        {
+          "dim": 2,
+          "key": "basin_diameter",
+          "value": 2500,
+          "unit": "km",
+          "src": "https://doi.org/10.1126/science.1170403",
+          "status": "sourced"
+        },
+        {
+          "dim": 2,
+          "key": "basin_depth",
+          "value": 8200,
+          "unit": "m (below mean lunar radius)",
+          "src": "https://doi.org/10.1126/science.1170403",
+          "status": "sourced"
+        },
+        {
+          "dim": 2,
+          "key": "age",
+          "value": 4.3,
+          "unit": "Ga (pre-Nectarian)",
+          "src": "https://doi.org/10.1016/j.icarus.2012.02.003",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "crustal_thickness",
+          "value": 0,
+          "unit": "km (thinnest on Moon, mantle possibly exposed)",
+          "src": "https://doi.org/10.1126/science.1170403",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "composition",
+          "value": "mafic, FeO-rich, low-Th; possible mantle material",
+          "src": "https://doi.org/10.1016/j.icarus.2010.03.008",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "permanently_shadowed_regions",
+          "value": "~10,000",
+          "unit": "km² within basin",
+          "src": "https://doi.org/10.1029/2018JE005761",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "psr_temperature",
+          "value": 25,
+          "unit": "K (some PSRs, Diviner)",
+          "src": "https://doi.org/10.1029/2018JE005761",
+          "status": "sourced"
+        },
+        {
+          "dim": 4,
+          "key": "water_ice_equivalent_hydrogen",
+          "value": 0.5,
+          "unit": "wt% (LRO LEND/LEND, PSRs)",
+          "note": "elevated hydrogen in PSRs; may be water ice or solar wind implanted",
+          "src": "https://doi.org/10.1029/2018GL080477",
+          "status": "sourced"
+        },
+        {
+          "dim": 4,
+          "key": "co2_ice_detection",
+          "value": "possible",
+          "note": "Diviner data suggests CO2 cold traps in some PSRs",
+          "src": "https://doi.org/10.1029/2018GL080477",
+          "status": "sourced"
+        },
+        {
+          "dim": 5,
+          "key": "gardening_rate",
+          "value": "lower than highlands",
+          "note": "PSRs protect from micrometeorite gardening",
+          "src": "https://doi.org/10.1029/2018JE005761",
+          "status": "sourced"
+        },
+        {
+          "dim": 6,
+          "key": "galactic_cosmic_ray_dose",
+          "value": 0.38,
+          "unit": "mGy/day (surface); reduced in PSRs",
+          "src": "https://doi.org/10.1029/2019SW002312",
+          "status": "sourced"
+        },
+        {
+          "dim": 7,
+          "key": "cave_candidates_nearby",
+          "value": "multiple",
+          "note": "pits and skylights detected in basin walls and massifs",
+          "src": "https://doi.org/10.1016/j.icarus.2018.04.019",
+          "status": "sourced"
+        },
+        {
+          "dim": 8,
+          "key": "artemis_target_region",
+          "value": true,
+          "note": "NASA Artemis III candidate landing region (south pole ridges)",
+          "src": "https://www.nasa.gov/sites/default/files/atoms/files/artemis-iii-landing-site-assessment-2022.pdf",
+          "status": "sourced"
+        }
+      ]
+    },
+    {
+      "id": "mare_tranquillitatis",
+      "name": "Mare Tranquillitatis",
+      "lat": 8.34,
+      "lon_e": 31.42,
+      "facts": [
+        {
+          "dim": 2,
+          "key": "mare_diameter",
+          "value": 873,
+          "unit": "km",
+          "src": "https://planetarynames.wr.usgs.gov/Feature/3786",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "basalt_type",
+          "value": "high-Ti (TiO2 ~8-12 wt%), low-K",
+          "src": "https://doi.org/10.1016/j.icarus.2010.03.008",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "basalt_age",
+          "value": 3.7,
+          "unit": "Ga (main fill)",
+          "src": "https://doi.org/10.1126/science.1170403",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "feO_content",
+          "value": 18,
+          "unit": "wt%",
+          "src": "https://doi.org/10.1016/j.icarus.2010.03.008",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "TiO2_content",
+          "value": 10,
+          "unit": "wt%",
+          "src": "https://doi.org/10.1016/j.icarus.2010.03.008",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "daytime_max_temp",
+          "value": 395,
+          "unit": "K",
+          "src": "https://doi.org/10.1029/2010JE003719",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "nighttime_min_temp",
+          "value": 95,
+          "unit": "K",
+          "src": "https://doi.org/10.1029/2010JE003719",
+          "status": "sourced"
+        },
+        {
+          "dim": 4,
+          "key": "water_ice_equivalent_hydrogen",
+          "value": null,
+          "note": "equatorial mare, no PSRs",
+          "status": "unverified"
+        },
+        {
+          "dim": 5,
+          "key": "maturity_index_omtat",
+          "value": 0.6,
+          "unit": "unitless (mature regolith)",
+          "src": "https://doi.org/10.1029/2011JE003928",
+          "status": "sourced"
+        },
+        {
+          "dim": 6,
+          "key": "galactic_cosmic_ray_dose",
+          "value": 0.38,
+          "unit": "mGy/day",
+          "src": "https://doi.org/10.1029/2019SW002312",
+          "status": "sourced"
+        },
+        {
+          "dim": 7,
+          "key": "cave_candidates_nearby",
+          "value": 0,
+          "unit": "count within 50 km of center",
+          "src": "https://doi.org/10.1016/j.icarus.2018.04.019",
+          "status": "sourced"
+        },
+        {
+          "dim": 8,
+          "key": "apollo_11_landing_site",
+          "value": true,
+          "note": "Tranquility Base at 0.674 N, 23.47 E",
+          "src": "https://history.nasa.gov/alsj/a11/a11landing.html",
+          "status": "sourced"
+        }
+      ]
+    },
+    {
+      "id": "mare_serenitatis",
+      "name": "Mare Serenitatis",
+      "lat": 25.9,
+      "lon_e": 17.9,
+      "facts": [
+        {
+          "dim": 2,
+          "key": "mare_diameter",
+          "value": 674,
+          "unit": "km",
+          "src": "https://planetarynames.wr.usgs.gov/Feature/3787",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "basalt_type",
+          "value": "medium-Ti (TiO2 ~3-5 wt%)",
+          "src": "https://doi.org/10.1016/j.icarus.2010.03.008",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "basalt_age",
+          "value": 3.8,
+          "unit": "Ga",
+          "src": "https://doi.org/10.1126/science.1170403",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "mascon_gravity_anomaly",
+          "value": 240,
+          "unit": "mGal",
+          "src": "https://doi.org/10.1126/science.1170403",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "daytime_max_temp",
+          "value": 390,
+          "unit": "K",
+          "src": "https://doi.org/10.1029/2010JE003719",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "nighttime_min_temp",
+          "value": 95,
+          "unit": "K",
+          "src": "https://doi.org/10.1029/2010JE003719",
+          "status": "sourced"
+        },
+        {
+          "dim": 4,
+          "key": "water_ice_equivalent_hydrogen",
+          "value": null,
+          "status": "unverified"
+        },
+        {
+          "dim": 5,
+          "key": "maturity_index_omtat",
+          "value": 0.55,
+          "unit": "unitless",
+          "src": "https://doi.org/10.1029/2011JE003928",
+          "status": "sourced"
+        },
+        {
+          "dim": 6,
+          "key": "galactic_cosmic_ray_dose",
+          "value": 0.38,
+          "unit": "mGy/day",
+          "src": "https://doi.org/10.1029/2019SW002312",
+          "status": "sourced"
+        },
+        {
+          "dim": 7,
+          "key": "cave_candidates_nearby",
+          "value": 0,
+          "src": "https://doi.org/10.1016/j.icarus.2018.04.019",
+          "status": "sourced"
+        },
+        {
+          "dim": 8,
+          "key": "apollo_17_landing_site",
+          "value": true,
+          "note": "Taurus-Littrow valley at 20.19 N, 30.77 E",
+          "src": "https://history.nasa.gov/alsj/a17/a17landing.html",
+          "status": "sourced"
+        }
+      ]
+    },
+    {
+      "id": "mare_imbrium",
+      "name": "Mare Imbrium",
+      "lat": 32.8,
+      "lon_e": 344.9,
+      "facts": [
+        {
+          "dim": 2,
+          "key": "mare_diameter",
+          "value": 1145,
+          "unit": "km",
+          "src": "https://planetarynames.wr.usgs.gov/Feature/3785",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "basalt_type",
+          "value": "low-Ti (TiO2 ~1-3 wt%), high-Al",
+          "src": "https://doi.org/10.1016/j.icarus.2010.03.008",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "basalt_age",
+          "value": 3.3,
+          "unit": "Ga (youngest major mare)",
+          "src": "https://doi.org/10.1126/science.1170403",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "mascon_gravity_anomaly",
+          "value": 220,
+          "unit": "mGal",
+          "src": "https://doi.org/10.1126/science.1170403",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "daytime_max_temp",
+          "value": 385,
+          "unit": "K",
+          "src": "https://doi.org/10.1029/2010JE003719",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "nighttime_min_temp",
+          "value": 90,
+          "unit": "K",
+          "src": "https://doi.org/10.1029/2010JE003719",
+          "status": "sourced"
+        },
+        {
+          "dim": 4,
+          "key": "water_ice_equivalent_hydrogen",
+          "value": null,
+          "status": "unverified"
+        },
+        {
+          "dim": 5,
+          "key": "wrinkle_ridge_density",
+          "value": "high",
+          "note": "concentric and radial wrinkle ridges from mascon loading",
+          "src": "https://doi.org/10.1016/j.icarus.2012.02.003",
+          "status": "sourced"
+        },
+        {
+          "dim": 6,
+          "key": "galactic_cosmic_ray_dose",
+          "value": 0.38,
+          "unit": "mGy/day",
+          "src": "https://doi.org/10.1029/2019SW002312",
+          "status": "sourced"
+        },
+        {
+          "dim": 7,
+          "key": "cave_candidates_nearby",
+          "value": 2,
+          "unit": "count within 50 km (Rima Hadley area)",
+          "src": "https://doi.org/10.1016/j.icarus.2018.04.019",
+          "status": "sourced"
+        },
+        {
+          "dim": 8,
+          "key": "apollo_15_landing_site",
+          "value": true,
+          "note": "Hadley Rille at 26.13 N, 3.63 E",
+          "src": "https://history.nasa.gov/alsj/a15/a15landing.html",
+          "status": "sourced"
+        }
+      ]
+    },
+    {
+      "id": "chang_e_4_site",
+      "name": "Chang'e 4 Landing Site (Von Kármán Crater)",
+      "lat": -45.45,
+      "lon_e": 177.59,
+      "facts": [
+        {
+          "dim": 2,
+          "key": "crater_diameter",
+          "value": 186,
+          "unit": "km (Von Kármán)",
+          "src": "https://planetarynames.wr.usgs.gov/Feature/6365",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "landing_site_composition",
+          "value": "low-Ti basalt, Finsen crater ejecta, SPA basin melt sheet",
+          "src": "https://doi.org/10.1038/s41550-019-0717-3",
+          "status": "sourced"
+        },
+        {
+          "dim": 1,
+          "key": "spa_mantle_exposure",
+          "value": "possible olivine-rich material detected by Yutu-2 VNIS",
+          "src": "https://doi.org/10.1038/s41550-019-0717-3",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "daytime_max_temp",
+          "value": 380,
+          "unit": "K",
+          "src": "https://doi.org/10.1029/2010JE003719",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "nighttime_min_temp",
+          "value": 85,
+          "unit": "K",
+          "src": "https://doi.org/10.1029/2010JE003719",
+          "status": "sourced"
+        },
+        {
+          "dim": 4,
+          "key": "water_ice_equivalent_hydrogen",
+          "value": null,
+          "note": "far side, no permanent shadow at landing site",
+          "status": "unverified"
+        },
+        {
+          "dim": 5,
+          "key": "regolith_thickness_yutu2",
+          "value": 10,
+          "unit": "m (LPR measurement at landing site)",
+          "src": "https://doi.org/10.1126/science.aay6898",
+          "status": "sourced"
+        },
+        {
+          "dim": 6,
+          "key": "galactic_cosmic_ray_dose",
+          "value": 0.38,
+          "unit": "mGy/day",
+          "src": "https://doi.org/10.1029/2019SW002312",
+          "status": "sourced"
+        },
+        {
+          "dim": 7,
+          "key": "cave_candidates_nearby",
+          "value": 0,
+          "src": "https://doi.org/10.1016/j.icarus.2018.04.019",
+          "status": "sourced"
+        },
+        {
+          "dim": 8,
+          "key": "first_farside_landing",
+          "value": true,
+          "note": "Chang'e 4 landed 2019-01-03, first soft landing on lunar far side",
+          "src": "https://doi.org/10.1038/s41550-019-0717-3",
+          "status": "sourced"
+        }
+      ]
+    },
+    {
+      "id": "shackleton_crater",
+      "name": "Shackleton Crater (South Pole)",
+      "lat": -89.66,
+      "lon_e": 0.0,
+      "facts": [
+        {
+          "dim": 2,
+          "key": "crater_diameter",
+          "value": 21,
+          "unit": "km",
+          "src": "https://planetarynames.wr.usgs.gov/Feature/5174",
+          "status": "sourced"
+        },
+        {
+          "dim": 2,
+          "key": "crater_depth",
+          "value": 4200,
+          "unit": "m",
+          "src": "https://doi.org/10.1029/2018JE005761",
+          "status": "sourced"
+        },
+        {
+          "dim": 2,
+          "key": "rim_illumination",
+          "value": 80,
+          "unit": "% of lunar year (near-continuous sun on high points)",
+          "src": "https://doi.org/10.1029/2018JE005761",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "psr_temperature",
+          "value": 25,
+          "unit": "K (floor, Diviner)",
+          "src": "https://doi.org/10.1029/2018JE005761",
+          "status": "sourced"
+        },
+        {
+          "dim": 3,
+          "key": "rim_max_temp",
+          "value": 350,
+          "unit": "K (illuminated peaks)",
+          "src": "https://doi.org/10.1029/2018JE005761",
+          "status": "sourced"
+        },
+        {
+          "dim": 4,
+          "key": "water_ice_equivalent_hydrogen",
+          "value": 0.5,
+          "unit": "wt% (LEND, floor PSR)",
+          "note": "elevated hydrogen; LAMP UV albedo suggests surface frost in places",
+          "src": "https://doi.org/10.1029/2018GL080477",
+          "status": "sourced"
+        },
+        {
+          "dim": 4,
+          "key": "surface_frost_detection",
+          "value": "possible",
+          "note": "LRO LAMP far-UV albedo anomaly consistent with ~1-2% surface frost",
+          "src": "https://doi.org/10.1029/2018GL080477",
+          "status": "sourced"
+        },
+        {
+          "dim": 5,
+          "key": "regolith_gardening_psr",
+          "value": "negligible",
+          "note": "no solar wind or micrometeorite flux in permanent shadow",
+          "src": "https://doi.org/10.1029/2018JE005761",
+          "status": "sourced"
+        },
+        {
+          "dim": 6,
+          "key": "radiation_dose_psr",
+          "value": "reduced",
+          "note": "crater walls block ~half of sky; GCR dose ~50% of surface",
+          "src": "https://doi.org/10.1029/2019SW002312",
+          "status": "sourced"
+        },
+        {
+          "dim": 7,
+          "key": "cave_candidates_nearby",
+          "value": 0,
+          "src": "https://doi.org/10.1016/j.icarus.2018.04.019",
+          "status": "sourced"
+        },
+        {
+          "dim": 8,
+          "key": "artemis_iii_candidate",
+          "value": true,
+          "note": "Shackleton rim is a NASA Artemis III candidate landing region",
+          "src": "https://www.nasa.gov/sites/default/files/atoms/files/artemis-iii-landing-site-assessment-2022.pdf",
+          "status": "sourced"
+        }
+      ]
+    }
+  ],
+  "datasets": [
+    {
+      "id": "lola_dem",
+      "name": "LRO LOLA Global DEM",
+      "dims": [2, 8],
+      "coverage": "global",
+      "resolution": "59 m/px (polar), 118 m/px (equatorial)",
+      "time_type": "static",
+      "url": "https://pds-geosciences.wustl.edu/missions/lro/lola.htm",
+      "mirror": "https://astrogeology.usgs.gov/search/map/Moon/LRO/LOLA_DEM",
+      "earth_counterpart": "NASADEM or ASTER DEM"
+    },
+    {
+      "id": "lola_roughness",
+      "name": "LRO LOLA Surface Roughness (5-baseline)",
+      "dims": [2, 8],
+      "coverage": "global",
+      "resolution": "235 m/px",
+      "time_type": "static",
+      "url": "https://pds-geosciences.wustl.edu/missions/lro/lola.htm",
+      "earth_counterpart": "terrestrial LiDAR roughness"
+    },
+    {
+      "id": "diviner_temps",
+      "name": "LRO Diviner Global Temperature Maps",
+      "dims": [3, 8],
+      "coverage": "global",
+      "resolution": "250 m/px (bolometric), 500 m/px (channel)",
+      "time_type": "diurnal/seasonal (7+ years)",
+      "url": "https://pds-geosciences.wustl.edu/missions/lro/diviner.htm",
+      "earth_counterpart": "MODIS LST, ERA5 skin temperature"
+    },
+    {
+      "id": "diviner_rock_abundance",
+      "name": "LRO Diviner Rock Abundance Map",
+      "dims": [2, 8],
+      "coverage": "global",
+      "resolution": "250 m/px",
+      "time_type": "static",
+      "url": "https://pds-geosciences.wustl.edu/missions/lro/diviner.htm",
+      "earth_counterpart": "thermal inertia from ASTER"
+    },
+    {
+      "id": "m3_mineralogy",
+      "name": "Chandrayaan-1 M3 Global Mineralogy",
+      "dims": [1],
+      "coverage": "global (85% at 140 m/px, 95% at 500 m/px)",
+      "resolution": "140-500 m/px",
+      "time_type": "static",
+      "url": "https://pds-geosciences.wustl.edu/missions/chandrayaan1/m3.htm",
+      "earth_counterpart": "ASTER SWIR, PRISMA, EnMAP hyperspectral"
+    },
+    {
+      "id": "kaguya_mi",
+      "name": "Kaguya MI Global Mineralogy (Spectral Profiler)",
+      "dims": [1],
+      "coverage": "global",
+      "resolution": "500 m/px",
+      "time_type": "static",
+      "url": "https://darts.isas.jaxa.jp/planet/project/selene/",
+      "earth_counterpart": "ASTER SWIR"
+    },
+    {
+      "id": "lro_wac_mosaic",
+      "name": "LRO WAC Global Morphologic Mosaic",
+      "dims": [2, 8],
+      "coverage": "global",
+      "resolution": "100 m/px",
+      "time_type": "static",
+      "url": "https://wms.lroc.asu.edu/lroc/view_rdr/WAC_MOSAIC",
+      "earth_counterpart": "Landsat 8/9, Sentinel-2 optical"
+    },
+    {
+      "id": "lroc_nac_dtm",
+      "name": "LROC NAC Digital Terrain Models",
+      "dims": [2, 8],
+      "coverage": "per-site (stereo pairs)",
+      "resolution": "1-5 m/px",
+      "time_type": "static",
+      "url": "https://lroc.sese.asu.edu/data/lroc-nac-dtm",
+      "earth_counterpart": "high-res stereo DEM (WorldView, Pleiades)"
+    },
+    {
+      "id": "lamp_uv_albedo",
+      "name": "LRO LAMP Far-UV Albedo (PSR mapping)",
+      "dims": [4, 8],
+      "coverage": "polar (PSRs)",
+      "resolution": "300 m/px",
+      "time_type": "static",
+      "url": "https://pds-geosciences.wustl.edu/missions/lro/lamp.htm",
+      "earth_counterpart": "none (unique to airless bodies)"
+    },
+    {
+      "id": "lend_neutron",
+      "name": "LRO LEND Epithermal Neutron (Hydrogen Proxy)",
+      "dims": [4],
+      "coverage": "global",
+      "resolution": "5-10 km (coarse)",
+      "time_type": "static",
+      "url": "https://pds-geosciences.wustl.edu/missions/lro/lend.htm",
+      "earth_counterpart": "none confirmed (permafrost gap)"
+    },
+    {
+      "id": "crater_catalog",
+      "name": "Lunar Crater Catalog (Robbins, 2019) / IAU Gazetteer",
+      "dims": [2],
+      "coverage": "global",
+      "resolution": "point catalog (craters > 1-2 km)",
+      "time_type": "static",
+      "url": "https://planetarynames.wr.usgs.gov/",
+      "earth_counterpart": "Earth Impact Database"
+    },
+    {
+      "id": "cave_catalog",
+      "name": "Lunar Pit/Skylight Catalog (Wagner & Robinson 2022 + JAXA)",
+      "dims": [7],
+      "coverage": "global catalog (~300 candidates)",
+      "resolution": "point catalog",
+      "time_type": "static",
+      "url": "https://doi.org/10.1016/j.icarus.2018.04.019",
+      "earth_counterpart": "lava tube caves (Hawaii, Iceland, Canary Islands)"
+    },
+    {
+      "id": "gravity_grail",
+      "name": "GRAIL Global Gravity Field (GL0900D)",
+      "dims": [1, 2, 8],
+      "coverage": "global",
+      "resolution": "~13 km (degree 900)",
+      "time_type": "static",
+      "url": "https://pds-geosciences.wustl.edu/missions/grail/",
+      "earth_counterpart": "GRACE/GOCE gravity"
+    },
+    {
+      "id": "usgs_astropedia_moon",
+      "name": "USGS Astropedia Moon Catalog",
+      "dims": [1, 2, 3, 4, 5, 6, 7, 8],
+      "coverage": "catalog",
+      "resolution": "n/a",
+      "time_type": "n/a",
+      "url": "https://astrogeology.usgs.gov/search/target/Moon",
+      "earth_counterpart": "n/a"
+    },
+    {
+      "id": "pds_geosciences_moon",
+      "name": "PDS Geosciences Node (LRO, Kaguya, Chandrayaan, GRAIL, LADEE)",
+      "dims": [1, 2, 3, 4, 5, 6, 7, 8],
+      "coverage": "catalog",
+      "resolution": "n/a",
+      "time_type": "n/a",
+      "url": "https://pds-geosciences.wustl.edu/missions/",
+      "earth_counterpart": "n/a"
+    }
+  ]
+}

@@ -17,9 +17,9 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from analog import RAW_DIR, ROOT, WEB_DATA_DIR, load_config  # noqa: E402
-from analog.compare import METRIC_INFO, METRICS, explain, score_pair, verdict  # noqa: E402
+from analog.compare import DEFAULT_ON, METRIC_INFO, METRICS, explain, score_pair, verdict  # noqa: E402
 from analog.facts import read_facts  # noqa: E402
-from analog.layers import Constant, compare_layer, inventory, load_registry, site_values  # noqa: E402
+from analog.layers import Constant, compare_layer, earth_range, inventory, load_registry, site_values  # noqa: E402
 from analog.layers import _threshold_for as threshold_for  # noqa: E402
 from analog.sources import RADIUS_M, resample  # noqa: E402
 from analog.terrain import (HYPSO_Q, ILLUM_BINS, PROFILE_R, ROUGH_BINS, SLOPE_BINS,  # noqa: E402
@@ -111,7 +111,10 @@ def main():
 
     # ---- dimensions = terrain metrics (with the types they apply to) + data layers
     layers = load_registry()
-    dimensions = {k: {"group": "terrain", "label": l, "weight": w, "method": m, "default_on": True,
+    for L in layers:
+        if L.get("compare") == "relative":
+            L["_range"] = earth_range(L, sites)
+    dimensions ={k: {"group": "terrain", "label": l, "weight": w, "method": m, "default_on": k in DEFAULT_ON,
                       "description": METRIC_INFO[k][0], "code": METRIC_INFO[k][1],
                       "applies_to": [tid for tid, td in types.items() if k in td["metrics"]]}
                   for k, (w, l, m) in METRICS.items()}
@@ -128,8 +131,17 @@ def main():
                       +
                       f"(scale {L.get('scale', '-')}{' ' + L['unit'] if L.get('normalize', 'none') == 'none' and L.get('unit') else ''})",
         }
+        if L.get("facts"):
+            dimensions[L["id"]]["code"] = (f"analog/layers.py: fact_value(), _compare_relative(); "
+                                           f"files in data/facts/{L['facts']['kind']}/")
+        if L.get("compare") == "relative" and L.get("_range"):
+            lo, hi = L["_range"]
+            dimensions[L["id"]]["method"] = (
+                f"Scored against the other Earth sites, because all of them are far warmer than Mars and the Moon: "
+                f"coldest Earth site ({lo:.0f} {L.get('unit', '')}) = 1.0, warmest ({hi:.0f} {L.get('unit', '')}) = 0.0, "
+                f"linear in between. Colder = closer to the target.")
         if L.get("compare") in ("fraction_below", "fraction"):
-            side = "above" if L.get("direction") == "above" else "below"
+            side ="above" if L.get("direction") == "above" else "below"
             per_body = "; ".join(f"{b}: {t.get('direction', 'below')} {t['value']}" for b, t in (L.get("thresholds") or {}).items())
             dimensions[L["id"]]["method"] = (
                 (f"Share of the area past each body's threshold ({per_body}); " if per_body else
