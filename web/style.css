@@ -256,6 +256,38 @@ select {
 }
 .dim-actions button:hover { color: var(--text); }
 
+/* scoring algorithm + weight sliders */
+.algo-select, .ud-grid input, .ud-grid select, #ud-text {
+  width: 100%; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 5px;
+  font: inherit; font-size: 12px; padding: 5px 6px;
+}
+.algo-summary { font-size: 11.5px; line-height: 1.45; margin: 6px 0 4px; }
+.w-head { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin: 10px 0 2px; font-weight: 500;
+  display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
+.w-head .hint, .w-head .link-btn { text-transform: none; letter-spacing: 0; }
+/* two lines per weight: name + value on top, full-width slider below */
+.w-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "name value" "slider slider";
+  align-items: baseline; column-gap: 8px; row-gap: 2px; font-size: 12px; padding: 4px 0;
+}
+.w-row + .w-row { border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.w-row .w-name { grid-area: name; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.w-row input[type=range] { grid-area: slider; width: 100%; margin: 2px 0 0; accent-color: var(--earth); cursor: pointer; }
+.w-row output { grid-area: value; font-variant-numeric: tabular-nums; text-align: right; color: var(--text); font-size: 11.5px; font-weight: 600; }
+.algo-link { font-size: inherit; padding: 0; }
+
+/* datasets added by the viewer */
+.ud-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 6px 0; }
+.ud-grid label, .ud-file { display: flex; flex-direction: column; gap: 2px; font-size: 11px; color: var(--muted); }
+.ud-file { margin: 6px 0; }
+.ud-file input { font-size: 11px; color: var(--muted); max-width: 100%; }
+#ud-text { font-family: ui-monospace, Consolas, monospace; resize: vertical; }
+.ud-grid input:disabled { opacity: .4; }
+.ud-list { list-style: none; padding: 0; margin: 4px 0 0; }
+.ud-list li { display: flex; justify-content: space-between; align-items: center; gap: 6px; font-size: 12px; padding: 3px 0; }
+#user-data code { background: var(--bg); padding: 0 4px; border-radius: 3px; font-size: 11px; }
+
 .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .cols h3 { font-size: 12px; margin: 6px 0 2px; }
 .cols ul { padding-left: 16px; }
