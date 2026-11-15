@@ -132,7 +132,7 @@
  },
  {
   "id": "place-03",
-  "region": "Earth location place-03 (38.75, 86.35)",
+  "region": "Qarqan County, Xinjiang, China",
   "lat": 38.75,
   "lon": 86.35,
   "targets": [
@@ -336,7 +336,7 @@
  },
  {
   "id": "place-06",
-  "region": "Earth location place-06 (66.14, -120.01)",
+  "region": "Déline District, Northwest Territories, Canada",
   "lat": 66.14,
   "lon": -120.01,
   "targets": [
@@ -454,7 +454,7 @@
  },
  {
   "id": "place-08",
-  "region": "Earth location place-08 (21.12, 57.44)",
+  "region": "Ad Dakhiliyah Governorate, Oman",
   "lat": 21.12,
   "lon": 57.44,
   "targets": [
@@ -557,7 +557,7 @@
  },
  {
   "id": "place-10",
-  "region": "Earth location place-10 (25.24, 1.08)",
+  "region": "Reggane District, Adrar, Algeria",
   "lat": 25.24,
   "lon": 1.08,
   "targets": [
@@ -733,7 +733,7 @@
  },
  {
   "id": "place-13",
-  "region": "Earth location place-13 (20.59, 58.12)",
+  "region": "Oman",
   "lat": 20.59,
   "lon": 58.12,
   "targets": [
@@ -952,7 +952,7 @@
  },
  {
   "id": "place-17",
-  "region": "Earth location place-17 (20.53, 0.15)",
+  "region": "Tessalit Cercle, Kidal, Mali",
   "lat": 20.53,
   "lon": 0.15,
   "targets": [
@@ -997,7 +997,7 @@
  },
  {
   "id": "place-18",
-  "region": "Earth location place-18 (22.42, -13.82)",
+  "region": "Aousserd, Western Sahara",
   "lat": 22.42,
   "lon": -13.82,
   "targets": [
@@ -1042,7 +1042,7 @@
  },
  {
   "id": "place-19",
-  "region": "Earth location place-19 (24.64, -2.95)",
+  "region": "Bordj Badji Mokhtar, Algeria",
   "lat": 24.64,
   "lon": -2.95,
   "targets": [
@@ -1087,7 +1087,7 @@
  },
  {
   "id": "place-20",
-  "region": "Earth location place-20 (22.91, 2.63)",
+  "region": "Abalessa District, Tamanrasset, Algeria",
   "lat": 22.91,
   "lon": 2.63,
   "targets": [
@@ -1132,7 +1132,7 @@
  },
  {
   "id": "place-21",
-  "region": "Earth location place-21 (16.4, 29.55)",
+  "region": "Sodari, North Kordofan, Sudan",
   "lat": 16.4,
   "lon": 29.55,
   "targets": [
@@ -1177,7 +1177,7 @@
  },
  {
   "id": "place-22",
-  "region": "Earth location place-22 (28.77, 22.73)",
+  "region": "Al Wahat District, Libya",
   "lat": 28.77,
   "lon": 22.73,
   "targets": [
@@ -1295,7 +1295,7 @@
  },
  {
   "id": "place-24",
-  "region": "Earth location place-24 (27.95, 23.56)",
+  "region": "Al Wahat District, Libya",
   "lat": 27.95,
   "lon": 23.56,
   "targets": [
@@ -1340,7 +1340,7 @@
  },
  {
   "id": "place-25",
-  "region": "Earth location place-25 (26.84, 22.03)",
+  "region": "Kufra District, Libya",
   "lat": 26.84,
   "lon": 22.03,
   "targets": [
@@ -1444,7 +1444,7 @@
  },
  {
   "id": "place-27",
-  "region": "Earth location place-27 (27.08, -2.79)",
+  "region": "Zaouiet Kounta District, Adrar, Algeria",
   "lat": 27.08,
   "lon": -2.79,
   "targets": [
@@ -1489,7 +1489,7 @@
  },
  {
   "id": "place-28",
-  "region": "Earth location place-28 (42.3, 88.98)",
+  "region": "Gaochang District, Turpan, Xinjiang, China",
   "lat": 42.3,
   "lon": 88.98,
   "targets": [
@@ -1547,7 +1547,7 @@
  },
  {
   "id": "place-29",
-  "region": "Earth location place-29 (25.74, 24.17)",
+  "region": "Kufra District, Libya",
   "lat": 25.74,
   "lon": 24.17,
   "targets": [
@@ -1592,7 +1592,7 @@
  },
  {
   "id": "place-30",
-  "region": "Earth location place-30 (39.72, 99.19)",
+  "region": "Gaotai County, Gansu, China",
   "lat": 39.72,
   "lon": 99.19,
   "targets": [
@@ -1651,7 +1651,7 @@
  },
  {
   "id": "place-31",
-  "region": "Earth location place-31 (18.1, -2.6)",
+  "region": "Tombouctou Cercle, Taoudénit Region, Mali",
   "lat": 18.1,
   "lon": -2.6,
   "targets": [
@@ -1696,7 +1696,7 @@
  },
  {
   "id": "place-32",
-  "region": "Earth location place-32 (19.68, -12.54)",
+  "region": "Adrar Region, Mauritania",
   "lat": 19.68,
   "lon": -12.54,
   "targets": [
@@ -1916,7 +1916,7 @@
  },
  {
   "id": "place-36",
-  "region": "Earth location place-36 (58.83, 27.22)",
+  "region": "Jõgeva County, Estonia",
   "lat": 58.83,
   "lon": 27.22,
   "targets": [
@@ -1960,7 +1960,7 @@
  },
  {
   "id": "place-37",
-  "region": "Earth location place-37 (45.09, 106.63)",
+  "region": "Ölziit, Dundgovi, Mongolia",
   "lat": 45.09,
   "lon": 106.63,
   "targets": [
@@ -2063,7 +2063,7 @@
  },
  {
   "id": "place-39",
-  "region": "Earth location place-39 (40.96, 97.75)",
+  "region": "Subei Mongolian Autonomous County, Gansu, China",
   "lat": 40.96,
   "lon": 97.75,
   "targets": [
@@ -2106,7 +2106,7 @@
  },
  {
   "id": "place-40",
-  "region": "Earth location place-40 (30.15, 83.0)",
+  "region": "Zhongba County, Tibet (Xizang), China",
   "lat": 30.15,
   "lon": 83.0,
   "targets": [
@@ -2207,7 +2207,7 @@
  },
  {
   "id": "place-42",
-  "region": "Earth location place-42 (44.26, 102.76)",
+  "region": "Bogd, Övörkhangai, Mongolia",
   "lat": 44.26,
   "lon": 102.76,
   "targets": [
@@ -2425,7 +2425,7 @@
  },
  {
   "id": "place-46",
-  "region": "Earth location place-46 (33.46, 93.14)",
+  "region": "Amdo County, Tibet (Xizang), China",
   "lat": 33.46,
   "lon": 93.14,
   "targets": [
@@ -2527,7 +2527,7 @@
  },
  {
   "id": "place-48",
-  "region": "Earth location place-48 (27.1, 16.77)",
+  "region": "Al Jufra District, Libya",
   "lat": 27.1,
   "lon": 16.77,
   "targets": [
