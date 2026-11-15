@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { renderEvidence } from "./evidence.js";
 import { renderLunarDust } from "./lunar-dust.js";
+import { OPERATION_PRESETS, findPreset, presetDimensions } from "./presets.js";
 import { aggregateSimilarity, compareEvidenceScores, scoreText, scoreDescription } from "./similarity.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
@@ -498,6 +499,31 @@ function esc(s) { return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<
 
 // ------------------------------------------------------------------ dimensions (terrain metrics + data layers)
 const DIM_KEY = "analog-explorer-dims-v2"; // v2: four equal categories (slope, temperature, dust, plants)
+const PRESET_KEY = "analog-explorer-operation-v1";
+
+function initPreset() {
+  let saved;
+  try { saved = localStorage.getItem(PRESET_KEY); } catch { /* storage unavailable */ }
+  const params = new URLSearchParams(location.search);
+  const id = params.get("preset") ?? (params.has("dims") ? null : saved);
+  state.preset = findPreset(id)?.id || null;
+  if (state.preset) state.dims = presetDimensions(state.preset, state.data.dimensions);
+}
+
+function renderPreset() {
+  const preset = findPreset(state.preset);
+  $("operation-preset").innerHTML = `<label for="sel-operation">Operation preset</label>
+    <select id="sel-operation"><option value="">Custom / default dimensions</option>${OPERATION_PRESETS.map(p => `<option value="${p.id}" ${p.id === state.preset ? "selected" : ""}>${esc(p.label)}</option>`).join("")}</select>
+    <p class="hint">${preset ? esc(preset.considers) : "Choose an operation to select relevant scoring layers automatically, or edit dimensions in Filters."}</p>
+    ${preset ? `<p class="hint">Operation-focused physical similarity, not operational safety or mission approval. Existing weights and tolerances are provisional. Missing selected data reduces coverage; source filters and target-type exclusions still apply. Moon dust remains context only.</p>
+    <details><summary>Requirements outside this score &amp; research</summary><p>${esc(preset.unmeasured)}</p><p class="hint">Coverage describes selected measurements only, not all operation requirements. Similar thermal conditions do not establish equipment survival.</p>${preset.sources.map(s => `<p><a href="${s.url}" target="_blank" rel="noopener noreferrer">${esc(s.label)}</a></p>`).join("")}</details>` : ""}`;
+  $("sel-operation").addEventListener("change", event => {
+    state.preset = event.target.value || null;
+    state.dims = state.preset ? presetDimensions(state.preset, state.data.dimensions)
+      : new Set(Object.keys(state.data.dimensions).filter(k => state.data.dimensions[k].default_on));
+    dimsChanged(true);
+  });
+}
 const verdictOf = (v) => (v >= 0.7 ? "strong" : v >= 0.4 ? "partial" : "weak");
 const fmt = (v) => (v == null ? "-" : v.toFixed(2));
 
@@ -847,8 +873,11 @@ tip.addEventListener("mouseleave", () => hideTip());
 addEventListener("keydown", (ev) => { if (ev.key === "Escape") hideTip(true); });
 $("panel").addEventListener("scroll", () => hideTip(true), { passive: true });
 
-function dimsChanged() {
+function dimsChanged(keepPreset = false) {
+  if (!keepPreset) state.preset = null;
+  try { state.preset ? localStorage.setItem(PRESET_KEY, state.preset) : localStorage.removeItem(PRESET_KEY); } catch { /* storage unavailable */ }
   saveDims();
+  renderPreset();
   renderDims();
   renderPanel();
   renderTopMatches();
@@ -1450,6 +1479,7 @@ async function boot() {
   state.earthId = state.data.sites[hashEarth] ? hashEarth : first.earth;
   state.targetId = state.data.sites[hashTarget] ? hashTarget : first.target;
   initDims();
+  initPreset();
   initSources();
   if (!currentComparison()) { // link names an Earth site and a target of different types
     const best = bestComparison((c) => c.earth === state.earthId) || bestComparison((c) => c.target === state.targetId);
@@ -1459,6 +1489,7 @@ async function boot() {
   buildGlobes();
   focusBody(BODY[view] ? view : "all", false);
   fillSelects();
+  renderPreset();
   renderDims();
   renderSourceFilter();
   renderPanel();

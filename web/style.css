@@ -408,3 +408,6 @@ footer { font-size: 11px; color: var(--muted); line-height: 1.5; padding: 4px 2p
 .lunar-dust-card summary { cursor: pointer; padding: 6px 0; }
 .lunar-dust-card select { margin: 8px; }
 .dust-table { max-height: 260px; overflow: auto; }
+#operation-preset select { display: block; width: 100%; margin: 8px 0; }
+#operation-preset summary { cursor: pointer; }
+#operation-preset p { line-height: 1.5; }
