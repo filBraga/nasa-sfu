@@ -188,8 +188,9 @@ function buildGlobes() {
     m.userData.siteId = site.id;
     m.userData.name = site.name;
     m.userData.baseOpacity = waiting ? 0.35 : 1;
-    const l = label((isTeam(site) ? "#team " : "") + site.name + (waiting ? " (no target yet)" : ""),
+    const l = label(site.name + (waiting ? " (no target yet)" : ""),
       "site " + site.role + (waiting ? " waiting" : "") + (isTeam(site) ? " team" : ""));
+    if (isTeam(site)) l.element.prepend(Object.assign(document.createElement("span"), { className: "team-tag", textContent: "#team" }));
     m.userData.team = isTeam(site);
     l.position.set(0, size * 2.2, 0);
     m.add(l);
@@ -458,34 +459,70 @@ function focusBody(body, animate = true) {
   state.focus = body;
   document.querySelectorAll("#body-switch button").forEach((b) => b.classList.toggle("active", b.dataset.body === body));
   fitGlobesCamera(animate);
-  if (state.view === "globes") $("stage-hint").textContent = globesHint();
+  if (state.view === "globes") setGlobesHint();
 }
 
+const TM_KEY = "analog-explorer-top-matches-body"; // which body the Top matches toggle shows
+
 function renderTopMatches() {
+  if (state.tmBody === undefined) {
+    try { state.tmBody = localStorage.getItem(TM_KEY); } catch { state.tmBody = null; }
+  }
   const targets = Object.values(state.data.sites).filter((s) => s.role === "target");
   let html = `<div class="tm-head"><span>Click one to draw its line on the planets</span>
     <button class="tm-clear" ${state.link ? "" : "disabled"}>Clear</button></div>`;
-  for (const t of targets) {
-    const top = state.data.comparisons
+  // best matches per target, then targets ordered by their best match (highest first; none = last)
+  const groups = targets.map((t) => ({
+    t,
+    top: state.data.comparisons
       .filter((c) => c.target === t.id && state.data.sites[c.earth].role !== "control")
       .map((c) => ({ c, s: scoreOf(c) }))
       .sort(byScore)
-      .slice(0, TOP_N);
-    html += `<section class="card tm-group"><div class="tm-target" style="color:${COLOR[t.body]}">${esc(t.name)}
+      .slice(0, TOP_N),
+  }));
+  // published scores before withheld ones (*), then by the score shown, highest first
+  const shown = (s) => s.overall ?? s.observed_score ?? -1;
+  const best = (g) => g.top[0]?.s;
+  groups.sort((a, b) => {
+    const sa = best(a), sb = best(b);
+    if (!sa || !sb) return !sa - !sb;
+    return (sa.overall == null) - (sb.overall == null) || shown(sb) - shown(sa);
+  });
+  const groupHtml = ({ t, top }) => {
+    let g = `<section class="card tm-group"><div class="tm-target" style="color:${COLOR[t.body]}">${esc(t.name)}
       <span class="body">${BODY[t.body].name} <span class="type-tag">${esc(typeShort(t.type))}</span></span></div>`;
     for (const { c, s } of top) {
       const active = state.link && state.link.earth === c.earth && state.link.target === c.target;
-      html += `<button class="tm-row ${active ? "active" : ""}" data-earth="${c.earth}" data-target="${c.target}">
+      g += `<button class="tm-row ${active ? "active" : ""}" data-earth="${c.earth}" data-target="${c.target}">
         <span class="dot" style="background:${COLOR[s.verdict]}"></span>
-        <span class="name">${esc(state.data.sites[c.earth].name)}${isTeam(state.data.sites[c.earth]) ? ` <span class="type-tag team">#team</span>` : ""}</span>
+        <span class="name">${esc(state.data.sites[c.earth].name)}</span>${isTeam(state.data.sites[c.earth]) ? `<span class="team-tag">#team</span>` : ""}
         <span class="val" style="color:${COLOR[s.verdict]}">${scoreTxt(s)}</span></button>`;
     }
-    if (!top.length) html += `<p class="tm-empty">No Canadian candidates of this type yet.</p>`;
-    html += `</section>`;
-  }
+    if (!top.length) g += `<p class="tm-empty">No Canadian candidates of this type yet.</p>`;
+    return g + `</section>`;
+  };
+  // Moon | Mars toggle: one body's targets at a time, best-first order kept inside
+  const bodies = ["moon", "mars"].filter((b) => groups.some((g) => g.t.body === b));
+  if (!bodies.includes(state.tmBody)) state.tmBody = bodies[0];
+  html += `<div class="tm-toggle" role="tablist" aria-label="Show top matches for">${bodies.map((b) => {
+    const list = groups.filter((g) => g.t.body === b), top = best(list[0]);
+    const on = b === state.tmBody;
+    return `<button type="button" role="tab" aria-selected="${on}" class="${on ? "active" : ""}" data-tm-body="${b}" style="--body-color:${COLOR[b]}">
+      <span class="tm-body-name">${BODY[b].name}</span>
+      <span class="tm-body-meta">${list.length} target${list.length === 1 ? "" : "s"}${top ? ` · best <b style="color:${COLOR[top.verdict]}">${scoreTxt(top)}</b>` : ""}</span></button>`;
+  }).join("")}</div>`;
+  html += `<div class="tm-body-list">${groups.filter((g) => g.t.body === state.tmBody).map(groupHtml).join("")}</div>`;
   const el = $("top-matches");
   el.innerHTML = html;
   el.querySelector(".tm-clear").onclick = () => setLink(null);
+  el.querySelectorAll("[data-tm-body]").forEach((b) => {
+    b.onclick = () => {
+      state.tmBody = b.dataset.tmBody;
+      try { localStorage.setItem(TM_KEY, state.tmBody); } catch { /* ignore */ }
+      renderTopMatches();
+      el.scrollTop = 0;
+    };
+  });
   el.querySelectorAll(".tm-row").forEach((b) => {
     b.onclick = () => {
       const same = state.link && state.link.earth === b.dataset.earth && state.link.target === b.dataset.target;
@@ -509,11 +546,19 @@ function setLink(link) {
 function globesHint() {
   if (state.focus === "link" && state.link) {
     const e = state.data.sites[state.link.earth], t = state.data.sites[state.link.target];
-    return `${e.name} ↔ ${t.name} (${BODY[t.body].name}). Drag to orbit, or press All / Clear to zoom back out.`;
+    return `${esc(e.name)} ↔ ${esc(t.name)} (${esc(BODY[t.body].name)}). Drag to orbit, or press All / Clear to zoom back out.`;
   }
   if (state.focus === "all" || state.focus === "link") return "Pick a site in Top matches to draw its connection. Click a marker to compare.";
   const sites = Object.values(state.data.sites).filter((s) => s.body === state.focus);
-  return `${BODY[state.focus].name}: ${sites.map((s) => `${s.name} (${roleLabel(s)})`).join(", ")}. Click a marker to compare.`;
+  return `<details class="hint-sites" ${state.hintOpen ? "open" : ""}><summary>${esc(BODY[state.focus].name)}: ${sites.length} site${sites.length === 1 ? "" : "s"}. Click a marker to compare.</summary>
+    <div class="hint-list">${sites.map((s) => `${esc(s.name)} <span class="hint-role">(${esc(roleLabel(s))})</span>`).join("<br>")}</div></details>`;
+}
+
+// globesHint() returns HTML (escaped); keep the site list's open/closed state across re-renders
+function setGlobesHint() {
+  const el = $("stage-hint");
+  el.innerHTML = globesHint();
+  el.querySelector(".hint-sites")?.addEventListener("toggle", (ev) => { state.hintOpen = ev.target.open; });
 }
 
 // ------------------------------------------------------------------ panel
@@ -1506,7 +1551,7 @@ function renderPanel() {
   $("ranking").innerHTML = `<h2>All Earth sites vs ${esc(t.name)} <span class="hint">controls should rank low</span></h2>
     <table><thead><tr><th>#</th><th>Earth site</th><th>Type</th><th class="num">Score</th></tr></thead><tbody>
     ${ranked.map(({ x, s: r }, i) => { const s = state.data.sites[x.earth]; return `<tr class="clickable ${x.earth === state.earthId ? "selected" : ""}" data-earth="${s.id}">
-      <td>${i + 1}</td><td>${esc(s.name)}</td><td>${roleLabel(s)}</td>
+      <td>${i + 1}</td><td>${esc(s.name)}</td><td>${isTeam(s) ? `<span class="team-tag">#team</span>` : roleLabel(s)}</td>
       <td class="num" style="color:${COLOR[r.verdict]}">${scoreTxt(r)}</td></tr>`; }).join("")}
     </tbody></table>`;
   $("ranking").querySelectorAll("tr[data-earth]").forEach((tr) => tr.addEventListener("click", () => select(tr.dataset.earth, null)));
@@ -1578,7 +1623,7 @@ function setView(v) {
   globes.controls.enabled = v === "globes";
   cmp.controls.enabled = v === "compare";
   if (v === "compare") buildCompare(true);
-  else $("stage-hint").textContent = globesHint();
+  else setGlobesHint();
 }
 
 document.querySelectorAll("#body-switch button").forEach((b) => {
