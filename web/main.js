@@ -18,6 +18,9 @@ const BODY = {
 // cobe globe's spin (phi += 0.005 per frame at 60 fps = 0.3 rad/s, one turn in ~21 s) for Earth;
 // Mars and the Moon follow from their real periods.
 const DAY_SECONDS = 21;
+// Orbits run faster than spins: at real speed the Moon's lap would take ~9.5 min on screen and
+// look frozen. x10 makes it ~1 min (Mars ~25 min). Spins stay at DAY_SECONDS; tune this knob only.
+const ORBIT_SPEEDUP = 10;
 const EARTH_R = 2; // scene units for Earth's radius; other bodies to true relative scale
 const CSS = getComputedStyle(document.documentElement);
 const cssColor = (v) => CSS.getPropertyValue(v).trim();
@@ -62,13 +65,15 @@ cmp.controls.enabled = false;
 cmp.root = new THREE.Group();
 cmp.scene.add(cmp.root);
 
-for (const s of [globes.scene, cmp.scene]) {
-  s.background = new THREE.Color(0x05070d);
-  s.add(new THREE.AmbientLight(0xffffff, 0.55));
-  const sun = new THREE.DirectionalLight(0xffffff, 1.9);
-  sun.position.set(-6, 5, 8);
-  s.add(sun);
-}
+for (const s of [globes.scene, cmp.scene]) s.background = new THREE.Color(0x05070d);
+// compare view: flat, even light so terrain relief reads
+cmp.scene.add(new THREE.AmbientLight(0xffffff, 0.55));
+{ const l = new THREE.DirectionalLight(0xffffff, 1.9); l.position.set(-6, 5, 8); cmp.scene.add(l); }
+// globes: sunlight only, no Sun drawn. A directional light is a Sun at infinity, so every body
+// gets the same day/night terminator. Faint ambient keeps the night side from going pure black.
+// ponytail: tune SUN_DIR / intensities here if the sites end up too deep in shadow
+globes.scene.add(new THREE.AmbientLight(0xffffff, 0.1));
+{ const sun = new THREE.DirectionalLight(0xfff4e6, 3.2); sun.position.set(-4, 2.5, 9); globes.scene.add(sun); }
 addStars(globes.scene);
 
 function addStars(scene) {
@@ -108,7 +113,7 @@ const orbitAngle = (b) => (b.x < 0 ? Math.PI : 0) + (2 * Math.PI * orbitDays) / 
 function updateOrbits(now) {
   const dt = orbitLast ? Math.min(0.05, (now - orbitLast) / 1000) : 0;
   orbitLast = now;
-  if (state.focus === "all") orbitDays += dt / DAY_SECONDS;
+  if (state.focus === "all") orbitDays += (dt / DAY_SECONDS) * ORBIT_SPEEDUP;
   if (state.focus !== "link") spinDays += dt / DAY_SECONDS;
   for (const [key, b] of Object.entries(BODY)) {
     const p = planets[key];
@@ -184,7 +189,7 @@ function buildGlobes() {
     m.userData.siteId = site.id;
     m.userData.name = site.name;
     m.userData.baseOpacity = waiting ? 0.35 : 1;
-    const l = label((isTeam(site) ? "#team " : "") + site.name + (waiting ? " (no target yet)" : ""),
+    const l = label(site.name + (waiting ? " (no target yet)" : ""),
       "site " + site.role + (waiting ? " waiting" : "") + (isTeam(site) ? " team" : ""));
     m.userData.team = isTeam(site);
     l.position.set(0, size * 2.2, 0);
@@ -258,8 +263,12 @@ function buildPairLines() {
     const sc = scoreOf(c), color = COLOR[sc.verdict];
     const line = new THREE.Line(new THREE.BufferGeometry(),
       new THREE.LineDashedMaterial({ color, dashSize: 0.12, gapSize: 0.07, transparent: true, opacity: 0.9 }));
-    const tag = label(fmt(sc.overall), "score");
-    tag.element.style.color = color;
+    // score card in the style of cobe "Globe Bars": caption, bar, percent
+    const pct = sc.overall == null ? null : Math.round(sc.overall * 100);
+    const tag = label("", "score");
+    tag.element.innerHTML = `<span class="cap">Similarity</span>
+      <span class="bar"><span style="width:${pct ?? 0}%;background:${color}"></span></span>
+      <span class="pct" style="color:${color}">${pct == null ? "-" : pct + "%"}</span>`;
     line.add(tag);
     globes.scene.add(line);
     pairLines.push({ line, tag, c });
@@ -459,7 +468,7 @@ function focusBody(body, animate = true) {
 
 function renderTopMatches() {
   const targets = Object.values(state.data.sites).filter((s) => s.role === "target");
-  let html = `<div class="tm-head"><span>Click one to draw its line on the planets</span>
+  let html = `<div class="tm-head"><span title="100% = identical terrain">% similarity</span>
     <button class="tm-clear" ${state.link ? "" : "disabled"}>Clear</button></div>`;
   for (const t of targets) {
     const top = state.data.comparisons
@@ -469,13 +478,16 @@ function renderTopMatches() {
       .slice(0, TOP_N);
     html += `<section class="card tm-group"><div class="tm-target" style="color:${COLOR[t.body]}">${esc(t.name)}
       <span class="body">${BODY[t.body].name} <span class="type-tag">${esc(typeShort(t.type))}</span></span></div>`;
-    for (const { c, s } of top) {
+    top.forEach(({ c, s }, i) => {
       const active = state.link && state.link.earth === c.earth && state.link.target === c.target;
-      html += `<button class="tm-row ${active ? "active" : ""}" data-earth="${c.earth}" data-target="${c.target}">
-        <span class="dot" style="background:${COLOR[s.verdict]}"></span>
-        <span class="name">${esc(state.data.sites[c.earth].name)}${isTeam(state.data.sites[c.earth]) ? ` <span class="type-tag team">#team</span>` : ""}</span>
-        <span class="val" style="color:${COLOR[s.verdict]}">${fmt(s.overall)}</span></button>`;
-    }
+      const pct = s.overall == null ? null : Math.round(s.overall * 100);
+      const name = esc(state.data.sites[c.earth].name);
+      html += `<button class="tm-row ${active ? "active" : ""} ${i === 0 ? "best" : ""}" data-earth="${c.earth}" data-target="${c.target}" title="${name}: ${pct ?? "-"}% similar (${s.verdict})">
+        <span class="rank">${i + 1}</span>
+        <span class="name">${name}${isTeam(state.data.sites[c.earth]) ? ` <span class="type-tag team">#team</span>` : ""}</span>
+        <span class="val" style="color:${COLOR[s.verdict]}">${pct == null ? "-" : pct + "%"}</span>
+        <span class="bar"><span style="width:${pct ?? 0}%;background:${COLOR[s.verdict]}"></span></span></button>`;
+    });
     if (!top.length) html += `<p class="tm-empty">No Canadian candidates of this type yet.</p>`;
     html += `</section>`;
   }

@@ -298,7 +298,7 @@
           ctx.strokeStyle = grad;
           ctx.lineCap = "round";
           ctx.beginPath(); ctx.moveTo(hx, hy); ctx.lineTo(P.x, P.y);
-          for (const [w, al] of [[11, 0.16], [4, 0.3], [1.8, 1]]) { ctx.lineWidth = w; ctx.globalAlpha = al; ctx.stroke(); }
+          for (const [w, al] of [[5, 0.12], [2, 0.3], [0.9, 1]]) { ctx.lineWidth = w; ctx.globalAlpha = al; ctx.stroke(); }
           ctx.globalAlpha = 1;
         }
       }
@@ -330,10 +330,10 @@
           ctx.stroke();
         };
         ctx.lineCap = "round"; ctx.lineJoin = "round";
-        stroke(Math.floor(N * 0.72), 0.05 * bright, 6.5);
-        stroke(Math.floor(N * 0.86), 0.05 * bright, 3);
+        stroke(Math.floor(N * 0.72), 0.04 * bright, 3);
+        stroke(Math.floor(N * 0.86), 0.05 * bright, 1.5);
         // one segment at a time so the fade has hundreds of steps; butt ends avoid beads at joints
-        ctx.lineCap = "butt"; ctx.lineWidth = 1.3;
+        ctx.lineCap = "butt"; ctx.lineWidth = 0.8;
         for (let q = 0; q < N; q++) {
           if (!okArr[q] || !okArr[q + 1]) continue;
           const a = Math.pow((q + 1) / N, 2.6) * 0.95 * bright;

@@ -12,6 +12,7 @@
   --strong: #4fc37a;
   --partial: #e5b54a;
   --weak: #e2615a;
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace; /* the Globe Bars card look: numbers, captions, globe labels */
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color-scheme: dark;
 }
@@ -89,7 +90,14 @@ html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
   border: 1px solid var(--line); border-radius: 99px; padding: 0 6px; margin-left: 4px; vertical-align: 1px;
 }
 .label.planet { font-size: 14px; font-weight: 600; letter-spacing: .04em; border: none; background: none; text-shadow: 0 1px 3px #000; }
-.label.score { font-weight: 600; }
+.label.score {
+  display: grid; justify-items: center; gap: 4px; min-width: 64px; padding: 6px 9px;
+  border-color: #3a4766; box-shadow: 0 4px 14px rgba(0, 0, 0, .5);
+}
+.label.score .cap { font: 600 9px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.label.score .bar { width: 48px; height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
+.label.score .bar > span { display: block; height: 100%; border-radius: 2px; }
+.label.score .pct { font: 700 13px/1 var(--mono); }
 .site-tip { position: absolute; z-index: 5; pointer-events: none; font-size: 13px; }
 .label.terrain { font-size: 13px; font-weight: 600; }
 
@@ -186,15 +194,20 @@ html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
 #top-matches .tm-target .body { display: block; font-size: 11px; font-weight: 400; color: var(--muted); margin-top: 1px; }
 #top-matches .tm-empty { color: var(--muted); font-size: 12px; margin: 0 4px; }
 #top-matches .tm-row {
-  display: flex; align-items: center; gap: 7px; width: 100%; text-align: left;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 7px; width: 100%; text-align: left;
   background: none; border: 1px solid transparent; color: var(--text); font: inherit;
   padding: 5px 6px; border-radius: 6px; cursor: pointer;
 }
 #top-matches .tm-row:hover { background: var(--card); }
 #top-matches .tm-row.active { background: var(--card); border-color: var(--earth); }
-#top-matches .tm-row .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
-#top-matches .tm-row .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#top-matches .tm-row .rank { width: 14px; flex: none; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+#top-matches .tm-row.best .rank { color: var(--text); font-weight: 700; }
+#top-matches .tm-row.best .name { font-weight: 600; }
+#top-matches .tm-row .name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
 #top-matches .tm-row .val { font-weight: 600; font-variant-numeric: tabular-nums; }
+#top-matches .tm-row:not(.best) .val { opacity: .75; }
+#top-matches .tm-row .bar { flex-basis: 100%; height: 3px; margin-left: 21px; border-radius: 2px; background: var(--line); overflow: hidden; }
+#top-matches .tm-row .bar > span { display: block; height: 100%; border-radius: 2px; }
 #compare-controls input[type=range] { vertical-align: middle; width: 140px; }
 
 #panel {
@@ -353,3 +366,11 @@ footer { font-size: 11px; color: var(--muted); line-height: 1.5; padding: 4px 2p
   #panel { order: 3; }
   #panel { width: 100%; border-left: none; border-top: 1px solid var(--line); }
 }
+
+/* mono for numbers and captions, matching the similarity card on the link line */
+.label { font-family: var(--mono); letter-spacing: .02em; }
+.label.planet { text-transform: uppercase; letter-spacing: .14em; font-size: 12px; }
+#top-matches .tm-head > span { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+#top-matches .tm-target .body { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+#top-matches .tm-target .body .type-tag { font-family: inherit; text-transform: lowercase; letter-spacing: .04em; }
+#top-matches .tm-row .rank, #top-matches .tm-row .val { font-family: var(--mono); }
