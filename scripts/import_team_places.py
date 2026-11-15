@@ -27,14 +27,69 @@ def site_id_for(place_id):
 
 
 def site_name(place, used):
-    name = place["region"].split(",")[0].strip() or place["id"]
+    name = (place.get("region") or "").split(",")[0].strip() or f"Earth location {place['id']}"
     if name in used:  # e.g. two "Arctic mainland" places
         name = f"{name} ({place['id'].split('-')[-1]})"
     used.add(name)
     return name
 
 
+def connect_all_map_places(places, cfg):
+    """Connect every map entry; retain existing sites and never use heuristic scores as measurements."""
+    by_id = {s["id"]: s for s in cfg["sites"]}
+    used = {s["name"] for s in cfg["sites"]}
+    added = []
+    for place in places:
+        if not place.get("region"):
+            place["region"] = f"Earth location {place['id']} ({place['lat']}, {place['lon']})"
+        sid = place.get("site_id") or site_id_for(place["id"])
+        if sid in by_id:
+            if by_id[sid]["body"] != "earth":
+                raise ValueError(f"Map entry points to a non-Earth site: {place['id']}")
+            if any(abs(by_id[sid][key] - place[key]) > 1e-6 for key in ("lat", "lon")):
+                raise ValueError(f"Map/site coordinate mismatch: {place['id']}")
+            if "map_connected" in by_id[sid].get("tags", []):
+                by_id[sid]["crater_geometry_verified"] = False
+            place["site_id"] = sid
+            continue
+        lat, lon = place.get("lat"), place.get("lon")
+        if not isinstance(lat, (int, float)) or not isinstance(lon, (int, float)) or not -90 <= lat <= 90 or not -180 <= lon <= 180:
+            raise ValueError(f"Invalid map coordinates: {place['id']}")
+        bodies = sorted({b.lower() for b in place.get("targets", [])} & {"moon", "mars"}) or ["moon", "mars"]
+        site = {"id": sid, "name": site_name(place, used), "region": place.get("region") or f"Map coordinate {lat}, {lon}",
+                "body": "earth", "role": "analog", "tags": [TAG, "map_connected"], "types": [],
+                "compare_bodies": bodies, "place_id": place["id"], "lat": lat, "lon": lon,
+                "diameter_km": 25, "window_km": 30, "refine_center": False, "fetch_res_m": 30,
+                "crater_geometry_verified": False,
+                "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+                "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+                "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter."}
+        added.append(site)
+        by_id[sid] = site
+        place["site_id"] = sid
+        place["labels"] = sorted(set(place.get("labels", [])) | {TAG})
+    first_target = next((i for i, s in enumerate(cfg["sites"]) if s["body"] != "earth"), len(cfg["sites"]))
+    cfg["sites"][first_target:first_target] = added
+    return added
+
+
 def main(argv):
+    if "--connect-all" in argv:
+        places = json.loads(PLACES_ALL.read_text(encoding="utf-8"))
+        cfg = json.loads(SITES.read_text(encoding="utf-8"))
+        added = connect_all_map_places(places, cfg)
+        PLACES_ALL.write_text(json.dumps(places, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+        SITES.write_text(json.dumps(cfg, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        sources_path = ROOT / "config/data_sources.json"
+        sources = json.loads(sources_path.read_text(encoding="utf-8"))
+        for s in cfg["sites"]:
+            if "map_connected" in s.get("tags", []):
+                sources.setdefault("site_coordinates", {})[s["id"]] = {
+                    "source": "Saved team coordinate in web/data/places_all.json",
+                    "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."}
+        sources_path.write_text(json.dumps(sources, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        print(f"Connected {len(places)} map entries; added {len(added)} Earth comparison sites")
+        return
     src = Path(argv[0]) if argv else ROOT / "places_new.json"
     team = json.loads(src.read_text(encoding="utf-8"))
 

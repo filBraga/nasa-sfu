@@ -1,5 +1,17 @@
 # Scouting v3: dust, gas, light and lunar soil
 
+## Subsequent extraction update
+
+The original scouting results below are a metadata-only historical record.
+LADEE LDEX v2.0 has since been extracted by `../scripts/sample_dust.mjs`:
+26 altitude bins (5–255 km), 11 local-time bins, with density/error units m^-3,
+null missing values and source hashes. See `../data/dust/README.md` and
+`../data/enrichment/dust.json`. The archive label/table field-width mismatch is
+documented and tested. These are orbital profiles, not surface dust coverage.
+Diviner rock cover is also extracted separately and is not a dust percentage.
+
+## Original scouting results
+
 Scouting is complete for eight candidate dataset families. **No science pixels or
 time-series measurements were extracted.** Thirty distinct metadata URLs were
 checked; 29 returned readable metadata. The failed LDEX endpoint remains recorded;

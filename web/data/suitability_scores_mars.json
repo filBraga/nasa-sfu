@@ -1,0 +1,1571 @@
+{
+  "mode": "relative",
+  "target_body": "mars",
+  "scores": {
+    "haughton": {
+      "score": 0.4761,
+      "observed_score": 0.47612023559108124,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9228,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9228
+          }
+        },
+        "temperature": {
+          "score": 0.4481,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.4481
+          }
+        },
+        "dust": {
+          "score": 0.17140000000000002,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.1714
+          }
+        },
+        "plants": {
+          "score": 0.7034,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.7034
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9228,
+        "temperature": 0.4481,
+        "dust": 0.17140000000000002,
+        "plants": 0.7034
+      },
+      "invalid_metrics": []
+    },
+    "mistastin": {
+      "score": 0.9275,
+      "observed_score": 0.9274784553082767,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.8928,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.8928
+          }
+        },
+        "temperature": {
+          "score": 0.769,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.769
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.9814,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9814
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.8928,
+        "temperature": 0.769,
+        "dust": 1.0,
+        "plants": 0.9814
+      },
+      "invalid_metrics": []
+    },
+    "pingualuit": {
+      "score": 0.9291,
+      "observed_score": 0.9290665791760411,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9537,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9537
+          }
+        },
+        "temperature": {
+          "score": 0.6826,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.6826
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.981,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.981
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9537,
+        "temperature": 0.6826,
+        "dust": 1.0,
+        "plants": 0.981
+      },
+      "invalid_metrics": []
+    },
+    "hmp_plateau": {
+      "score": 0.43,
+      "observed_score": 0.4299661522141127,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.8878,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.8878
+          }
+        },
+        "temperature": {
+          "score": 0.4292,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.4292
+          }
+        },
+        "dust": {
+          "score": 0.12869999999999998,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.1287
+          }
+        },
+        "plants": {
+          "score": 0.6963,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.6963
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.8878,
+        "temperature": 0.4292,
+        "dust": 0.12869999999999998,
+        "plants": 0.6963
+      },
+      "invalid_metrics": []
+    },
+    "mcgill_uplands": {
+      "score": 0.439,
+      "observed_score": 0.43895239168919514,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.6827,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.6827
+          }
+        },
+        "temperature": {
+          "score": 0.2913,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.2913
+          }
+        },
+        "dust": {
+          "score": 0.20950000000000002,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.2095
+          }
+        },
+        "plants": {
+          "score": 0.7259,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.7259
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.6827,
+        "temperature": 0.2913,
+        "dust": 0.20950000000000002,
+        "plants": 0.7259
+      },
+      "invalid_metrics": []
+    },
+    "tuktoyaktuk": {
+      "score": 0.9091,
+      "observed_score": 0.9090939168552293,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9889,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9889
+          }
+        },
+        "temperature": {
+          "score": 0.5781,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.5781
+          }
+        },
+        "dust": {
+          "score": 0.971,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.971
+          }
+        },
+        "plants": {
+          "score": 0.9812,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9812
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9889,
+        "temperature": 0.5781,
+        "dust": 0.971,
+        "plants": 0.9812
+      },
+      "invalid_metrics": []
+    },
+    "athabasca_dunes": {
+      "score": 0.7794,
+      "observed_score": 0.7794163836167637,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9764,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9764
+          }
+        },
+        "temperature": {
+          "score": 0.7425,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.7425
+          }
+        },
+        "dust": {
+          "score": 0.5276,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.5276
+          }
+        },
+        "plants": {
+          "score": 0.9417,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9417
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9764,
+        "temperature": 0.7425,
+        "dust": 0.5276,
+        "plants": 0.9417
+      },
+      "invalid_metrics": []
+    },
+    "spotted_lake": {
+      "score": 0.8841,
+      "observed_score": 0.8841184049968904,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.698,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.698
+          }
+        },
+        "temperature": {
+          "score": 0.8993,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.8993
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.9817,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9817
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.698,
+        "temperature": 0.8993,
+        "dust": 1.0,
+        "plants": 0.9817
+      },
+      "invalid_metrics": []
+    },
+    "control_prairie": {
+      "score": 0.9706,
+      "observed_score": 0.97061991822289,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9822,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9822
+          }
+        },
+        "temperature": {
+          "score": 0.874,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.874
+          }
+        },
+        "dust": {
+          "score": 0.9996,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.9996
+          }
+        },
+        "plants": {
+          "score": 0.9815,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9815
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9822,
+        "temperature": 0.874,
+        "dust": 0.9996,
+        "plants": 0.9815
+      },
+      "invalid_metrics": []
+    },
+    "control_mountains": {
+      "score": 0.7173,
+      "observed_score": 0.7172588045473994,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.45,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.45
+          }
+        },
+        "temperature": {
+          "score": 0.6129,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.6129
+          }
+        },
+        "dust": {
+          "score": 0.913,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.913
+          }
+        },
+        "plants": {
+          "score": 0.9716,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9716
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.45,
+        "temperature": 0.6129,
+        "dust": 0.913,
+        "plants": 0.9716
+      },
+      "invalid_metrics": []
+    },
+    "control_shield": {
+      "score": 0.9289,
+      "observed_score": 0.9289349487377225,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9278,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9278
+          }
+        },
+        "temperature": {
+          "score": 0.7195,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.7195
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.9817,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9817
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9278,
+        "temperature": 0.7195,
+        "dust": 1.0,
+        "plants": 0.9817
+      },
+      "invalid_metrics": []
+    },
+    "team_place_01": {
+      "score": 0.8788,
+      "observed_score": 0.8787787269428519,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.8787,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.8787
+          }
+        },
+        "temperature": {
+          "score": 0.5922,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.5922
+          }
+        },
+        "dust": {
+          "score": 0.9607,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.9607
+          }
+        },
+        "plants": {
+          "score": 0.9793,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9793
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.8787,
+        "temperature": 0.5922,
+        "dust": 0.9607,
+        "plants": 0.9793
+      },
+      "invalid_metrics": []
+    },
+    "team_place_04": {
+      "score": 0.4621,
+      "observed_score": 0.462063243877977,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.4617,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.4617
+          }
+        },
+        "temperature": {
+          "score": 0.7382,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.7382
+          }
+        },
+        "dust": {
+          "score": 0.21159999999999998,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.2116
+          }
+        },
+        "plants": {
+          "score": 0.7989,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.7989
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.4617,
+        "temperature": 0.7382,
+        "dust": 0.21159999999999998,
+        "plants": 0.7989
+      },
+      "invalid_metrics": []
+    },
+    "team_place_05": {
+      "score": 0.0,
+      "observed_score": 0.0,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9831,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9831
+          }
+        },
+        "temperature": {
+          "score": 0.9015,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.9015
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.0
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9831,
+        "temperature": 0.9015,
+        "dust": 1.0,
+        "plants": 0.0
+      },
+      "invalid_metrics": []
+    },
+    "team_place_07": {
+      "score": 0.0,
+      "observed_score": 0.0,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9824,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9824
+          }
+        },
+        "temperature": {
+          "score": 0.9913,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.9913
+          }
+        },
+        "dust": {
+          "score": 0.9427,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.9427
+          }
+        },
+        "plants": {
+          "score": 0.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.0
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9824,
+        "temperature": 0.9913,
+        "dust": 0.9427,
+        "plants": 0.0
+      },
+      "invalid_metrics": []
+    },
+    "team_place_09": {
+      "score": 0.7701,
+      "observed_score": 0.7701451563399256,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9302,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9302
+          }
+        },
+        "temperature": {
+          "score": 0.4563,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.4563
+          }
+        },
+        "dust": {
+          "score": 0.7884,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.7884
+          }
+        },
+        "plants": {
+          "score": 0.8092,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.8092
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9302,
+        "temperature": 0.4563,
+        "dust": 0.7884,
+        "plants": 0.8092
+      },
+      "invalid_metrics": []
+    },
+    "team_place_11": {
+      "score": 0.0,
+      "observed_score": 0.0,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9008,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9008
+          }
+        },
+        "temperature": {
+          "score": 0.9735,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.9735
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.0
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9008,
+        "temperature": 0.9735,
+        "dust": 1.0,
+        "plants": 0.0
+      },
+      "invalid_metrics": []
+    },
+    "team_place_12": {
+      "score": 0.0,
+      "observed_score": 0.0,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9814,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9814
+          }
+        },
+        "temperature": {
+          "score": 0.9349,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.9349
+          }
+        },
+        "dust": {
+          "score": 0.7987,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.7987
+          }
+        },
+        "plants": {
+          "score": 0.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.0
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9814,
+        "temperature": 0.9349,
+        "dust": 0.7987,
+        "plants": 0.0
+      },
+      "invalid_metrics": []
+    },
+    "team_place_14": {
+      "score": 0.0,
+      "observed_score": 0.0,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9889,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9889
+          }
+        },
+        "temperature": {
+          "score": 0.9464,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.9464
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.0
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9889,
+        "temperature": 0.9464,
+        "dust": 1.0,
+        "plants": 0.0
+      },
+      "invalid_metrics": []
+    },
+    "team_place_15": {
+      "score": 0.4934,
+      "observed_score": 0.49335580067598783,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9812,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9812
+          }
+        },
+        "temperature": {
+          "score": 0.8453,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.8453
+          }
+        },
+        "dust": {
+          "score": 0.9989,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.9989
+          }
+        },
+        "plants": {
+          "score": 0.0936,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.0936
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9812,
+        "temperature": 0.8453,
+        "dust": 0.9989,
+        "plants": 0.0936
+      },
+      "invalid_metrics": []
+    },
+    "team_place_16": {
+      "score": 0.0,
+      "observed_score": 0.0,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9646,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9646
+          }
+        },
+        "temperature": {
+          "score": 0.9245,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.9245
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.0
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9646,
+        "temperature": 0.9245,
+        "dust": 1.0,
+        "plants": 0.0
+      },
+      "invalid_metrics": []
+    },
+    "team_place_23": {
+      "score": 0.7426,
+      "observed_score": 0.7426130722547509,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.5131,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.5131
+          }
+        },
+        "temperature": {
+          "score": 0.9875,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.9875
+          }
+        },
+        "dust": {
+          "score": 0.9783,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.9783
+          }
+        },
+        "plants": {
+          "score": 0.7075,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.7075
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.5131,
+        "temperature": 0.9875,
+        "dust": 0.9783,
+        "plants": 0.7075
+      },
+      "invalid_metrics": []
+    },
+    "team_place_26": {
+      "score": 0.9192,
+      "observed_score": 0.9192270986290876,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9781,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9781
+          }
+        },
+        "temperature": {
+          "score": 0.6015,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.6015
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.9817,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9817
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9781,
+        "temperature": 0.6015,
+        "dust": 1.0,
+        "plants": 0.9817
+      },
+      "invalid_metrics": []
+    },
+    "team_place_33": {
+      "score": 0.7216,
+      "observed_score": 0.7216351697739963,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.989,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.989
+          }
+        },
+        "temperature": {
+          "score": 0.9398,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.9398
+          }
+        },
+        "dust": {
+          "score": 0.8256,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.8256
+          }
+        },
+        "plants": {
+          "score": 0.4033,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.4033
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.989,
+        "temperature": 0.9398,
+        "dust": 0.8256,
+        "plants": 0.4033
+      },
+      "invalid_metrics": []
+    },
+    "team_place_34": {
+      "score": 0.9444,
+      "observed_score": 0.9444239561478684,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9644,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9644
+          }
+        },
+        "temperature": {
+          "score": 0.7478,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.7478
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.9816,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9816
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9644,
+        "temperature": 0.7478,
+        "dust": 1.0,
+        "plants": 0.9816
+      },
+      "invalid_metrics": []
+    },
+    "team_place_35": {
+      "score": 0.8086,
+      "observed_score": 0.8085974652055149,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.6864,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.6864
+          }
+        },
+        "temperature": {
+          "score": 0.7021,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.7021
+          }
+        },
+        "dust": {
+          "score": 0.8444,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.8444
+          }
+        },
+        "plants": {
+          "score": 0.9789,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9789
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.6864,
+        "temperature": 0.7021,
+        "dust": 0.8444,
+        "plants": 0.9789
+      },
+      "invalid_metrics": []
+    },
+    "team_place_38": {
+      "score": 0.8409,
+      "observed_score": 0.8408847074879746,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 1.0
+          }
+        },
+        "temperature": {
+          "score": 0.3151,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.3151
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.9713,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9713
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 1.0,
+        "temperature": 0.3151,
+        "dust": 1.0,
+        "plants": 0.9713
+      },
+      "invalid_metrics": []
+    },
+    "team_place_41": {
+      "score": 0.9288,
+      "observed_score": 0.9288476785460621,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.797,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.797
+          }
+        },
+        "temperature": {
+          "score": 0.9744,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.9744
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.9817,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9817
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.797,
+        "temperature": 0.9744,
+        "dust": 1.0,
+        "plants": 0.9817
+      },
+      "invalid_metrics": []
+    },
+    "team_place_43": {
+      "score": 0.919,
+      "observed_score": 0.9190186298209492,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9889,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9889
+          }
+        },
+        "temperature": {
+          "score": 0.5875,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.5875
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.9817,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9817
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9889,
+        "temperature": 0.5875,
+        "dust": 1.0,
+        "plants": 0.9817
+      },
+      "invalid_metrics": []
+    },
+    "team_place_44": {
+      "score": 0.8011,
+      "observed_score": 0.8011125566497443,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.5473,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.5473
+          }
+        },
+        "temperature": {
+          "score": 0.7538,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.7538
+          }
+        },
+        "dust": {
+          "score": 0.9873,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 0.9873
+          }
+        },
+        "plants": {
+          "score": 0.9809,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9809
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.5473,
+        "temperature": 0.7538,
+        "dust": 0.9873,
+        "plants": 0.9809
+      },
+      "invalid_metrics": []
+    },
+    "team_place_45": {
+      "score": 0.9378,
+      "observed_score": 0.937785243015654,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9552,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9552
+          }
+        },
+        "temperature": {
+          "score": 0.7254,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.7254
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.9817,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9817
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9552,
+        "temperature": 0.7254,
+        "dust": 1.0,
+        "plants": 0.9817
+      },
+      "invalid_metrics": []
+    },
+    "team_place_47": {
+      "score": 0.8959,
+      "observed_score": 0.8959298553896504,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.8468,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.8468
+          }
+        },
+        "temperature": {
+          "score": 0.6705,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.6705
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.9817,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9817
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.8468,
+        "temperature": 0.6705,
+        "dust": 1.0,
+        "plants": 0.9817
+      },
+      "invalid_metrics": []
+    },
+    "team_place_49": {
+      "score": 0.9185,
+      "observed_score": 0.9184753123054248,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9332,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9332
+          }
+        },
+        "temperature": {
+          "score": 0.657,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.657
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.9817,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9817
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9332,
+        "temperature": 0.657,
+        "dust": 1.0,
+        "plants": 0.9817
+      },
+      "invalid_metrics": []
+    },
+    "team_place_50": {
+      "score": 0.9354,
+      "observed_score": 0.93536193575604,
+      "coverage": 0.875,
+      "groups": {
+        "slope": {
+          "score": 0.9725,
+          "coverage": 1.0,
+          "metric_scores": {
+            "slope": 0.9725
+          }
+        },
+        "temperature": {
+          "score": 0.6874,
+          "coverage": 0.5,
+          "metric_scores": {
+            "cold": null,
+            "swing": 0.6874
+          }
+        },
+        "dust": {
+          "score": 1.0,
+          "coverage": 1.0,
+          "metric_scores": {
+            "dust": 1.0
+          }
+        },
+        "plants": {
+          "score": 0.9816,
+          "coverage": 1.0,
+          "metric_scores": {
+            "plants": 0.9816
+          }
+        }
+      },
+      "breakdown": {
+        "slope": 0.9725,
+        "temperature": 0.6874,
+        "dust": 1.0,
+        "plants": 0.9816
+      },
+      "invalid_metrics": []
+    }
+  },
+  "groups": {
+    "slope": {
+      "weight": 1.0,
+      "metrics": {
+        "slope": 1.0
+      },
+      "description": "Terrain slope - lower is better for landing/habitation"
+    },
+    "temperature": {
+      "weight": 1.0,
+      "metrics": {
+        "swing": 1.0
+      },
+      "description": "Day-night temperature swing - lower is better"
+    },
+    "dust": {
+      "weight": 1.0,
+      "metrics": {
+        "dust": 1.0
+      },
+      "description": "Surface dust fraction - lower is better"
+    },
+    "plants": {
+      "weight": 1.0,
+      "metrics": {
+        "plants": 1.0
+      },
+      "description": "Vegetation fraction - higher is better (inverted from barren_ground)"
+    }
+  },
+  "layer_to_metric": {
+    "slope": "slope",
+    "roughness": "roughness",
+    "thermal_amplitude": "swing",
+    "surface_dust": "dust",
+    "barren_ground": "plants",
+    "radar_cpr": "roughness"
+  },
+  "layer_absolute_scoring": {
+    "thermal_amplitude": {
+      "metric": "swing",
+      "scale": 50.0,
+      "higher_is_better": false,
+      "description": "Temperature swing in K. Lower is better. 50K -> 0.37, 100K -> 0.14"
+    },
+    "surface_dust": {
+      "metric": "dust",
+      "scale": 30.0,
+      "higher_is_better": false,
+      "description": "Dust fraction in %. Lower is better. 30% -> 0.37, 60% -> 0.14"
+    },
+    "barren_ground": {
+      "metric": "plants",
+      "scale": 1.0,
+      "higher_is_better": true,
+      "invert": true,
+      "description": "Vegetation = 1 - barren_fraction. Higher is better."
+    }
+  },
+  "terrain_scoring": {
+    "slope": {
+      "scale": 10.0,
+      "stat": "median",
+      "description": "exp(-median_slope_deg / scale). At 10 deg -> 0.37, 20 deg -> 0.14"
+    },
+    "roughness": {
+      "scale": 1.0,
+      "stat": "median",
+      "description": "exp(-median_log10(TRI+0.1) / scale). At 0 -> 0.37, 1 -> 0.14"
+    }
+  },
+  "aggregation": {
+    "method": "weighted_geometric_mean",
+    "min_coverage": 0.8,
+    "zero_is_veto": true,
+    "groups": {
+      "slope": {
+        "weight": 1.0,
+        "metrics": {
+          "slope": 1.0
+        }
+      },
+      "temperature": {
+        "weight": 1.0,
+        "metrics": {
+          "cold": 0.5,
+          "swing": 0.5
+        }
+      },
+      "dust": {
+        "weight": 1.0,
+        "metrics": {
+          "dust": 1.0
+        }
+      },
+      "plants": {
+        "weight": 1.0,
+        "metrics": {
+          "plants": 1.0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "version": "physical-similarity-v1",
+  "method": "hierarchical_weighted_geometric_mean",
+  "epsilon": 1e-12,
+  "min_coverage": 0.8,
+  "calibration_status": "Provisional. Tolerances and the 80% publication threshold are policy assumptions, not validated mission requirements.",
+  "dimension_weights": {"terrain": 1, "temperature": 1, "dust": 1, "plants": 1, "materials": 1, "radar": 1},
+  "metrics": {
+    "slope": {"scale": 8.0, "p": 1},
+    "roughness": {"scale": 0.3, "p": 1},
+    "hypsometry": {"scale": 0.08, "p": 1},
+    "profile": {"tau": 0.5, "p": 1, "note": "Provisional mean normalized sector-profile difference; the old correlation has no equivalent distance tolerance."},
+    "depth": {"tau": 0.6931471805599453, "p": 1},
+    "flat_fraction": {"scale": 0.15, "p": 1},
+    "illumination": {"scale": 0.15, "p": 1},
+    "texture": {"scale": 0.3, "p": 1}
+  },
+  "tolerance_convention": "Legacy e-folding scales are converted to half-similarity tolerances using tau = scale * ln(2); p=1 preserves their original response."
+}

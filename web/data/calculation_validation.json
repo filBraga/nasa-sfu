@@ -1,0 +1,65 @@
+{
+  "scoring_version": "physical-similarity-v1",
+  "pairs": [
+    {
+      "earth": "haughton",
+      "target": "jezero",
+      "analog": {
+        "overall": 0.38063519138867274,
+        "observed_score": 0.38063519138867274,
+        "coverage": 1.0
+      },
+      "controls": [
+        {
+          "earth": "control_prairie",
+          "overall": 0.2787313810515608,
+          "observed_score": 0.2787313810515608,
+          "coverage": 1.0
+        },
+        {
+          "earth": "control_mountains",
+          "overall": 0.17226007462218082,
+          "observed_score": 0.17226007462218082,
+          "coverage": 0.875
+        },
+        {
+          "earth": "control_shield",
+          "overall": 0.28692488543129985,
+          "observed_score": 0.28692488543129985,
+          "coverage": 1.0
+        }
+      ],
+      "note": "Diagnostic only. No rank bonuses or tolerance fitting to force analogs above controls."
+    },
+    {
+      "earth": "mistastin",
+      "target": "shackleton",
+      "analog": {
+        "overall": 0.10765682902463539,
+        "observed_score": 0.10765682902463539,
+        "coverage": 1.0
+      },
+      "controls": [
+        {
+          "earth": "control_prairie",
+          "overall": 0.0911430961170021,
+          "observed_score": 0.0911430961170021,
+          "coverage": 1.0
+        },
+        {
+          "earth": "control_mountains",
+          "overall": 0.07620169392699594,
+          "observed_score": 0.07620169392699594,
+          "coverage": 0.8333333333333334
+        },
+        {
+          "earth": "control_shield",
+          "overall": 0.09686790965595334,
+          "observed_score": 0.09686790965595334,
+          "coverage": 1.0
+        }
+      ],
+      "note": "Diagnostic only. No rank bonuses or tolerance fitting to force analogs above controls."
+    }
+  ]
+}

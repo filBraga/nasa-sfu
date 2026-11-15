@@ -1,6 +1,14 @@
 import * as THREE from "three";
+import { renderEvidence } from "./evidence.js";
+import { renderLunarDust } from "./lunar-dust.js";
+import { OPERATION_PRESETS, findPreset, presetDimensions } from "./presets.js";
+import { scoreText, scoreDescription } from "./similarity.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
+import {
+  ALGORITHMS, DEFAULT_ALGORITHM, SIMILARITY_POLICY, USER_METHODS,
+  compareEvidenceScores, metricCategory, parseSiteValues,
+} from "./scoring.js";
 
 // ------------------------------------------------------------------ constants
 // x: start position, also the drawn orbit radius around Earth (distances not to scale).
@@ -234,6 +242,9 @@ function addReferenceMarkers() {
     }
     for (const l of ref.landers?.landers || []) {
       if (typeof l.lat !== "number" || typeof l.lon_e !== "number") continue;
+      // A selectable comparison marker takes precedence at the same Moon location.
+      if (body === "moon" && Object.values(state.data.sites).some(s => s.body === body
+        && Math.abs(s.lat - l.lat) < .02 && Math.abs(((s.lon - l.lon_e + 540) % 360) - 180) < .02)) continue;
       add(body, l, "lander", `${l.name}${l.date ? " (" + l.date + ")" : ""}: ${l.outcome || l.type || ""}`);
     }
   }
@@ -263,12 +274,13 @@ function buildPairLines() {
     const sc = scoreOf(c), color = COLOR[sc.verdict];
     const line = new THREE.Line(new THREE.BufferGeometry(),
       new THREE.LineDashedMaterial({ color, dashSize: 0.12, gapSize: 0.07, transparent: true, opacity: 0.9 }));
-    // score card in the style of cobe "Globe Bars": caption, bar, percent
-    const pct = sc.overall == null ? null : Math.round(sc.overall * 100);
+    // score card in the style of cobe "Globe Bars": caption, bar, percent (* = partial, as in scoreText)
+    const pct = scorePct(sc);
     const tag = label("", "score");
+    tag.element.title = scoreDescription(sc);
     tag.element.innerHTML = `<span class="cap">Similarity</span>
-      <span class="bar"><span style="width:${pct ?? 0}%;background:${color}"></span></span>
-      <span class="pct" style="color:${color}">${pct == null ? "-" : pct + "%"}</span>`;
+      <span class="bar"><span style="width:${pct.width}%;background:${color}"></span></span>
+      <span class="pct" style="color:${color}">${pct.text}</span>`;
     line.add(tag);
     globes.scene.add(line);
     pairLines.push({ line, tag, c });
@@ -463,37 +475,72 @@ function focusBody(body, animate = true) {
   state.focus = body;
   document.querySelectorAll("#body-switch button").forEach((b) => b.classList.toggle("active", b.dataset.body === body));
   fitGlobesCamera(animate);
-  if (state.view === "globes") $("stage-hint").textContent = globesHint();
+  if (state.view === "globes") setGlobesHint();
 }
 
+const TM_KEY = "analog-explorer-top-matches-body"; // which body the Top matches toggle shows
+
 function renderTopMatches() {
+  if (state.tmBody === undefined) {
+    try { state.tmBody = localStorage.getItem(TM_KEY); } catch { state.tmBody = null; }
+  }
   const targets = Object.values(state.data.sites).filter((s) => s.role === "target");
-  let html = `<div class="tm-head"><span title="100% = identical terrain">% similarity</span>
+  let html = `<div class="tm-head"><span>Click to draw a comparison. * = partial similarity; evidence is incomplete.</span>
     <button class="tm-clear" ${state.link ? "" : "disabled"}>Clear</button></div>`;
-  for (const t of targets) {
-    const top = state.data.comparisons
+  // best matches per target, then targets ordered by their best match (highest first; none = last)
+  const groups = targets.map((t) => ({
+    t,
+    top: state.data.comparisons
       .filter((c) => c.target === t.id && state.data.sites[c.earth].role !== "control")
       .map((c) => ({ c, s: scoreOf(c) }))
-      .sort((a, b) => (b.s.overall ?? -1) - (a.s.overall ?? -1))
-      .slice(0, TOP_N);
-    html += `<section class="card tm-group"><div class="tm-target" style="color:${COLOR[t.body]}">${esc(t.name)}
+      .sort(byScore)
+      .slice(0, TOP_N),
+  }));
+  // published scores before withheld ones (*), then by the score shown, highest first
+  const shown = (s) => s.overall ?? s.observed_score ?? -1;
+  const best = (g) => g.top[0]?.s;
+  groups.sort((a, b) => {
+    const sa = best(a), sb = best(b);
+    if (!sa || !sb) return !sa - !sb;
+    return (sa.overall == null) - (sb.overall == null) || shown(sb) - shown(sa);
+  });
+  const groupHtml = ({ t, top }) => {
+    let g = `<section class="card tm-group"><div class="tm-target" style="color:${COLOR[t.body]}">${esc(t.name)}
       <span class="body">${BODY[t.body].name} <span class="type-tag">${esc(typeShort(t.type))}</span></span></div>`;
     top.forEach(({ c, s }, i) => {
       const active = state.link && state.link.earth === c.earth && state.link.target === c.target;
-      const pct = s.overall == null ? null : Math.round(s.overall * 100);
-      const name = esc(state.data.sites[c.earth].name);
-      html += `<button class="tm-row ${active ? "active" : ""} ${i === 0 ? "best" : ""}" data-earth="${c.earth}" data-target="${c.target}" title="${name}: ${pct ?? "-"}% similar (${s.verdict})">
+      const pct = scorePct(s);
+      g += `<button class="tm-row ${active ? "active" : ""} ${i === 0 ? "best" : ""}" data-earth="${c.earth}" data-target="${c.target}">
         <span class="rank">${i + 1}</span>
-        <span class="name">${name}${isTeam(state.data.sites[c.earth]) ? ` <span class="type-tag team">#team</span>` : ""}</span>
-        <span class="val" style="color:${COLOR[s.verdict]}">${pct == null ? "-" : pct + "%"}</span>
-        <span class="bar"><span style="width:${pct ?? 0}%;background:${COLOR[s.verdict]}"></span></span></button>`;
+        <span class="name">${esc(state.data.sites[c.earth].name)}</span>${isTeam(state.data.sites[c.earth]) ? `<span class="team-tag">#team</span>` : ""}
+        <span class="val" title="${scoreDescription(s)}" style="color:${COLOR[s.verdict]}">${pct.text}${coverageHint(s)}</span>
+        <span class="bar"><span style="width:${pct.width}%;background:${COLOR[s.verdict]}"></span></span></button>`;
     });
-    if (!top.length) html += `<p class="tm-empty">No Canadian candidates of this type yet.</p>`;
-    html += `</section>`;
-  }
+    if (!top.length) g += `<p class="tm-empty">No Canadian candidates of this type yet.</p>`;
+    return g + `</section>`;
+  };
+  // Moon | Mars toggle: one body's targets at a time, best-first order kept inside
+  const bodies = ["moon", "mars"].filter((b) => groups.some((g) => g.t.body === b));
+  if (!bodies.includes(state.tmBody)) state.tmBody = bodies[0];
+  html += `<div class="tm-toggle" role="tablist" aria-label="Show top matches for">${bodies.map((b) => {
+    const list = groups.filter((g) => g.t.body === b), top = best(list[0]);
+    const on = b === state.tmBody;
+    return `<button type="button" role="tab" aria-selected="${on}" class="${on ? "active" : ""}" data-tm-body="${b}" style="--body-color:${COLOR[b]}">
+      <span class="tm-body-name">${BODY[b].name}</span>
+      <span class="tm-body-meta">${list.length} target${list.length === 1 ? "" : "s"}${top ? ` · best <b style="color:${COLOR[top.verdict]}">${scorePct(top).text}</b>` : ""}</span></button>`;
+  }).join("")}</div>`;
+  html += `<div class="tm-body-list">${groups.filter((g) => g.t.body === state.tmBody).map(groupHtml).join("")}</div>`;
   const el = $("top-matches");
   el.innerHTML = html;
   el.querySelector(".tm-clear").onclick = () => setLink(null);
+  el.querySelectorAll("[data-tm-body]").forEach((b) => {
+    b.onclick = () => {
+      state.tmBody = b.dataset.tmBody;
+      try { localStorage.setItem(TM_KEY, state.tmBody); } catch { /* ignore */ }
+      renderTopMatches();
+      el.scrollTop = 0;
+    };
+  });
   el.querySelectorAll(".tm-row").forEach((b) => {
     b.onclick = () => {
       const same = state.link && state.link.earth === b.dataset.earth && state.link.target === b.dataset.target;
@@ -517,11 +564,19 @@ function setLink(link) {
 function globesHint() {
   if (state.focus === "link" && state.link) {
     const e = state.data.sites[state.link.earth], t = state.data.sites[state.link.target];
-    return `${e.name} ↔ ${t.name} (${BODY[t.body].name}). Drag to orbit, or press All / Clear to zoom back out.`;
+    return `${esc(e.name)} ↔ ${esc(t.name)} (${esc(BODY[t.body].name)}). Drag to orbit, or press All / Clear to zoom back out.`;
   }
   if (state.focus === "all" || state.focus === "link") return "Pick a site in Top matches to draw its connection. Click a marker to compare.";
   const sites = Object.values(state.data.sites).filter((s) => s.body === state.focus);
-  return `${BODY[state.focus].name}: ${sites.map((s) => `${s.name} (${roleLabel(s)})`).join(", ")}. Click a marker to compare.`;
+  return `<details class="hint-sites" ${state.hintOpen ? "open" : ""}><summary>${esc(BODY[state.focus].name)}: ${sites.length} site${sites.length === 1 ? "" : "s"}. Click a marker to compare.</summary>
+    <div class="hint-list">${sites.map((s) => `${esc(s.name)} <span class="hint-role">(${esc(roleLabel(s))})</span>`).join("<br>")}</div></details>`;
+}
+
+// globesHint() returns HTML (escaped); keep the site list's open/closed state across re-renders
+function setGlobesHint() {
+  const el = $("stage-hint");
+  el.innerHTML = globesHint();
+  el.querySelector(".hint-sites")?.addEventListener("toggle", (ev) => { state.hintOpen = ev.target.open; });
 }
 
 // ------------------------------------------------------------------ panel
@@ -542,9 +597,9 @@ function fillSelects() {
     `<optgroup label="#team places">${sites.filter((s) => s.body === "earth" && isTeam(s)).map(earthOpt).join("")}</optgroup>` +
     `<optgroup label="Controls">${sites.filter((s) => s.role === "control").map(earthOpt).join("")}</optgroup>`;
   const targets = sites.filter((s) => s.role === "target");
-  $("sel-target").innerHTML = [...new Set(targets.map((t) => t.type))].map((ty) =>
-    `<optgroup label="${esc(typeLabel(ty))}">${targets.filter((t) => t.type === ty)
-      .map((s) => `<option value="${s.id}">${esc(s.name)} (${BODY[s.body].name})</option>`).join("")}</optgroup>`).join("");
+  $("sel-target").innerHTML = ["moon", "mars"].map(body =>
+    `<optgroup label="${BODY[body].name} comparison locations">${targets.filter(t => t.body === body)
+      .map(s => `<option value="${s.id}">${esc(s.name)}${s.tags?.includes("planetary_import") ? " · regional" : ""}</option>`).join("")}</optgroup>`).join("");
   $("sel-earth").value = state.earthId;
   $("sel-target").value = state.targetId;
 }
@@ -553,13 +608,38 @@ function fillSelects() {
 function bestComparison(filter) {
   return state.data.comparisons.filter(filter)
     .map((c) => ({ c, s: scoreOf(c), ctl: state.data.sites[c.earth].role === "control" }))
-    .sort((a, b) => (a.ctl - b.ctl) || ((b.s.overall ?? -1) - (a.s.overall ?? -1)))[0]?.c;
+    .sort((a, b) => (a.ctl - b.ctl) || byScore(a, b))[0]?.c;
 }
 
 function esc(s) { return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
 
 // ------------------------------------------------------------------ dimensions (terrain metrics + data layers)
 const DIM_KEY = "analog-explorer-dims-v2"; // v2: four equal categories (slope, temperature, dust, plants)
+const PRESET_KEY = "analog-explorer-operation-v1";
+
+function initPreset() {
+  let saved;
+  try { saved = localStorage.getItem(PRESET_KEY); } catch { /* storage unavailable */ }
+  const params = new URLSearchParams(location.search);
+  const id = params.get("preset") ?? (params.has("dims") ? null : saved);
+  state.preset = findPreset(id)?.id || null;
+  if (state.preset) state.dims = presetDimensions(state.preset, state.data.dimensions);
+}
+
+function renderPreset() {
+  const preset = findPreset(state.preset);
+  $("operation-preset").innerHTML = `<label for="sel-operation">Operation preset</label>
+    <select id="sel-operation"><option value="">Custom / default dimensions</option>${OPERATION_PRESETS.map(p => `<option value="${p.id}" ${p.id === state.preset ? "selected" : ""}>${esc(p.label)}</option>`).join("")}</select>
+    <p class="hint">${preset ? esc(preset.considers) : "Choose an operation to select relevant scoring layers automatically, or edit dimensions in Filters."}</p>
+    ${preset ? `<p class="hint">Operation-focused physical similarity, not operational safety or mission approval. Existing weights and tolerances are provisional. Missing selected data reduces coverage; source filters and target-type exclusions still apply. Moon dust remains context only.</p>
+    <details><summary>Requirements outside this score &amp; research</summary><p>${esc(preset.unmeasured)}</p><p class="hint">Coverage describes selected measurements only, not all operation requirements. Similar thermal conditions do not establish equipment survival.</p>${preset.sources.map(s => `<p><a href="${s.url}" target="_blank" rel="noopener noreferrer">${esc(s.label)}</a></p>`).join("")}</details>` : ""}`;
+  $("sel-operation").addEventListener("change", event => {
+    state.preset = event.target.value || null;
+    state.dims = state.preset ? presetDimensions(state.preset, state.data.dimensions)
+      : new Set(Object.keys(state.data.dimensions).filter(k => state.data.dimensions[k].default_on));
+    dimsChanged(true);
+  });
+}
 const verdictOf = (v) => (v >= 0.7 ? "strong" : v >= 0.4 ? "partial" : "weak");
 const fmt = (v) => (v == null ? "-" : v.toFixed(2));
 
@@ -577,24 +657,76 @@ function saveDims() {
   try { localStorage.setItem(DIM_KEY, JSON.stringify([...state.dims])); } catch { /* ignore */ }
 }
 
-/** Weighted mean over the dimensions the user switched on that this comparison has data for,
- *  leaving out any dimension whose data comes from a source the user filtered out. */
+// ------------------------------------------------------------------ scoring algorithm + weights (Filters tab)
+const SCORING_KEY = "analog-explorer-scoring-v1";
+const W_MAX = 3; // top of the weight sliders
+
+function initScoring() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(SCORING_KEY)) || {}; } catch { /* storage unavailable */ }
+  const fromUrl = new URLSearchParams(location.search).get("algo"); // e.g. ?algo=geometric
+  const algo = fromUrl || saved.algo;
+  state.algo = ALGORITHMS[algo] ? algo : DEFAULT_ALGORITHM;
+  state.weights = saved.weights && typeof saved.weights === "object" ? saved.weights : {};
+  state.catWeights = saved.catWeights && typeof saved.catWeights === "object" ? saved.catWeights : {};
+  state.minCoverage = Number.isFinite(saved.minCoverage) ? saved.minCoverage : SIMILARITY_POLICY.min_coverage;
+}
+
+function saveScoring() {
+  try {
+    localStorage.setItem(SCORING_KEY, JSON.stringify({
+      algo: state.algo, weights: state.weights, catWeights: state.catWeights, minCoverage: state.minCoverage,
+    }));
+  } catch { /* ignore */ }
+}
+
+/** Weight of a dimension: the slider value if the user moved it, else the exported default. */
+const weightOf = (k) => state.weights[k] ?? state.data.dimensions[k].weight;
+const catWeightOf = (cat) => state.catWeights[cat] ?? SIMILARITY_POLICY.dimension_weights[cat] ?? 1;
+const categoryOf = (k) => metricCategory(k, state.data.dimensions[k]);
+
+/** Overall score with the chosen algorithm, over the dimensions the user switched on that this
+ *  comparison has data for, leaving out any dimension whose data comes from a source the user filtered out.
+ *  Dimensions excluded from scoring on the target's body (e.g. Moon dust) stay filter / evidence only. */
 function scoreOf(c) {
   const dims = state.data.dimensions;
   const na = new Set(c.not_applicable || []); // terrain metrics this target's type doesn't use
-  const scored = [...state.dims].filter((k) => c.scores[k] != null);
+  const body = state.data.sites[c.target].body;
+  const filterOnly = [...state.dims].filter(k => (dims[k].score_excluded_bodies || []).includes(body));
+  const scored = [...state.dims].filter((k) => c.scores[k] != null && !filterOnly.includes(k));
   const used = scored.filter((k) => blockedBy(k, c).length === 0);
   const filtered = scored.filter((k) => blockedBy(k, c).length > 0);
-  const missing = [...state.dims].filter((k) => c.scores[k] == null && !na.has(k));
-  const wsum = used.reduce((s, k) => s + dims[k].weight, 0);
-  const overall = wsum > 0 ? used.reduce((s, k) => s + dims[k].weight * c.scores[k], 0) / wsum : null;
-  return { overall, verdict: overall == null ? "weak" : verdictOf(overall), used, missing, filtered };
+  const missing = [...state.dims].filter((k) => c.scores[k] == null && !na.has(k) && !filterOnly.includes(k));
+  const weights = Object.fromEntries([...used, ...missing].map((k) => [k, weightOf(k)]));
+  const r = ALGORITHMS[state.algo].combine({
+    scores: Object.fromEntries(used.map((k) => [k, c.scores[k]])),
+    expected: [...used, ...missing], // filtered-out sources leave the expected set (fix/calculation policy)
+    dims, weights, minCoverage: state.minCoverage, body,
+    // per-target-type category weights from the export, overridden by the viewer's sliders
+    categoryWeights: { ...(state.data.site_types?.[c.target_type]?.dimension_weights || {}), ...state.catWeights },
+  });
+  const shown = r.overall ?? r.observed_score;
+  return {
+    overall: r.overall, observed_score: r.observed_score, coverage: r.coverage, groups: r.groups,
+    withheld: r.overall == null && r.observed_score != null,
+    verdict: shown == null ? "weak" : verdictOf(shown), used, missing, filtered, filterOnly,
+  };
 }
+const byScore = (a, b) => compareEvidenceScores(a.s, b.s);
+/** " 83%" evidence-coverage hint, for algorithms that measure coverage (the flat means don't). */
+// scoreText as a percent: "94%", or "81%*" when only a partial score exists
+const scorePct = (s) => {
+  const v = s.overall ?? s.observed_score;
+  if (v == null) return { text: "—", width: 0 };
+  const p = Math.round(v * 100);
+  return { text: `${p}%${s.overall == null ? "*" : ""}`, width: p };
+};
+const coverageHint = (s, suffix = "") => (s.coverage == null ? "" : `<small class="hint"> ${Math.round(s.coverage * 100)}%${suffix}</small>`);
 
 // ------------------------------------------------------------------ source filter ("only data from X")
 const SRC_KEY = "analog-explorer-sources-off";
 const scoreDatasets = () => (state.data.data_sources?.datasets || []).filter((d) => d.category === "elevation" || d.category === "layer");
-const datasetBodies = (d) => d.dem_for || (d.body ? [d.body] : []);
+const datasetBodies = (d) => d.dem_for || d.bodies || (d.body ? [d.body] : []);
 
 function initSources() {
   const known = new Set(scoreDatasets().map((d) => d.id));
@@ -683,20 +815,22 @@ function renderDims() {
   const dims = state.data.dimensions, nSites = Object.keys(state.data.sites).length;
   const row = (k) => {
     const d = dims[k];
-    const n = d.group === "layer" ? (d.sites_with_data || []).length : nSites;
+    const filterOnly = (d.score_excluded_bodies || []).includes(state.data.sites[state.targetId]?.body);
+    const n = d.group !== "terrain" ? (d.sites_with_data || []).length : nSites;
     const allTypes = Object.keys(state.data.site_types || {});
     const applies = d.applies_to && d.applies_to.length < allTypes.length ? d.applies_to.map(typeShort).join(", ") : "";
     const avail = d.group === "terrain" ? applies : n === 0 ? "no data yet" : `${n}/${nSites} sites`;
-    return `<label class="dim-row ${d.group === "layer" && n === 0 ? "empty" : ""}" data-dim-info="${k}">
+    return `<label class="dim-row ${d.group !== "terrain" && n === 0 ? "empty" : ""}" data-dim-info="${k}">
       <input type="checkbox" data-dim="${k}" ${state.dims.has(k) ? "checked" : ""}>
       <span class="dim-name">${esc(d.label)}</span>
-      <span class="dim-meta">${avail ? esc(avail) + " · " : ""}w ${d.weight}</span>
+      <span class="dim-meta">${filterOnly ? "Moon: filter / evidence only" : `${avail ? esc(avail) + " · " : ""}w ${+weightOf(k).toFixed(2)}`}</span>
       <button type="button" class="info-btn" data-info-btn="${k}" aria-label="Where ${esc(d.label)} comes from">i</button></label>`;
   };
   const keys = Object.keys(dims);
   $("dims").innerHTML = `<h2>Score dimensions <span class="hint">pick what the score is based on</span></h2>
     <div class="dim-group"><h3>Terrain (from elevation)</h3>${keys.filter((k) => dims[k].group === "terrain").map(row).join("")}</div>
     <div class="dim-group"><h3>Data layers</h3>${keys.filter((k) => dims[k].group === "layer").map(row).join("") || '<p class="hint">No layers in config/layers.json</p>'}</div>
+    ${keys.some((k) => dims[k].group === "user") ? `<div class="dim-group"><h3>Your datasets</h3>${keys.filter((k) => dims[k].group === "user").map(row).join("")}</div>` : ""}
     <div class="dim-actions"><button data-act="all">All</button><button data-act="terrain">Terrain only</button><button data-act="default">Defaults</button></div>`;
   $("dims").querySelectorAll("input[data-dim]").forEach((cb) => cb.addEventListener("change", () => {
     cb.checked ? state.dims.add(cb.dataset.dim) : state.dims.delete(cb.dataset.dim);
@@ -761,6 +895,17 @@ function dimInfoHtml(k) {
   let moreId = null;
 
   html += `<div class="tip-h">Data source</div>`;
+  if (d.group === "user") {
+    const have = new Set(d.sites_with_data || []);
+    html += `<p>Added in this browser${d.file ? ` from <code>${esc(d.file)}</code>` : ""}. Values for ${have.size} site${have.size === 1 ? "" : "s"}.</p>`;
+    if (c) {
+      const val = (s) => (have.has(s.id) ? `${d.values[s.id]}${d.unit ? " " + esc(d.unit) : ""}` : `<span class="tip-warn">no value</span>`);
+      html += `<ul>${[e, t].map((s) => `<li>${siteName(s)}: ${val(s)}</li>`).join("")}</ul>`;
+    }
+    html += `<p class="hint">Only you see it: it is saved in this browser, not in the project. Remove it under "Add a dataset".</p>`;
+    html += `<div class="tip-h">How it's scored</div><p class="hint">${esc(d.method)}</p>`;
+    return html;
+  }
   if (d.group === "terrain") {
     if (c) {
       html += `<ul>${[e, t].map((s) => {
@@ -901,12 +1046,223 @@ tip.addEventListener("mouseleave", () => hideTip());
 addEventListener("keydown", (ev) => { if (ev.key === "Escape") hideTip(true); });
 $("panel").addEventListener("scroll", () => hideTip(true), { passive: true });
 
-function dimsChanged() {
+function dimsChanged(keepPreset = false) {
+  if (!keepPreset) state.preset = null;
+  try { state.preset ? localStorage.setItem(PRESET_KEY, state.preset) : localStorage.removeItem(PRESET_KEY); } catch { /* storage unavailable */ }
   saveDims();
+  renderPreset();
   renderDims();
+  renderScoring();
   renderPanel();
   renderTopMatches();
   buildPairLines();
+}
+
+/** Re-score everything after a weight/algorithm change; at most once per frame while a slider is dragged. */
+let rescorePending = false;
+function scoresChanged() {
+  saveScoring();
+  if (rescorePending) return;
+  rescorePending = true;
+  requestAnimationFrame(() => {
+    rescorePending = false;
+    renderDims();
+    renderPanel();
+    renderTopMatches();
+    buildPairLines();
+  });
+}
+
+/** A Filters-pane card, created if the page's HTML doesn't have it (e.g. a cached older index.html). */
+function filtersCard(id, { before = null } = {}) {
+  let el = $(id);
+  if (el) return el;
+  const pane = document.querySelector('.pane[data-pane="filters"]');
+  el = Object.assign(document.createElement("section"), { id, className: "card" });
+  const ref = before && $(before);
+  ref && ref.parentElement === pane ? pane.insertBefore(el, ref) : pane.appendChild(el);
+  return el;
+}
+
+function renderScoring() {
+  filtersCard("scoring", { before: "dims" });
+  const A = ALGORITHMS[state.algo], dims = state.data.dimensions;
+  const selected = Object.keys(dims).filter((k) => state.dims.has(k));
+  const num = (v) => (+v).toFixed(2);
+  const slider = (attr, key, label, value, max, step, show, title = "") => `
+    <label class="w-row"${title ? ` title="${esc(title)}"` : ""}><span class="w-name">${label}</span>
+      <input type="range" ${attr}="${esc(key)}" min="0" max="${max}" step="${step}" value="${value}">
+      <output>${show(value)}</output></label>`;
+  const cats = [...new Set(selected.map(categoryOf))];
+  const changed = Object.keys(state.weights).length + Object.keys(state.catWeights).length
+    + (state.minCoverage !== SIMILARITY_POLICY.min_coverage ? 1 : 0);
+  $("scoring").innerHTML = `<h2>Scoring algorithm <span class="hint">how the dimensions are combined</span></h2>
+    <select id="algo-select" class="algo-select">${Object.entries(ALGORITHMS).map(([id, a]) =>
+      `<option value="${id}" ${id === state.algo ? "selected" : ""}>${esc(a.label)} (${esc(a.origin)})</option>`).join("")}</select>
+    <p class="hint algo-summary">${esc(A.summary)}</p>
+    <h3 class="w-head">Dimension weights ${changed ? `<button type="button" class="link-btn" id="w-reset">reset ${changed}</button>` : ""}</h3>
+    ${selected.map((k) => slider("data-w", k, esc(dims[k].label), weightOf(k), W_MAX, 0.05, num,
+      `default ${dims[k].weight}`)).join("") || '<p class="hint">No dimensions selected below.</p>'}
+    ${A.usesCategories ? `
+      <h3 class="w-head">Category weights <span class="hint">metrics share their category's budget</span></h3>
+      ${cats.map((cat) => slider("data-cw", cat, esc(cat), catWeightOf(cat), W_MAX, 0.05, num)).join("")}
+      <h3 class="w-head">Evidence needed</h3>
+      ${slider("data-cov", "min", "Minimum coverage", state.minCoverage, 1, 0.05, (v) => `${Math.round(v * 100)}%`,
+        "Below this share of the selected evidence, the overall score is withheld (shown with *)")}` : ""}`;
+  const el = $("scoring");
+  el.querySelector("#algo-select").onchange = (ev) => { state.algo = ev.target.value; renderScoring(); scoresChanged(); };
+  el.querySelector("#w-reset")?.addEventListener("click", () => {
+    state.weights = {}; state.catWeights = {}; state.minCoverage = SIMILARITY_POLICY.min_coverage;
+    renderScoring(); scoresChanged();
+  });
+  el.querySelectorAll("input[type=range]").forEach((r) => r.addEventListener("input", () => {
+    const v = +r.value;
+    if (r.dataset.w) state.weights[r.dataset.w] = v;
+    else if (r.dataset.cw) state.catWeights[r.dataset.cw] = v;
+    else state.minCoverage = v;
+    r.nextElementSibling.textContent = r.dataset.cov ? `${Math.round(v * 100)}%` : num(v);
+    scoresChanged();
+  }));
+  // show the reset button once something moved, without re-rendering under the user's pointer
+  el.querySelectorAll("input[type=range]").forEach((r) => r.addEventListener("change", () => renderScoring()));
+}
+
+// ------------------------------------------------------------------ datasets added by the viewer (kept in this browser)
+const USER_KEY = "analog-explorer-user-datasets-v1";
+let userDatasets = [];
+
+function loadUserDatasets() {
+  try { userDatasets = JSON.parse(localStorage.getItem(USER_KEY)) || []; } catch { userDatasets = []; }
+  if (!Array.isArray(userDatasets)) userDatasets = [];
+  userDatasets = userDatasets.filter((ds) => ds?.id && ds.values && USER_METHODS[ds.method]);
+  userDatasets.forEach(injectUserDataset);
+}
+
+function saveUserDatasets() {
+  try { localStorage.setItem(USER_KEY, JSON.stringify(userDatasets)); return true; } catch { return false; }
+}
+
+/** Turn a dataset into a score dimension: one similarity per comparison where both sites have a value. */
+function injectUserDataset(ds) {
+  const m = USER_METHODS[ds.method];
+  const have = Object.keys(ds.values).filter((id) => state.data.sites[id]);
+  state.data.dimensions[ds.id] = {
+    group: "user", label: ds.label, weight: 1, unit: ds.unit || "", default_on: false, category: ds.id,
+    description: ds.description || `Your dataset: ${ds.label}.`, method: m.describe(ds.scale, ds.unit),
+    sites_with_data: have, values: ds.values, file: ds.file,
+  };
+  for (const c of state.data.comparisons) {
+    const a = ds.values[c.earth], b = ds.values[c.target];
+    const v = a != null && b != null ? m.score(a, b, ds.scale) : null;
+    if (Number.isFinite(v)) c.scores[ds.id] = Math.min(1, Math.max(0, v));
+    else delete c.scores[ds.id];
+  }
+}
+
+function removeUserDataset(id) {
+  userDatasets = userDatasets.filter((ds) => ds.id !== id);
+  saveUserDatasets();
+  delete state.data.dimensions[id];
+  for (const c of state.data.comparisons) delete c.scores[id];
+  state.dims.delete(id);
+  delete state.weights[id];
+  delete state.catWeights[id];
+  saveScoring();
+  renderUserData();
+  dimsChanged();
+}
+
+function siteLookup() {
+  const m = new Map();
+  for (const s of Object.values(state.data.sites)) { m.set(s.name.toLowerCase(), s.id); }
+  for (const s of Object.values(state.data.sites)) { m.set(s.id.toLowerCase(), s.id); } // ids win over names
+  return m;
+}
+
+function downloadTemplate() {
+  const q = (v) => `"${String(v).replace(/"/g, '""')}"`;
+  const rows = Object.values(state.data.sites)
+    .sort((a, b) => a.body.localeCompare(b.body) || a.name.localeCompare(b.name))
+    .map((s) => [s.id, q(s.name), s.body, s.role, ""].join(","));
+  const csv = ["# Fill in the last column. Rows left empty are ignored. Keep the first column as it is.",
+    "site,name,body,role,value", ...rows].join("\n");
+  const a = Object.assign(document.createElement("a"), {
+    href: URL.createObjectURL(new Blob([csv], { type: "text/csv" })), download: "analog_sites_template.csv",
+  });
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+function renderUserData() {
+  const el = filtersCard("user-data");
+  const methods = Object.entries(USER_METHODS).map(([id, m]) => `<option value="${id}">${esc(m.label)}</option>`).join("");
+  el.innerHTML = `<h2>Add a dataset <span class="hint">score the sites on your own values</span></h2>
+    <p class="hint">One value per site: a CSV with <code>site,value</code> rows (site id or name), or JSON.
+      A pair is scored when both its Earth site and its target have a value.</p>
+    <div class="ud-grid">
+      <label>Name <input id="ud-name" type="text" placeholder="e.g. Snow-free days"></label>
+      <label>Unit <input id="ud-unit" type="text" placeholder="optional"></label>
+    </div>
+    <label class="ud-file">File <input id="ud-file" type="file" accept=".csv,.tsv,.txt,.json,text/csv,application/json"></label>
+    <textarea id="ud-text" rows="5" spellcheck="false" placeholder="…or paste here&#10;site,value&#10;haughton,254.4&#10;jezero,214.7"></textarea>
+    <div class="ud-grid">
+      <label>Compare by <select id="ud-method">${methods}</select></label>
+      <label>Scale <input id="ud-scale" type="number" step="any" min="0" placeholder="auto"></label>
+    </div>
+    <div class="dim-actions"><button type="button" id="ud-add">Add dataset</button><button type="button" id="ud-template">Download site list (CSV)</button></div>
+    <p id="ud-msg" class="hint" role="status"></p>
+    ${userDatasets.length ? `<h3 class="w-head">Your datasets</h3><ul class="ud-list">${userDatasets.map((ds) => `
+      <li><span><b>${esc(ds.label)}</b> <span class="hint">${Object.keys(ds.values).length} sites · ${esc(USER_METHODS[ds.method].label.toLowerCase())}${ds.method === "difference" ? ` · scale ${ds.scale}` : ""}</span></span>
+        <button type="button" class="only-btn" data-ud-remove="${esc(ds.id)}">remove</button></li>`).join("")}</ul>` : ""}`;
+
+  const msg = (text, warn = false) => { const p = el.querySelector("#ud-msg"); p.textContent = text; p.className = warn ? "tip-warn" : "hint"; };
+  el.querySelector("#ud-method").onchange = (ev) => { el.querySelector("#ud-scale").disabled = ev.target.value !== "difference"; };
+  el.querySelector("#ud-template").onclick = downloadTemplate;
+  el.querySelector("#ud-file").onchange = async (ev) => {
+    const f = ev.target.files[0];
+    if (!f) return;
+    el.querySelector("#ud-text").value = await f.text();
+    el.querySelector("#ud-text").dataset.file = f.name;
+    const name = el.querySelector("#ud-name");
+    if (!name.value) name.value = f.name.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
+  };
+  el.querySelectorAll("[data-ud-remove]").forEach((b) => { b.onclick = () => removeUserDataset(b.dataset.udRemove); });
+  el.querySelector("#ud-add").onclick = () => {
+    const text = el.querySelector("#ud-text").value;
+    const label = el.querySelector("#ud-name").value.trim();
+    const method = el.querySelector("#ud-method").value;
+    if (!label) return msg("Give the dataset a name.", true);
+    let rows;
+    try { rows = parseSiteValues(text); } catch (err) { return msg(`Could not read the data: ${err.message}`, true); }
+    if (!rows.length) return msg("No site,value rows found.", true);
+    const lookup = siteLookup(), values = {}, unknown = [];
+    for (const [site, v] of rows) {
+      const id = lookup.get(site.toLowerCase());
+      id ? (values[id] = v) : unknown.push(site);
+    }
+    const n = Object.keys(values).length;
+    if (n < 2) return msg(`Only ${n} row${n === 1 ? "" : "s"} matched a site. Use the site ids from "Download site list".`, true);
+    if (method === "ratio" && Object.values(values).some((v) => v <= 0)) return msg("Ratio needs every value > 0. Use Difference instead.", true);
+    let scale = +el.querySelector("#ud-scale").value;
+    if (!(scale > 0)) { // auto: a quarter of the value range, so the extremes score ~0.02
+      const vs = Object.values(values);
+      scale = +((Math.max(...vs) - Math.min(...vs)) / 4 || 1).toPrecision(3);
+    }
+    const slug = label.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "").slice(0, 24) || "data";
+    const ds = { id: `user_${slug}_${Date.now().toString(36)}`, label, unit: el.querySelector("#ud-unit").value.trim(),
+      method, scale, file: el.querySelector("#ud-text").dataset.file || null, values };
+    userDatasets.push(ds);
+    const saved = saveUserDatasets();
+    injectUserDataset(ds);
+    const pairs = state.data.comparisons.filter((c) => c.scores[ds.id] != null).length;
+    state.dims.add(ds.id);
+    renderUserData();
+    dimsChanged();
+    msg(`Added "${label}": ${n} sites, ${pairs} scored pair${pairs === 1 ? "" : "s"}.`
+      + (unknown.length ? ` Not matched: ${unknown.slice(0, 5).join(", ")}${unknown.length > 5 ? ` and ${unknown.length - 5} more` : ""}.` : "")
+      + (pairs === 0 ? " No pair has values on both sides yet: add values for Moon/Mars targets too." : "")
+      + (saved ? "" : " (Browser storage is unavailable, so it will be gone after a reload.)"), pairs === 0);
+  };
 }
 
 // ------------------------------------------------------------------ facts strip (bottom of the 3D view)
@@ -937,6 +1293,7 @@ function siteFactsHtml(s) {
 
   const dl = L.surface_dust;
   let dust = null;
+  if (s.body === "moon") dust = 'Present <span class="hint">(local coverage unmeasured)</span>';
   if (dl && dl.fraction != null) {
     const word = dl.fraction >= 0.4 ? "high" : dl.fraction >= 0.1 ? "moderate" : dl.fraction > 0.01 ? "low" : "very low";
     const what = s.body === "earth" ? "bare fine soil" : s.body === "mars" ? "dust-covered" : "dusty";
@@ -976,6 +1333,84 @@ function renderFacts() {
     try { localStorage.setItem(FACTS_KEY, collapsed ? "0" : "1"); } catch { /* ignore */ }
     renderFacts();
   }));
+}
+
+function renderSuitability() {
+  const e = state.data.sites[state.earthId];
+  const t = state.data.sites[state.targetId];
+  const metricsEl = $("metrics");
+  if (!metricsEl) return;
+
+  // Clear existing suit cards
+  metricsEl.querySelectorAll(".suit-card").forEach(el => el.remove());
+
+  // Earth site absolute suitability
+  if (e && e.body === "earth" && state.suitability && state.suitability.scores) {
+    const suit = state.suitability.scores[e.id];
+    if (suit) {
+      const verdict = suit.score == null ? "insufficient data" : suit.score >= 0.7 ? "strong" : suit.score >= 0.4 ? "partial" : "weak";
+      const groupsHtml = Object.entries(suit.groups || {}).map(([name, g]) => {
+        if (!g || g.score == null) return "";
+        const metricEntries = Object.entries(g.metric_scores || {}).filter(([, v]) => v != null);
+        if (metricEntries.length === 0) return "";
+        const metricsHtml = metricEntries.map(([m, v]) =>
+          `<span class="dim-chip" style="background:${COLOR[v >= 0.6 ? "strong" : v >= 0.3 ? "partial" : "weak"]}">${m}: ${v.toFixed(2)}</span>`
+        ).join(" ");
+        return `<div class="suit-group">
+          <div class="suit-group-header">
+            <span>${name.charAt(0).toUpperCase() + name.slice(1)} <small class="hint">${((g.coverage ?? 0) * 100).toFixed(0)}% coverage</small></span>
+            <b style="color:${COLOR[g.score >= 0.6 ? "strong" : g.score >= 0.3 ? "partial" : "weak"]}">${g.score.toFixed(2)}</b>
+          </div>
+          <div class="suit-metrics">${metricsHtml}</div>
+        </div>`;
+      }).join("");
+
+      const html = `
+        <div class="suit-card">
+          <div class="suit-header">
+            <h3>Earth Site Suitability</h3>
+            <span class="chip ${verdict}">${verdict} (${suit.score != null ? suit.score.toFixed(2) : "N/A"})</span>
+          </div>
+          <p class="hint">Suitability across environmental metrics. Coverage: ${(suit.coverage * 100).toFixed(0)}%</p>
+          ${groupsHtml}
+        </div>`;
+      metricsEl.insertAdjacentHTML("afterbegin", html);
+    }
+  }
+
+  // Moon target absolute suitability (if target is Moon and we have Moon absolute scores)
+  if (t && t.body === "moon" && state.moonSuitability && state.moonSuitability.scores) {
+    const suit = state.moonSuitability.scores[t.id];
+    if (suit) {
+      const verdict = suit.score == null ? "insufficient data" : suit.score >= 0.7 ? "strong" : suit.score >= 0.4 ? "partial" : "weak";
+      const groupsHtml = Object.entries(suit.groups || {}).map(([name, g]) => {
+        if (!g || g.score == null) return "";
+        const metricEntries = Object.entries(g.metric_scores || {}).filter(([, v]) => v != null);
+        if (metricEntries.length === 0) return "";
+        const metricsHtml = metricEntries.map(([m, v]) =>
+          `<span class="dim-chip" style="background:${COLOR[v >= 0.6 ? "strong" : v >= 0.3 ? "partial" : "weak"]}">${m}: ${v.toFixed(2)}</span>`
+        ).join(" ");
+        return `<div class="suit-group">
+          <div class="suit-group-header">
+            <span>${name.charAt(0).toUpperCase() + name.slice(1)} <small class="hint">${((g.coverage ?? 0) * 100).toFixed(0)}% coverage</small></span>
+            <b style="color:${COLOR[g.score >= 0.6 ? "strong" : g.score >= 0.3 ? "partial" : "weak"]}">${g.score.toFixed(2)}</b>
+          </div>
+          <div class="suit-metrics">${metricsHtml}</div>
+        </div>`;
+      }).join("");
+
+      const html = `
+        <div class="suit-card">
+          <div class="suit-header">
+            <h3>Moon Site Suitability</h3>
+            <span class="chip ${verdict}">${verdict} (${suit.score != null ? suit.score.toFixed(2) : "N/A"})</span>
+          </div>
+          <p class="hint">Absolute Moon suitability. Coverage: ${(suit.coverage * 100).toFixed(0)}% ${suit.coverage < 0.5 ? "(terrain only)" : ""}</p>
+          ${groupsHtml}
+        </div>`;
+      metricsEl.insertAdjacentHTML("beforeend", html);
+    }
+  }
 }
 
 // ------------------------------------------------------------------ right panel sub-tabs
@@ -1105,6 +1540,7 @@ function renderPanel() {
   const c = currentComparison();
   const e = state.data.sites[state.earthId], t = state.data.sites[state.targetId];
   renderFacts();
+  renderSuitability();
   updateFiltersBadge();
   if (!c) { // a site whose type has no target yet (e.g. dunes, evaporite)
     $("score-card").innerHTML = `<h2>${esc(e.name)}</h2>
@@ -1118,19 +1554,22 @@ function renderPanel() {
   const tColor = COLOR[t.body];
   const dims = state.data.dimensions;
   const sc = scoreOf(c);
-  const na = new Set(c.not_applicable || []);
+  const na = new Set([...(c.not_applicable || []), ...sc.filterOnly]);
 
   $("score-card").innerHTML = `
     <div class="score-row">
-      <div class="score-big" style="color:${COLOR[sc.verdict]}">${fmt(sc.overall)}</div>
+      <div class="score-big" title="${scoreDescription(sc)}" style="color:${COLOR[sc.verdict]}">${scoreText(sc)}</div>
       <div>
-        ${sc.overall == null ? `<span class="chip weak">${sc.filtered.length ? "nothing left after source filter" : "no dimensions selected"}</span>` : `<span class="chip ${sc.verdict}">${sc.verdict} analog</span>`}
+        ${sc.withheld ? `<span class="chip weak" title="Partial score from the available measurements; the overall score needs ${Math.round(state.minCoverage * 100)}% evidence coverage">withheld: ${Math.round(sc.coverage * 100)}% coverage</span>`
+          : sc.overall == null ? `<span class="chip weak">${sc.filtered.length ? "nothing left after source filter" : sc.filterOnly.length ? "selected filters do not contribute to this score" : "no dimensions selected"}</span>` : `<span class="chip ${sc.verdict}">${sc.verdict} analog</span>`}
         <span class="chip role${isTeam(e) ? " team" : ""}">${c.is_pair ? "calibration pair" : roleLabel(e)}</span>
         <span class="chip role">${esc(typeShort(c.target_type))}</span>
         <div class="pair-names"><b>${esc(e.name)}</b> vs <b>${esc(t.name)}</b><br>
-        based on ${sc.used.length} dimension${sc.used.length === 1 ? "" : "s"}${sc.filtered.length ? `, ${sc.filtered.length} excluded by source filter` : ""}${sc.missing.length ? `, ${sc.missing.length} selected without data` : ""} · ${c.res_m} m/pixel</div>
+        based on ${sc.used.length} dimension${sc.used.length === 1 ? "" : "s"}${sc.filtered.length ? `, ${sc.filtered.length} excluded by source filter` : ""}${sc.missing.length ? `, ${sc.missing.length} selected without data` : ""} · ${c.res_m} m/pixel<br>
+        <button type="button" class="link-btn algo-link" title="Change the algorithm or weights in the Filters tab">${esc(ALGORITHMS[state.algo].label)}</button>${sc.coverage != null && !sc.withheld ? ` · ${Math.round(sc.coverage * 100)}% coverage` : ""}</div>
       </div>
     </div>`;
+  $("score-card").querySelector(".algo-link").onclick = () => setPane("filters");
 
   const bar = (k) => {
     const d = dims[k], v = c.scores[k];
@@ -1148,7 +1587,7 @@ function renderPanel() {
         <div class="bar"></div></div>`;
     }
     return `<div class="metric" data-dim-info="${k}">
-      <div class="top"><span>${esc(d.label)} <span class="hint">w=${d.weight}</span></span><b>${v.toFixed(2)}</b></div>
+      <div class="top"><span>${esc(d.label)} <span class="hint">w=${+weightOf(k).toFixed(2)}${ALGORITHMS[state.algo].usesCategories ? ` · ${esc(categoryOf(k))}` : ""}</span></span><b>${v.toFixed(2)}</b></div>
       <div class="bar"><div style="width:${v * 100}%;background:${COLOR[verdictOf(v)]}"></div></div></div>`;
   };
   const holds = sc.used.filter((k) => c.scores[k] >= 0.6), breaks = sc.used.filter((k) => c.scores[k] < 0.6);
@@ -1169,6 +1608,15 @@ function renderPanel() {
     </div>
     <ul>${c.notes.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>`;
 
+  renderEvidence($("metrics"), t);
+  renderLunarDust($("metrics"), t, { enabled: state.dims.has("surface_dust") });
+  if (t.body === "moon") {
+    $("score-card").insertAdjacentHTML("beforeend", '<p class="hint">Lunar dust is excluded from this score. The dust checkbox in Filters shows or hides its evidence.</p>');
+  }
+  if (t.tags?.some(tag => ["planetary_import", "moon_catalog"].includes(tag))) {
+    $("score-card").insertAdjacentHTML("beforeend", `<p class="hint">${esc(t.verify)} Comparison window: ${t.window_km} km.</p>`);
+  }
+
   // one histogram per selected data layer that has data for this pair
   const layerIds = sc.used.filter((k) => dims[k].group === "layer" && c.layers && c.layers[k]);
   $("layer-charts").hidden = layerIds.length === 0;
@@ -1179,13 +1627,12 @@ function renderPanel() {
   $("layer-charts").innerHTML = layerIds.map((k) => caveats(k) + layerChart(k)).join("");
   function layerChart(k) {
     const d = dims[k], L = c.layers[k];
-    if (L.kind === "relative") { // e.g. cold: Earth site placed between the coldest and warmest Earth site
+    if (L.kind === "relative" || L.kind === "absolute") {
       const u = d.unit ? " " + esc(d.unit) : "";
       const s = c.scores[k];
       return `<h2>${esc(d.label)} <span class="hint">${esc(e.name)} ${L.earth_value}${u} · ${esc(t.name)} ${L.target_value}${u}</span></h2>
         <div class="frac-row"><span>${esc(e.name)}</span><div class="bar"><div style="width:${s * 100}%;background:${COLOR.earth}"></div></div><b>${s.toFixed(2)}</b></div>
-        <p class="hint">Scored against the other Earth sites: coldest (${L.earth_min}${u}) = 1.0, warmest (${L.earth_max}${u}) = 0.0.
-        Every Earth site is warmer than ${esc(t.name)}, so colder = closer.</p>`;
+        <p class="hint">${L.kind === "absolute" ? `Absolute target difference ${L.distance.toFixed(1)}${u}; provisional half-similarity tolerance ${L.tau.toFixed(1)}${u}. ${esc(L.note || "")}` : `Scored against the Earth cohort (${L.earth_min} to ${L.earth_max}${u}).`}</p>`;
     }
     if (L.kind === "fraction") { // e.g. barren ground: share of area below a threshold
       const pct = (v) => `${Math.round(v * 100)}%`;
@@ -1246,12 +1693,12 @@ function renderPanel() {
     bins.hypsometry_area, { xLabel: "area fraction" });
 
   const ranked = state.data.comparisons.filter((x) => x.target === state.targetId)
-    .map((x) => ({ x, s: scoreOf(x) })).sort((a, b) => (b.s.overall ?? -1) - (a.s.overall ?? -1));
-  $("ranking").innerHTML = `<h2>All Earth sites vs ${esc(t.name)} <span class="hint">controls should rank low</span></h2>
+    .map((x) => ({ x, s: scoreOf(x) })).sort(byScore);
+  $("ranking").innerHTML = `<h2>All Earth sites vs ${esc(t.name)} <span class="hint">controls should rank low · * = partial similarity; complete scores appear first</span></h2>
     <table><thead><tr><th>#</th><th>Earth site</th><th>Type</th><th class="num">Score</th></tr></thead><tbody>
     ${ranked.map(({ x, s: r }, i) => { const s = state.data.sites[x.earth]; return `<tr class="clickable ${x.earth === state.earthId ? "selected" : ""}" data-earth="${s.id}">
-      <td>${i + 1}</td><td>${esc(s.name)}</td><td>${roleLabel(s)}</td>
-      <td class="num" style="color:${COLOR[r.verdict]}">${fmt(r.overall)}</td></tr>`; }).join("")}
+      <td>${i + 1}</td><td>${esc(s.name)}</td><td>${isTeam(s) ? `<span class="team-tag">#team</span>` : roleLabel(s)}</td>
+      <td class="num" title="${scoreDescription(r)}" style="color:${COLOR[r.verdict]}">${scoreText(r)}${coverageHint(r, " evidence")}</td></tr>`; }).join("")}
     </tbody></table>`;
   $("ranking").querySelectorAll("tr[data-earth]").forEach((tr) => tr.addEventListener("click", () => select(tr.dataset.earth, null)));
 
@@ -1305,6 +1752,7 @@ function select(earthId, targetId, { pair = false } = {}) {
     if (state.focus === "link") focusBody("all");
   }
   fillSelects();
+  renderDims();
   renderPanel();
   buildPairLines();
   renderTopMatches();
@@ -1322,7 +1770,7 @@ function setView(v) {
   globes.controls.enabled = v === "globes";
   cmp.controls.enabled = v === "compare";
   if (v === "compare") buildCompare(true);
-  else $("stage-hint").textContent = globesHint();
+  else setGlobesHint();
 }
 
 document.querySelectorAll("#body-switch button").forEach((b) => {
@@ -1407,9 +1855,19 @@ function loop() {
 // ------------------------------------------------------------------ boot
 async function boot() {
   try {
-    const res = await fetch("data/results.json");
-    if (!res.ok) throw new Error(res.status);
-    state.data = await res.json();
+    const [resResults, resSuitability, resMoonSuitability] = await Promise.all([
+      fetch("data/results.json"),
+      fetch("data/suitability_scores.json").catch(() => null), // Earth absolute
+      fetch("data/suitability_scores_moon_absolute.json").catch(() => null) // Moon absolute
+    ]);
+    if (!resResults.ok) throw new Error(resResults.status);
+    state.data = await resResults.json();
+    if (resSuitability && resSuitability.ok) {
+      state.suitability = await resSuitability.json();
+    }
+    if (resMoonSuitability && resMoonSuitability.ok) {
+      state.moonSuitability = await resMoonSuitability.json();
+    }
   } catch {
     const el = $("error");
     el.hidden = false;
@@ -1426,8 +1884,11 @@ async function boot() {
   const first = state.data.pairs[0];
   state.earthId = state.data.sites[hashEarth] ? hashEarth : first.earth;
   state.targetId = state.data.sites[hashTarget] ? hashTarget : first.target;
+  loadUserDatasets(); // before initDims, so a saved selection can include them
   initDims();
+  initPreset();
   initSources();
+  initScoring();
   if (!currentComparison()) { // link names an Earth site and a target of different types
     const best = bestComparison((c) => c.earth === state.earthId) || bestComparison((c) => c.target === state.targetId);
     if (best && state.data.sites[state.earthId].has_target !== false) { state.earthId = best.earth; state.targetId = best.target; }
@@ -1436,8 +1897,11 @@ async function boot() {
   buildGlobes();
   focusBody(BODY[view] ? view : "all", false);
   fillSelects();
+  renderPreset();
   renderDims();
+  renderScoring();
   renderSourceFilter();
+  renderUserData();
   renderPanel();
   renderTopMatches();
   setView(view === "compare" ? "compare" : "globes");

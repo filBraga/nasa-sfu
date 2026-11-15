@@ -9,6 +9,7 @@ import math
 
 import numpy as np
 from scipy.stats import wasserstein_distance
+from .similarity import exponential_similarity, geometric_mean, policy
 
 # name: (weight, label, explanation)
 # The team compares four equal categories: slope, temperature (cold + swing), dust and plants
@@ -20,7 +21,7 @@ METRICS = {
     "slope":         (1.00, "Slope distribution", "Wasserstein distance between slope histograms (scale 8 deg)"),
     "roughness":     (0.15, "Surface roughness", "Wasserstein distance of log10 Terrain Ruggedness Index (scale 0.3)"),
     "hypsometry":    (0.15, "Hypsometry", "Mean gap between normalised elevation-area curves (scale 0.08)"),
-    "profile":       (0.30, "Crater profile shape", "Mean correlation of 8 compass-sector radial profiles with the target profile (r/R 0-1.5)"),
+    "profile":       (0.30, "Crater profile shape", "Exponential similarity of normalized compass-sector height distributions at matched r/R; symmetric and rotation-independent; provisional tolerance"),
     "depth":         (0.20, "Depth / diameter", "Log-ratio of depth/diameter (score 0.5 at a 2x difference)"),
     "flat_fraction": (0.20, "Flat ground (< 5 deg)", "Difference in the share of area flatter than 5 deg (scale 0.15)"),
     "illumination":  (0.30, "Sunlight at low sun", "Wasserstein distance of per-pixel lit fraction over 16 sun azimuths at the target's sun elevation, with body curvature (scale 0.15)"),
@@ -35,8 +36,8 @@ METRIC_INFO = {
                   "(Terrain Ruggedness Index).", "analog/terrain.py: tri()"),
     "hypsometry": ("How much of the area is high ground versus low ground, i.e. the shape of the landscape's "
                    "elevation distribution.", "analog/terrain.py: hypsometry()"),
-    "profile": ("Whether the site has the same bowl-and-rim shape in all 8 compass directions as the target crater. "
-                "Distances are divided by the crater radius, so different-sized craters can be compared.",
+    "profile": ("Difference between normalized sector-height distributions at each normalized radius. "
+                "Symmetric and independent of compass orientation; crater amplitude is assessed separately by depth/diameter.",
                 "analog/terrain.py: radial_profile(); analog/compare.py: _profile()"),
     "depth": ("How deep the crater is relative to its width (rim height minus floor, divided by diameter).",
               "analog/terrain.py: crater_metrics()"),
@@ -53,46 +54,76 @@ METRIC_INFO = {
 def _norm(p):
     p = np.asarray(p, float)
     ok = np.isfinite(p)
-    lo, hi = np.nanmin(p), np.nanmax(p)
+    if not ok.any():
+        return np.zeros_like(p), ok
+    lo, hi = np.min(p[ok]), np.max(p[ok])
     out = (p - lo) / max(hi - lo, 1e-6)
     return out, ok
 
 
 def _profile(a, b):
-    # Correlate each compass sector of `a` with the target's mean profile, then average:
-    # only terrain with a crater-like shape in every direction scores high.
-    pb, okb = _norm(b["profile"])
-    corrs = []
-    for sec in a["sector_profiles"]:
-        pa, oka = _norm(sec)
-        ok = oka & okb
-        c = np.corrcoef(pa[ok], pb[ok])[0, 1] if ok.sum() > 5 else 0.0
-        corrs.append(c if np.isfinite(c) else 0.0)
-    return max(0.0, float(np.mean(corrs)))
+    # Compare distributions of normalized compass-sector heights at each r/R.
+    # Symmetric, orientation independent, and identical valid sites score exactly 1.
+    def sectors(f):
+        profiles = np.atleast_2d(f.get("sector_profiles", f.get("profile", [])))
+        return [_norm(row)[0] for row in profiles if np.isfinite(row).sum() >= 6]
+    aa, bb = sectors(a), sectors(b)
+    if not aa or not bb or len(aa[0]) != len(bb[0]):
+        return None
+    distances = []
+    for left, right in zip(np.asarray(aa).T, np.asarray(bb).T):
+        left, right = left[np.isfinite(left)], right[np.isfinite(right)]
+        if len(left) and len(right):
+            distances.append(wasserstein_distance(left, right))
+    return _similarity("profile", float(np.mean(distances))) if len(distances) >= 6 else None
 
 
 def _depth(a, b):
     da, db = a["depth_over_diameter"], b["depth_over_diameter"]
-    return 0.0 if da <= 0 or db <= 0 else 0.5 ** abs(math.log2(da / db))
+    if not np.isfinite([da, db]).all() or min(da, db) < 0:
+        return None
+    if da == db == 0:
+        return 1.0
+    return _similarity("depth", math.inf if min(da, db) == 0 else abs(math.log(da) - math.log(db)))
 
 
 def _texture(a, b):
-    sa, sb = a["spectrum"], b["spectrum"]
+    sa, sb = np.asarray(a["spectrum"], float), np.asarray(b["spectrum"], float)
     ok = np.isfinite(sa) & np.isfinite(sb)
     if ok.sum() < 4:
         return None  # windows share too few measurable wavelengths
     da, db = sa[ok] - sa[ok].mean(), sb[ok] - sb[ok].mean()  # compare shape, not amplitude
-    return math.exp(-float(np.mean(np.abs(da - db))) / 0.3)
+    return _similarity("texture", float(np.mean(np.abs(da - db))))
+
+
+def _similarity(key, distance):
+    spec = policy()["metrics"][key]
+    tau = spec.get("tau", spec.get("scale", 1) * math.log(2))
+    return exponential_similarity(distance, tau, spec.get("p", 1))
+
+
+def _wasserstein(a, b, field, metric):
+    aa, bb = np.asarray(a[field], float), np.asarray(b[field], float)
+    aa, bb = aa[np.isfinite(aa)], bb[np.isfinite(bb)]
+    return _similarity(metric, wasserstein_distance(aa, bb)) if len(aa) and len(bb) else None
+
+
+def _hypsometry(a, b):
+    aa, bb = np.asarray(a["hypsometry"], float), np.asarray(b["hypsometry"], float)
+    if aa.shape != bb.shape:
+        return None
+    ok = np.isfinite(aa) & np.isfinite(bb)
+    return _similarity("hypsometry", float(np.mean(np.abs(aa[ok] - bb[ok])))) if ok.sum() >= 2 else None
 
 
 SCORERS = {
-    "slope": lambda a, b: math.exp(-wasserstein_distance(a["slope_samples"], b["slope_samples"]) / 8.0),
-    "roughness": lambda a, b: math.exp(-wasserstein_distance(a["rough_samples"], b["rough_samples"]) / 0.3),
-    "hypsometry": lambda a, b: math.exp(-float(np.mean(np.abs(a["hypsometry"] - b["hypsometry"]))) / 0.08),
+    "slope": lambda a, b: _wasserstein(a, b, "slope_samples", "slope"),
+    "roughness": lambda a, b: _wasserstein(a, b, "rough_samples", "roughness"),
+    "hypsometry": _hypsometry,
     "profile": _profile,
     "depth": _depth,
-    "flat_fraction": lambda a, b: math.exp(-abs(a["flat_fraction"] - b["flat_fraction"]) / 0.15),
-    "illumination": lambda a, b: math.exp(-wasserstein_distance(a["illum_samples"], b["illum_samples"]) / 0.15),
+    "flat_fraction": lambda a, b: _similarity("flat_fraction", abs(a["flat_fraction"] - b["flat_fraction"])),
+    "illumination": lambda a, b: _wasserstein(a, b, "illum_samples", "illumination"),
     "texture": _texture,
 }
 
@@ -100,17 +131,24 @@ SCORERS = {
 def score_pair(a, b, metrics=None):
     """Score the listed metrics (default: the original crater set). Metrics that can't be
     measured for this pair are left out rather than scored 0."""
-    metrics = metrics or ["slope", "roughness", "hypsometry", "profile", "depth"]
+    metrics = ["slope", "roughness", "hypsometry", "profile", "depth"] if metrics is None else metrics
+    if "res_m" in a and "res_m" in b and not math.isclose(a["res_m"], b["res_m"], rel_tol=1e-6):
+        raise ValueError("Terrain metrics require matching spatial resolutions")
     s = {}
     for k in metrics:
-        v = SCORERS[k](a, b)
-        if v is not None:
+        try:
+            v = SCORERS[k](a, b)
+        except (KeyError, ValueError, TypeError, IndexError):
+            v = None
+        if v is not None and math.isfinite(v) and 0 <= v <= 1:
             s[k] = v
-    overall = sum(METRICS[k][0] * v for k, v in s.items()) / sum(METRICS[k][0] for k in s)
+    overall = geometric_mean([(v, METRICS[k][0]) for k, v in s.items()])
     return s, overall
 
 
 def verdict(score):
+    if score is None:
+        return "insufficient_evidence"
     if score >= 0.7:
         return "strong"
     if score >= 0.4:
