@@ -32,7 +32,7 @@ test('every researched location has target metadata, ranked comparisons, and val
         assert.ok(!('profile' in c.scores));
         const earth = data.sites[c.earth];
         if (earth.role !== 'control' && earth.compare_bodies) assert.ok(earth.compare_bodies.includes(target.body));
-        if (target.body === 'mars') assert.ok('surface_dust' in c.scores, `${target.id}: dust missing`);
+        if (target.body === 'mars' && earth.facts?.layers?.surface_dust) assert.ok('surface_dust' in c.scores, `${target.id}: dust missing`);
       }
     }
   }

@@ -937,6 +937,114 @@
     "moon_blue_ghost_1": {
       "source": "moon-data/moon_landers.json",
       "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "team_place_02": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_03": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_06": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_08": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_10": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_13": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_17": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_18": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_19": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_20": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_21": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_22": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_24": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_25": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_27": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_28": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_29": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_30": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_31": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_32": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_36": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_37": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_39": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_40": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_42": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_46": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_48": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
     }
   }
 }

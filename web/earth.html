@@ -81,6 +81,7 @@
   <script type="module">
     import * as THREE from "three";
     import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+    import { compareEvidenceScores, scoreText, scoreDescription } from "./similarity.js";
 
     const COLORS = { Mars: 0xe3794b, Moon: 0xc3cad8, Both: 0x3ec7b4 };
     const R = 2;
@@ -259,15 +260,15 @@
     function terrainTable(p) {
       if (!p.site_id || !results) return "";
       const rows = results.comparisons.filter((c) => c.earth === p.site_id)
-        .sort((a, b) => b.overall - a.overall);
+        .sort(compareEvidenceScores);
       if (!rows.length) return `<h3>Terrain vs Moon &amp; Mars sites</h3><p class="rt">Not analysed yet: run scripts/fetch_dems.py and scripts/analyze.py.</p>`;
       const col = { strong: "var(--strong)", partial: "var(--partial)", weak: "var(--weak)" };
-      return `<h3>Terrain vs Moon &amp; Mars sites</h3><table>${rows.map((c) => {
+      return `<h3>Measured comparison with Moon &amp; Mars sites</h3><table>${rows.map((c) => {
         const t = results.sites[c.target];
         return `<tr><td><a href="index.html#compare/${encodeURIComponent(c.earth)}/${encodeURIComponent(c.target)}">${esc(t.name)}</a></td>
           <td style="color:var(--${t.body})">${t.body === "moon" ? "Moon" : "Mars"}</td>
-          <td class="n" style="color:${col[c.verdict]}">${Math.round(c.overall * 100)}%</td></tr>`;
-      }).join("")}</table><p class="rt">Terrain only (30 km window). Click a site to compare in 3D.</p>`;
+          <td class="n" title="${esc(scoreDescription(c))}" style="color:${col[c.verdict] || col.partial}">${scoreText(c)} <small>${Math.round(c.coverage * 100)}% evidence</small></td></tr>`;
+      }).join("")}</table><p class="rt">* = partial similarity from available measurements. Click a site to compare in 3D.</p>`;
     }
 
     function resize() {

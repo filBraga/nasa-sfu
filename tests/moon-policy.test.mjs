@@ -13,8 +13,8 @@ test('calculation update retains all main-branch Mars target/comparison pairs', 
   const baseline = await read('tests/fixtures/mars-main-baseline.json');
   for (const id of baseline.targets) assert.equal(data.sites[id].body, 'mars');
   const comparisons = data.comparisons.filter(c => baseline.targets.includes(c.target));
-  assert.equal(comparisons.length, baseline.comparisons);
-  assert.equal(new Set(comparisons.map(c => `${c.earth}|${c.target}`)).size, baseline.comparisons);
+  assert.ok(comparisons.length >= baseline.comparisons);
+  assert.equal(new Set(comparisons.map(c => `${c.earth}|${c.target}`)).size, comparisons.length);
 });
 
 test('dust checkbox never affects a Moon score, while it still affects a Mars score', async () => {

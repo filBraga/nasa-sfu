@@ -181,6 +181,28 @@ Mars, that checkbox continues to control whether dust contributes to the score.
 LDEX orbital profiles and Diviner rock cover remain contextual, with no invented
 surface dust percentages. Missing temperature measurements remain missing.
 
+## Connecting every Earth map place
+
+All 50 entries in `web/data/places_all.json` are linked to comparison sites using
+`site_id`. Together with the original 11 Earth sites this gives 61 candidates.
+Each map place is compared with the Moon/Mars bodies listed in its `targets`.
+Existing sites and weights are preserved; heuristic map percentages never become
+physical measurements. Unnamed places are identified using their saved coordinates.
+
+```powershell
+python scripts/import_team_places.py --connect-all
+node --use-system-ca scripts/cache_earth_windows.mjs
+python scripts/fetch_dems.py --body=earth
+python scripts/analyze.py --calculations-only
+```
+
+The source-window script uses small verified HTTPS byte ranges from Copernicus
+GLO-30 and caches them outside the web folder. Missing DEM cells remain nodata;
+they are never filled with artificial zero-height land. The new 27 places have
+measured terrain; temperature/vegetation/soil layers remain missing until exported
+from an authenticated Earth Engine account using `scripts/gee_export.py`.
+Their evidence coverage and partial scores reflect those gaps.
+
 ## Suitability aggregation
 
 Run `python scripts/aggregate_suitability.py` to recalculate the saved suitability

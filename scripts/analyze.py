@@ -132,7 +132,7 @@ def main():
         z, res = raw[s["id"]]
         meta = {k: s.get(k) for k in ("id", "name", "region", "body", "role", "lat", "lon", "diameter_km",
                                       "window_km", "source", "blurb", "earth_limits", "type",
-                                      "sun_elevation_deg", "verify", "tags", "compare_bodies", "place_id", "compare_all_earth", "source_id", "catalog_source")}
+                                      "sun_elevation_deg", "verify", "tags", "compare_bodies", "place_id", "compare_all_earth", "source_id", "catalog_source", "crater_geometry_verified")}
         meta["types"] = s.get("types") or ([s["type"]] if s.get("type") else [])
         meta["has_target"] = (s["role"] != "analog" or bool(set(meta["types"]) & target_types)
                               or any(t["body"] in s.get("compare_bodies", []) for t in targets)
@@ -268,7 +268,7 @@ def main():
             common = grid[start:start+n, start:start+n]
             base_metrics = set(metrics) - {"profile", "depth"}
             f = site_features(common, res, site, base_metrics, sun, BODY_RADIUS[site["body"]])
-            if set(metrics) & {"profile", "depth"}:
+            if set(metrics) & {"profile", "depth"} and site.get("crater_geometry_verified", True):
                 full = site_features(grid, res, site, {"profile", "depth"}, sun, BODY_RADIUS[site["body"]])
                 for field in ("center_offset_km", "profile", "sector_profiles", "rim_m", "floor_m", "depth_m", "depth_over_diameter"):
                     f[field] = full[field]

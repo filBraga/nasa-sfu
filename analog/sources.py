@@ -59,6 +59,8 @@ def _copernicus_name(lat_i, lon_i):
 
 
 def fetch_earth(site, res_m, log=print):
+    if "map_connected" in site.get("tags", []):
+        return fetch_cached_earth(site, res_m, log)
     crs = local_crs("earth", site["lat"], site["lon"])
     n, half, transform = local_grid(site["window_km"], res_m)
     w, s, e, nth = transform_bounds(crs, "EPSG:4326", -half, -half, half, half, densify_pts=41)
@@ -79,6 +81,35 @@ def fetch_earth(site, res_m, log=print):
     if missing:
         log(f"    {missing:.1%} of the grid had no tile (treated as sea level 0 m)")
         dst = np.nan_to_num(dst, nan=0.0)
+    return dst, crs, transform
+
+
+def fetch_cached_earth(site, res_m, log=print):
+    root = Path(__file__).resolve().parents[1]
+    directory = root / "data/external/earth/terrain_windows"
+    path = directory / f"{site['id']}.json"
+    if not path.exists():
+        subprocess.run(["node", "--use-system-ca", str(root / "scripts/cache_earth_windows.mjs"), site["id"]], check=True)
+    meta = json.loads(path.read_text(encoding="utf-8"))
+    if any(meta[k] != site[k] for k in ("lat", "lon", "window_km")):
+        raise ValueError(f"Stale Earth DEM window: {site['id']}")
+    crs = local_crs("earth", site["lat"], site["lon"])
+    n, _, transform = local_grid(site["window_km"], res_m)
+    dst = np.full((n, n), np.nan, np.float32)
+    for tile in meta["tiles"]:
+        data = (directory / tile["file"]).read_bytes()
+        if hashlib.sha256(data).hexdigest() != tile["sha256"]:
+            raise ValueError("Earth DEM window hash mismatch")
+        values = np.frombuffer(data, dtype="<f4").reshape(tile["height"], tile["width"])
+        piece = np.full_like(dst, np.nan)
+        reproject(values, piece, src_transform=from_origin(*tile["origin"], tile["resolution"][0], -tile["resolution"][1]),
+                  src_crs="EPSG:4326", src_nodata=np.nan, dst_transform=transform, dst_crs=crs,
+                  dst_nodata=np.nan, resampling=Resampling.bilinear)
+        dst = np.where(np.isfinite(dst), dst, piece)
+    coverage = float(np.isfinite(dst).mean())
+    if coverage < .8:
+        raise ValueError(f"Insufficient Earth DEM coverage ({coverage:.0%})")
+    log(f"    Copernicus native windows: {coverage:.0%} valid; missing cells retained as nodata")
     return dst, crs, transform
 
 

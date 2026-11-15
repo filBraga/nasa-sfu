@@ -747,6 +747,713 @@
       "verify": "region name not verified by the team script"
     },
     {
+      "id": "team_place_02",
+      "name": "Taklamakan Desert",
+      "region": "Taklamakan Desert, Xinjiang, China",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars",
+        "moon"
+      ],
+      "place_id": "place-02",
+      "lat": 39.61,
+      "lon": 81.96,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_03",
+      "name": "Earth location place-03",
+      "region": "Map coordinate 38.75, 86.35",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars",
+        "moon"
+      ],
+      "place_id": "place-03",
+      "lat": 38.75,
+      "lon": 86.35,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_06",
+      "name": "Earth location place-06",
+      "region": "Map coordinate 66.14, -120.01",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars",
+        "moon"
+      ],
+      "place_id": "place-06",
+      "lat": 66.14,
+      "lon": -120.01,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_08",
+      "name": "Earth location place-08",
+      "region": "Map coordinate 21.12, 57.44",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-08",
+      "lat": 21.12,
+      "lon": 57.44,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_10",
+      "name": "Earth location place-10",
+      "region": "Map coordinate 25.24, 1.08",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-10",
+      "lat": 25.24,
+      "lon": 1.08,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_13",
+      "name": "Earth location place-13",
+      "region": "Map coordinate 20.59, 58.12",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-13",
+      "lat": 20.59,
+      "lon": 58.12,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_17",
+      "name": "Earth location place-17",
+      "region": "Map coordinate 20.53, 0.15",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-17",
+      "lat": 20.53,
+      "lon": 0.15,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_18",
+      "name": "Earth location place-18",
+      "region": "Map coordinate 22.42, -13.82",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-18",
+      "lat": 22.42,
+      "lon": -13.82,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_19",
+      "name": "Earth location place-19",
+      "region": "Map coordinate 24.64, -2.95",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-19",
+      "lat": 24.64,
+      "lon": -2.95,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_20",
+      "name": "Earth location place-20",
+      "region": "Map coordinate 22.91, 2.63",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-20",
+      "lat": 22.91,
+      "lon": 2.63,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_21",
+      "name": "Earth location place-21",
+      "region": "Map coordinate 16.4, 29.55",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-21",
+      "lat": 16.4,
+      "lon": 29.55,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_22",
+      "name": "Earth location place-22",
+      "region": "Map coordinate 28.77, 22.73",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-22",
+      "lat": 28.77,
+      "lon": 22.73,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_24",
+      "name": "Earth location place-24",
+      "region": "Map coordinate 27.95, 23.56",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-24",
+      "lat": 27.95,
+      "lon": 23.56,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_25",
+      "name": "Earth location place-25",
+      "region": "Map coordinate 26.84, 22.03",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-25",
+      "lat": 26.84,
+      "lon": 22.03,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_27",
+      "name": "Earth location place-27",
+      "region": "Map coordinate 27.08, -2.79",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-27",
+      "lat": 27.08,
+      "lon": -2.79,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_28",
+      "name": "Earth location place-28",
+      "region": "Map coordinate 42.3, 88.98",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars",
+        "moon"
+      ],
+      "place_id": "place-28",
+      "lat": 42.3,
+      "lon": 88.98,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_29",
+      "name": "Earth location place-29",
+      "region": "Map coordinate 25.74, 24.17",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-29",
+      "lat": 25.74,
+      "lon": 24.17,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_30",
+      "name": "Earth location place-30",
+      "region": "Map coordinate 39.72, 99.19",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars",
+        "moon"
+      ],
+      "place_id": "place-30",
+      "lat": 39.72,
+      "lon": 99.19,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_31",
+      "name": "Earth location place-31",
+      "region": "Map coordinate 18.1, -2.6",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-31",
+      "lat": 18.1,
+      "lon": -2.6,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_32",
+      "name": "Earth location place-32",
+      "region": "Map coordinate 19.68, -12.54",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-32",
+      "lat": 19.68,
+      "lon": -12.54,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_36",
+      "name": "Earth location place-36",
+      "region": "Map coordinate 58.83, 27.22",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-36",
+      "lat": 58.83,
+      "lon": 27.22,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_37",
+      "name": "Earth location place-37",
+      "region": "Map coordinate 45.09, 106.63",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-37",
+      "lat": 45.09,
+      "lon": 106.63,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_39",
+      "name": "Earth location place-39",
+      "region": "Map coordinate 40.96, 97.75",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-39",
+      "lat": 40.96,
+      "lon": 97.75,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_40",
+      "name": "Earth location place-40",
+      "region": "Map coordinate 30.15, 83.0",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-40",
+      "lat": 30.15,
+      "lon": 83.0,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_42",
+      "name": "Earth location place-42",
+      "region": "Map coordinate 44.26, 102.76",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-42",
+      "lat": 44.26,
+      "lon": 102.76,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_46",
+      "name": "Earth location place-46",
+      "region": "Map coordinate 33.46, 93.14",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-46",
+      "lat": 33.46,
+      "lon": 93.14,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
+      "id": "team_place_48",
+      "name": "Earth location place-48",
+      "region": "Map coordinate 27.1, 16.77",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team",
+        "map_connected"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-48",
+      "lat": 27.1,
+      "lon": 16.77,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Connected Earth map candidate. Terrain is measured from a DEM; map heuristic match percentages are not used as physical measurements.",
+      "verify": "Saved map coordinate; region name may be unverified. The 25 km profile reference is an analysis scale, not a measured crater diameter.",
+      "crater_geometry_verified": false
+    },
+    {
       "id": "jezero",
       "name": "Jezero Crater",
       "region": "Isidis Planitia margin, Mars",
