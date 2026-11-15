@@ -1,0 +1,2190 @@
+[
+  {
+    "id": "place-01",
+    "region": "Baffin Island, Nunavut, Canada",
+    "lat": 68.41,
+    "lon": -71.6,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 69,
+      "Moon": 77
+    },
+    "scores": {
+      "cold": 95,
+      "swing": 16,
+      "no_plants": 87,
+      "flat": 98,
+      "dust": 0
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Very cold on average",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "Not much dust in the air",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": true,
+    "featuredType": "Moon",
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ]
+  },
+  {
+    "id": "place-02",
+    "region": "Taklamakan Desert, Xinjiang, China",
+    "lat": 39.61,
+    "lon": 81.96,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 76,
+      "Moon": 64
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 100,
+      "no_plants": 80,
+      "flat": 99,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Much warmer than the Moon",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": true,
+    "featuredType": "Dusty Mars",
+    "notes": []
+  },
+  {
+    "id": "place-03",
+    "region": "",
+    "lat": 38.75,
+    "lon": 86.35,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 76,
+      "Moon": 63
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 99,
+      "no_plants": 80,
+      "flat": 99,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Much warmer than the Moon",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-04",
+    "region": "",
+    "lat": 68.06,
+    "lon": 177.39,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 66,
+      "Moon": 75
+    },
+    "scores": {
+      "cold": 89,
+      "swing": 24,
+      "no_plants": 80,
+      "flat": 96,
+      "dust": 0
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Very cold on average",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "Not much dust in the air",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ]
+  },
+  {
+    "id": "place-05",
+    "region": "",
+    "lat": 40.43,
+    "lon": 62.98,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 72,
+      "Moon": 58
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 89,
+      "no_plants": 68,
+      "flat": 100,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than the Moon",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-06",
+    "region": "",
+    "lat": 66.14,
+    "lon": -120.01,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 68,
+      "Moon": 72
+    },
+    "scores": {
+      "cold": 71,
+      "swing": 6,
+      "no_plants": 100,
+      "flat": 100,
+      "dust": 0
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Very cold on average",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "Not much dust in the air",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ]
+  },
+  {
+    "id": "place-07",
+    "region": "",
+    "lat": 35.47,
+    "lon": 42.29,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 71,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 78,
+      "no_plants": 67,
+      "flat": 99,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-08",
+    "region": "",
+    "lat": 21.12,
+    "lon": 57.44,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 71,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 70,
+      "no_plants": 69,
+      "flat": 99,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-09",
+    "region": "",
+    "lat": 68.27,
+    "lon": -50.52,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 71
+    },
+    "scores": {
+      "cold": 81,
+      "swing": 22,
+      "no_plants": 77,
+      "flat": 96,
+      "dust": 0
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ]
+  },
+  {
+    "id": "place-10",
+    "region": "",
+    "lat": 25.24,
+    "lon": 1.08,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 69,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 78,
+      "no_plants": 63,
+      "flat": 99,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-11",
+    "region": "",
+    "lat": 27.02,
+    "lon": 63.17,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 69,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 83,
+      "no_plants": 65,
+      "flat": 98,
+      "dust": 95
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-12",
+    "region": "",
+    "lat": 40.81,
+    "lon": 56.94,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 69,
+      "Moon": 56
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 80,
+      "no_plants": 69,
+      "flat": 97,
+      "dust": 91
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than the Moon",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-13",
+    "region": "",
+    "lat": 20.59,
+    "lon": 58.12,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 69,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 45,
+      "no_plants": 72,
+      "flat": 99,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Almost no plants",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Some temperature drop at night"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-14",
+    "region": "",
+    "lat": 22.38,
+    "lon": 49.36,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 69,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 71,
+      "no_plants": 62,
+      "flat": 100,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-15",
+    "region": "",
+    "lat": 25.2,
+    "lon": 51.34,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 68,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 58,
+      "no_plants": 64,
+      "flat": 100,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Some temperature drop at night",
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-16",
+    "region": "",
+    "lat": 24.34,
+    "lon": 55.29,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 68,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 77,
+      "no_plants": 58,
+      "flat": 99,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-17",
+    "region": "",
+    "lat": 20.53,
+    "lon": 0.15,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 68,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 73,
+      "no_plants": 58,
+      "flat": 99,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-18",
+    "region": "",
+    "lat": 22.42,
+    "lon": -13.82,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 68,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 71,
+      "no_plants": 59,
+      "flat": 99,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-19",
+    "region": "",
+    "lat": 24.64,
+    "lon": -2.95,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 68,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 76,
+      "no_plants": 57,
+      "flat": 100,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-20",
+    "region": "",
+    "lat": 22.91,
+    "lon": 2.63,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 68,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 84,
+      "no_plants": 54,
+      "flat": 99,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-21",
+    "region": "",
+    "lat": 16.4,
+    "lon": 29.55,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 68,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 66,
+      "no_plants": 59,
+      "flat": 100,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Some temperature drop at night",
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-22",
+    "region": "",
+    "lat": 28.77,
+    "lon": 22.73,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 68,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 59,
+      "no_plants": 62,
+      "flat": 99,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Some temperature drop at night",
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-23",
+    "region": "Pamir high plateau, Xinjiang, China",
+    "lat": 37.15,
+    "lon": 75.56,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 66,
+      "Moon": 68
+    },
+    "scores": {
+      "cold": 48,
+      "swing": 79,
+      "no_plants": 72,
+      "flat": 79,
+      "dust": 46
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "A bit cold",
+          "Some dust in the air"
+        ],
+        "different": [
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "A bit cold"
+        ],
+        "different": [
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": true,
+    "featuredType": "Cold Mars",
+    "notes": []
+  },
+  {
+    "id": "place-24",
+    "region": "",
+    "lat": 27.95,
+    "lon": 23.56,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 67,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 63,
+      "no_plants": 58,
+      "flat": 100,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Some temperature drop at night",
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-25",
+    "region": "",
+    "lat": 26.84,
+    "lon": 22.03,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 67,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 65,
+      "no_plants": 56,
+      "flat": 100,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Some temperature drop at night",
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-26",
+    "region": "",
+    "lat": 68.81,
+    "lon": -112.84,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 67
+    },
+    "scores": {
+      "cold": 85,
+      "swing": 15,
+      "no_plants": 64,
+      "flat": 98,
+      "dust": 0
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ]
+  },
+  {
+    "id": "place-27",
+    "region": "",
+    "lat": 27.08,
+    "lon": -2.79,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 66,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 78,
+      "no_plants": 52,
+      "flat": 99,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-28",
+    "region": "",
+    "lat": 42.3,
+    "lon": 88.98,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 66,
+      "Moon": 59
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 86,
+      "no_plants": 80,
+      "flat": 87,
+      "dust": 72
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Much warmer than the Moon",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-29",
+    "region": "",
+    "lat": 25.74,
+    "lon": 24.17,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 66,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 67,
+      "no_plants": 61,
+      "flat": 99,
+      "dust": 90
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Some temperature drop at night",
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-30",
+    "region": "",
+    "lat": 39.72,
+    "lon": 99.19,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 66,
+      "Moon": 60
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 91,
+      "no_plants": 75,
+      "flat": 98,
+      "dust": 57
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Some dust in the air"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Much warmer than the Moon",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-31",
+    "region": "",
+    "lat": 18.1,
+    "lon": -2.6,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 66,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 60,
+      "no_plants": 54,
+      "flat": 100,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Some temperature drop at night",
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-32",
+    "region": "",
+    "lat": 19.68,
+    "lon": -12.54,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 66,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 52,
+      "no_plants": 59,
+      "flat": 97,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Some temperature drop at night",
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-33",
+    "region": "",
+    "lat": 48.79,
+    "lon": 93.44,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 65
+    },
+    "scores": {
+      "cold": 32,
+      "swing": 74,
+      "no_plants": 72,
+      "flat": 97,
+      "dust": 6
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "A bit cold"
+        ],
+        "different": [
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-34",
+    "region": "",
+    "lat": 59.68,
+    "lon": -70.57,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 64
+    },
+    "scores": {
+      "cold": 74,
+      "swing": 23,
+      "no_plants": 57,
+      "flat": 98,
+      "dust": 0
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ]
+  },
+  {
+    "id": "place-35",
+    "region": "",
+    "lat": 64.74,
+    "lon": -128.0,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 63
+    },
+    "scores": {
+      "cold": 70,
+      "swing": 25,
+      "no_plants": 63,
+      "flat": 93,
+      "dust": 0
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ]
+  },
+  {
+    "id": "place-36",
+    "region": "",
+    "lat": 58.83,
+    "lon": 27.22,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 61
+    },
+    "scores": {
+      "cold": 33,
+      "swing": 7,
+      "no_plants": 100,
+      "flat": 100,
+      "dust": 1
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "A bit cold"
+        ],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-37",
+    "region": "",
+    "lat": 45.09,
+    "lon": 106.63,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 61
+    },
+    "scores": {
+      "cold": 22,
+      "swing": 75,
+      "no_plants": 65,
+      "flat": 98,
+      "dust": 8
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than the Moon",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-38",
+    "region": "",
+    "lat": 66.31,
+    "lon": -113.07,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 61
+    },
+    "scores": {
+      "cold": 79,
+      "swing": 15,
+      "no_plants": 47,
+      "flat": 99,
+      "dust": 0
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ]
+  },
+  {
+    "id": "place-39",
+    "region": "",
+    "lat": 40.96,
+    "lon": 97.75,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 60
+    },
+    "scores": {
+      "cold": 1,
+      "swing": 95,
+      "no_plants": 72,
+      "flat": 99,
+      "dust": 41
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Much warmer than the Moon",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-40",
+    "region": "",
+    "lat": 30.15,
+    "lon": 83.0,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 60
+    },
+    "scores": {
+      "cold": 35,
+      "swing": 100,
+      "no_plants": 42,
+      "flat": 86,
+      "dust": 3
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "A bit cold",
+          "Only a few plants"
+        ],
+        "different": [
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-41",
+    "region": "",
+    "lat": 47.22,
+    "lon": 99.05,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 59
+    },
+    "scores": {
+      "cold": 48,
+      "swing": 76,
+      "no_plants": 37,
+      "flat": 92,
+      "dust": 4
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "A bit cold",
+          "Only a few plants"
+        ],
+        "different": [
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-42",
+    "region": "",
+    "lat": 44.26,
+    "lon": 102.76,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 59
+    },
+    "scores": {
+      "cold": 16,
+      "swing": 76,
+      "no_plants": 71,
+      "flat": 89,
+      "dust": 28
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Much warmer than the Moon",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-43",
+    "region": "",
+    "lat": 70.82,
+    "lon": 145.76,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 59
+    },
+    "scores": {
+      "cold": 97,
+      "swing": 13,
+      "no_plants": 24,
+      "flat": 99,
+      "dust": 1
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "Has quite a few plants",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ]
+  },
+  {
+    "id": "place-44",
+    "region": "",
+    "lat": 60.68,
+    "lon": 139.02,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 59
+    },
+    "scores": {
+      "cold": 86,
+      "swing": 28,
+      "no_plants": 37,
+      "flat": 80,
+      "dust": 1
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ]
+  },
+  {
+    "id": "place-45",
+    "region": "",
+    "lat": 67.12,
+    "lon": 122.08,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 58
+    },
+    "scores": {
+      "cold": 94,
+      "swing": 30,
+      "no_plants": 15,
+      "flat": 98,
+      "dust": 1
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "Has quite a few plants",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ]
+  },
+  {
+    "id": "place-46",
+    "region": "",
+    "lat": 33.46,
+    "lon": 93.14,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 57
+    },
+    "scores": {
+      "cold": 49,
+      "swing": 96,
+      "no_plants": 15,
+      "flat": 96,
+      "dust": 8
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "A bit cold"
+        ],
+        "different": [
+          "Has quite a few plants",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-47",
+    "region": "",
+    "lat": 66.58,
+    "lon": 95.67,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 57
+    },
+    "scores": {
+      "cold": 91,
+      "swing": 22,
+      "no_plants": 21,
+      "flat": 97,
+      "dust": 1
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "Has quite a few plants",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ]
+  },
+  {
+    "id": "place-48",
+    "region": "",
+    "lat": 27.1,
+    "lon": 16.77,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 57
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 88,
+      "no_plants": 67,
+      "flat": 98,
+      "dust": 55
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than the Moon",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": []
+  },
+  {
+    "id": "place-49",
+    "region": "",
+    "lat": 69.95,
+    "lon": 104.79,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 57
+    },
+    "scores": {
+      "cold": 98,
+      "swing": 21,
+      "no_plants": 13,
+      "flat": 97,
+      "dust": 1
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "Has quite a few plants",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ]
+  },
+  {
+    "id": "place-50",
+    "region": "",
+    "lat": 62.26,
+    "lon": -100.25,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 56
+    },
+    "scores": {
+      "cold": 75,
+      "swing": 15,
+      "no_plants": 35,
+      "flat": 99,
+      "dust": 0
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ]
+  }
+]

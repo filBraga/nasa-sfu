@@ -1,0 +1,416 @@
+{
+  "_comment": "Where every dataset in the project comes from and how we got it. Shown in the viewer's 'Data sources' window. When a team adds a dataset, add an entry here. `dem_for` marks the elevation source used for each body. `agency` groups datasets in the viewer's source filter; layer datasets are referenced from config/layers.json `source_ids`.",
+  "datasets": [
+    {
+      "id": "copernicus_dem",
+      "name": "Copernicus DEM GLO-30",
+      "category": "elevation",
+      "dem_for": [
+        "earth"
+      ],
+      "measures": "Ground surface height (m), from TanDEM-X radar, 2011-2015",
+      "resolution": "30 m (1 arc-second)",
+      "provider": "European Space Agency / European Union (Copernicus); TanDEM-X data by DLR and Airbus",
+      "links": [
+        {
+          "label": "AWS Open Data registry",
+          "url": "https://registry.opendata.aws/copernicus-dem/"
+        }
+      ],
+      "how": "analog/sources.py fetch_earth() works out which 1x1 degree tiles cover each site, then reads only the needed part of each Cloud-Optimized GeoTIFF over HTTP (GDAL /vsicurl/) from the public bucket copernicus-dem-30m.s3.amazonaws.com. No account needed.",
+      "script": "python scripts/fetch_dems.py",
+      "used_for": "All Earth sites: terrain metrics and 3D terrain",
+      "credit": "Produced using Copernicus WorldDEM-30 (c) DLR e.V. 2010-2014 and (c) Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the European Union and ESA; all rights reserved.",
+      "agency": "ESA / Copernicus",
+      "short": "Copernicus DEM"
+    },
+    {
+      "id": "hrsc_mola_blend",
+      "name": "Mars HRSC-MOLA Blended DEM v2",
+      "category": "elevation",
+      "dem_for": [
+        "mars"
+      ],
+      "measures": "Mars surface height (m), blending ESA Mars Express HRSC stereo and NASA MGS MOLA laser altimetry",
+      "resolution": "200 m",
+      "provider": "USGS Astrogeology Science Center (data: ESA / DLR / FU Berlin, NASA)",
+      "links": [
+        {
+          "label": "File we read (11 GB, only a window is downloaded)",
+          "url": "https://planetarymaps.usgs.gov/mosaic/Mars/HRSC_MOLA_Blend/Mars_HRSC_MOLA_BlendDEM_Global_200mp_v2.tif"
+        }
+      ],
+      "how": "analog/sources.py fetch_mars() reads only the rows and columns around each site from the global GeoTIFF over HTTP (GDAL /vsicurl/ range requests), then reprojects them onto a local metre grid using the Mars radius (3396.19 km).",
+      "script": "python scripts/fetch_dems.py",
+      "used_for": "Jezero Crater, Arcadia Planitia",
+      "credit": "Fergason, R.L., Hare, T.M., Laura, J. (2018). HRSC and MOLA Blended Digital Elevation Model at 200m v2. USGS Astrogeology.",
+      "agency": "USGS",
+      "short": "HRSC-MOLA DEM"
+    },
+    {
+      "id": "lola_80s",
+      "name": "LRO LOLA south-pole DEM (LDEM_80S_80M)",
+      "category": "elevation",
+      "dem_for": [
+        "moon"
+      ],
+      "measures": "Moon surface height relative to a 1737.4 km sphere, from LOLA laser altimetry, 2009-2017",
+      "resolution": "80 m, polar stereographic, south of 80 S",
+      "provider": "NASA Lunar Reconnaissance Orbiter, LOLA team (Goddard); archived at NASA PDS Geosciences Node",
+      "links": [
+        {
+          "label": "PDS folder",
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/float_img/"
+        },
+        {
+          "label": "LOLA at PDS Geosciences",
+          "url": "https://pds-geosciences.wustl.edu/missions/lro/lola.htm"
+        }
+      ],
+      "how": "analog/sources.py fetch_moon() uses the PDS label (LDEM_80S_80M_FLOAT.LBL) to compute which rows of the 920 MB raw file cover each site, downloads only those bytes with an HTTP Range request (12-34 MB per site), and converts km to m.",
+      "script": "python scripts/fetch_dems.py",
+      "used_for": "Shackleton Crater, Malapert Massif, Mons Mouton Plateau",
+      "credit": "NASA / GSFC / LRO LOLA team, NASA Planetary Data System.",
+      "agency": "NASA",
+      "short": "LRO LOLA DEM"
+    },
+    {
+      "id": "lro_nac_south_pole",
+      "name": "Moon LRO South Pole DEM (LRO NAC stereo, 4 m)",
+      "short": "LRO NAC DEM 4 m",
+      "category": "elevation",
+      "agency": "NASA",
+      "measures": "Moon surface height (m, relative to the 1737.4 km sphere) from Lunar Reconnaissance Orbiter Narrow Angle Camera stereo images",
+      "resolution": "4 m, polar stereographic, ~65 x 68 km around the south pole (irregular coverage)",
+      "provider": "USGS Astrogeology (Astropedia), from NASA LRO NAC images",
+      "links": [
+        {
+          "label": "USGS product page",
+          "url": "https://astrogeology.usgs.gov/search/map/moon_lro_south_pole_dem"
+        },
+        {
+          "label": "File (310 MB)",
+          "url": "https://asc-astropedia.s3.us-west-2.amazonaws.com/Moon/LRO/MOON_LRO_NAC_DEM_89S210E_4mp.tif"
+        }
+      ],
+      "how": "analog/sources.py merge_nac() downloads the file once (stored row by row, so a partial read would fetch most of it anyway) to data/external/moon/, resamples it onto Shackleton's grid at 20 m, removes the median vertical offset to LOLA measured where both have data, and uses LOLA only where NAC has no coverage.",
+      "script": "python scripts/fetch_dems.py shackleton --force",
+      "used_for": "Shackleton Crater (high-resolution terrain and 3D view); Malapert and Mons Mouton are outside its coverage",
+      "credit": "USGS Astrogeology Science Center; NASA / GSFC / Arizona State University LRO Camera team."
+    },
+    {
+      "id": "blue_marble",
+      "name": "Blue Marble Next Generation (January 2004)",
+      "category": "globe",
+      "measures": "True-colour Earth image",
+      "resolution": "Downscaled to 2048 x 1024 for the globe",
+      "provider": "NASA Earth Observatory",
+      "links": [
+        {
+          "label": "Image file",
+          "url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/january/world.200401.3x5400x2700.jpg"
+        }
+      ],
+      "how": "Downloaded once and resized with Pillow.",
+      "script": "python scripts/fetch_textures.py",
+      "used_for": "Earth globe image only (not used in scores)",
+      "credit": "NASA Earth Observatory, Blue Marble Next Generation.",
+      "agency": "NASA",
+      "short": "Blue Marble"
+    },
+    {
+      "id": "lroc_color",
+      "name": "CGI Moon Kit - LROC colour mosaic",
+      "category": "globe",
+      "measures": "Colour image of the Moon",
+      "resolution": "1024 x 512",
+      "provider": "NASA Scientific Visualization Studio (LRO data)",
+      "links": [
+        {
+          "label": "NASA SVS CGI Moon Kit",
+          "url": "https://svs.gsfc.nasa.gov/4720"
+        }
+      ],
+      "how": "Downloaded once.",
+      "script": "python scripts/fetch_textures.py",
+      "used_for": "Moon globe image only (not used in scores)",
+      "credit": "NASA's Scientific Visualization Studio.",
+      "agency": "NASA",
+      "short": "LROC colour"
+    },
+    {
+      "id": "mola_463",
+      "name": "MGS MOLA global DEM (463 m)",
+      "category": "globe",
+      "measures": "Mars surface height (m)",
+      "resolution": "463 m, sampled down to 2048 x 1024",
+      "provider": "NASA Mars Global Surveyor MOLA team, via USGS Astrogeology",
+      "links": [
+        {
+          "label": "File we read",
+          "url": "https://planetarymaps.usgs.gov/mosaic/Mars_MGS_MOLA_DEM_mosaic_global_463m.tif"
+        }
+      ],
+      "how": "Every 22nd row of the 2 GB file is read over HTTP, then coloured by height and hill-shaded by our script, so the Mars globe shows real elevation data.",
+      "script": "python scripts/fetch_textures.py",
+      "used_for": "Mars globe image only (not used in scores)",
+      "credit": "NASA / MGS MOLA Science Team; USGS Astrogeology.",
+      "agency": "NASA",
+      "short": "MGS MOLA"
+    },
+    {
+      "id": "modis_lst",
+      "name": "MODIS Land Surface Temperature (MOD11A2 v6.1)",
+      "category": "layer",
+      "agency": "NASA",
+      "body": "earth",
+      "access": "Google Earth Engine: MODIS/061/MOD11A2",
+      "how": "scripts/gee_export.py: Earth Engine averages (LST_Day_1km - LST_Night_1km) x 0.02 over June-August of the chosen year, clips each Earth site's box (scripts/site_bounds.py) and downloads one GeoTIFF per site with getDownloadURL into data/layers/thermal_amplitude/.",
+      "used_for": "Day-night temperature swing (Earth sites)",
+      "measures": "Land surface temperature, day and night, 8-day composites (K, scale factor 0.02)",
+      "resolution": "1 km",
+      "provider": "NASA LP DAAC (Terra MODIS), via Google Earth Engine",
+      "script": "python scripts/gee_export.py --project <your-gcp-project>",
+      "links": [
+        {
+          "label": "Earth Engine catalog: MODIS/061/MOD11A2",
+          "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2"
+        }
+      ],
+      "credit": "Wan, Z., Hook, S., Hulley, G. MODIS/Terra Land Surface Temperature/Emissivity 8-Day L3 Global 1km SIN Grid V061. NASA EOSDIS LP DAAC.",
+      "short": "MODIS MOD11A2"
+    },
+    {
+      "id": "modis_albedo",
+      "name": "MODIS BRDF/Albedo (MCD43A3 v6.1)",
+      "category": "layer",
+      "agency": "NASA",
+      "body": "earth",
+      "access": "Google Earth Engine: MODIS/061/MCD43A3",
+      "how": "Planned: delivered by the data team as GeoTIFFs via Google Earth Engine: MODIS/061/MCD43A3. Not downloaded yet.",
+      "used_for": "Surface albedo (Earth sites)",
+      "short": "MODIS MCD43A3"
+    },
+    {
+      "id": "rcm_compact_pol",
+      "name": "RADARSAT Constellation Mission compact-pol",
+      "category": "layer",
+      "agency": "CSA",
+      "body": "earth",
+      "access": "EODMS (Natural Resources Canada)",
+      "how": "Planned: delivered by the data team as GeoTIFFs via EODMS (Natural Resources Canada). Not downloaded yet.",
+      "used_for": "Radar circular polarization ratio (Earth sites)",
+      "short": "RADARSAT RCM"
+    },
+    {
+      "id": "themis_ir",
+      "name": "Mars Odyssey THEMIS projected brightness temperature (IRPBT v2)",
+      "category": "layer",
+      "agency": "NASA",
+      "body": "mars",
+      "access": "NASA PDS Orbital Data Explorer (oderest.rsl.wustl.edu) + static.mars.asu.edu",
+      "how": "scripts/themis_temperature.py asks the NASA PDS Orbital Data Explorer REST API for every THEMIS PBT image over each Mars target. Mars Odyssey only images at ~4-7 h and ~16-19 h local time, so it keeps sunlit late-afternoon images (15:30-18:30) and early-morning images (4:00-7:30) from the same 90-degree stretch of the Mars year (the one with the most of both; northern summer for our sites), downloads them (cached in data/external/mars/themis/), averages each set on the site grid and stores late afternoon minus early morning in data/layers/thermal_amplitude/<site>.tif.",
+      "used_for": "Day-night temperature swing (Mars targets)",
+      "measures": "Surface brightness temperature (K) from single THEMIS infrared images, late afternoon (~17-18 h) and early morning (~5-7 h)",
+      "resolution": "100 m",
+      "provider": "Arizona State University THEMIS team, NASA Mars Odyssey; archived at NASA PDS (ODY-M-THM-5-IRPBT-V2.0)",
+      "script": "python scripts/themis_temperature.py",
+      "links": [
+        {
+          "label": "ODE THEMIS products",
+          "url": "https://ode.rsl.wustl.edu/mars/"
+        },
+        {
+          "label": "THEMIS (ASU)",
+          "url": "https://themis.asu.edu/"
+        }
+      ],
+      "credit": "Christensen, P.R. et al., THEMIS, NASA Mars Odyssey / Arizona State University; NASA Planetary Data System.",
+      "caveat": "Mars Odyssey only images at ~5-7 h and ~17-18 h local time, so this 'swing' is late afternoon minus early morning (~20 K), well below Mars's true day-night range. Mars temperature scores are therefore too generous to Earth sites with moderate swings. Untick this dataset in the Data sources filter to leave it out.",
+      "short": "Odyssey THEMIS"
+    },
+    {
+      "id": "tes_albedo",
+      "name": "MGS TES albedo",
+      "category": "layer",
+      "agency": "NASA",
+      "body": "mars",
+      "access": "NASA PDS",
+      "how": "Planned: delivered by the data team as GeoTIFFs via NASA PDS. Not downloaded yet.",
+      "used_for": "Surface albedo (Mars targets)",
+      "short": "MGS TES albedo"
+    },
+    {
+      "id": "diviner",
+      "name": "LRO Diviner south-polar temperatures (240 m, PCP)",
+      "category": "layer",
+      "agency": "NASA",
+      "body": "moon",
+      "access": "UCLA Diviner server / NASA PDS",
+      "how": "scripts/diviner_temperature.py binary-searches each ~200 MB summer table (rows are sorted by x) with HTTP Range requests and downloads only the strips around our Moon sites (~40 MB per table). It samples 12 sun positions across the lunar day and keeps max(T) - min(T) per 240 m pixel, saved as data/layers/thermal_amplitude/<moon site>.tif.",
+      "used_for": "Day-night temperature swing (Moon targets)",
+      "measures": "Bolometric surface temperature (K), binned by sun position over 2009-2019",
+      "resolution": "240 m, polar stereographic, south of 80 S",
+      "provider": "NASA LRO Diviner team, UCLA (Williams et al. 2019, JGR 124, 2505-2521); dataset LRO-L-DLRE-5-GCP-V1.0",
+      "script": "python scripts/diviner_temperature.py",
+      "links": [
+        {
+          "label": "Diviner polar products (UCLA)",
+          "url": "https://luna1.diviner.ucla.edu/~jpierre/diviner/level4_polar/pds/"
+        },
+        {
+          "label": "Williams et al. 2019",
+          "url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019JE006028"
+        }
+      ],
+      "credit": "Williams, J.-P. et al. (2019), Seasonal polar temperatures on the Moon, JGR Planets 124, 2505-2521. NASA LRO Diviner team.",
+      "short": "LRO Diviner"
+    },
+    {
+      "id": "lola_albedo",
+      "name": "LRO LOLA normal albedo",
+      "category": "layer",
+      "agency": "NASA",
+      "body": "moon",
+      "access": "NASA PDS",
+      "how": "Planned: delivered by the data team as GeoTIFFs via NASA PDS. Not downloaded yet.",
+      "used_for": "Surface albedo (Moon targets)",
+      "short": "LOLA albedo"
+    },
+    {
+      "id": "minirf_cpr",
+      "name": "LRO Mini-RF CPR mosaics",
+      "category": "layer",
+      "agency": "NASA",
+      "body": "moon",
+      "access": "NASA PDS",
+      "how": "Planned: delivered by the data team as GeoTIFFs via NASA PDS. Not downloaded yet.",
+      "used_for": "Radar circular polarization ratio (Moon targets)",
+      "short": "LRO Mini-RF"
+    },
+    {
+      "id": "modis_ndvi",
+      "name": "MODIS Vegetation Indices (MOD13A2 v6.1)",
+      "category": "layer",
+      "agency": "NASA",
+      "body": "earth",
+      "measures": "NDVI (vegetation greenness), 16-day composites, scale factor 0.0001",
+      "resolution": "1 km",
+      "provider": "NASA LP DAAC (Terra MODIS), via Google Earth Engine",
+      "access": "Google Earth Engine: MODIS/061/MOD13A2",
+      "how": "scripts/gee_export.py: Earth Engine takes the maximum NDVI over June-August (peak greenness) of the chosen year, clips each Earth site's box and downloads one GeoTIFF per site into data/layers/barren_ground/.",
+      "script": "python scripts/gee_export.py --project <your-gcp-project>",
+      "links": [
+        {
+          "label": "Earth Engine catalog: MODIS/061/MOD13A2",
+          "url": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13A2"
+        }
+      ],
+      "used_for": "Barren ground (Earth sites)",
+      "credit": "Didan, K. MODIS/Terra Vegetation Indices 16-Day L3 Global 1km SIN Grid V061. NASA EOSDIS LP DAAC.",
+      "short": "MODIS MOD13A2"
+    },
+    {
+      "id": "openlandmap_sand",
+      "name": "OpenLandMap topsoil sand content (v02)",
+      "category": "layer",
+      "agency": "OpenGeoHub",
+      "body": "earth",
+      "measures": "Sand content of the fine earth (%) at the surface (0 cm); fine fraction = 100 - sand",
+      "resolution": "250 m",
+      "provider": "OpenGeoHub / EnvirometriX (Hengl 2018), via Google Earth Engine. A machine-learning soil map predicted from soil profiles and satellite data, not a direct measurement.",
+      "access": "Google Earth Engine: OpenLandMap/SOL/SOL_SAND-WFRACTION_USDA-3A1A1A_M/v02",
+      "how": "scripts/gee_export.py: fine fraction = 100 - sand (band b0) where peak-summer NDVI (MOD13A2) is below 0.2, else 0, clipped to each Earth site's box and downloaded as one GeoTIFF per site into data/layers/surface_dust/.",
+      "script": "python scripts/gee_export.py --project <your-gcp-project> --layers surface_dust",
+      "links": [
+        {
+          "label": "Earth Engine catalog",
+          "url": "https://developers.google.com/earth-engine/datasets/catalog/OpenLandMap_SOL_SOL_SAND-WFRACTION_USDA-3A1A1A_M_v02"
+        }
+      ],
+      "used_for": "Exposed fine soil / dust (Earth sites)",
+      "credit": "Hengl, T. (2018). Sand content in % (kg / kg) at 6 standard depths at 250 m resolution (v0.2). Zenodo. OpenLandMap.",
+      "short": "OpenLandMap + MOD13A2"
+    },
+    {
+      "id": "tes_dci",
+      "name": "TES Dust Cover Index (Ruff & Christensen 2002)",
+      "category": "layer",
+      "agency": "NASA",
+      "body": "mars",
+      "measures": "Average thermal-infrared emissivity at 1350-1400 cm-1; fine dust lowers it (below ~0.94 = dust-covered)",
+      "resolution": "16 pixels/degree (~3.7 km)",
+      "provider": "S. W. Ruff, Arizona State University, from NASA Mars Global Surveyor TES data",
+      "access": "https://www.mars.asu.edu/~ruff/DCI/",
+      "how": "scripts/mars_dust.py downloads the numeric map (66 MB, float32, simple cylindrical -180..180, checked against known dusty and dust-free regions), cuts the area around each Mars target and saves data/layers/surface_dust/<site>.tif.",
+      "script": "python scripts/mars_dust.py",
+      "links": [
+        {
+          "label": "Dust Cover Index (ASU)",
+          "url": "https://www.mars.asu.edu/~ruff/DCI/dci.html"
+        }
+      ],
+      "used_for": "Surface dust (Mars targets)",
+      "credit": "Ruff, S.W. and Christensen, P.R. (2002), JGR 107(E12), 5127, doi:10.1029/2001JE001580.",
+      "short": "MGS TES Dust Cover Index"
+    }
+  ],
+  "site_coordinates": {
+    "_how": "Coordinates were looked up with web searches on 2026-11-14, except where noted. Crater centres are then refined automatically from the elevation data (lowest point near the given centre).",
+    "haughton": {
+      "source": "Wikipedia (Haughton impact crater); centre confirmed in the DEM"
+    },
+    "mistastin": {
+      "source": "Assistant's general knowledge; crater visible inside the rim ring in the 3D view"
+    },
+    "pingualuit": {
+      "source": "Wikipedia (Pingualuit crater / Pingualuit National Park)"
+    },
+    "hmp_plateau": {
+      "source": "Mars Institute, Haughton-Mars Project page (HMP research station 75 26 N, 89 52 W)",
+      "url": "https://www.marsinstitute.no/hmp"
+    },
+    "mcgill_uplands": {
+      "source": "Wikipedia (McGill Arctic Research Station, 79 26 N, 90 46 W)",
+      "url": "https://en.wikipedia.org/wiki/McGill_Arctic_Research_Station"
+    },
+    "tuktoyaktuk": {
+      "source": "Wikipedia (Pingo Canadian Landmark)",
+      "url": "https://en.wikipedia.org/wiki/Pingo_Canadian_Landmark"
+    },
+    "athabasca_dunes": {
+      "source": "Wikipedia / Tourism Saskatchewan (Athabasca Sand Dunes Provincial Park)",
+      "url": "https://tourismsaskatchewan.com/provincialpark/1414/athabasca-sand-dunes-provincial-park"
+    },
+    "spotted_lake": {
+      "source": "Assistant's estimate - NOT confirmed, please verify"
+    },
+    "control_prairie": {
+      "source": "Chosen as a typical landscape; exact position does not matter"
+    },
+    "control_mountains": {
+      "source": "Chosen as a typical landscape; exact position does not matter"
+    },
+    "control_shield": {
+      "source": "Chosen as a typical landscape; exact position does not matter"
+    },
+    "jezero": {
+      "source": "Assistant's general knowledge; crater centre confirmed in the DEM"
+    },
+    "arcadia": {
+      "source": "SWIM project pilot study centre, 196 E 47.25 N (LPSC 2019 abstract)",
+      "url": "https://swim.psi.edu/resources/abstracts/LPSC2019/2069.pdf"
+    },
+    "shackleton": {
+      "source": "Assistant's general knowledge; crater centre confirmed in the DEM (within ~1 km)"
+    },
+    "malapert": {
+      "source": "NASA Science image page: Malapert region 85.99 S, 357.07 E",
+      "url": "https://science.nasa.gov/image-detail/20100618"
+    },
+    "mons_mouton_plateau": {
+      "source": "IM-2 lander touchdown point 84 47 26 S, 29 11 45 E (DLR)",
+      "url": "https://www.dlr.de/en/latest/news/2025/new-lunar-mission-to-demonstrate-search-for-water-ice-at-moon-s-south-pole/im-2-landing-site-mons-mouton"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "_comment": "Site types decide which terrain metrics are used. An Earth site is compared with a target only when the target's type is in the site's `types`; control sites are compared with every target. Data layers (config/layers.json) apply to all types.",
+  "types": {
+    "crater": {
+      "label": "Impact crater",
+      "short": "crater",
+      "description": "Bowl-shaped impact structures. Uses the radial profile and depth/diameter.",
+      "metrics": ["slope", "roughness", "hypsometry", "profile", "depth"]
+    },
+    "base_highland": {
+      "label": "Base site: ridge / plateau",
+      "short": "base site",
+      "description": "Elevated, fairly flat ground with long sunlight at a low sun, like the Artemis south-pole regions.",
+      "metrics": ["slope", "roughness", "hypsometry", "flat_fraction", "illumination"]
+    },
+    "periglacial_plains": {
+      "label": "Ice-rich plains",
+      "short": "ice plains",
+      "description": "Low, smooth plains with ground ice and periglacial landforms, like proposed Mars landing sites.",
+      "metrics": ["slope", "roughness", "hypsometry", "flat_fraction", "texture"]
+    },
+    "dunes": {
+      "label": "Dune field",
+      "short": "dunes",
+      "description": "Wind-built sand dunes. Needs high-resolution DEMs (HiRISE/CTX) on the Mars side.",
+      "metrics": ["slope", "roughness", "hypsometry", "texture"]
+    },
+    "volcanic": {
+      "label": "Volcanic terrain",
+      "short": "volcanic",
+      "description": "Lava flows, cones, tuyas and lava tubes.",
+      "metrics": ["slope", "roughness", "hypsometry", "texture"]
+    },
+    "evaporite": {
+      "label": "Salt / sulfate deposit",
+      "short": "evaporite",
+      "description": "Evaporite lakes and salt flats. Terrain says little; mineral layers (CRISM) are needed.",
+      "metrics": ["slope", "roughness", "hypsometry", "texture"]
+    }
+  }
+}

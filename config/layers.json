@@ -1,0 +1,137 @@
+{
+  "_comment": "Data layers compared between Earth sites and Moon/Mars targets. Each layer is read from data/layers/<id>/<site_id>.tif (any CRS, any resolution). normalize: none = compare raw values (scale in layer units); zscore = compare shape of the distribution (scale in standard deviations); minmax = compare 2-98 percentile-stretched values (scale 0-1). score = exp(-Wasserstein distance / scale). See docs/DATA_INTEGRATION.md. source_ids link each body's data to an entry in config/data_sources.json (used by the source filter).",
+  "layers": [
+    {
+      "id": "thermal_amplitude",
+      "label": "Day-night temperature swing",
+      "unit": "K",
+      "description": "How much the surface temperature changes between day and night. Earth: MODIS mean (day - night) at the ~10:30 / 22:30 overpasses, June-August. Moon: Diviner max - min over a full lunar day in southern summer. Mars: THEMIS afternoon minus pre-dawn, northern summer. The bodies differ by 10-100x, so sites are scored by the ratio of their typical (median) swing.",
+      "sources": {
+        "earth": "Google Earth Engine: MODIS/061/MOD11A2 (LST_Day_1km - LST_Night_1km, Jun-Aug)",
+        "mars": "Mars Odyssey THEMIS projected brightness temperature (ASU / NASA PDS): mean afternoon (12-17 h) minus mean pre-dawn (0-7 h), northern summer",
+        "moon": "LRO Diviner 240 m south-polar temperatures (Williams et al. 2019), via UCLA / PDS"
+      },
+      "weight": 0.15,
+      "default_on": true,
+      "source_ids": {
+        "earth": "modis_lst",
+        "mars": "themis_ir",
+        "moon": "diviner"
+      },
+      "compare": "ratio",
+      "ratio_halving": 4,
+      "ratio_floor": 0.5
+    },
+    {
+      "id": "albedo",
+      "label": "Surface albedo",
+      "unit": "",
+      "description": "Broadband surface reflectance (0-1).",
+      "sources": {
+        "earth": "Google Earth Engine: MODIS/061/MCD43A3 (white-sky shortwave albedo)",
+        "mars": "NASA PDS: MGS TES albedo",
+        "moon": "NASA PDS: LRO LOLA normal albedo"
+      },
+      "normalize": "none",
+      "scale": 0.05,
+      "weight": 0.1,
+      "default_on": true,
+      "source_ids": {
+        "earth": "modis_albedo",
+        "mars": "tes_albedo",
+        "moon": "lola_albedo"
+      }
+    },
+    {
+      "id": "barren_ground",
+      "label": "Barren ground (no vegetation)",
+      "unit": "",
+      "description": "Share of the site where even peak-summer NDVI stays below 0.2: bare rock, sand, ice or water. The Moon and Mars have no vegetation, so their share is 100% by definition.",
+      "sources": {
+        "earth": "Google Earth Engine: MODIS/061/MOD13A2 (max NDVI, Jun-Aug)",
+        "mars": "No vegetation (100% barren by definition)",
+        "moon": "No vegetation (100% barren by definition)"
+      },
+      "compare": "fraction_below",
+      "threshold": 0.2,
+      "planetary_value": 1.0,
+      "normalize": "none",
+      "scale": 0.25,
+      "weight": 0.1,
+      "default_on": true,
+      "source_ids": {
+        "earth": "modis_ndvi"
+      }
+    },
+    {
+      "id": "surface_dust",
+      "label": "Surface dust / fine soil",
+      "unit": "%",
+      "description": "Share of the site covered by fine dust or fine soil. Earth: bare ground whose topsoil is mostly silt + clay (> 50%). Mars: TES Dust Cover Index below 0.94 (dust-covered surface, Ruff & Christensen 2002). The two are measured differently (soil texture vs thermal-infrared emissivity), so each body has its own threshold. Moon: no data yet.",
+      "sources": {
+        "earth": "Google Earth Engine: OpenLandMap topsoil sand content (fine = 100 - sand) on barren ground (MODIS MOD13A2 NDVI < 0.2)",
+        "mars": "TES Dust Cover Index (Ruff & Christensen 2002), numeric 16 pixels/degree map from ASU",
+        "moon": "No data yet (PDS team: Diviner rock abundance / regolith fines)"
+      },
+      "compare": "fraction",
+      "direction": "above",
+      "threshold": 50,
+      "normalize": "none",
+      "scale": 0.25,
+      "weight": 0.1,
+      "default_on": true,
+      "source_ids": {
+        "earth": "openlandmap_sand",
+        "mars": "tes_dci"
+      },
+      "thresholds": {
+        "earth": {
+          "direction": "above",
+          "value": 50
+        },
+        "mars": {
+          "direction": "below",
+          "value": 0.94
+        }
+      }
+    },
+    {
+      "id": "radar_cpr",
+      "label": "Radar circular polarization ratio",
+      "unit": "",
+      "description": "Surface roughness / ice indicator from compact- or hybrid-polarimetry radar.",
+      "sources": {
+        "earth": "CSA RADARSAT Constellation Mission compact-pol (EODMS)",
+        "moon": "NASA PDS: LRO Mini-RF CPR mosaics"
+      },
+      "normalize": "none",
+      "scale": 0.15,
+      "weight": 0.1,
+      "default_on": true,
+      "source_ids": {
+        "earth": "rcm_compact_pol",
+        "moon": "minirf_cpr"
+      }
+    },
+    {
+      "id": "demo_tpi",
+      "label": "Topographic position (demo)",
+      "unit": "m",
+      "description": "Elevation relative to the surrounding 2 km mean. Generated from the DEMs by scripts/make_demo_layers.py only to test the layer pipeline; it is not independent data.",
+      "sources": {
+        "earth": "Derived from Copernicus DEM",
+        "mars": "Derived from HRSC-MOLA DEM",
+        "moon": "Derived from LOLA DEM"
+      },
+      "normalize": "zscore",
+      "scale": 0.5,
+      "weight": 0.1,
+      "default_on": false,
+      "source_ids": {
+        "earth": "copernicus_dem",
+        "mars": "hrsc_mola_blend",
+        "moon": "lola_80s"
+      }
+    }
+  ]
+}

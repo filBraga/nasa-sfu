@@ -1,0 +1,866 @@
+{
+  "_comment": "Sites used by the analog pipeline. role: analog = Earth candidate, target = Moon/Mars site, control = Earth site that should score LOW against every target. Earth sites list `types` (see config/site_types.json); a target has one `type`. window_km is the side of the square study area; diameter_km normalises crater profiles. Coordinates verified 2026-11-14 unless `verify` says otherwise.",
+  "sites": [
+    {
+      "id": "haughton",
+      "name": "Haughton Crater",
+      "region": "Devon Island, Nunavut, Canada",
+      "body": "earth",
+      "role": "analog",
+      "types": [
+        "crater",
+        "periglacial_plains"
+      ],
+      "lat": 75.38,
+      "lon": -89.68,
+      "diameter_km": 23,
+      "window_km": 69,
+      "refine_center": true,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "NASA Haughton-Mars Project site since 1997: polar desert, ~39 Myr old impact crater, ground ice."
+    },
+    {
+      "id": "mistastin",
+      "name": "Mistastin Lake Crater",
+      "region": "Labrador, Newfoundland and Labrador, Canada",
+      "body": "earth",
+      "role": "analog",
+      "types": [
+        "crater"
+      ],
+      "lat": 55.88,
+      "lon": -63.3,
+      "diameter_km": 28,
+      "window_km": 84,
+      "refine_center": true,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Impact into anorthosite, the dominant rock of the lunar highlands. Crater floor is mostly a lake."
+    },
+    {
+      "id": "pingualuit",
+      "name": "Pingualuit Crater",
+      "region": "Nunavik, Quebec, Canada",
+      "body": "earth",
+      "role": "analog",
+      "types": [
+        "crater"
+      ],
+      "lat": 61.275,
+      "lon": -73.66,
+      "diameter_km": 3.44,
+      "window_km": 10.3,
+      "refine_center": true,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Young (~1.4 Myr), almost perfectly round simple crater holding a deep, clear lake."
+    },
+    {
+      "id": "hmp_plateau",
+      "name": "HMP base-camp plateau",
+      "region": "Devon Island, Nunavut, Canada",
+      "body": "earth",
+      "role": "analog",
+      "types": [
+        "base_highland"
+      ],
+      "lat": 75.433,
+      "lon": -89.867,
+      "window_km": 30,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Plateau on the NW rim of Haughton where the Haughton-Mars Project research station has operated since 2000."
+    },
+    {
+      "id": "mcgill_uplands",
+      "name": "Expedition Fiord uplands",
+      "region": "Axel Heiberg Island, Nunavut, Canada",
+      "body": "earth",
+      "role": "analog",
+      "types": [
+        "base_highland"
+      ],
+      "lat": 79.433,
+      "lon": -90.767,
+      "window_km": 30,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Around the McGill Arctic Research Station: high-Arctic uplands, low sun for months, nearby perennial cold springs."
+    },
+    {
+      "id": "tuktoyaktuk",
+      "name": "Tuktoyaktuk pingos",
+      "region": "Pingo Canadian Landmark, Northwest Territories, Canada",
+      "body": "earth",
+      "role": "analog",
+      "types": [
+        "periglacial_plains"
+      ],
+      "lat": 69.4,
+      "lon": -133.08,
+      "window_km": 30,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Ice-cored hills (pingos) on ice-rich coastal plains, including Ibyuk, Canada's tallest pingo."
+    },
+    {
+      "id": "athabasca_dunes",
+      "name": "Athabasca Sand Dunes",
+      "region": "Northern Saskatchewan, Canada",
+      "body": "earth",
+      "role": "analog",
+      "types": [
+        "dunes"
+      ],
+      "lat": 59.063,
+      "lon": -108.962,
+      "window_km": 20,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Among the most northerly active dune fields on Earth. Waiting for a high-resolution Mars dune target."
+    },
+    {
+      "id": "spotted_lake",
+      "name": "Spotted Lake (Kliluk)",
+      "region": "Okanagan, British Columbia, Canada",
+      "body": "earth",
+      "role": "analog",
+      "types": [
+        "evaporite"
+      ],
+      "lat": 49.078,
+      "lon": -119.567,
+      "verify": "coordinates approximate, not confirmed by search",
+      "window_km": 5,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Magnesium-sulfate lake, a Mars sulfate analog. Needs mineral layers (CRISM) and a Mars evaporite target."
+    },
+    {
+      "id": "control_prairie",
+      "name": "Prairie control",
+      "region": "Southern Saskatchewan, Canada",
+      "body": "earth",
+      "role": "control",
+      "types": [],
+      "lat": 50.45,
+      "lon": -105.3,
+      "diameter_km": 25,
+      "window_km": 84,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Flat farmland. Should score low against every target."
+    },
+    {
+      "id": "control_mountains",
+      "name": "Coast Mountains control",
+      "region": "British Columbia, Canada",
+      "body": "earth",
+      "role": "control",
+      "types": [],
+      "lat": 50.1,
+      "lon": -123.0,
+      "diameter_km": 25,
+      "window_km": 84,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Steep glaciated mountains: rugged, but no crater structure and little flat ground."
+    },
+    {
+      "id": "control_shield",
+      "name": "Canadian Shield control",
+      "region": "Central Quebec, Canada",
+      "body": "earth",
+      "role": "control",
+      "types": [],
+      "lat": 52.0,
+      "lon": -73.5,
+      "diameter_km": 25,
+      "window_km": 84,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "Glacially scoured lakes and low hills, similar latitude and rock age to Mistastin."
+    },
+    {
+      "id": "team_place_01",
+      "name": "Interior Baffin Island",
+      "region": "Interior Baffin Island, Nunavut, Canada",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars",
+        "moon"
+      ],
+      "place_id": "place-01",
+      "lat": 68.41,
+      "lon": -71.6,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-01 (climate match Mars 69%, Moon 77%). Mars type: Mars northern icy plains. Moon type: Moon south pole crater rims.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_04",
+      "name": "Chukotka",
+      "region": "Chukotka, far east Russia",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars",
+        "moon"
+      ],
+      "place_id": "place-04",
+      "lat": 68.06,
+      "lon": 177.39,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-04 (climate match Mars 66%, Moon 75%). Mars type: Mars northern icy plains. Moon type: Moon south pole crater rims.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_05",
+      "name": "Kyzylkum Desert",
+      "region": "Kyzylkum Desert, Uzbekistan",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars",
+        "moon"
+      ],
+      "place_id": "place-05",
+      "lat": 40.43,
+      "lon": 62.98,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-05 (climate match Mars 72%, Moon 58%). Mars type: Mars equatorial dusty plains. Moon type: Moon equatorial lava plains.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_07",
+      "name": "Desert of northwestern Iraq",
+      "region": "Desert of northwestern Iraq, near Syria",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-07",
+      "lat": 35.47,
+      "lon": 42.29,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-07 (climate match Mars 71%). Mars type: Mars equatorial dusty plains. Moon type: Moon equatorial lava plains.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_09",
+      "name": "West Greenland",
+      "region": "West Greenland, ice-free land near the coast",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-09",
+      "lat": 68.27,
+      "lon": -50.52,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-09 (climate match Moon 71%). Mars type: Mars northern icy plains. Moon type: Moon south pole crater rims.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_11",
+      "name": "Balochistan",
+      "region": "Balochistan, Pakistan, near Iran",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-11",
+      "lat": 27.02,
+      "lon": 63.17,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-11 (climate match Mars 69%). Mars type: Mars equatorial dusty plains. Moon type: Moon equatorial lava plains.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_12",
+      "name": "Karakum Desert",
+      "region": "Karakum Desert, Turkmenistan",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars",
+        "moon"
+      ],
+      "place_id": "place-12",
+      "lat": 40.81,
+      "lon": 56.94,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-12 (climate match Mars 69%, Moon 56%). Mars type: Mars equatorial dusty plains. Moon type: Moon equatorial lava plains.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_14",
+      "name": "Rub' al Khali (Empty Quarter)",
+      "region": "Rub' al Khali (Empty Quarter), Saudi Arabia",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-14",
+      "lat": 22.38,
+      "lon": 49.36,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-14 (climate match Mars 69%). Mars type: Mars equatorial dusty plains. Moon type: Moon equatorial lava plains.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_15",
+      "name": "Western Qatar desert",
+      "region": "Western Qatar desert",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-15",
+      "lat": 25.2,
+      "lon": 51.34,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-15 (climate match Mars 68%). Mars type: Mars equatorial dusty plains. Moon type: Moon equatorial lava plains.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_16",
+      "name": "Inland desert",
+      "region": "Inland desert, United Arab Emirates",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars"
+      ],
+      "place_id": "place-16",
+      "lat": 24.34,
+      "lon": 55.29,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-16 (climate match Mars 68%). Mars type: Mars equatorial dusty plains. Moon type: Moon equatorial lava plains.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_23",
+      "name": "Pamir high plateau",
+      "region": "Pamir high plateau, Xinjiang, China",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "mars",
+        "moon"
+      ],
+      "place_id": "place-23",
+      "lat": 37.15,
+      "lon": 75.56,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-23 (climate match Mars 66%, Moon 68%). Mars type: Mars mid-latitude cold plains. Moon type: Moon equatorial lava plains.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_26",
+      "name": "Arctic mainland",
+      "region": "Arctic mainland, Nunavut, Canada",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-26",
+      "lat": 68.81,
+      "lon": -112.84,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-26 (climate match Moon 67%). Mars type: Mars northern icy plains. Moon type: Moon south pole crater rims.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_33",
+      "name": "Great Lakes Depression",
+      "region": "Great Lakes Depression, western Mongolia",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-33",
+      "lat": 48.79,
+      "lon": 93.44,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-33 (climate match Moon 65%). Mars type: Mars mid-latitude cold plains. Moon type: Moon equatorial lava plains.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_34",
+      "name": "Nunavik",
+      "region": "Nunavik, northern Quebec, Canada",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-34",
+      "lat": 59.68,
+      "lon": -70.57,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-34 (climate match Moon 64%). Mars type: Mars northern icy plains. Moon type: Moon south pole crater rims.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_35",
+      "name": "Mackenzie Valley",
+      "region": "Mackenzie Valley, Northwest Territories, Canada",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-35",
+      "lat": 64.74,
+      "lon": -128.0,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-35 (climate match Moon 63%). Mars type: Mars northern icy plains. Moon type: Moon south pole crater rims.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_38",
+      "name": "Arctic mainland (38)",
+      "region": "Arctic mainland, Nunavut, Canada",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-38",
+      "lat": 66.31,
+      "lon": -113.07,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-38 (climate match Moon 61%). Mars type: Mars northern icy plains. Moon type: Moon south pole crater rims.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_41",
+      "name": "Central Mongolia",
+      "region": "Central Mongolia",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-41",
+      "lat": 47.22,
+      "lon": 99.05,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-41 (climate match Moon 59%). Mars type: Mars mid-latitude cold plains. Moon type: Moon equatorial lava plains.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_43",
+      "name": "Kolyma Lowland",
+      "region": "Kolyma Lowland, Yakutia, Russia",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-43",
+      "lat": 70.82,
+      "lon": 145.76,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-43 (climate match Moon 59%). Mars type: Mars northern icy plains. Moon type: Moon south pole crater rims.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_44",
+      "name": "Eastern Yakutia",
+      "region": "Eastern Yakutia, Russia",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-44",
+      "lat": 60.68,
+      "lon": 139.02,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-44 (climate match Moon 59%). Mars type: Mars northern icy plains. Moon type: Moon south pole crater rims.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_45",
+      "name": "Northern Yakutia",
+      "region": "Northern Yakutia, Russia",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-45",
+      "lat": 67.12,
+      "lon": 122.08,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-45 (climate match Moon 58%). Mars type: Mars northern icy plains. Moon type: Moon south pole crater rims.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_47",
+      "name": "Central Siberia",
+      "region": "Central Siberia, Krasnoyarsk, Russia",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-47",
+      "lat": 66.58,
+      "lon": 95.67,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-47 (climate match Moon 57%). Mars type: Mars northern icy plains. Moon type: Moon south pole crater rims.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_49",
+      "name": "Northern Siberia (Taymyr area)",
+      "region": "Northern Siberia (Taymyr area), Russia",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-49",
+      "lat": 69.95,
+      "lon": 104.79,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-49 (climate match Moon 57%). Mars type: Mars northern icy plains. Moon type: Moon south pole crater rims.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "team_place_50",
+      "name": "Kivalliq region",
+      "region": "Kivalliq region, Nunavut, Canada",
+      "body": "earth",
+      "role": "analog",
+      "tags": [
+        "team"
+      ],
+      "types": [],
+      "compare_bodies": [
+        "moon"
+      ],
+      "place_id": "place-50",
+      "lat": 62.26,
+      "lon": -100.25,
+      "diameter_km": 25,
+      "window_km": 30,
+      "refine_center": false,
+      "fetch_res_m": 30,
+      "source": "Copernicus DEM GLO-30 (ESA / AWS Open Data)",
+      "blurb": "#team place place-50 (climate match Moon 56%). Mars type: Mars northern icy plains. Moon type: Moon south pole crater rims.",
+      "verify": "region name not verified by the team script"
+    },
+    {
+      "id": "jezero",
+      "name": "Jezero Crater",
+      "region": "Isidis Planitia margin, Mars",
+      "body": "mars",
+      "role": "target",
+      "type": "crater",
+      "lat": 18.38,
+      "lon": 77.58,
+      "diameter_km": 45,
+      "window_km": 135,
+      "refine_center": true,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Perseverance rover landing site: ancient lake with a river delta.",
+      "earth_limits": [
+        "Mars gravity is 0.38 g: crater walls, slopes and ejecta behave differently.",
+        "Atmosphere is ~0.6% of Earth's pressure, mostly CO2: no liquid water today.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "Mean surface temperature about -60 C."
+      ]
+    },
+    {
+      "id": "arcadia",
+      "name": "Arcadia Planitia",
+      "region": "Northern mid-latitude plains, Mars",
+      "body": "mars",
+      "role": "target",
+      "type": "periglacial_plains",
+      "lat": 47.25,
+      "lon": -164.0,
+      "window_km": 100,
+      "compare_res_m": 200,
+      "source": "Mars HRSC-MOLA Blended DEM v2, 200 m (USGS Astrogeology)",
+      "blurb": "Smooth, low plains with shallow buried water ice (SHARAD radar, SWIM project pilot area): a proposed human landing region.",
+      "earth_limits": [
+        "Mars gravity is 0.38 g and the air is ~0.6% of Earth's pressure: ice sublimates instead of melting.",
+        "Ice here is buried under dry regolith; Earth permafrost has an active layer that thaws every summer.",
+        "No magnetic field: surface radiation far above Earth levels.",
+        "200 m elevation data cannot see metre-scale polygons; HiRISE DEMs would be needed."
+      ]
+    },
+    {
+      "id": "shackleton",
+      "name": "Shackleton Crater",
+      "region": "Lunar south pole, Moon",
+      "body": "moon",
+      "role": "target",
+      "type": "crater",
+      "lat": -89.67,
+      "lon": 129.78,
+      "diameter_km": 21,
+      "window_km": 63,
+      "refine_center": true,
+      "compare_res_m": 80,
+      "source": "LRO NAC 4 m stereo DEM (USGS, 'Moon LRO South Pole DEM') resampled to 20 m, LOLA LDEM_80S_80M fills the edges",
+      "blurb": "Rim lies almost on the south pole; permanently shadowed floor near Artemis candidate regions.",
+      "earth_limits": [
+        "Moon gravity is 0.165 g: much deeper, steeper fresh craters for the same size.",
+        "Hard vacuum and no weathering: craters stay sharp for billions of years.",
+        "Permanently shadowed floors reach ~40 K (-233 C), colder than anywhere on Earth.",
+        "No atmosphere or magnetic field to block radiation and micrometeorites."
+      ],
+      "fetch_res_m": 20,
+      "hires_dem": "lro_nac_south_pole",
+      "dem_source": "lro_nac_south_pole",
+      "heightmap_px": 512
+    },
+    {
+      "id": "malapert",
+      "name": "Malapert Massif",
+      "region": "Artemis III candidate region, lunar south pole",
+      "body": "moon",
+      "role": "target",
+      "type": "base_highland",
+      "lat": -85.99,
+      "lon": -2.93,
+      "window_km": 30,
+      "compare_res_m": 80,
+      "sun_elevation_deg": 1.5,
+      "source": "LRO LOLA polar DEM LDEM_80S_80M (NASA PDS Geosciences)",
+      "blurb": "~5 km high massif facing Earth: long sunlight on its heights and direct line of sight for communications.",
+      "earth_limits": [
+        "At the lunar pole the Sun never rises more than ~1.5 deg: Earth sites only see this low sun part of the year.",
+        "Moon gravity is 0.165 g and there is no atmosphere: no wind, no erosion, regolith stays loose.",
+        "Day/night temperature swings of ~250 K in sunlit areas.",
+        "No atmosphere or magnetic field to block radiation and micrometeorites."
+      ]
+    },
+    {
+      "id": "mons_mouton_plateau",
+      "name": "Mons Mouton Plateau",
+      "region": "Artemis III candidate region, lunar south pole",
+      "body": "moon",
+      "role": "target",
+      "type": "base_highland",
+      "lat": -84.79,
+      "lon": 29.2,
+      "window_km": 30,
+      "compare_res_m": 80,
+      "sun_elevation_deg": 1.5,
+      "source": "LRO LOLA polar DEM LDEM_80S_80M (NASA PDS Geosciences)",
+      "blurb": "The widest, flattest Artemis region. Centred on the IM-2 lander's 2025 touchdown point.",
+      "earth_limits": [
+        "At the lunar pole the Sun never rises more than ~1.5 deg: Earth sites only see this low sun part of the year.",
+        "Moon gravity is 0.165 g and there is no atmosphere: no wind, no erosion, regolith stays loose.",
+        "Day/night temperature swings of ~250 K in sunlit areas.",
+        "No atmosphere or magnetic field to block radiation and micrometeorites."
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "earth": "haughton",
+      "target": "jezero"
+    },
+    {
+      "earth": "mistastin",
+      "target": "shackleton"
+    }
+  ]
+}

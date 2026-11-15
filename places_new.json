@@ -1,0 +1,1323 @@
+[
+  {
+    "id": "place-01",
+    "region": "Interior Baffin Island, Nunavut, Canada",
+    "lat": 68.41,
+    "lon": -71.6,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 69,
+      "Moon": 77
+    },
+    "scores": {
+      "cold": 95,
+      "swing": 16,
+      "no_plants": 87,
+      "flat": 98,
+      "dust": 0
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Very cold on average",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "Not much dust in the air",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": true,
+    "featuredType": "Moon",
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ],
+    "regionGroup": "Canadian Arctic",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars northern icy plains",
+      "example": "Near the Phoenix lander site, far north of Mars",
+      "why": "Very cold with a small day-to-night change, like the frozen northern plains where Phoenix found ice under the soil"
+    },
+    "moonRegionType": {
+      "name": "Moon south pole crater rims",
+      "example": "Sunlit rims near the south pole, where future bases are planned",
+      "why": "Very cold and steady, like the south pole rims that stay at about -53°C"
+    }
+  },
+  {
+    "id": "place-04",
+    "region": "Chukotka, far east Russia",
+    "lat": 68.06,
+    "lon": 177.39,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 66,
+      "Moon": 75
+    },
+    "scores": {
+      "cold": 89,
+      "swing": 24,
+      "no_plants": 80,
+      "flat": 96,
+      "dust": 0
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Very cold on average",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "Not much dust in the air",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ],
+    "regionGroup": "Russian Far East",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars northern icy plains",
+      "example": "Near the Phoenix lander site, far north of Mars",
+      "why": "Very cold with a small day-to-night change, like the frozen northern plains where Phoenix found ice under the soil"
+    },
+    "moonRegionType": {
+      "name": "Moon south pole crater rims",
+      "example": "Sunlit rims near the south pole, where future bases are planned",
+      "why": "Very cold and steady, like the south pole rims that stay at about -53°C"
+    }
+  },
+  {
+    "id": "place-05",
+    "region": "Kyzylkum Desert, Uzbekistan",
+    "lat": 40.43,
+    "lon": 62.98,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 72,
+      "Moon": 58
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 89,
+      "no_plants": 68,
+      "flat": 100,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than the Moon",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [],
+    "regionGroup": "Kyzylkum Desert",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars equatorial dusty plains",
+      "example": "Like Gale Crater (Curiosity) and Jezero Crater (Perseverance)",
+      "why": "Big day-to-night temperature drop and lots of dust, like the warmest, dustiest part of Mars near the equator"
+    },
+    "moonRegionType": {
+      "name": "Moon equatorial lava plains",
+      "example": "Flat, dark lava plains near the Moon's equator, like the Apollo landing areas",
+      "why": "Big day-to-night temperature change on flat ground, like the Moon's equator (but the Moon's swing is far bigger)"
+    }
+  },
+  {
+    "id": "place-07",
+    "region": "Desert of northwestern Iraq, near Syria",
+    "lat": 35.47,
+    "lon": 42.29,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 71,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 78,
+      "no_plants": 67,
+      "flat": 99,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [],
+    "regionGroup": "Syrian Desert",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars equatorial dusty plains",
+      "example": "Like Gale Crater (Curiosity) and Jezero Crater (Perseverance)",
+      "why": "Big day-to-night temperature drop and lots of dust, like the warmest, dustiest part of Mars near the equator"
+    },
+    "moonRegionType": {
+      "name": "Moon equatorial lava plains",
+      "example": "Flat, dark lava plains near the Moon's equator, like the Apollo landing areas",
+      "why": "Big day-to-night temperature change on flat ground, like the Moon's equator (but the Moon's swing is far bigger)"
+    }
+  },
+  {
+    "id": "place-09",
+    "region": "West Greenland, ice-free land near the coast",
+    "lat": 68.27,
+    "lon": -50.52,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 71
+    },
+    "scores": {
+      "cold": 81,
+      "swing": 22,
+      "no_plants": 77,
+      "flat": 96,
+      "dust": 0
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ],
+    "regionGroup": "Greenland",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars northern icy plains",
+      "example": "Near the Phoenix lander site, far north of Mars",
+      "why": "Very cold with a small day-to-night change, like the frozen northern plains where Phoenix found ice under the soil"
+    },
+    "moonRegionType": {
+      "name": "Moon south pole crater rims",
+      "example": "Sunlit rims near the south pole, where future bases are planned",
+      "why": "Very cold and steady, like the south pole rims that stay at about -53°C"
+    }
+  },
+  {
+    "id": "place-11",
+    "region": "Balochistan, Pakistan, near Iran",
+    "lat": 27.02,
+    "lon": 63.17,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 69,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 83,
+      "no_plants": 65,
+      "flat": 98,
+      "dust": 95
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [],
+    "regionGroup": "Balochistan",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars equatorial dusty plains",
+      "example": "Like Gale Crater (Curiosity) and Jezero Crater (Perseverance)",
+      "why": "Big day-to-night temperature drop and lots of dust, like the warmest, dustiest part of Mars near the equator"
+    },
+    "moonRegionType": {
+      "name": "Moon equatorial lava plains",
+      "example": "Flat, dark lava plains near the Moon's equator, like the Apollo landing areas",
+      "why": "Big day-to-night temperature change on flat ground, like the Moon's equator (but the Moon's swing is far bigger)"
+    }
+  },
+  {
+    "id": "place-12",
+    "region": "Karakum Desert, Turkmenistan",
+    "lat": 40.81,
+    "lon": 56.94,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 69,
+      "Moon": 56
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 80,
+      "no_plants": 69,
+      "flat": 97,
+      "dust": 91
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than the Moon",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [],
+    "regionGroup": "Karakum Desert",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars equatorial dusty plains",
+      "example": "Like Gale Crater (Curiosity) and Jezero Crater (Perseverance)",
+      "why": "Big day-to-night temperature drop and lots of dust, like the warmest, dustiest part of Mars near the equator"
+    },
+    "moonRegionType": {
+      "name": "Moon equatorial lava plains",
+      "example": "Flat, dark lava plains near the Moon's equator, like the Apollo landing areas",
+      "why": "Big day-to-night temperature change on flat ground, like the Moon's equator (but the Moon's swing is far bigger)"
+    }
+  },
+  {
+    "id": "place-14",
+    "region": "Rub' al Khali (Empty Quarter), Saudi Arabia",
+    "lat": 22.38,
+    "lon": 49.36,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 69,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 71,
+      "no_plants": 62,
+      "flat": 100,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [],
+    "regionGroup": "Arabian Peninsula",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars equatorial dusty plains",
+      "example": "Like Gale Crater (Curiosity) and Jezero Crater (Perseverance)",
+      "why": "Big day-to-night temperature drop and lots of dust, like the warmest, dustiest part of Mars near the equator"
+    },
+    "moonRegionType": {
+      "name": "Moon equatorial lava plains",
+      "example": "Flat, dark lava plains near the Moon's equator, like the Apollo landing areas",
+      "why": "Big day-to-night temperature change on flat ground, like the Moon's equator (but the Moon's swing is far bigger)"
+    }
+  },
+  {
+    "id": "place-15",
+    "region": "Western Qatar desert",
+    "lat": 25.2,
+    "lon": 51.34,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 68,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 58,
+      "no_plants": 64,
+      "flat": 100,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Some temperature drop at night",
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [],
+    "regionGroup": "Arabian Peninsula",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars equatorial dusty plains",
+      "example": "Like Gale Crater (Curiosity) and Jezero Crater (Perseverance)",
+      "why": "Big day-to-night temperature drop and lots of dust, like the warmest, dustiest part of Mars near the equator"
+    },
+    "moonRegionType": {
+      "name": "Moon equatorial lava plains",
+      "example": "Flat, dark lava plains near the Moon's equator, like the Apollo landing areas",
+      "why": "Big day-to-night temperature change on flat ground, like the Moon's equator (but the Moon's swing is far bigger)"
+    }
+  },
+  {
+    "id": "place-16",
+    "region": "Inland desert, United Arab Emirates",
+    "lat": 24.34,
+    "lon": 55.29,
+    "targets": [
+      "Mars"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": 68,
+      "Moon": null
+    },
+    "scores": {
+      "cold": 0,
+      "swing": 77,
+      "no_plants": 58,
+      "flat": 99,
+      "dust": 100
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing",
+          "Lots of dust in the air"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Much warmer than Mars",
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [],
+    "regionGroup": "Arabian Peninsula",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars equatorial dusty plains",
+      "example": "Like Gale Crater (Curiosity) and Jezero Crater (Perseverance)",
+      "why": "Big day-to-night temperature drop and lots of dust, like the warmest, dustiest part of Mars near the equator"
+    },
+    "moonRegionType": {
+      "name": "Moon equatorial lava plains",
+      "example": "Flat, dark lava plains near the Moon's equator, like the Apollo landing areas",
+      "why": "Big day-to-night temperature change on flat ground, like the Moon's equator (but the Moon's swing is far bigger)"
+    }
+  },
+  {
+    "id": "place-23",
+    "region": "Pamir high plateau, Xinjiang, China",
+    "lat": 37.15,
+    "lon": 75.56,
+    "targets": [
+      "Mars",
+      "Moon"
+    ],
+    "matchesBoth": true,
+    "match": {
+      "Mars": 66,
+      "Moon": 68
+    },
+    "scores": {
+      "cold": 48,
+      "swing": 79,
+      "no_plants": 72,
+      "flat": 79,
+      "dust": 46
+    },
+    "text": {
+      "Mars": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "A bit cold",
+          "Some dust in the air"
+        ],
+        "different": [
+          "You can breathe the air here, Mars air is very thin",
+          "Gravity on Mars is only about one third of Earth's"
+        ]
+      },
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "A bit cold"
+        ],
+        "different": [
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": true,
+    "featuredType": "Cold Mars",
+    "notes": [],
+    "regionGroup": "Pamir",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars mid-latitude cold plains",
+      "example": "The plains between the Mars equator and the poles",
+      "why": "Fairly cold and dry, between the dusty equator and the icy north"
+    },
+    "moonRegionType": {
+      "name": "Moon equatorial lava plains",
+      "example": "Flat, dark lava plains near the Moon's equator, like the Apollo landing areas",
+      "why": "Big day-to-night temperature change on flat ground, like the Moon's equator (but the Moon's swing is far bigger)"
+    }
+  },
+  {
+    "id": "place-26",
+    "region": "Arctic mainland, Nunavut, Canada",
+    "lat": 68.81,
+    "lon": -112.84,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 67
+    },
+    "scores": {
+      "cold": 85,
+      "swing": 15,
+      "no_plants": 64,
+      "flat": 98,
+      "dust": 0
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ],
+    "regionGroup": "Canadian Arctic",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars northern icy plains",
+      "example": "Near the Phoenix lander site, far north of Mars",
+      "why": "Very cold with a small day-to-night change, like the frozen northern plains where Phoenix found ice under the soil"
+    },
+    "moonRegionType": {
+      "name": "Moon south pole crater rims",
+      "example": "Sunlit rims near the south pole, where future bases are planned",
+      "why": "Very cold and steady, like the south pole rims that stay at about -53°C"
+    }
+  },
+  {
+    "id": "place-33",
+    "region": "Great Lakes Depression, western Mongolia",
+    "lat": 48.79,
+    "lon": 93.44,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 65
+    },
+    "scores": {
+      "cold": 32,
+      "swing": 74,
+      "no_plants": 72,
+      "flat": 97,
+      "dust": 6
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Almost no plants",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "A bit cold"
+        ],
+        "different": [
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [],
+    "regionGroup": "Western Mongolia",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars mid-latitude cold plains",
+      "example": "The plains between the Mars equator and the poles",
+      "why": "Fairly cold and dry, between the dusty equator and the icy north"
+    },
+    "moonRegionType": {
+      "name": "Moon equatorial lava plains",
+      "example": "Flat, dark lava plains near the Moon's equator, like the Apollo landing areas",
+      "why": "Big day-to-night temperature change on flat ground, like the Moon's equator (but the Moon's swing is far bigger)"
+    }
+  },
+  {
+    "id": "place-34",
+    "region": "Nunavik, northern Quebec, Canada",
+    "lat": 59.68,
+    "lon": -70.57,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 64
+    },
+    "scores": {
+      "cold": 74,
+      "swing": 23,
+      "no_plants": 57,
+      "flat": 98,
+      "dust": 0
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ],
+    "regionGroup": "Canadian Arctic",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars northern icy plains",
+      "example": "Near the Phoenix lander site, far north of Mars",
+      "why": "Very cold with a small day-to-night change, like the frozen northern plains where Phoenix found ice under the soil"
+    },
+    "moonRegionType": {
+      "name": "Moon south pole crater rims",
+      "example": "Sunlit rims near the south pole, where future bases are planned",
+      "why": "Very cold and steady, like the south pole rims that stay at about -53°C"
+    }
+  },
+  {
+    "id": "place-35",
+    "region": "Mackenzie Valley, Northwest Territories, Canada",
+    "lat": 64.74,
+    "lon": -128.0,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 63
+    },
+    "scores": {
+      "cold": 70,
+      "swing": 25,
+      "no_plants": 63,
+      "flat": 93,
+      "dust": 0
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ],
+    "regionGroup": "Canadian Arctic",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars northern icy plains",
+      "example": "Near the Phoenix lander site, far north of Mars",
+      "why": "Very cold with a small day-to-night change, like the frozen northern plains where Phoenix found ice under the soil"
+    },
+    "moonRegionType": {
+      "name": "Moon south pole crater rims",
+      "example": "Sunlit rims near the south pole, where future bases are planned",
+      "why": "Very cold and steady, like the south pole rims that stay at about -53°C"
+    }
+  },
+  {
+    "id": "place-38",
+    "region": "Arctic mainland, Nunavut, Canada",
+    "lat": 66.31,
+    "lon": -113.07,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 61
+    },
+    "scores": {
+      "cold": 79,
+      "swing": 15,
+      "no_plants": 47,
+      "flat": 99,
+      "dust": 0
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ],
+    "regionGroup": "Canadian Arctic",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars northern icy plains",
+      "example": "Near the Phoenix lander site, far north of Mars",
+      "why": "Very cold with a small day-to-night change, like the frozen northern plains where Phoenix found ice under the soil"
+    },
+    "moonRegionType": {
+      "name": "Moon south pole crater rims",
+      "example": "Sunlit rims near the south pole, where future bases are planned",
+      "why": "Very cold and steady, like the south pole rims that stay at about -53°C"
+    }
+  },
+  {
+    "id": "place-41",
+    "region": "Central Mongolia",
+    "lat": 47.22,
+    "lon": 99.05,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 59
+    },
+    "scores": {
+      "cold": 48,
+      "swing": 76,
+      "no_plants": 37,
+      "flat": 92,
+      "dust": 4
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Big temperature drop from day to night",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "A bit cold",
+          "Only a few plants"
+        ],
+        "different": [
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [],
+    "regionGroup": "Central Mongolia",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars mid-latitude cold plains",
+      "example": "The plains between the Mars equator and the poles",
+      "why": "Fairly cold and dry, between the dusty equator and the icy north"
+    },
+    "moonRegionType": {
+      "name": "Moon equatorial lava plains",
+      "example": "Flat, dark lava plains near the Moon's equator, like the Apollo landing areas",
+      "why": "Big day-to-night temperature change on flat ground, like the Moon's equator (but the Moon's swing is far bigger)"
+    }
+  },
+  {
+    "id": "place-43",
+    "region": "Kolyma Lowland, Yakutia, Russia",
+    "lat": 70.82,
+    "lon": 145.76,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 59
+    },
+    "scores": {
+      "cold": 97,
+      "swing": 13,
+      "no_plants": 24,
+      "flat": 99,
+      "dust": 1
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "Has quite a few plants",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ],
+    "regionGroup": "Siberia",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars northern icy plains",
+      "example": "Near the Phoenix lander site, far north of Mars",
+      "why": "Very cold with a small day-to-night change, like the frozen northern plains where Phoenix found ice under the soil"
+    },
+    "moonRegionType": {
+      "name": "Moon south pole crater rims",
+      "example": "Sunlit rims near the south pole, where future bases are planned",
+      "why": "Very cold and steady, like the south pole rims that stay at about -53°C"
+    }
+  },
+  {
+    "id": "place-44",
+    "region": "Eastern Yakutia, Russia",
+    "lat": 60.68,
+    "lon": 139.02,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 59
+    },
+    "scores": {
+      "cold": 86,
+      "swing": 28,
+      "no_plants": 37,
+      "flat": 80,
+      "dust": 1
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ],
+    "regionGroup": "Siberia",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars northern icy plains",
+      "example": "Near the Phoenix lander site, far north of Mars",
+      "why": "Very cold with a small day-to-night change, like the frozen northern plains where Phoenix found ice under the soil"
+    },
+    "moonRegionType": {
+      "name": "Moon south pole crater rims",
+      "example": "Sunlit rims near the south pole, where future bases are planned",
+      "why": "Very cold and steady, like the south pole rims that stay at about -53°C"
+    }
+  },
+  {
+    "id": "place-45",
+    "region": "Northern Yakutia, Russia",
+    "lat": 67.12,
+    "lon": 122.08,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 58
+    },
+    "scores": {
+      "cold": 94,
+      "swing": 30,
+      "no_plants": 15,
+      "flat": 98,
+      "dust": 1
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "Has quite a few plants",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ],
+    "regionGroup": "Siberia",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars northern icy plains",
+      "example": "Near the Phoenix lander site, far north of Mars",
+      "why": "Very cold with a small day-to-night change, like the frozen northern plains where Phoenix found ice under the soil"
+    },
+    "moonRegionType": {
+      "name": "Moon south pole crater rims",
+      "example": "Sunlit rims near the south pole, where future bases are planned",
+      "why": "Very cold and steady, like the south pole rims that stay at about -53°C"
+    }
+  },
+  {
+    "id": "place-47",
+    "region": "Central Siberia, Krasnoyarsk, Russia",
+    "lat": 66.58,
+    "lon": 95.67,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 57
+    },
+    "scores": {
+      "cold": 91,
+      "swing": 22,
+      "no_plants": 21,
+      "flat": 97,
+      "dust": 1
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "Has quite a few plants",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ],
+    "regionGroup": "Siberia",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars northern icy plains",
+      "example": "Near the Phoenix lander site, far north of Mars",
+      "why": "Very cold with a small day-to-night change, like the frozen northern plains where Phoenix found ice under the soil"
+    },
+    "moonRegionType": {
+      "name": "Moon south pole crater rims",
+      "example": "Sunlit rims near the south pole, where future bases are planned",
+      "why": "Very cold and steady, like the south pole rims that stay at about -53°C"
+    }
+  },
+  {
+    "id": "place-49",
+    "region": "Northern Siberia (Taymyr area), Russia",
+    "lat": 69.95,
+    "lon": 104.79,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 57
+    },
+    "scores": {
+      "cold": 98,
+      "swing": 21,
+      "no_plants": 13,
+      "flat": 97,
+      "dust": 1
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [],
+        "different": [
+          "Small change between day and night",
+          "Has quite a few plants",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ],
+    "regionGroup": "Siberia",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars northern icy plains",
+      "example": "Near the Phoenix lander site, far north of Mars",
+      "why": "Very cold with a small day-to-night change, like the frozen northern plains where Phoenix found ice under the soil"
+    },
+    "moonRegionType": {
+      "name": "Moon south pole crater rims",
+      "example": "Sunlit rims near the south pole, where future bases are planned",
+      "why": "Very cold and steady, like the south pole rims that stay at about -53°C"
+    }
+  },
+  {
+    "id": "place-50",
+    "region": "Kivalliq region, Nunavut, Canada",
+    "lat": 62.26,
+    "lon": -100.25,
+    "targets": [
+      "Moon"
+    ],
+    "matchesBoth": false,
+    "match": {
+      "Mars": null,
+      "Moon": 56
+    },
+    "scores": {
+      "cold": 75,
+      "swing": 15,
+      "no_plants": 35,
+      "flat": 99,
+      "dust": 0
+    },
+    "text": {
+      "Moon": {
+        "same": [
+          "Very cold on average",
+          "Very flat ground, good for landing"
+        ],
+        "partly": [
+          "Only a few plants"
+        ],
+        "different": [
+          "Small change between day and night",
+          "The Moon has no air at all",
+          "Gravity on the Moon is only about one sixth of Earth's"
+        ]
+      }
+    },
+    "featured": false,
+    "featuredType": null,
+    "notes": [
+      "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+    ],
+    "regionGroup": "Canadian Arctic",
+    "status": "new",
+    "regionVerified": false,
+    "marsRegionType": {
+      "name": "Mars northern icy plains",
+      "example": "Near the Phoenix lander site, far north of Mars",
+      "why": "Very cold with a small day-to-night change, like the frozen northern plains where Phoenix found ice under the soil"
+    },
+    "moonRegionType": {
+      "name": "Moon south pole crater rims",
+      "example": "Sunlit rims near the south pole, where future bases are planned",
+      "why": "Very cold and steady, like the south pole rims that stay at about -53°C"
+    }
+  }
+]

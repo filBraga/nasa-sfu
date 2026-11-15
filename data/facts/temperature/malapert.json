@@ -1,0 +1,6 @@
+{
+ "dataset": "diviner",
+ "low_k": 74.3,
+ "high_k": 253.6,
+ "what": "typical coldest and hottest surface temperature over a lunar day, southern summer"
+}

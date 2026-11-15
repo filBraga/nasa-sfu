@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analog Explorer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="intro.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <script src="intro.js"></script>
+  <div id="app">
+    <aside id="matches-panel">
+      <header>
+        <h1>Top matches</h1>
+        <p class="sub">Best Canadian candidates for each Moon and Mars target</p>
+      </header>
+      <div id="top-matches"></div>
+    </aside>
+
+    <main id="stage">
+      <div id="labels-globes" class="labels"></div>
+      <div id="labels-compare" class="labels" hidden></div>
+      <div id="stage-hint"></div>
+      <div id="body-switch" role="group" aria-label="Focus planet">
+        <button data-body="all" class="active">All</button>
+        <button data-body="earth">Earth</button>
+        <button data-body="moon">Moon</button>
+        <button data-body="mars">Mars</button>
+      </div>
+      <div id="facts-strip" aria-label="Site facts"></div>
+      <div id="compare-controls" hidden>
+        <label>Vertical exaggeration <input id="exag" type="range" min="1" max="20" step="0.5" value="3"> <span id="exag-val">3x</span></label>
+        <label><input id="indep" type="checkbox"> Scale each relief independently</label>
+      </div>
+    </main>
+
+    <aside id="panel">
+      <header>
+        <div class="panel-title">
+          <h1>Analog Explorer</h1>
+          <button id="open-options" class="options-btn" type="button" aria-label="Options" title="Options">⚙</button>
+        </div>
+        <p class="sub">Canadian terrain analogs for the Moon and Mars</p>
+        <nav class="tabs" role="tablist">
+          <button id="tab-globes" class="tab active" role="tab">Planets</button>
+          <button id="tab-compare" class="tab" role="tab">Compare</button>
+        </nav>
+      </header>
+
+      <section class="pickers">
+        <label>Earth site <select id="sel-earth"></select></label>
+        <label>Target <select id="sel-target"></select></label>
+      </section>
+
+      <section id="score-card" class="card"></section>
+
+      <nav class="subtabs" role="tablist" aria-label="Panel sections">
+        <button data-pane="scores" role="tab">Scores</button>
+        <button data-pane="charts" role="tab">Charts</button>
+        <button data-pane="filters" role="tab">Filters <span id="filters-badge" class="badge"></span></button>
+        <button data-pane="about" role="tab">About</button>
+      </nav>
+
+      <div class="pane" data-pane="scores">
+      <section id="metrics" class="card"></section>
+      <section id="ranking" class="card"></section>
+      </div>
+
+      <div class="pane" data-pane="filters" hidden>
+      <section id="dims" class="card"></section>
+      <section id="source-filter" class="card"></section>
+      </div>
+
+      <div class="pane" data-pane="charts" hidden>
+      <section id="charts" class="card">
+        <div id="chart-profile-wrap">
+          <h2>Crater profile <span class="hint">normalised elevation vs distance / radius</span></h2>
+          <div id="chart-profile" class="chart"></div>
+        </div>
+        <div id="chart-illum-wrap" hidden>
+          <h2>Sunlight at low sun <span class="hint" id="chart-illum-hint"></span></h2>
+          <div id="chart-illum" class="chart"></div>
+        </div>
+        <div id="chart-texture-wrap" hidden>
+          <h2>Terrain texture <span class="hint">normalised log power vs wavelength</span></h2>
+          <div id="chart-texture" class="chart"></div>
+        </div>
+        <h2>Slope distribution <span class="hint">share of area per degree</span></h2>
+        <div id="chart-slope" class="chart"></div>
+        <h2>Hypsometry <span class="hint">normalised elevation vs area fraction above</span></h2>
+        <div id="chart-hypso" class="chart"></div>
+      </section>
+      <section id="layer-charts" class="card" hidden></section>
+      </div>
+
+      <div class="pane" data-pane="about" hidden>
+      <section id="limits" class="card"></section>
+      <section id="sources" class="card"></section>
+      <button id="open-sources" class="sources-btn" type="button">Data sources &amp; how we got them</button>
+      <footer>
+        Data: Copernicus DEM GLO-30 (ESA), Mars HRSC-MOLA Blend and MOLA (NASA/ESA/DLR, USGS),
+        LRO LOLA (NASA PDS), Blue Marble (NASA), LROC colour mosaic (NASA SVS).
+        <button id="open-sources-footer" class="link-btn" type="button">Full sources</button>
+        <br><button id="replay-intro" class="replay-intro" type="button">Replay intro</button>
+      </footer>
+      </div>
+    </aside>
+  </div>
+  <dialog id="sources-dialog" aria-labelledby="sources-title">
+    <div class="dlg-head">
+      <h1 id="sources-title">Data sources &amp; how we got them</h1>
+      <button class="dlg-close" type="button" aria-label="Close">✕</button>
+    </div>
+    <div id="sources-body"></div>
+  </dialog>
+  <dialog id="options-dialog" aria-labelledby="options-title">
+    <div class="dlg-head">
+      <h1 id="options-title">Options</h1>
+      <button class="dlg-close" type="button" aria-label="Close">✕</button>
+    </div>
+    <div class="options-body">
+      <label class="opt-row">
+        <span>Play intro on startup</span>
+        <input id="opt-intro" type="checkbox">
+      </label>
+      <button id="opt-play-intro" class="sources-btn" type="button">Play intro now</button>
+    </div>
+  </dialog>
+  <div id="error" hidden></div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

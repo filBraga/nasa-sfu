@@ -1,0 +1,6 @@
+{
+ "dataset": "themis_ir",
+ "low_k": 208.8,
+ "high_k": 230.2,
+ "what": "typical early-morning (~5-7 h) and late-afternoon (~17-18 h) surface temperature, season Ls 70-160; Mars Odyssey never sees midday or midnight, so the true range is wider"
+}
