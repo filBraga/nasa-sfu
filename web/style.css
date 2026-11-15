@@ -282,6 +282,53 @@ select {
 .metric.nodata .top span:first-child { color: var(--muted); }
 .metric.nodata .bar { background: repeating-linear-gradient(45deg, var(--line) 0 4px, transparent 4px 8px); }
 
+/* Suitability score card */
+.suit-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+.suit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.suit-header h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+.suit-group {
+  margin: 8px 0;
+  padding: 8px;
+  background: var(--card);
+  border-radius: 6px;
+}
+.suit-group-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+.suit-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.dim-chip {
+  font-size: 10.5px;
+  padding: 2px 6px;
+  border-radius: 99px;
+  background: var(--line);
+  color: var(--text);
+}
+.dim-chip[style*="strong"] { background: var(--strong); color: var(--bg); }
+.dim-chip[style*="partial"] { background: var(--partial); color: var(--bg); }
+.dim-chip[style*="weak"] { background: var(--weak); color: var(--bg); }
+
 .dim-group h3 { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin: 8px 0 2px; font-weight: 500; }
 .dim-row { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 3px 0; cursor: pointer; }
 .dim-row input { accent-color: var(--earth); margin: 0; }
@@ -423,3 +470,15 @@ footer { font-size: 11px; color: var(--muted); line-height: 1.5; padding: 4px 2p
   #panel { order: 3; }
   #panel { width: 100%; border-left: none; border-top: 1px solid var(--line); }
 }
+/* Source evidence is fetched only when opened. */
+.evidence-card { margin-top: 20px; padding: 12px; border: 1px solid var(--muted, #555); border-radius: 8px; }
+.evidence-card summary { cursor: pointer; padding: 6px 0; }
+.evidence-card select { display: block; width: 100%; margin: 8px 0; }
+.evidence-fact { border-top: 1px solid #5555; padding: 6px 0; overflow-wrap: anywhere; }
+.lunar-dust-card { margin-top: 18px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; }
+.lunar-dust-card summary { cursor: pointer; padding: 6px 0; }
+.lunar-dust-card select { margin: 8px; }
+.dust-table { max-height: 260px; overflow: auto; }
+#operation-preset select { display: block; width: 100%; margin: 8px 0; }
+#operation-preset summary { cursor: pointer; }
+#operation-preset p { line-height: 1.5; }

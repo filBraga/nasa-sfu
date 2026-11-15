@@ -353,6 +353,28 @@
       "used_for": "Surface dust (Mars targets)",
       "credit": "Ruff, S.W. and Christensen, P.R. (2002), JGR 107(E12), 5127, doi:10.1029/2001JE001580.",
       "short": "MGS TES Dust Cover Index"
+    },
+    {
+      "id": "lola_global_16",
+      "name": "LOLA global terrain, 16 pixels/degree",
+      "short": "LOLA global",
+      "category": "elevation",
+      "bodies": [
+        "moon"
+      ],
+      "url": "https://svs.gsfc.nasa.gov/4720/",
+      "provider": "NASA SVS / LRO LOLA",
+      "resolution": "~1.9 km north-south native grid; compared at 2 km/pixel",
+      "caveat": "Regional terrain only. Cached TIFF orientation and km-to-m conversion cross-checked against PDS samples. Not a landing-hazard map.",
+      "agency": "NASA",
+      "measures": "Regional lunar elevation above the 1737.4 km reference sphere",
+      "links": [
+        {
+          "label": "NASA Moon Kit",
+          "url": "https://svs.gsfc.nasa.gov/4720/"
+        }
+      ],
+      "how": "Local windows from the cached LOLA 16 ppd TIFF, with explicit georeferencing and km-to-m conversion; no global raster sent to the browser."
     }
   ],
   "site_coordinates": {
@@ -411,6 +433,618 @@
     "mons_mouton_plateau": {
       "source": "IM-2 lander touchdown point 84 47 26 S, 29 11 45 E (DLR)",
       "url": "https://www.dlr.de/en/latest/news/2025/new-lunar-mission-to-demonstrate-search-for-water-ice-at-moon-s-south-pole/im-2-landing-site-mons-mouton"
+    },
+    "copernicus": {
+      "source": "moon-data/moon_data.json; approximate researched regional coordinate",
+      "note": "Local terrain window; not a verified landing or cave entrance coordinate."
+    },
+    "tycho": {
+      "source": "moon-data/moon_data.json; approximate researched regional coordinate",
+      "note": "Local terrain window; not a verified landing or cave entrance coordinate."
+    },
+    "aristarchus": {
+      "source": "moon-data/moon_data.json; approximate researched regional coordinate",
+      "note": "Local terrain window; not a verified landing or cave entrance coordinate."
+    },
+    "south_pole_aitken": {
+      "source": "moon-data/moon_data.json; approximate researched regional coordinate",
+      "note": "Local terrain window; not a verified landing or cave entrance coordinate."
+    },
+    "mare_tranquillitatis": {
+      "source": "moon-data/moon_data.json; approximate researched regional coordinate",
+      "note": "Local terrain window; not a verified landing or cave entrance coordinate."
+    },
+    "mare_serenitatis": {
+      "source": "moon-data/moon_data.json; approximate researched regional coordinate",
+      "note": "Local terrain window; not a verified landing or cave entrance coordinate."
+    },
+    "mare_imbrium": {
+      "source": "moon-data/moon_data.json; approximate researched regional coordinate",
+      "note": "Local terrain window; not a verified landing or cave entrance coordinate."
+    },
+    "chang_e_4_site": {
+      "source": "moon-data/moon_data.json; approximate researched regional coordinate",
+      "note": "Local terrain window; not a verified landing or cave entrance coordinate."
+    },
+    "gale": {
+      "source": "mars-data/mars_data.json; approximate researched regional coordinate",
+      "note": "Local terrain window; not a verified landing or cave entrance coordinate."
+    },
+    "oxia": {
+      "source": "mars-data/mars_data.json; approximate researched regional coordinate",
+      "note": "Local terrain window; not a verified landing or cave entrance coordinate."
+    },
+    "arsia": {
+      "source": "mars-data/mars_data.json; approximate researched regional coordinate",
+      "note": "Local terrain window; not a verified landing or cave entrance coordinate."
+    },
+    "pavonis": {
+      "source": "mars-data/mars_data.json; approximate researched regional coordinate",
+      "note": "Local terrain window; not a verified landing or cave entrance coordinate."
+    },
+    "moon_clavius": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_plato": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_eratosthenes": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_kepler": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_aristillus": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_autolycus": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_archimedes": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_ptolemaeus": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_alphonsus": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_arzachel": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_theophilus": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_cyrillus": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_catharina": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_mare_crisium": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_mare_nectaris": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_mare_fecunditatis": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_oceanus_procellarum": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_mare_humorum": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_mare_nubium": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_mare_vaporum": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_mare_frigoris": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_mare_australe": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_mare_smythii": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_mare_marginis": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_mare_orientale": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_lacus_mortis": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_lacus_somniorum": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_sinus_iridum": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_sinus_medii": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_palus_putredinis": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_aristarchus_plateau": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_montes_apenninus": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_montes_alpes": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_montes_caucasus": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_montes_carpathus": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_montes_haemus": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_montes_jura": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_montes_recti": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_montes_teneriffe": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_rupes_recta": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_rupes_altai": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_rupes_cauchy": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_rima_hadley": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_rima_ariadaeus": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_rima_hyginus": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_rimae_triesnecker": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_rimae_gassendi": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_rimae_posidonius": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_vallis_schr_teri": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_vallis_alpes": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_vallis_bouvard": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_vallis_inghirami": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_vallis_rheita": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_vallis_snellius": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_dorsum_oppel": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_dorsum_azara": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_dorsum_bucher": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_dorsum_cushman": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_dorsum_heim": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_dorsum_higazy": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_dorsum_niggli": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_dorsum_owen": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_dorsum_scilla": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_dorsum_thera": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_dorsum_von_cotta": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_dorsum_zirkel": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_promontorium_heraclides": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_promontorium_laplace": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_promontorium_agarum": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_promontorium_deville": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_promontorium_fresnel": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_promontorium_kelvin": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_promontorium_lavin": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_promontorium_taenarium": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_serenitatis_basin": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_crisium_basin": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_nectaris_basin": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_humorum_basin": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_schr_dinger_basin": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_apollo_basin": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_mendeleev_basin": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_korolev_basin": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_gagarin_crater": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_tsiolkovsky_crater": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_hertzsprung_crater": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_mare_moscoviense": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_mare_ingenii": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_luna_16_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_luna_20_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_luna_24_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_chang_e_3_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_chang_e_5_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_surveyor_1_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_surveyor_3_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_surveyor_5_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_surveyor_6_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_surveyor_7_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_apollo_11_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_apollo_14_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_apollo_15_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_apollo_16_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_apollo_17_landing": {
+      "source": "moon-data/moon_features.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_luna_9": {
+      "source": "moon-data/moon_landers.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_luna_13": {
+      "source": "moon-data/moon_landers.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_surveyor_6": {
+      "source": "moon-data/moon_landers.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_luna_16": {
+      "source": "moon-data/moon_landers.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_luna_17": {
+      "source": "moon-data/moon_landers.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_luna_21": {
+      "source": "moon-data/moon_landers.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_chang_e_5": {
+      "source": "moon-data/moon_landers.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_chandrayaan_3": {
+      "source": "moon-data/moon_landers.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_slim": {
+      "source": "moon-data/moon_landers.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_odysseus_im_1": {
+      "source": "moon-data/moon_landers.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_chang_e_6": {
+      "source": "moon-data/moon_landers.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "moon_blue_ghost_1": {
+      "source": "moon-data/moon_landers.json",
+      "note": "Saved catalog coordinate; local comparison window, not an operationally certified site."
+    },
+    "team_place_02": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_03": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_06": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_08": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_10": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_13": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_17": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_18": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_19": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_20": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_21": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_22": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_24": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_25": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_27": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_28": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_29": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_30": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_31": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_32": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_36": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_37": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_39": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_40": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_42": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_46": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
+    },
+    "team_place_48": {
+      "source": "Saved team coordinate in web/data/places_all.json",
+      "note": "Region text may be unverified. Descriptive map percentages are not physical measurements."
     }
   }
 }

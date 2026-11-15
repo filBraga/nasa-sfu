@@ -279,6 +279,96 @@
           }
         }
       }
+    },
+    {
+      "id": "shackleton",
+      "name": "Shackleton Crater",
+      "bounds": {
+        "minlat": -90.0,
+        "maxlat": -88.0,
+        "westernlon": 0.0,
+        "easternlon": 360.0
+      },
+      "source": "https://oderest.rsl.wustl.edu/live2/?query=featuredata&odemetadb=moon&featurename=Shackleton&output=JSON",
+      "facts": [
+        {
+          "category": "terrain",
+          "key": "feature_class",
+          "value": "Crater",
+          "status": "imported_catalog_metadata",
+          "src": "https://oderest.rsl.wustl.edu/live2/?query=featuredata&odemetadb=moon&featurename=Shackleton&output=JSON"
+        }
+      ],
+      "note": "Lunar south pole crater, Artemis target region. Permanently shadowed regions may contain water ice.",
+      "lat": -89.67,
+      "lon_e": 129.78,
+      "location_status": "named_feature_sampled",
+      "dimensions": {
+        "terrain": {
+          "name": "Terrain",
+          "subdimensions": {}
+        }
+      }
+    },
+    {
+      "id": "malapert",
+      "name": "Malapert Massif",
+      "bounds": {
+        "minlat": -87.0,
+        "maxlat": -84.5,
+        "westernlon": -10.0,
+        "easternlon": 5.0
+      },
+      "source": "https://oderest.rsl.wustl.edu/live2/?query=featuredata&odemetadb=moon&featurename=Malapert&output=JSON",
+      "facts": [
+        {
+          "category": "terrain",
+          "key": "feature_class",
+          "value": "Massif",
+          "status": "imported_catalog_metadata",
+          "src": "https://oderest.rsl.wustl.edu/live2/?query=featuredata&odemetadb=moon&featurename=Malapert&output=JSON"
+        }
+      ],
+      "note": "Highland massif near lunar south pole, Artemis candidate landing site. High illumination.",
+      "lat": -85.99,
+      "lon_e": 357.07,
+      "location_status": "named_feature_sampled",
+      "dimensions": {
+        "terrain": {
+          "name": "Terrain",
+          "subdimensions": {}
+        }
+      }
+    },
+    {
+      "id": "mons_mouton_plateau",
+      "name": "Mons Mouton Plateau",
+      "bounds": {
+        "minlat": -86.0,
+        "maxlat": -83.5,
+        "westernlon": 25.0,
+        "easternlon": 35.0
+      },
+      "source": "https://oderest.rsl.wustl.edu/live2/?query=featuredata&odemetadb=moon&featurename=Mons%20Mouton&output=JSON",
+      "facts": [
+        {
+          "category": "terrain",
+          "key": "feature_class",
+          "value": "Plateau",
+          "status": "imported_catalog_metadata",
+          "src": "https://oderest.rsl.wustl.edu/live2/?query=featuredata&odemetadb=moon&featurename=Mons%20Mouton&output=JSON"
+        }
+      ],
+      "note": "Flat-topped mountain near lunar south pole, Artemis candidate landing site.",
+      "lat": -84.79,
+      "lon_e": 29.2,
+      "location_status": "named_feature_sampled",
+      "dimensions": {
+        "terrain": {
+          "name": "Terrain",
+          "subdimensions": {}
+        }
+      }
     }
   ]
 }

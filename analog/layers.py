@@ -18,6 +18,12 @@ from scipy.stats import wasserstein_distance
 from . import ROOT
 from .facts import FACTS_DIR, read_facts
 from .sources import local_crs, local_grid
+from .similarity import exponential_similarity
+
+
+def layer_similarity(layer, distance):
+    tau = layer["tau"] if "tau" in layer else float(layer["scale"]) * math.log(2)
+    return exponential_similarity(distance, tau, layer.get("p", 1))
 
 LAYER_DIR = ROOT / "data" / "layers"
 REGISTRY = ROOT / "config" / "layers.json"
@@ -73,7 +79,7 @@ def fact_value(layer, site_id):
     if not fact:
         return None
     vals = [fact.get(k) for k in spec["mean_of"]]
-    if any(v is None for v in vals):
+    if any(v is None or not np.isfinite(v) for v in vals):
         return None
     return float(np.mean(vals))
 
@@ -124,7 +130,10 @@ def _compare_ratio(layer, a, b):
     Used when the bodies differ by orders of magnitude (e.g. day-night swing: Earth ~10 K, Moon ~150 K)."""
     floor = float(layer.get("ratio_floor", 0.1))
     ma, mb = max(float(np.median(a)), floor), max(float(np.median(b)), floor)
-    score = 0.5 ** (abs(math.log(ma / mb)) / math.log(float(layer.get("ratio_halving", 4))))
+    halving = float(layer.get("ratio_halving", 4))
+    if not math.isfinite(halving) or halving <= 1 or not math.isfinite(floor) or floor <= 0:
+        raise ValueError("Positive ratio floor and ratio_halving > 1 required")
+    score = exponential_similarity(abs(math.log(ma) - math.log(mb)), math.log(halving), layer.get("p", 1))
     la, lb = np.log10(np.clip(_sample(a), floor, None)), np.log10(np.clip(_sample(b), floor, None))
     lo = float(min(np.percentile(la, 1), np.percentile(lb, 1)))
     hi = max(float(max(np.percentile(la, 99), np.percentile(lb, 99))), lo + 1e-6)
@@ -161,7 +170,7 @@ def _compare_fraction(layer, a, b, body_a="earth", body_b=None):
     thr, direction = _threshold_for(layer, body_a)
     t_thr, t_dir = _threshold_for(layer, body_b or body_a)
     above = direction == "above"
-    score = math.exp(-abs(fa - fb) / float(layer["scale"]))
+    score = layer_similarity(layer, abs(fa - fb))
     rd = lambda x: [round(float(y), 5) for y in x]
     out = {"kind": "fraction", "threshold": thr, "direction": direction,
            "target_threshold": t_thr, "target_direction": t_dir,
@@ -197,11 +206,28 @@ def _compare_relative(layer, a, b):
 
 def compare_layer(layer, a, b, body_a="earth", body_b=None):
     """Score two sites' layer values; returns the score plus chart data for the viewer."""
+    for value in (a, b):
+        if value is None or np.size(value) == 0 or not np.isfinite(value).any():
+            return None, {"kind": "missing", "reason": "No finite measurements"}
+    if not isinstance(a, Constant):
+        a = np.asarray(a, float).ravel()
+        a = a[np.isfinite(a)]
+    if not isinstance(b, Constant):
+        b = np.asarray(b, float).ravel()
+        b = b[np.isfinite(b)]
     if layer.get("compare") == "relative":
         return _compare_relative(layer, a, b)
+    if layer.get("compare") == "absolute":
+        ta, tb = float(np.median(a)), float(np.median(b))
+        score = layer_similarity(layer, abs(ta - tb))
+        return score, {"kind": "absolute", "earth_value": ta, "target_value": tb,
+                       "distance": abs(ta - tb), "tau": layer["tau"] if "tau" in layer else layer["scale"] * math.log(2),
+                       "calibration_status": "provisional", "note": layer.get("caveat", "")}
     if layer.get("compare") in ("fraction_below", "fraction"):
         return _compare_fraction(layer, a, b, body_a, body_b)
     if layer.get("compare") == "ratio":
+        if np.any(a < 0) or np.any(b < 0):
+            return None, {"kind": "missing", "reason": "Negative measurements for a positive-ratio quantity"}
         if isinstance(a, Constant) or isinstance(b, Constant):
             raise ValueError(f"layer {layer['id']}: ratio compare needs rasters on both sides")
         return _compare_ratio(layer, a, b)
@@ -210,7 +236,7 @@ def compare_layer(layer, a, b, body_a="earth", body_b=None):
     how = layer.get("normalize", "none")
     na, nb = _normalize(_sample(a), how), _normalize(_sample(b), how)
     w = wasserstein_distance(na, nb)
-    score = math.exp(-w / float(layer["scale"]))
+    score = layer_similarity(layer, w)
     lo = float(min(np.percentile(na, 1), np.percentile(nb, 1)))
     hi = float(max(np.percentile(na, 99), np.percentile(nb, 99)))
     if hi <= lo:

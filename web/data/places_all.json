@@ -124,11 +124,15 @@
   },
   "featured": true,
   "featuredType": "Dusty Mars",
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_02",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-03",
-  "region": "",
+  "region": "Earth location place-03 (38.75, 86.35)",
   "lat": 38.75,
   "lon": 86.35,
   "targets": [
@@ -178,7 +182,11 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_03",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-04",
@@ -328,7 +336,7 @@
  },
  {
   "id": "place-06",
-  "region": "",
+  "region": "Earth location place-06 (66.14, -120.01)",
   "lat": 66.14,
   "lon": -120.01,
   "targets": [
@@ -380,6 +388,10 @@
   "featuredType": null,
   "notes": [
    "Snow covers the ground for many months, so the yearly plant score looks low. In summer, some tundra plants grow here."
+  ],
+  "site_id": "team_place_06",
+  "labels": [
+   "team"
   ]
  },
  {
@@ -442,7 +454,7 @@
  },
  {
   "id": "place-08",
-  "region": "",
+  "region": "Earth location place-08 (21.12, 57.44)",
   "lat": 21.12,
   "lon": 57.44,
   "targets": [
@@ -479,7 +491,11 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_08",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-09",
@@ -541,7 +557,7 @@
  },
  {
   "id": "place-10",
-  "region": "",
+  "region": "Earth location place-10 (25.24, 1.08)",
   "lat": 25.24,
   "lon": 1.08,
   "targets": [
@@ -578,7 +594,11 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_10",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-11",
@@ -713,7 +733,7 @@
  },
  {
   "id": "place-13",
-  "region": "",
+  "region": "Earth location place-13 (20.59, 58.12)",
   "lat": 20.59,
   "lon": 58.12,
   "targets": [
@@ -750,7 +770,11 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_13",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-14",
@@ -928,7 +952,7 @@
  },
  {
   "id": "place-17",
-  "region": "",
+  "region": "Earth location place-17 (20.53, 0.15)",
   "lat": 20.53,
   "lon": 0.15,
   "targets": [
@@ -965,11 +989,15 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_17",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-18",
-  "region": "",
+  "region": "Earth location place-18 (22.42, -13.82)",
   "lat": 22.42,
   "lon": -13.82,
   "targets": [
@@ -1006,11 +1034,15 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_18",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-19",
-  "region": "",
+  "region": "Earth location place-19 (24.64, -2.95)",
   "lat": 24.64,
   "lon": -2.95,
   "targets": [
@@ -1047,11 +1079,15 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_19",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-20",
-  "region": "",
+  "region": "Earth location place-20 (22.91, 2.63)",
   "lat": 22.91,
   "lon": 2.63,
   "targets": [
@@ -1088,11 +1124,15 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_20",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-21",
-  "region": "",
+  "region": "Earth location place-21 (16.4, 29.55)",
   "lat": 16.4,
   "lon": 29.55,
   "targets": [
@@ -1129,11 +1169,15 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_21",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-22",
-  "region": "",
+  "region": "Earth location place-22 (28.77, 22.73)",
   "lat": 28.77,
   "lon": 22.73,
   "targets": [
@@ -1170,7 +1214,11 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_22",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-23",
@@ -1247,7 +1295,7 @@
  },
  {
   "id": "place-24",
-  "region": "",
+  "region": "Earth location place-24 (27.95, 23.56)",
   "lat": 27.95,
   "lon": 23.56,
   "targets": [
@@ -1284,11 +1332,15 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_24",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-25",
-  "region": "",
+  "region": "Earth location place-25 (26.84, 22.03)",
   "lat": 26.84,
   "lon": 22.03,
   "targets": [
@@ -1325,7 +1377,11 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_25",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-26",
@@ -1388,7 +1444,7 @@
  },
  {
   "id": "place-27",
-  "region": "",
+  "region": "Earth location place-27 (27.08, -2.79)",
   "lat": 27.08,
   "lon": -2.79,
   "targets": [
@@ -1425,11 +1481,15 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_27",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-28",
-  "region": "",
+  "region": "Earth location place-28 (42.3, 88.98)",
   "lat": 42.3,
   "lon": 88.98,
   "targets": [
@@ -1479,11 +1539,15 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_28",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-29",
-  "region": "",
+  "region": "Earth location place-29 (25.74, 24.17)",
   "lat": 25.74,
   "lon": 24.17,
   "targets": [
@@ -1520,11 +1584,15 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_29",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-30",
-  "region": "",
+  "region": "Earth location place-30 (39.72, 99.19)",
   "lat": 39.72,
   "lon": 99.19,
   "targets": [
@@ -1575,11 +1643,15 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_30",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-31",
-  "region": "",
+  "region": "Earth location place-31 (18.1, -2.6)",
   "lat": 18.1,
   "lon": -2.6,
   "targets": [
@@ -1616,11 +1688,15 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_31",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-32",
-  "region": "",
+  "region": "Earth location place-32 (19.68, -12.54)",
   "lat": 19.68,
   "lon": -12.54,
   "targets": [
@@ -1657,7 +1733,11 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_32",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-33",
@@ -1836,7 +1916,7 @@
  },
  {
   "id": "place-36",
-  "region": "",
+  "region": "Earth location place-36 (58.83, 27.22)",
   "lat": 58.83,
   "lon": 27.22,
   "targets": [
@@ -1872,11 +1952,15 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_36",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-37",
-  "region": "",
+  "region": "Earth location place-37 (45.09, 106.63)",
   "lat": 45.09,
   "lon": 106.63,
   "targets": [
@@ -1912,7 +1996,11 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_37",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-38",
@@ -1975,7 +2063,7 @@
  },
  {
   "id": "place-39",
-  "region": "",
+  "region": "Earth location place-39 (40.96, 97.75)",
   "lat": 40.96,
   "lon": 97.75,
   "targets": [
@@ -2010,11 +2098,15 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_39",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-40",
-  "region": "",
+  "region": "Earth location place-40 (30.15, 83.0)",
   "lat": 30.15,
   "lon": 83.0,
   "targets": [
@@ -2050,7 +2142,11 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_40",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-41",
@@ -2111,7 +2207,7 @@
  },
  {
   "id": "place-42",
-  "region": "",
+  "region": "Earth location place-42 (44.26, 102.76)",
   "lat": 44.26,
   "lon": 102.76,
   "targets": [
@@ -2146,7 +2242,11 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_42",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-43",
@@ -2325,7 +2425,7 @@
  },
  {
   "id": "place-46",
-  "region": "",
+  "region": "Earth location place-46 (33.46, 93.14)",
   "lat": 33.46,
   "lon": 93.14,
   "targets": [
@@ -2361,7 +2461,11 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_46",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-47",
@@ -2423,7 +2527,7 @@
  },
  {
   "id": "place-48",
-  "region": "",
+  "region": "Earth location place-48 (27.1, 16.77)",
   "lat": 27.1,
   "lon": 16.77,
   "targets": [
@@ -2459,7 +2563,11 @@
   },
   "featured": false,
   "featuredType": null,
-  "notes": []
+  "notes": [],
+  "site_id": "team_place_48",
+  "labels": [
+   "team"
+  ]
  },
  {
   "id": "place-49",

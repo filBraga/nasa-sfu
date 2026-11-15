@@ -24,12 +24,24 @@ def main(argv):
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     failed = []
     for site in cfg["sites"]:
+        selected_body = next((a.split("=", 1)[1] for a in argv if a.startswith("--body=")), None)
+        if selected_body and site["body"] != selected_body:
+            continue
         if wanted and site["id"] not in wanted:
             continue
         out = RAW_DIR / f"{site['id']}.npz"
         if out.exists() and not force:
-            print(f"[skip] {site['id']} (cached)")
-            continue
+            with np.load(out) as cached:
+                resolution = float(cached["res"])
+                n = round(site["window_km"] * 1000 / resolution)
+                current = (cached["z"].shape == (n, n)
+                           and abs(float(cached["lat"]) - site["lat"]) < 1e-6
+                           and abs(float(cached["lon"]) - site["lon"]) < 1e-6
+                           and abs(float(site.get("fetch_res_m", resolution)) - resolution) < 1e-6)
+            if current:
+                print(f"[skip] {site['id']} (cached)")
+                continue
+            print(f"[refresh] {site['id']} (window, coordinates or resolution changed)")
         print(f"[fetch] {site['id']} - {site['name']} ({site['body']})")
         t = time.time()
         try:

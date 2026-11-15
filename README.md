@@ -116,6 +116,110 @@ Temperature, albedo, radar and other layers plug in as GeoTIFFs in `data/layers/
 registered in `config/layers.json`. In the viewer, the **Score dimensions** card lets you pick which
 terrain metrics and layers the score uses. See [docs/DATA_INTEGRATION.md](docs/DATA_INTEGRATION.md).
 
+## Added Moon and Mars comparison locations
+
+All researched locations from `moon-data/moon_data.json` and
+`mars-data/mars_data.json` are selectable targets in the main comparison dropdown
+and globe. The catalog expansion below adds more named features and landing sites. Research-location targets
+use regional slope, roughness, hypsometry and flat-ground comparisons; they do not
+use whole-crater profile or depth assumptions. Each is compared against Earth sites
+whose body preferences allow that target.
+
+The eight new Moon locations use local windows from the cached global LOLA TIFF
+at 2 km/pixel. These are coarse regional comparisons, not pit, boulder or landing
+hazard assessments. The four new Mars locations use 200 m HRSC-MOLA DEM windows.
+Saved literature, Diviner and reflectance evidence remains available in the
+on-demand evidence library; unlike quantities are not substituted for scored layers.
+Mars dust comparisons use the cached TES Dust Cover Index where available.
+
+To reproduce the import and export:
+
+```powershell
+python scripts/import_planetary_sites.py
+python scripts/fetch_dems.py
+python scripts/mars_dust.py
+python scripts/analyze.py
+```
+
+The importer preserves existing target coordinates. New Mars DEM reads use Node
+with system CA trust and the existing `moon-data` GeoTIFF dependency; only small
+native windows are cached in `data/external/mars/terrain_windows/`. No source rasters
+are sent to the browser. `analyze.py` writes compact JSON and small binary terrain
+files, and refreshes the evidence export. Serve `web/` as before.
+
+Scout v3 lunar dust measurements are shown in **Lunar dust & regolith** below the
+comparison metrics. LDEX supplies 26 orbital-altitude profiles at 11 local times,
+with densities and reported errors. Diviner rock cover is shown separately at the
+eight target coordinates inside its coverage. These are contextual measurements,
+not a surface dust-coverage score. Rebuild the small dust export with
+`npm.cmd --prefix moon-data run sample:dust`, then `node scripts/export_evidence.mjs`.
+
+## Moon catalog expansion and dust policy
+
+`python scripts/add_moon_targets.py` adds named lunar features and recorded landing
+locations, deduplicating entries within 10 km or with the same normalized name.
+The current configuration has 125 Moon targets. Known 20–200 km craters use crater
+metrics; other catalog locations use landing-zone metrics. Existing high-resolution
+polar targets are preserved; new catalog targets use the cached global LOLA DEM at
+2 km/pixel. This is regional screening and cannot resolve small hazards.
+
+```powershell
+python scripts/add_moon_targets.py
+python scripts/fetch_dems.py --body=moon
+node --use-system-ca moon-data/scripts/sample_dust.mjs
+python scripts/analyze.py --body moon
+```
+
+The body-specific analysis rebuilds Moon comparisons and keeps the existing Mars
+comparison records, so downloading the Mars rasters again is unnecessary. Full
+analysis remains available without `--body` when all DEM caches are present.
+
+`surface_dust.score_excluded_bodies` explicitly excludes Moon dust from the backend
+total and the browser's live scoring. In Moon comparisons its existing Filters
+checkbox shows or hides lunar dust evidence; it never changes the ranking. For
+Mars, that checkbox continues to control whether dust contributes to the score.
+LDEX orbital profiles and Diviner rock cover remain contextual, with no invented
+surface dust percentages. Missing temperature measurements remain missing.
+
+## Connecting every Earth map place
+
+All 50 entries in `web/data/places_all.json` are linked to comparison sites using
+`site_id`. Together with the original 11 Earth sites this gives 61 candidates.
+Each map place is compared with the Moon/Mars bodies listed in its `targets`.
+Existing sites and weights are preserved; heuristic map percentages never become
+physical measurements. Unnamed places are identified using their saved coordinates.
+
+```powershell
+python scripts/import_team_places.py --connect-all
+node --use-system-ca scripts/cache_earth_windows.mjs
+python scripts/fetch_dems.py --body=earth
+python scripts/analyze.py --calculations-only
+```
+
+The source-window script uses small verified HTTPS byte ranges from Copernicus
+GLO-30 and caches them outside the web folder. Missing DEM cells remain nodata;
+they are never filled with artificial zero-height land. The new 27 places have
+measured terrain; temperature/vegetation/soil layers remain missing until exported
+from an authenticated Earth Engine account using `scripts/gee_export.py`.
+Their evidence coverage and partial scores reflect those gaps.
+
+## Suitability aggregation
+
+Run `python scripts/aggregate_suitability.py` to recalculate the saved suitability
+files from their existing normalized metric scores. This does not regenerate raw
+environmental measurements. The implementation is in `analog/scoring.py`.
+
+Earth and relative scores give slope, temperature, dust, and plants equal weight;
+cold and swing split temperature's weight. Missing cold data therefore reduces
+temperature coverage to 50%. Moon absolute scores retain their own four categories:
+slope, midnight temperature, regolith, and materials.
+
+Aggregation uses a weighted geometric mean with an exact zero veto. Missing or
+invalid metrics reduce coverage, and an overall score is published only at 80%
+coverage or higher. `observed_score` remains available for diagnostics. Scores
+measure the configured environmental criteria; they are not a safety certification.
+Run `python -m unittest discover -s tests` to check aggregation behavior.
+
 ## Next steps
 
 - Add the less-studied Canadian candidates (Pingualuit, Athabasca Dunes, Spotted Lake, Tuktoyaktuk pingos).
