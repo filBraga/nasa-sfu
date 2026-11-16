@@ -20,6 +20,10 @@ python scripts/analyze.py          # scores + exports web/data/
 python -m http.server 8000 -d web  # then open http://localhost:8000
 ```
 
+Shortcut: instead of re-fetching, copy `.env.example` to `.env` (ask the team for the key) and run
+`python scripts/data_sync.py pull` to download `data/raw`, `data/layers` and `data/external` from
+Supabase Storage. After regenerating data, `python scripts/data_sync.py push` uploads the changes.
+
 Deep links: `http://localhost:8000/#compare/mistastin/shackleton`
 
 No accounts are needed for the current datasets.

@@ -85,6 +85,9 @@ def main():
     parser.add_argument("--body", choices=("moon", "mars"), help="Rebuild one body's comparisons; preserve other bodies from the existing results export")
     parser.add_argument("--calculations-only", action="store_true", help="Recalculate all scores without rewriting terrain assets; use exported terrain at its actual coarser resolution if a raw DEM cache is absent")
     args = parser.parse_args()
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from data_sync import pull_if_configured
+    pull_if_configured()  # fills data/raw, data/layers, data/external from Supabase if missing
     previous = None
     if args.body or args.calculations_only:
         previous = json.loads((WEB_DATA_DIR / "results.json").read_text(encoding="utf-8"))
